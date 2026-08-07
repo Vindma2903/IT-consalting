@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body{margin:0;font-family:'Inter',system-ui,sans-serif;background:#f4f5f7;color:#12161f;-webkit-font-smoothing:antialiased}
+  a{color:#2f6bff}
+  ::selection{background:#dbe6ff}
+</style>
+</helmet>
+
+<div style="min-height:100vh;display:grid;grid-template-columns:300px 1fr">
+
+  <!-- SIDEBAR -->
+  <div style="background:#101114;padding:28px 20px;display:flex;flex-direction:column;gap:20px;min-height:100vh;box-sizing:border-box">
+    <a href="./Блог.dc.html" style="text-decoration:none;font-size:17px;font-weight:800;letter-spacing:-0.02em;color:#ffffff">Про технологии</a>
+    <div style="font-size:12px;font-weight:700;color:#8891a0;letter-spacing:0.1em;text-transform:uppercase">Админка блога</div>
+    <button onClick="{{ createPost }}" style="background:#2f6bff;color:#ffffff;border:none;padding:12px 16px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer" style-hover="background:#1f4fd6">+ Новая статья</button>
+    <div style="display:flex;flex-direction:column;gap:6px;overflow-y:auto;flex:1">
+      <sc-for list="{{ postList }}" as="p" hint-placeholder-count="3">
+        <button onClick="{{ p.select }}" style="display:flex;flex-direction:column;gap:4px;align-items:flex-start;text-align:left;background:{{ p.bg }};border:1px solid {{ p.border }};border-radius:10px;padding:12px 14px;cursor:pointer;font-family:inherit">
+          <span style="font-size:13.5px;font-weight:700;color:#ffffff;line-height:1.35">{{ p.title }}</span>
+          <span style="font-size:11.5px;color:#8891a0">{{ p.tag }}</span>
+        </button>
+      </sc-for>
+    </div>
+    <a href="./Блог.dc.html" style="text-decoration:none;color:#8fb2ff;font-size:13px;font-weight:600">Открыть страницу блога →</a>
+  </div>
+
+  <!-- EDITOR -->
+  <div style="padding:48px 56px;max-width:800px;box-sizing:border-box">
+    <sc-if value="{{ hasPost }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:32px">
+        <div style="font-size:13px;font-weight:700;color:#5b6472;letter-spacing:0.1em;text-transform:uppercase">Редактирование статьи</div>
+        <div style="display:flex;gap:10px">
+          <button onClick="{{ deletePost }}" style="background:#ffffff;color:#c0392b;border:1px solid #e2c0bd;padding:9px 16px;border-radius:9px;font-size:13px;font-weight:700;cursor:pointer" style-hover="background:#fdf1f0">Удалить</button>
+          <button onClick="{{ savePost }}" style="background:#12161f;color:#ffffff;border:none;padding:9px 18px;border-radius:9px;font-size:13px;font-weight:700;cursor:pointer" style-hover="background:#2f6bff">{{ saveLabel }}</button>
+        </div>
+      </div>
+
+      <label style="display:block;font-size:12.5px;font-weight:700;color:#5b6472;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px">Обложка</label>
+      <div style="aspect-ratio:16/9;border-radius:14px;overflow:hidden;margin-bottom:24px;max-width:420px">
+        <image-slot id="{{ draft.imgId }}" placeholder="Загрузите обложку статьи" shape="rect" style="width:100%;height:100%"></image-slot>
+      </div>
+
+      <label style="display:block;font-size:12.5px;font-weight:700;color:#5b6472;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px">Заголовок</label>
+      <input value="{{ draft.title }}" onChange="{{ setTitle }}" placeholder="Заголовок статьи" style="width:100%;box-sizing:border-box;padding:14px 16px;border-radius:10px;border:1px solid #e2e5ea;font-size:18px;font-weight:700;font-family:inherit;margin-bottom:20px" style-focus="outline:2px solid #2f6bff"></input>
+
+      <label style="display:block;font-size:12.5px;font-weight:700;color:#5b6472;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px">Рубрика</label>
+      <input value="{{ draft.tag }}" onChange="{{ setTag }}" placeholder="Например: Безопасность" style="width:100%;box-sizing:border-box;padding:12px 16px;border-radius:10px;border:1px solid #e2e5ea;font-size:14px;font-family:inherit;margin-bottom:20px;max-width:280px" style-focus="outline:2px solid #2f6bff"></input>
+
+      <label style="display:block;font-size:12.5px;font-weight:700;color:#5b6472;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px">Краткий анонс</label>
+      <textarea value="{{ draft.excerpt }}" onChange="{{ setExcerpt }}" placeholder="Одно-два предложения для карточки в списке статей" rows="2" style="width:100%;box-sizing:border-box;padding:14px 16px;border-radius:10px;border:1px solid #e2e5ea;font-size:14.5px;line-height:1.6;font-family:inherit;resize:vertical;margin-bottom:20px" style-focus="outline:2px solid #2f6bff"></textarea>
+
+      <label style="display:block;font-size:12.5px;font-weight:700;color:#5b6472;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px">Текст статьи</label>
+      <textarea value="{{ draft.body }}" onChange="{{ setBody }}" placeholder="Текст статьи. Разделяйте абзацы пустой строкой." rows="16" style="width:100%;box-sizing:border-box;padding:16px;border-radius:10px;border:1px solid #e2e5ea;font-size:15px;line-height:1.75;font-family:inherit;resize:vertical;margin-bottom:8px" style-focus="outline:2px solid #2f6bff"></textarea>
+      <p style="font-size:12.5px;color:#8891a0;margin:0 0 24px">Разделяйте абзацы пустой строкой — на странице блога они станут отдельными параграфами.</p>
+    </sc-if>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const STORAGE_KEY = 'blogPosts';
+
+function loadPosts() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch (e) {}
+  return [
+    { id: 'p1', imgId: 'blog-1', tag: 'Безопасность', title: 'Как защитить офис от вирусов-шифровальщиков', excerpt: 'Разбираем базовые правила ИБ, которые снижают риск атаки почти до нуля.', body: 'Разбираем базовые правила информационной безопасности, которые снижают риск атаки почти до нуля.\n\nРегулярные бэкапы, обновления и разграничение доступа — три вещи, с которых стоит начать.' },
+    { id: 'p2', imgId: 'blog-2', tag: 'Сети', title: 'Почему Wi-Fi в офисе тормозит и как это исправить', excerpt: 'Частые причины медленной сети и что можно настроить своими силами.', body: 'Частые причины медленной сети и что можно настроить своими силами: расположение роутера, каналы Wi-Fi, число подключённых устройств.' },
+    { id: 'p3', imgId: 'blog-3', tag: 'Оборудование', title: 'Когда чинить принтер, а когда — менять', excerpt: 'Считаем, что выгоднее: ремонт старой техники или покупка новой.', body: 'Считаем, что выгоднее: ремонт старой техники или покупка новой, на примерах реальных вызовов.' },
+  ];
+}
+
+function savePosts(posts) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
+}
+
+class Component extends DCLogic {
+  state = { posts: loadPosts(), selectedId: null, draft: null, savedFlash: false };
+
+  componentDidMount() {
+    if (this.state.posts.length) this.selectPost(this.state.posts[0].id);
+  }
+
+  selectPost = (id) => {
+    const post = this.state.posts.find(p => p.id === id);
+    if (post) this.setState({ selectedId: id, draft: { ...post } });
+  };
+
+  createPost = () => {
+    const id = 'p' + Date.now();
+    const post = { id, imgId: 'blog-' + id, tag: '', title: 'Новая статья', excerpt: '', body: '' };
+    const posts = [post, ...this.state.posts];
+    this.setState({ posts, selectedId: id, draft: { ...post } });
+    savePosts(posts);
+  };
+
+  updateDraft = (field) => (e) => this.setState(s => ({ draft: { ...s.draft, [field]: e.target.value } }));
+
+  savePost = () => {
+    const posts = this.state.posts.map(p => p.id === this.state.draft.id ? { ...this.state.draft } : p);
+    this.setState({ posts, savedFlash: true });
+    savePosts(posts);
+    setTimeout(() => this.setState({ savedFlash: false }), 1600);
+  };
+
+  deletePost = () => {
+    const posts = this.state.posts.filter(p => p.id !== this.state.selectedId);
+    savePosts(posts);
+    this.setState({ posts, selectedId: posts[0]?.id || null, draft: posts[0] ? { ...posts[0] } : null });
+  };
+
+  renderVals() {
+    const postList = this.state.posts.map(p => ({
+      ...p,
+      select: () => this.selectPost(p.id),
+      bg: p.id === this.state.selectedId ? '#1c1d22' : 'transparent',
+      border: p.id === this.state.selectedId ? '#2f6bff' : '#2a2c33',
+    }));
+    return {
+      postList,
+      hasPost: !!this.state.draft,
+      draft: this.state.draft || {},
+      setTitle: this.updateDraft('title'),
+      setTag: this.updateDraft('tag'),
+      setExcerpt: this.updateDraft('excerpt'),
+      setBody: this.updateDraft('body'),
+      savePost: this.savePost,
+      deletePost: this.deletePost,
+      createPost: this.createPost,
+      saveLabel: this.state.savedFlash ? 'Сохранено!' : 'Сохранить',
+    };
+  }
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body{margin:0;font-family:'Inter',system-ui,sans-serif;background:#ffffff;color:#1a1f2b;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:#2f6bff}
+  a:hover{color:#1f4fd6}
+  ::selection{background:#dbe6ff}
+  @media (max-width:1024px){.posts-grid{grid-template-columns:repeat(2,1fr) !important}}
+  @media (max-width:640px){.posts-grid{grid-template-columns:1fr !important}}
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:#ffffff">
+
+  <!-- HEADER -->
+  <header style="background:#101114;border-bottom:1px solid #2a2c33">
+    <div style="max-width:1240px;margin:0 auto;padding:16px 24px;box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+      <a href="./Про технологии.dc.html" style="text-decoration:none;font-size:19px;font-weight:800;letter-spacing:-0.02em;white-space:nowrap;flex-shrink:0;color:#ffffff">
+        Про технологии
+      </a>
+      <nav style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;flex:1;justify-content:center;min-width:0">
+        <a href="./Про технологии.dc.html#services" style="text-decoration:none;color:#ffffff;font-size:14px;font-weight:500;white-space:nowrap" style-hover="color:#8fb2ff">Услуги</a>
+        <a href="./Про технологии.dc.html#stages" style="text-decoration:none;color:#ffffff;font-size:14px;font-weight:500;white-space:nowrap" style-hover="color:#8fb2ff">Этапы работы</a>
+        <a href="./О компании.dc.html" style="text-decoration:none;color:#ffffff;font-size:14px;font-weight:500;white-space:nowrap" style-hover="color:#8fb2ff">О компании</a>
+        <a href="./Про технологии.dc.html#pricing" style="text-decoration:none;color:#ffffff;font-size:14px;font-weight:500;white-space:nowrap" style-hover="color:#8fb2ff">Стоимость</a>
+        <a href="./Блог.dc.html" style="text-decoration:none;color:#ffffff;font-size:14px;font-weight:700;white-space:nowrap" style-hover="color:#8fb2ff">Блог</a>
+        <a href="./Про технологии.dc.html#faq" style="text-decoration:none;color:#ffffff;font-size:14px;font-weight:500;white-space:nowrap" style-hover="color:#8fb2ff">FAQ</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:14px;flex-shrink:0">
+        <a href="tel:+79969241648" style="text-decoration:none;color:#ffffff;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px;white-space:nowrap" style-hover="color:#8fb2ff">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          +7 (996) 924-16-48
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- TITLE -->
+  <section style="background:#101114;padding:90px 32px 64px">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="font-size:13px;font-weight:700;color:#8891a0;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:16px">Медиацентр</div>
+      <h1 style="font-size:clamp(30px,5vw,44px);font-weight:800;letter-spacing:-0.01em;margin:0;color:#ffffff;text-transform:uppercase;line-height:1.2">Блог о технике и не только</h1>
+    </div>
+  </section>
+
+  <!-- POSTS -->
+  <section style="max-width:1240px;margin:0 auto;padding:64px 32px 100px">
+    <div class="posts-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px">
+      <sc-for list="{{ posts }}" as="post" hint-placeholder-count="6">
+        <div onClick="{{ post.open }}" style="border:1px solid #e2e5ea;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer" style-hover="border-color:#2f6bff">
+          <div style="aspect-ratio:16/10;background:#f4f5f7">
+            <image-slot id="{{ post.imgId }}" placeholder="Обложка статьи" shape="rect" style="width:100%;height:100%"></image-slot>
+          </div>
+          <div style="padding:24px;display:flex;flex-direction:column;gap:10px;flex:1">
+            <div style="font-size:13px;color:#5b6472;font-weight:600">{{ post.tag }}</div>
+            <h3 style="font-size:18px;font-weight:700;margin:0;color:#12161f;line-height:1.4">{{ post.title }}</h3>
+            <p style="font-size:14px;color:#5b6472;margin:0;line-height:1.6;flex:1">{{ post.excerpt }}</p>
+            <span style="color:#2f6bff;font-size:14px;font-weight:600;margin-top:6px">Читать →</span>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ARTICLE MODAL -->
+  <sc-if value="{{ activePost }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeArticle }}" style="position:fixed;inset:0;background:rgba(5,7,12,0.75);z-index:100;display:flex;align-items:flex-start;justify-content:center;padding:40px 24px;overflow-y:auto">
+      <div onClick="{{ stopClick }}" style="background:#ffffff;border-radius:20px;max-width:720px;width:100%;position:relative;padding:44px">
+        <button onClick="{{ closeArticle }}" style="position:absolute;top:20px;right:20px;background:#f4f5f7;border:none;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:16px;color:#5b6472" style-hover="background:#e2e5ea">×</button>
+        <div style="font-size:13px;color:#2f6bff;font-weight:700;margin-bottom:12px">{{ activePost.tag }}</div>
+        <h2 style="font-size:28px;font-weight:800;letter-spacing:-0.01em;margin:0 0 24px;color:#12161f;line-height:1.3">{{ activePost.title }}</h2>
+        <sc-for list="{{ activePost.paragraphs }}" as="para" hint-placeholder-count="3">
+          <p style="font-size:16px;line-height:1.8;color:#3a4150;margin:0 0 18px">{{ para }}</p>
+        </sc-for>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- FOOTER -->
+  <footer style="background:#101114">
+    <div style="max-width:1240px;margin:0 auto;padding:64px 32px 32px;display:grid;grid-template-columns:1fr 1fr 1fr 1.2fr;gap:32px">
+      <div>
+        <div style="font-size:13px;font-weight:700;color:#5b6472;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:20px">Услуги</div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <a href="./Про технологии.dc.html#services" style="text-decoration:none;color:#c7ccd6;font-size:15px" style-hover="color:#ffffff">Компьютеры</a>
+          <a href="./Про технологии.dc.html#services" style="text-decoration:none;color:#c7ccd6;font-size:15px" style-hover="color:#ffffff">Серверы</a>
+          <a href="./Про технологии.dc.html#services" style="text-decoration:none;color:#c7ccd6;font-size:15px" style-hover="color:#ffffff">Сети</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:700;color:#5b6472;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:20px">Компания</div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <a href="./О компании.dc.html" style="text-decoration:none;color:#c7ccd6;font-size:15px" style-hover="color:#ffffff">О компании</a>
+          <a href="./Про технологии.dc.html#pricing" style="text-decoration:none;color:#c7ccd6;font-size:15px" style-hover="color:#ffffff">Тарифы</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:700;color:#5b6472;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:20px">Инфо</div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <a href="./Блог.dc.html" style="text-decoration:none;color:#c7ccd6;font-size:15px" style-hover="color:#ffffff">Блог</a>
+          <a href="./Про технологии.dc.html#faq" style="text-decoration:none;color:#c7ccd6;font-size:15px" style-hover="color:#ffffff">FAQ</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:700;color:#5b6472;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:20px">Контакты</div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <a href="tel:+79969241648" style="text-decoration:none;color:#ffffff;font-size:16px;font-weight:700" style-hover="color:#8fb2ff">+7 (996) 924-16-48</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid #2a2c33">
+      <div style="max-width:1240px;margin:0 auto;padding:24px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+        <div style="font-size:16px;font-weight:800;letter-spacing:-0.02em;color:#ffffff">Про технологии</div>
+        <div style="font-size:13px;color:#5b6472">© 2026 Про технологии. ИТ-консалтинг для бизнеса.</div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const STORAGE_KEY = 'blogPosts';
+const DEFAULT_POSTS = [
+  { id: 'p1', imgId: 'blog-1', tag: 'Безопасность', title: 'Как защитить офис от вирусов-шифровальщиков', excerpt: 'Разбираем базовые правила ИБ, которые снижают риск атаки почти до нуля.', body: 'Разбираем базовые правила информационной безопасности, которые снижают риск атаки почти до нуля.\n\nРегулярные бэкапы, обновления и разграничение доступа — три вещи, с которых стоит начать.' },
+  { id: 'p2', imgId: 'blog-2', tag: 'Сети', title: 'Почему Wi-Fi в офисе тормозит и как это исправить', excerpt: 'Частые причины медленной сети и что можно настроить своими силами.', body: 'Частые причины медленной сети и что можно настроить своими силами: расположение роутера, каналы Wi-Fi, число подключённых устройств.' },
+  { id: 'p3', imgId: 'blog-3', tag: 'Оборудование', title: 'Когда чинить принтер, а когда — менять', excerpt: 'Считаем, что выгоднее: ремонт старой техники или покупка новой.', body: 'Считаем, что выгоднее: ремонт старой техники или покупка новой, на примерах реальных вызовов.' },
+  { id: 'p4', imgId: 'blog-4', tag: 'Серверы', title: 'Резервное копирование: с чего начать малому бизнесу', excerpt: 'Простой план защиты данных без больших вложений в оборудование.', body: 'Простой план защиты данных без больших вложений в оборудование.\n\nНачните с автоматического бэкапа ключевых папок и почты — этого достаточно на старте.' },
+  { id: 'p5', imgId: 'blog-5', tag: 'Аутсорс', title: 'Свой айтишник или аутсорс: что выгоднее', excerpt: 'Считаем расходы и риски двух подходов на примере малого офиса.', body: 'Считаем расходы и риски двух подходов на примере малого офиса: штатный специалист против обслуживания на аутсорсе.' },
+  { id: 'p6', imgId: 'blog-6', tag: 'Видеонаблюдение', title: 'Как выбрать камеры для магазина', excerpt: 'На что смотреть при подборе системы видеонаблюдения для торговой точки.', body: 'На что смотреть при подборе системы видеонаблюдения для торговой точки: разрешение, угол обзора, хранение записей.' },
+];
+
+function loadPosts() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (parsed.length) return parsed;
+    }
+  } catch (e) {}
+  return DEFAULT_POSTS;
+}
+
+class Component extends DCLogic {
+  state = { posts: loadPosts(), activeId: null };
+
+  openArticle = (id) => this.setState({ activeId: id });
+  closeArticle = () => this.setState({ activeId: null });
+  stopClick = (e) => e.stopPropagation();
+
+  renderVals() {
+    const posts = this.state.posts.map(p => ({ ...p, open: () => this.openArticle(p.id) }));
+    const activeRaw = this.state.posts.find(p => p.id === this.state.activeId);
+    const activePost = activeRaw ? { ...activeRaw, paragraphs: (activeRaw.body || activeRaw.excerpt || '').split('\n').filter(Boolean) } : null;
+    return { posts, activePost, closeArticle: this.closeArticle, stopClick: this.stopClick };
+  }
+}
+
+</script>
+</body>
+</html>
