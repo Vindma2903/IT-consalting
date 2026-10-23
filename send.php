@@ -1,5 +1,6 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
+date_default_timezone_set('Asia/Yekaterinburg'); // Оренбург, UTC+5 — для даты в письме
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
