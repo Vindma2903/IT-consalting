@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Настройка сети, Wi-Fi и VPN для офиса в Оренбурге — Про технологии</title>
+<meta name="description" content="Настраиваем сети в офисах и магазинах Оренбурга: роутеры MikroTik и Keenetic, Wi-Fi без мёртвых зон, VPN для удалённой работы, резервный интернет, защита сети. Диагностика бесплатно.">
+<link rel="canonical" href="https://it-consalting24.ru/network.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Про технологии">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Настройка сети, Wi-Fi и VPN для офиса в Оренбурге — Про технологии">
+<meta property="og:description" content="Настраиваем сети в офисах и магазинах Оренбурга: роутеры MikroTik и Keenetic, Wi-Fi без мёртвых зон, VPN для удалённой работы, резервный интернет, защита сети. Диагностика бесплатно.">
+<meta property="og:url" content="https://it-consalting24.ru/network.html">
+<link href="/fonts/inter.css" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Inter',system-ui,sans-serif;background:#ffffff;color:#1a1f2b;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:#2f6bff}
+  a:hover{color:#1f4fd6}
+  ::selection{background:#dbe6ff}
+
+  /* Шапка — как на главной */
+  .site-header{position:sticky;top:0;z-index:40;background:#101114;border-bottom:1px solid #2a2c33}
+  .site-header-in{max-width:1240px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .site-logo{text-decoration:none;font-size:19px;font-weight:800;letter-spacing:-0.02em;white-space:nowrap;flex-shrink:0;color:#ffffff}
+  .site-logo:hover{color:#ffffff}
+  .site-nav{display:flex;align-items:center;gap:14px;flex-wrap:wrap;flex:1;justify-content:center;min-width:0}
+  .site-nav a{text-decoration:none;color:#ffffff;font-size:14px;font-weight:500;white-space:nowrap}
+  .site-nav a:hover{color:#8fb2ff}
+  .site-nav a.active{font-weight:700}
+  .site-actions{display:flex;align-items:center;gap:14px;flex-shrink:0}
+  .site-phone{text-decoration:none;color:#ffffff;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px;white-space:nowrap}
+  .site-phone:hover{color:#8fb2ff}
+
+  /* Общие элементы */
+  .wrap{max-width:1176px;margin:0 auto}
+  .sec{padding:100px 32px}
+  .dark{background:#101114}
+  .eyebrow{font-size:13px;font-weight:700;color:#5b6472;letter-spacing:0.14em;text-transform:uppercase;margin:0 0 16px}
+  .dark .eyebrow{color:#8891a0}
+  .h2{font-size:clamp(26px,4vw,38px);font-weight:800;letter-spacing:-0.01em;margin:0 0 16px;color:#12161f;text-transform:uppercase;line-height:1.2}
+  .dark .h2{color:#ffffff}
+  .lead{font-size:17px;line-height:1.7;color:#5b6472;margin:0;max-width:640px}
+  .dark .lead{color:#8891a0}
+  .btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#ffffff;border:1px solid rgba(255,255,255,0.5);padding:16px 30px;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;text-decoration:none;font-family:inherit}
+  .btn-ghost:hover{background:#ffffff;color:#12161f;border-color:#ffffff}
+
+  /* Первый экран */
+  .hero{position:relative;background:#0a0c12;padding:100px 32px 90px;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:url(./uploads/hero-bg.webp) center/cover no-repeat;opacity:.45}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,8,16,0.85),rgba(5,8,16,0.4))}
+  .hero .wrap{position:relative;z-index:1}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);color:#ffffff;font-size:13px;font-weight:600;padding:7px 14px;border-radius:100px;margin-bottom:28px}
+  .hero h1{font-size:clamp(32px,4.6vw,58px);line-height:1.12;font-weight:800;letter-spacing:-0.01em;margin:0 0 24px;color:#ffffff;text-transform:uppercase;max-width:820px}
+  .hero p{font-size:19px;line-height:1.6;color:rgba(255,255,255,0.8);margin:0 0 40px;max-width:720px}
+  .hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+
+  /* Три преимущества */
+  .highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .hl{background:#1c1d22;border:1px solid #2a2c33;border-radius:24px;padding:32px}
+  .hl-num{font-size:14px;font-weight:800;color:#2f6bff;margin-bottom:18px}
+  .hl h3{font-size:21px;font-weight:700;margin:0 0 10px;color:#ffffff}
+  .hl p{font-size:15px;line-height:1.6;color:#8891a0;margin:0}
+
+  /* Разделы услуг */
+  .svc{display:grid;grid-template-columns:340px 1fr;gap:56px;align-items:start}
+  .svc-head{position:sticky;top:100px}
+  .svc-num{font-size:clamp(44px,6vw,72px);font-weight:800;color:#e2e5ea;line-height:1;letter-spacing:-0.02em;margin-bottom:20px}
+  .dark .svc-num{color:#3a3d45}
+  .svc-head .lead{font-size:16px}
+  .svc-more{display:inline-block;margin-top:20px;font-size:15px;font-weight:700;text-decoration:none}
+  .dark .svc-more{color:#8fb2ff}
+  .table{border-radius:16px;overflow:hidden;border:1px solid #e2e5ea}
+  .row{display:grid;grid-template-columns:1fr 1.6fr;padding:22px 28px;gap:24px;border-top:1px solid #e2e5ea}
+  .row:first-child{border-top:none}
+  .row:nth-child(odd){background:#f6f8fc}
+  .row-t{font-family:ui-monospace,Menlo,monospace;font-size:13.5px;font-weight:700;letter-spacing:0.02em;text-transform:uppercase;color:#12161f;line-height:1.5}
+  .row-d{font-size:15px;line-height:1.6;color:#3a4150}
+  .dark .table{border-color:#2a2c33}
+  .dark .row{border-top-color:#2a2c33}
+  .dark .row:nth-child(odd){background:#1c1d22}
+  .dark .row-t{color:#ffffff}
+  .dark .row-d{color:#c7ccd6}
+
+  /* Форма */
+  .contact{display:grid;grid-template-columns:1fr 1.3fr;gap:56px;align-items:start}
+  .mono-eyebrow{font-family:ui-monospace,Menlo,monospace;font-size:13px;font-weight:700;color:#2f6bff;letter-spacing:0.05em;margin-bottom:20px}
+  .contact h2{font-size:clamp(24px,4.5vw,36px);font-weight:800;letter-spacing:-0.01em;margin:0 0 24px;color:#12161f;line-height:1.25}
+  .phone-box{text-decoration:none;display:flex;align-items:center;justify-content:space-between;background:#f6f8fc;border-radius:12px;padding:20px 24px;color:#12161f;font-family:ui-monospace,Menlo,monospace;font-size:14px;font-weight:700;letter-spacing:0.03em}
+  .phone-box:hover{background:#eef1f6;color:#12161f}
+  .form{display:flex;flex-direction:column;gap:16px}
+  .form-row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .form input[type=text],.form input[type=tel],.form textarea{width:100%;padding:18px 20px;border-radius:12px;border:none;background:#f6f8fc;font-size:15px;font-family:inherit;color:#12161f}
+  .form input:focus,.form textarea:focus{outline:2px solid #8891a0}
+  .form textarea{resize:none}
+  .consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#5b6472;line-height:1.5;cursor:pointer}
+  .consent input{margin:2px 0 0;width:16px;height:16px;flex-shrink:0;accent-color:#2f6bff}
+  .consent a{color:inherit}
+  .msg{font-size:13px;margin:0;line-height:1.5}
+  .msg:empty{display:none}
+  .msg.err{color:#c0392b}
+  .msg.ok{color:#1f8a4c;font-size:15px;font-weight:600}
+  .submit{background:#12161f;color:#ffffff;border:none;padding:20px 24px;border-radius:12px;font-family:ui-monospace,Menlo,monospace;font-size:14px;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:space-between}
+  .submit:hover{background:#2f6bff}
+  .submit:disabled{opacity:.6;cursor:default}
+
+  /* Подвал — как на главной */
+  .footer-grid{max-width:1240px;margin:0 auto;padding:64px 32px 32px;display:grid;grid-template-columns:1fr 1fr 1fr 1.2fr;gap:32px}
+  .f-title{font-size:13px;font-weight:700;color:#8891a0;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:20px}
+  .f-links{display:flex;flex-direction:column;gap:14px}
+  .f-links a{text-decoration:none;color:#c7ccd6;font-size:15px}
+  .f-links a:hover{color:#ffffff}
+  .f-links a.f-phone{color:#ffffff;font-size:16px;font-weight:700}
+  .f-links a.f-phone:hover{color:#8fb2ff}
+  .f-bottom{border-top:1px solid #2a2c33}
+  .f-bottom-in{max-width:1240px;margin:0 auto;padding:24px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  .f-brand{font-size:16px;font-weight:800;letter-spacing:-0.02em;color:#ffffff}
+  .f-copy{font-size:13px;color:#8891a0}
+  .f-copy a{color:#8891a0}
+  .f-copy a:hover{color:#ffffff}
+  .f-badge{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;letter-spacing:0.03em;text-transform:uppercase;color:#8891a0}
+
+  /* Планшет */
+  @media (max-width:1024px){
+    .sec,.hero{padding-left:24px;padding-right:24px}
+    .highlights{grid-template-columns:1fr}
+    .svc{grid-template-columns:1fr;gap:28px}
+    .svc-head{position:static}
+    .svc-num{margin-bottom:12px}
+    .contact{grid-template-columns:1fr;gap:40px}
+    .footer-grid{grid-template-columns:1fr 1fr}
+  }
+  /* Телефон */
+  @media (max-width:640px){
+    .sec{padding:64px 20px}
+    .hero{padding:56px 20px 64px}
+    .badge{margin-bottom:20px;font-size:12px}
+    .hero p{font-size:16.5px;margin-bottom:28px}
+    .hero-btns .btn-ghost{width:100%;justify-content:center}
+    .hl{padding:24px;border-radius:20px}
+    .svc-num{font-size:40px}
+    .row{grid-template-columns:1fr;gap:8px;padding:18px 20px}
+    .row-t{color:#2f6bff}
+    .dark .row-t{color:#8fb2ff}
+    .form-row2{grid-template-columns:1fr}
+    .footer-grid{padding:48px 20px 32px;gap:28px 20px}
+    .footer-grid > div:last-child{grid-column:1 / -1}
+    .f-bottom-in{padding-left:20px;padding-right:20px}
+  }
+
+  /* Дополнительно для страницы «Серверы и 1С» */
+  .crumbs{font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:24px}
+  .crumbs a{color:rgba(255,255,255,0.75);text-decoration:none}
+  .crumbs a:hover{color:#ffffff}
+  .lead a{color:#2f6bff}
+  .row-n{grid-template-columns:48px 1fr}
+  .row-n .row-t{color:#2f6bff}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .step{background:#f6f8fc;border-radius:20px;padding:28px}
+  .step-n{font-size:20px;font-weight:800;color:#2f6bff;margin-bottom:16px}
+  .step h3{font-size:19px;font-weight:700;margin:0 0 8px;color:#12161f}
+  .step p{font-size:15px;line-height:1.6;color:#5b6472;margin:0}
+  .price{margin-top:56px;background:#101114;border-radius:24px;padding:40px;display:grid;grid-template-columns:1fr 1.4fr auto;gap:40px;align-items:center}
+  .price h3{font-size:22px;font-weight:800;color:#ffffff;margin:0;line-height:1.3}
+  .price p{font-size:15px;line-height:1.7;color:#c7ccd6;margin:0}
+  .price .btn-ghost{white-space:nowrap}
+  .faq-outer{display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:start}
+  .faq-big{font-size:clamp(44px,10vw,88px);font-weight:800;color:#3a3d45;line-height:1;letter-spacing:-0.02em}
+  .faq details{border-bottom:1px solid #2a2c33;padding:28px 0}
+  .faq details:first-child{padding-top:0}
+  .faq summary{display:grid;grid-template-columns:90px 1fr auto;gap:20px;align-items:start;cursor:pointer;list-style:none}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq-n{font-size:44px;font-weight:800;color:#ffffff;line-height:1}
+  .faq-q{font-size:19px;font-weight:700;color:#ffffff;line-height:1.4;padding-top:6px}
+  .faq-i{color:#ffffff;font-size:22px;font-weight:300;padding-top:6px}
+  .faq-i::before{content:"+"}
+  .faq details[open] .faq-i::before{content:"−"}
+  .faq details p{font-size:15px;line-height:1.7;color:#8891a0;margin:14px 0 0 110px;max-width:640px}
+  #form{position:relative;top:-80px}
+  @media (max-width:1024px){
+    .cards{grid-template-columns:1fr 1fr}
+    .steps{grid-template-columns:1fr 1fr}
+    .price{grid-template-columns:1fr;gap:20px;padding:32px}
+    .price .btn-ghost{justify-self:start}
+    .faq-outer{grid-template-columns:1fr;gap:20px}
+  }
+  @media (max-width:640px){
+    .hero h1{font-size:26px;-webkit-hyphens:auto;hyphens:auto;overflow-wrap:break-word}
+    .cards,.steps{grid-template-columns:1fr;gap:16px}
+    .step{padding:24px}
+    .row-n{grid-template-columns:36px 1fr !important;gap:12px !important}
+    .price{margin-top:40px;padding:26px 22px;border-radius:20px}
+    .price .btn-ghost{width:100%;justify-content:center}
+    .faq details{padding:22px 0}
+    .faq summary{grid-template-columns:36px 1fr auto;gap:12px}
+    .faq-n{font-size:24px;padding-top:3px}
+    .faq-q{font-size:16.5px;padding-top:2px}
+    .faq details p{margin-left:48px}
+  }
+</style>
+
+<style>
+  .others{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+  .others a{display:inline-block;text-decoration:none;color:#12161f;background:#f6f8fc;border:1px solid #e2e5ea;font-size:15px;font-weight:600;padding:12px 18px;border-radius:100px}
+  .others a:hover{border-color:#2f6bff;color:#2f6bff}
+  .sec-tight{padding-top:0}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Настройка сети, Wi-Fi и VPN для офиса", "serviceType": "Настройка и обслуживание компьютерных сетей, Wi-Fi и VPN", "provider": {"@id": "https://it-consalting24.ru/#org"}, "areaServed": {"@type": "City", "name": "Оренбург"}, "url": "https://it-consalting24.ru/network.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Придётся менять оборудование?", "acceptedAnswer": {"@type": "Answer", "text": "Не обязательно. Часто достаточно правильно настроить то, что уже стоит. Если оборудование действительно не справляется, объясним почему и предложим варианты под ваш бюджет."}}, {"@type": "Question", "name": "Сделаете отдельный Wi-Fi для гостей?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Гостевая сеть будет изолирована от рабочих компьютеров, касс и принтеров, а скорость для гостей можно ограничить."}}, {"@type": "Question", "name": "Можно объединить два офиса в одну сеть?", "acceptedAnswer": {"@type": "Answer", "text": "Да, настраиваем VPN между офисами: сотрудники видят общие папки, принтеры и 1С так, будто работают в одном здании."}}, {"@type": "Question", "name": "Кому останутся пароли от оборудования?", "acceptedAnswer": {"@type": "Answer", "text": "Вам. После настройки передаём доступы к роутерам и схему сети — вы не зависите от нас."}}]}</script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113752459', 'ym');
+
+    ym(113752459, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<!-- /Yandex.Metrika counter -->
+<link rel="stylesheet" href="/mobile.css">
+<script src="/mobile.js" defer></script>
+</head>
+<body>
+<noscript><div><img src="https://mc.yandex.ru/watch/113752459" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<!-- ШАПКА -->
+<header class="site-header">
+  <div class="site-header-in">
+    <a href="./" class="site-logo">Про технологии</a>
+    <nav class="site-nav">
+      <a href="./services.html">Услуги</a>
+      <a href="./#stages">Этапы работы</a>
+      <a href="./about.html">О компании</a>
+      <a href="./#pricing">Стоимость</a>
+      <a href="./blog.html">Блог</a>
+      <a href="./#faq">FAQ</a>
+    </nav>
+    <div class="site-actions">
+      <a href="tel:+79969241648" class="site-phone" aria-label="Позвонить: +7 (996) 924-16-48">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <span class="site-phone-num">+7 (996) 924-16-48</span>
+      </a>
+      <button type="button" class="nav-toggle" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ПЕРВЫЙ ЭКРАН -->
+<section class="hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="./">Главная</a> / <a href="./services.html">Услуги</a> / Сети и Wi-Fi</div>
+    <div class="badge">Офисы и магазины · Оренбург</div>
+    <h1>Настройка сети, Wi-Fi и VPN для офиса</h1>
+    <p>Делаем так, чтобы интернет и Wi-Fi в офисе просто работали: без обрывов, мёртвых зон и «перезагрузите роутер». Настраиваем удалённый доступ для сотрудников и защищаем сеть от посторонних.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-ghost">Заказать диагностику сети →</a>
+    </div>
+  </div>
+</section>
+
+<!-- КОГДА ОБРАЩАЮТСЯ -->
+<section class="sec">
+  <div class="wrap svc">
+    <div class="svc-head">
+      <div class="eyebrow">Когда нужна услуга</div>
+      <h2 class="h2">Когда к нам обращаются</h2>
+      <p class="lead">Сначала смотрим, как устроена сеть сейчас, и только потом предлагаем, что поменять. Часто проблему решает настройка, а не покупка нового оборудования.</p>
+    </div>
+    <div class="table">
+      <div class="row row-n"><div class="row-t">01</div><div class="row-d">Wi-Fi пропадает или не добивает до дальних кабинетов и склада.</div></div>
+      <div class="row row-n"><div class="row-t">02</div><div class="row-d">Интернет тормозит, хотя по тарифу скорость должна быть высокой.</div></div>
+      <div class="row row-n"><div class="row-t">03</div><div class="row-d">Сотрудникам нужно работать из дома с офисными программами и папками.</div></div>
+      <div class="row row-n"><div class="row-t">04</div><div class="row-d">Гости и посетители подключаются к той же сети, что и бухгалтерия.</div></div>
+      <div class="row row-n"><div class="row-t">05</div><div class="row-d">Открываете новый офис или переезжаете — нужно спланировать и собрать сеть с нуля.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ЧТО ВХОДИТ -->
+<section class="sec dark">
+  <div class="wrap">
+    <div class="eyebrow">Что входит</div>
+    <h2 class="h2" style="margin-bottom:40px">Что делаем с сетью</h2>
+    <div class="cards">
+      <div class="hl"><div class="hl-num">01.</div><h3>Роутеры и коммутаторы</h3><p>Настраиваем оборудование MikroTik, Keenetic, Cisco и других производителей — под ваш офис, а не «по умолчанию».</p></div>
+      <div class="hl"><div class="hl-num">02.</div><h3>Wi-Fi без мёртвых зон</h3><p>Подбираем и расставляем точки доступа, чтобы связь была во всех кабинетах и не рвалась при переходе между ними.</p></div>
+      <div class="hl"><div class="hl-num">03.</div><h3>VPN для удалённой работы</h3><p>Защищённое подключение сотрудников из дома и связь между офисами — без открытого в интернет удалённого рабочего стола.</p></div>
+      <div class="hl"><div class="hl-num">04.</div><h3>Гостевая сеть</h3><p>Отдельный Wi-Fi для посетителей с ограничением скорости и без доступа к рабочим компьютерам и кассам.</p></div>
+      <div class="hl"><div class="hl-num">05.</div><h3>Сетевая безопасность</h3><p>Файрвол, закрытые лишние порты, защита от подбора паролей и сетевых атак, обновления прошивок оборудования.</p></div>
+      <div class="hl"><div class="hl-num">06.</div><h3>Резервный интернет</h3><p>Второй провайдер или 4G/LTE-модем с автоматическим переключением, если основной канал пропал.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- КАК РАБОТАЕМ + СТОИМОСТЬ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="eyebrow">Этапы работы</div>
+    <h2 class="h2" style="margin-bottom:40px">Как мы работаем</h2>
+    <div class="steps">
+      <div class="step"><div class="step-n">01.</div><h3>Диагностика сети</h3><p>Проверяем оборудование, настройки, скорость и покрытие Wi-Fi — бесплатно.</p></div>
+      <div class="step"><div class="step-n">02.</div><h3>Предложение</h3><p>Показываем, что мешает работе и что исправить в первую очередь, с ценами.</p></div>
+      <div class="step"><div class="step-n">03.</div><h3>Настройка</h3><p>Настраиваем оборудование, при необходимости докупаем и монтируем точки доступа.</p></div>
+      <div class="step"><div class="step-n">04.</div><h3>Проверка и схема</h3><p>Проверяем скорость и покрытие и передаём вам схему сети и доступы к оборудованию.</p></div>
+    </div>
+
+    <div class="price">
+      <div>
+        <div class="eyebrow" style="color:#8891a0">Стоимость</div>
+        <h3>Разовый вызов — от 1 500 ₽</h3>
+      </div>
+      <p>Настройка роутера или точки доступа — разовый вызов от 1 500 ₽, диагностика бесплатно, оплата по факту. Сеть для нового офиса считаем отдельно после осмотра помещения. Постоянное обслуживание сети входит в ИТ-аутсорсинг — от 15 000 ₽ в месяц.</p>
+      <a href="#contact" class="btn-ghost">Оставить заявку</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec dark">
+  <div class="wrap faq-outer">
+    <div class="faq-big">FAQ</div>
+    <div class="faq">
+      <details open><summary><span class="faq-n">01</span><span class="faq-q">Придётся менять оборудование?</span><span class="faq-i"></span></summary><p>Не обязательно. Часто достаточно правильно настроить то, что уже стоит. Если оборудование действительно не справляется, объясним почему и предложим варианты под ваш бюджет.</p></details>
+      <details><summary><span class="faq-n">02</span><span class="faq-q">Сделаете отдельный Wi-Fi для гостей?</span><span class="faq-i"></span></summary><p>Да. Гостевая сеть будет изолирована от рабочих компьютеров, касс и принтеров, а скорость для гостей можно ограничить.</p></details>
+      <details><summary><span class="faq-n">03</span><span class="faq-q">Можно объединить два офиса в одну сеть?</span><span class="faq-i"></span></summary><p>Да, настраиваем VPN между офисами: сотрудники видят общие папки, принтеры и 1С так, будто работают в одном здании.</p></details>
+      <details><summary><span class="faq-n">04</span><span class="faq-q">Кому останутся пароли от оборудования?</span><span class="faq-i"></span></summary><p>Вам. После настройки передаём доступы к роутерам и схему сети — вы не зависите от нас.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ЗАЯВКА -->
+<section id="contact" class="sec">
+  <span id="form"></span>
+  <div class="wrap contact">
+    <div>
+      <div class="mono-eyebrow">[ ОБРАТНАЯ СВЯЗЬ ]</div>
+      <h2>Расскажите, что не так с сетью</h2>
+      <p class="lead" style="margin-bottom:24px">Перезвоним в течение 15 минут в рабочее время, уточним детали и договоримся о выезде или подключении.</p>
+      <a href="tel:+79969241648" class="phone-box">+7 (996) 924-16-48 <span style="font-size:18px">→</span></a>
+    </div>
+    <form class="form" id="lead-form" novalidate>
+      <div class="form-row2">
+        <input type="text" name="name" placeholder="Имя*" aria-label="Имя" autocomplete="name">
+        <input type="text" name="company" placeholder="Компания" aria-label="Компания" autocomplete="organization">
+      </div>
+      <input type="tel" name="phone" placeholder="Телефон*" aria-label="Телефон" autocomplete="tel">
+      <textarea name="comment" rows="3" placeholder="Что происходит: где не работает Wi-Fi, сколько сотрудников, есть ли удалённая работа" aria-label="Опишите задачу"></textarea>
+      <label class="consent">
+        <input type="checkbox" name="consent" value="yes">
+        <span>Даю <a href="./consent.html" target="_blank">согласие на обработку персональных данных</a> и принимаю <a href="./privacy.html" target="_blank">политику конфиденциальности</a></span>
+      </label>
+      <p class="msg" role="alert"></p>
+      <button type="submit" class="submit"><span class="submit-label">Отправить заявку</span><span style="font-size:18px">→</span></button>
+    </form>
+  </div>
+</section>
+
+<!-- ДРУГИЕ УСЛУГИ -->
+<section class="sec sec-tight">
+  <div class="wrap">
+    <div class="eyebrow">Другие услуги</div>
+    <div class="others">
+      <a href="./computers.html">Компьютеры</a>
+      <a href="./servers.html">Серверы и 1С</a>
+      <a href="./printers.html">Принтеры и оргтехника</a>
+      <a href="./cctv.html">Видеонаблюдение</a>
+      <a href="./outsourcing.html">ИТ-аутсорсинг</a>
+      <a href="./services.html">Все услуги →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ПОДВАЛ -->
+<footer class="dark">
+  <div class="footer-grid">
+    <div>
+      <div class="f-title">Услуги</div>
+      <div class="f-links">
+        <a href="./computers.html">Компьютеры</a>
+        <a href="./servers.html">Серверы и 1С</a>
+        <a href="./network.html">Сети и Wi-Fi</a>
+        <a href="./services.html">Все услуги</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-title">Компания</div>
+      <div class="f-links">
+        <a href="./about.html">О компании</a>
+        <a href="./#pricing">Тарифы</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-title">Инфо</div>
+      <div class="f-links">
+        <a href="./#faq">FAQ</a>
+        <a href="./blog.html">Блог</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-title">Контакты</div>
+      <div class="f-links">
+        <a href="tel:+79969241648" class="f-phone">+7 (996) 924-16-48</a>
+      </div>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <div class="f-bottom-in">
+      <div class="f-brand">Про технологии</div>
+      <div class="f-copy">© 2026 Про технологии. ИТ-консалтинг для бизнеса. · <a href="./privacy.html">Политика конфиденциальности</a></div>
+      <div class="f-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8891a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"></path><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"></path></svg>
+        Аккредитованы Минцифры
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var f = document.getElementById('lead-form');
+  if (!f) return;
+  var msg = f.querySelector('.msg');
+  var btn = f.querySelector('.submit');
+  var label = f.querySelector('.submit-label');
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    msg.className = 'msg';
+    msg.textContent = '';
+    if (!f.name.value.trim() || !f.phone.value.trim()) { msg.className = 'msg err'; msg.textContent = 'Укажите имя и телефон'; return; }
+    if (!f.consent.checked) { msg.className = 'msg err'; msg.textContent = 'Отметьте согласие на обработку персональных данных'; return; }
+    btn.disabled = true; label.textContent = 'Отправка...';
+    var data = new FormData(f);
+    data.set('consent', 'yes');
+    fetch('/send.php', { method: 'POST', body: data })
+      .then(function (r) { if (!r.ok) throw new Error(); })
+      .then(function () {
+        f.reset();
+        msg.className = 'msg ok';
+        msg.textContent = '✓ Заявка отправлена. Свяжемся с вами в рабочее время в течение 15 минут.';
+        if (window.ym) window.ym(113752459, 'reachGoal', 'lead');
+      })
+      .catch(function () { msg.className = 'msg err'; msg.textContent = 'Не удалось отправить заявку. Позвоните нам: +7 (996) 924-16-48'; })
+      .then(function () { btn.disabled = false; label.textContent = 'Отправить заявку'; });
+  });
+})();
+</script>
+</body>
+</html>

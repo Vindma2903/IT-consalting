@@ -192,7 +192,7 @@
       <div class="services-grid" style="display:grid;grid-template-columns:240px 1fr;gap:40px;align-items:start">
         <div>
           <h2 style="font-size:30px;font-weight:800;letter-spacing:-0.02em;margin:0 0 16px;color:#ffffff;line-height:1.25">Услуги, которые закрывают всю ИТ-рутину</h2>
-          <p class="hover-hint" style="font-size:15px;line-height:1.7;color:#8891a0;margin:0 0 20px">Наведите на карточку, чтобы увидеть список услуг</p>
+          <p class="hover-hint" style="font-size:15px;line-height:1.7;color:#8891a0;margin:0 0 20px">Наведите на карточку, чтобы увидеть список услуг, нажмите — чтобы узнать подробнее</p>
           <a href="./services.html" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;background:transparent;color:#ffffff;border:1px solid rgba(255,255,255,0.5);padding:12px 20px;border-radius:10px;font-size:14px;font-weight:700;margin-bottom:28px" style-hover="background:#ffffff;color:#12161f;border-color:#ffffff">Все услуги →</a>
           <div style="display:flex;flex-wrap:wrap;gap:10px">
             <sc-for list="{{ tags }}" as="tag" hint-placeholder-count="10">
@@ -202,7 +202,7 @@
         </div>
         <div class="cards-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
           <sc-for list="{{ serviceGroups }}" as="group" hint-placeholder-count="6">
-            <div class="flip-wrap" style="perspective:1600px;height:300px">
+            <a href="{{ group.href }}" class="flip-wrap" style="display:block;text-decoration:none;color:inherit;perspective:1600px;height:300px">
               <div class="flip-card" style="position:relative;width:100%;height:100%;transition:transform 0.6s cubic-bezier(0.4,0.2,0.2,1);transform-style:preserve-3d;cursor:pointer" style-hover="transform:rotateY(180deg)">
                 <div class="flip-front" style="position:absolute;inset:0;backface-visibility:hidden;background:#1c1d22;border:1px solid #2a2c33;border-radius:24px;padding:32px;display:flex;flex-direction:column;justify-content:space-between">
                   <div>
@@ -228,10 +228,10 @@
                       </li>
                     </sc-for>
                   </ul>
-                  <button onClick="{{ openPopup }}" style="background:transparent;color:#ffffff;border:1px solid rgba(255,255,255,0.5);padding:9px 18px;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;align-self:flex-start;flex:none" style-hover="background:#ffffff;color:#12161f;border-color:#ffffff">Подробнее</button>
+                  <span style="background:transparent;color:#ffffff;border:1px solid rgba(255,255,255,0.5);padding:9px 18px;border-radius:10px;font-size:13px;font-weight:700;align-self:flex-start;flex:none">Подробнее →</span>
                 </div>
               </div>
-            </div>
+            </a>
           </sc-for>
         </div>
       </div>
@@ -421,9 +421,9 @@
       <div>
         <div style="font-size:13px;font-weight:700;color:#8891a0;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:20px">Услуги</div>
         <div style="display:flex;flex-direction:column;gap:14px">
-          <a href="#services" style="text-decoration:none;color:#c7ccd6;font-size:15px" style-hover="color:#ffffff">Компьютеры</a>
+          <a href="./computers.html" style="text-decoration:none;color:#c7ccd6;font-size:15px" style-hover="color:#ffffff">Компьютеры</a>
           <a href="./servers.html" style="text-decoration:none;color:#c7ccd6;font-size:15px" style-hover="color:#ffffff">Серверы и 1С</a>
-          <a href="#services" style="text-decoration:none;color:#c7ccd6;font-size:15px" style-hover="color:#ffffff">Сети</a>
+          <a href="./network.html" style="text-decoration:none;color:#c7ccd6;font-size:15px" style-hover="color:#ffffff">Сети и Wi-Fi</a>
         </div>
       </div>
       <div>
@@ -616,37 +616,37 @@ class Component extends DCLogic {
   renderVals() {
     const serviceGroups = [
       {
-        title: 'Компьютеры', iconHref: '#icon-computer', tint: '#eef3ff', count: 5,
+        title: 'Компьютеры', href: './computers.html', iconHref: '#icon-computer', tint: '#eef3ff', count: 5,
         summary: 'Настройка, ремонт и обслуживание рабочих компьютеров и ноутбуков.',
         miniTags: ['Windows','Ремонт'],
         items: ['Установка и настройка Windows','Установка программ','Настройка драйверов и принтеров','Удаление вирусов','Перенос данных']
       },
       {
-        title: 'Серверы', iconHref: '#icon-server', tint: '#eefaf1', count: 5,
+        title: 'Серверы', href: './servers.html', iconHref: '#icon-server', tint: '#eefaf1', count: 5,
         summary: 'Развёртывание и поддержка серверной инфраструктуры компании.',
         miniTags: ['Windows Server','Linux'],
         items: ['Настройка Windows Server','Настройка Linux','Настройка Active Directory','Настройка файлового сервера','Мониторинг серверов']
       },
       {
-        title: 'Сети', iconHref: '#icon-wifi', tint: '#fff4ea', count: 5,
+        title: 'Сети', href: './network.html', iconHref: '#icon-wifi', tint: '#fff4ea', count: 5,
         summary: 'Настройка и диагностика сетевой инфраструктуры офиса.',
         miniTags: ['Wi-Fi','VPN'],
         items: ['Настройка VPN','Настройка роутеров','Настройка Wi-Fi','Настройка DNS и DHCP','Диагностика сети']
       },
       {
-        title: 'Принтеры и оргтехника', iconHref: '#icon-printer', tint: '#f5eeff', count: 5,
+        title: 'Принтеры и оргтехника', href: './printers.html', iconHref: '#icon-printer', tint: '#f5eeff', count: 5,
         summary: 'Замена картриджей, ремонт и настройка печатной техники офиса.',
         miniTags: ['Печать','Ремонт'],
         items: ['Замена картриджей','Настройка сетевой печати','Ремонт МФУ','Заправка и чистка','Подбор расходников']
       },
       {
-        title: 'Видеонаблюдение', iconHref: '#icon-video', tint: '#eafaf6', count: 5,
+        title: 'Видеонаблюдение', href: './cctv.html', iconHref: '#icon-video', tint: '#eafaf6', count: 5,
         summary: 'Установка и настройка систем видеонаблюдения для офиса и склада.',
         miniTags: ['Камеры','Монтаж'],
         items: ['Монтаж камер','Настройка записи и хранения','Удалённый просмотр','Подбор оборудования','Обслуживание системы']
       },
       {
-        title: 'ИТ-аутсорс', iconHref: '#icon-tool', tint: '#fff0f0', count: 5,
+        title: 'ИТ-аутсорс', href: './outsourcing.html', iconHref: '#icon-tool', tint: '#fff0f0', count: 5,
         summary: 'Постоянное сопровождение ИТ-инфраструктуры компании на регулярной основе.',
         miniTags: ['Поддержка','SLA'],
         items: ['Плановое обслуживание','Приоритетные заявки','Мониторинг систем','Резервное копирование','Консультации по ИТ']

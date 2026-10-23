@@ -6,6 +6,11 @@
 - [Главная](https://it-consalting24.ru/): услуги, этапы работы, тарифы, частые вопросы
 - [Все услуги](https://it-consalting24.ru/services.html): полный перечень работ по направлениям
 - [Администрирование серверов 1С](https://it-consalting24.ru/servers.html): сервер 1С, СУБД, резервные копии, Windows и Linux — удалённо по России
+- [Обслуживание компьютеров](https://it-consalting24.ru/computers.html): Windows, программы и ЭЦП, вирусы, перенос данных, ремонт
+- [Сети, Wi-Fi и VPN](https://it-consalting24.ru/network.html): роутеры, Wi-Fi без мёртвых зон, VPN, гостевая сеть, резервный интернет
+- [Принтеры и МФУ](https://it-consalting24.ru/printers.html): картриджи, ремонт, сетевая печать, сканирование в почту и папки
+- [Видеонаблюдение](https://it-consalting24.ru/cctv.html): подбор, монтаж, запись и просмотр с телефона для офисов, магазинов и складов
+- [ИТ-аутсорсинг](https://it-consalting24.ru/outsourcing.html): абонентское обслуживание от 15 000 ₽/мес, бесплатный аудит за 1 день
 - [Консоль администрирования серверов 1С](https://it-consalting24.ru/1c-konsol-administrirovaniya.html): инструкция по установке и частым ошибкам
 - [О компании](https://it-consalting24.ru/about.html): реквизиты, адрес, контакты
 
