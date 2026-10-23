@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Администрирование серверов 1С удалённо — Про технологии</title>
+<meta name="description" content="Настраиваем и сопровождаем сервер 1С:Предприятия, базы данных, Windows и Linux-серверы: резервные копии, обновления, мониторинг. Удалённо по всей России, выезд в Оренбурге.">
+<link rel="canonical" href="https://it-consalting24.ru/servers.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Про технологии">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Администрирование серверов 1С удалённо — Про технологии">
+<meta property="og:description" content="Настраиваем и сопровождаем сервер 1С:Предприятия, базы данных, Windows и Linux-серверы: резервные копии, обновления, мониторинг. Удалённо по всей России, выезд в Оренбурге.">
+<meta property="og:url" content="https://it-consalting24.ru/servers.html">
+<link href="/fonts/inter.css" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Inter',system-ui,-apple-system,sans-serif;color:#12161f;background:#ffffff;-webkit-font-smoothing:antialiased}
+  a{color:#2f6bff}
+  a:hover{color:#1f4fd6}
+  .top{background:#101114}
+  .top-in{max-width:1240px;margin:0 auto;padding:20px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .logo{color:#ffffff;text-decoration:none;font-size:19px;font-weight:800;letter-spacing:-0.02em}
+  .nav{display:flex;gap:22px;flex-wrap:wrap}
+  .nav a{color:#ffffff;text-decoration:none;font-size:14px;font-weight:500}
+  .nav a:hover{color:#8fb2ff}
+  .hero{background:#101114;color:#ffffff;padding:72px 32px 80px}
+  .hero-in{max-width:1000px;margin:0 auto}
+  .eyebrow{font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8fb2ff;margin:0 0 16px}
+  .hero h1{font-size:44px;line-height:1.15;font-weight:800;letter-spacing:-0.01em;margin:0 0 20px;color:#ffffff}
+  .hero p{font-size:18px;line-height:1.65;color:#c7ccd6;max-width:720px;margin:0 0 32px}
+  .btn{display:inline-flex;align-items:center;gap:10px;background:#2f6bff;color:#ffffff;text-decoration:none;font-weight:700;font-size:15px;padding:16px 26px;border-radius:12px;border:none;cursor:pointer;font-family:inherit}
+  .btn:hover{background:#1f4fd6;color:#ffffff}
+  .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.5);margin-left:12px}
+  .btn-ghost:hover{background:#ffffff;color:#12161f}
+  section{padding:72px 32px}
+  .in{max-width:1000px;margin:0 auto}
+  .alt{background:#f6f8fc}
+  h2{font-size:30px;line-height:1.25;font-weight:800;letter-spacing:-0.01em;margin:0 0 24px}
+  h3{font-size:18px;font-weight:700;margin:0 0 8px}
+  p,li{font-size:16px;line-height:1.7;color:#2b313c}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 12px;padding-left:22px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{background:#ffffff;border:1px solid #e2e5ea;border-radius:16px;padding:24px}
+  .alt .card{border-color:#e2e5ea}
+  .card p{font-size:15px;color:#5b6472;margin:0}
+  .steps{counter-reset:s;list-style:none;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .steps li{counter-increment:s;background:#ffffff;border:1px solid #e2e5ea;border-radius:16px;padding:24px;font-size:15px;color:#5b6472}
+  .steps li::before{content:"0" counter(s);display:block;font-family:ui-monospace,Menlo,monospace;font-weight:700;color:#2f6bff;margin-bottom:10px}
+  .steps b{display:block;color:#12161f;font-size:17px;margin-bottom:6px}
+  .faq details{border-bottom:1px solid #e2e5ea;padding:18px 0}
+  .faq summary{font-size:17px;font-weight:700;cursor:pointer}
+  .faq details p{margin:12px 0 0}
+  .note{background:#101114;color:#c7ccd6;border-radius:16px;padding:28px 32px}
+  .note h2,.note h3{color:#ffffff}
+  .note p{color:#c7ccd6}
+  code{font-family:ui-monospace,Menlo,monospace;font-size:14px;background:#eef1f6;border-radius:6px;padding:2px 6px;color:#12161f;word-break:break-word}
+  pre{background:#12161f;color:#e6e9ef;border-radius:12px;padding:16px 18px;overflow-x:auto;font-size:14px;line-height:1.6}
+  pre code{background:none;color:inherit;padding:0}
+  table{width:100%;border-collapse:collapse;margin:8px 0 16px}
+  th,td{text-align:left;vertical-align:top;border-bottom:1px solid #e2e5ea;padding:12px 10px;font-size:15px;line-height:1.6;color:#2b313c}
+  th{font-size:13px;text-transform:uppercase;letter-spacing:0.06em;color:#5b6472}
+  .form{display:grid;gap:14px;max-width:640px}
+  .form .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .form input[type=text],.form input[type=tel],.form textarea{width:100%;padding:16px 18px;border-radius:12px;border:1px solid #e2e5ea;background:#ffffff;font-size:15px;font-family:inherit;color:#12161f}
+  .form textarea{resize:vertical;min-height:96px}
+  .consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#5b6472;line-height:1.5;cursor:pointer}
+  .consent input{margin:2px 0 0;width:16px;height:16px;flex-shrink:0;accent-color:#2f6bff}
+  .consent a{color:inherit}
+  .msg{font-size:14px;margin:0}
+  .msg.err{color:#c0392b}
+  .msg.ok{color:#1f8a4c}
+  .article{max-width:820px;margin:0 auto;padding:56px 32px 72px}
+  .article h1{font-size:36px;line-height:1.2;font-weight:800;margin:0 0 12px}
+  .article h2{font-size:24px;margin:40px 0 14px}
+  .meta{color:#5b6472;font-size:14px;margin:0 0 28px}
+  .crumbs{font-size:14px;color:#5b6472;margin:0 0 20px}
+  .crumbs a{color:#5b6472}
+  .bottom{background:#101114;color:#8891a0;font-size:13px}
+  .bottom-in{max-width:1240px;margin:0 auto;padding:24px 32px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .bottom a{color:#c7ccd6}
+  @media (max-width:900px){.grid{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}}
+  @media (max-width:640px){section,.hero{padding:48px 16px}.top-in,.bottom-in{padding-left:16px;padding-right:16px}.hero h1{font-size:30px}h2{font-size:24px}.grid,.steps,.form .row2{grid-template-columns:1fr}.btn-ghost{margin:12px 0 0}.article{padding:40px 16px 56px}table{display:block;overflow-x:auto}pre{white-space:pre-wrap;word-break:break-all}.article h1{font-size:28px}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Администрирование серверов 1С", "serviceType": "Администрирование серверов 1С:Предприятия, Windows и Linux", "provider": {"@id": "https://it-consalting24.ru/#org"}, "areaServed": {"@type": "Country", "name": "Россия"}, "url": "https://it-consalting24.ru/servers.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Вы работаете удалённо?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Подключаемся по защищённому каналу к серверу, который вы укажете. Доступы выдаёте вы и можете отозвать их в любой момент. В Оренбурге, если нужно, приезжаем."}}, {"@type": "Question", "name": "У нас уже есть программист 1С. Зачем ещё вы?", "acceptedAnswer": {"@type": "Answer", "text": "Программист отвечает за конфигурацию: доработки, отчёты, обмены. Мы отвечаем за то, на чём она работает: сервер, платформу, СУБД, резервные копии и доступы. Вместе вы перестаёте делить ответственность за «1С тормозит»."}}, {"@type": "Question", "name": "Придётся покупать новый сервер или лицензии?", "acceptedAnswer": {"@type": "Answer", "text": "Не обязательно. Сначала проводим диагностику и показываем, что можно исправить на текущем оборудовании. Лицензии 1С и Windows остаются вашими; если что-то нужно докупить, согласуем с вами заранее."}}, {"@type": "Question", "name": "Можно разово, без абонемента?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Например, перевести базу с файлового варианта на клиент-серверный, обновить платформу или настроить резервное копирование. Разовые работы оплачиваются почасово по согласованному плану."}}]}</script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113752459', 'ym');
+
+    ym(113752459, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+<noscript><div><img src="https://mc.yandex.ru/watch/113752459" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<header class="top">
+  <div class="top-in">
+    <a class="logo" href="./">Про технологии</a>
+    <nav class="nav">
+      <a href="./services.html">Услуги</a>
+      <a href="./servers.html">Серверы и 1С</a>
+      <a href="./about.html">О компании</a>
+      <a href="tel:+79969241648">+7 (996) 924-16-48</a>
+    </nav>
+  </div>
+</header>
+<div class="hero">
+  <div class="hero-in">
+    <p class="eyebrow">Удалённо по всей России · выезд в Оренбурге</p>
+    <h1>Администрирование серверов 1С</h1>
+    <p>Сервер 1С:Предприятия, база данных, Windows и Linux-серверы — берём на себя настройку, обновления, резервные копии и мониторинг. Вы работаете в 1С, а не разбираетесь, почему она снова не запускается.</p>
+    <a class="btn" href="#form">Бесплатная диагностика →</a><a class="btn btn-ghost" href="tel:+79969241648">+7 (996) 924-16-48</a>
+  </div>
+</div>
+
+<section>
+  <div class="in">
+    <h2>Когда к нам обращаются</h2>
+    <ul>
+      <li>1С тормозит, когда в базе работают несколько человек одновременно.</li>
+      <li>Консоль администрирования не подключается к серверу или не запускается после обновления платформы.</li>
+      <li>Нужно перейти с файловой базы на клиент-серверную.</li>
+      <li>Резервные копии вроде бы делаются, но никто ни разу не проверял, что из них можно восстановиться.</li>
+      <li>Сервер настраивал человек, который больше не работает в компании.</li>
+    </ul>
+    <p>Если узнали свою ситуацию, а нужна быстрая инструкция, — начните с разбора <a href="./1c-konsol-administrirovaniya.html">консоли администрирования серверов 1С</a>.</p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="in">
+    <h2>Что входит в администрирование</h2>
+    <div class="grid">
+      <div class="card"><h3>Сервер 1С:Предприятия</h3><p>Установка и обновление платформы, кластер и рабочие процессы, информационные базы, лицензии.</p></div>
+      <div class="card"><h3>База данных</h3><p>PostgreSQL или MS SQL: регламентное обслуживание, индексы, статистика, место на дисках.</p></div>
+      <div class="card"><h3>Резервное копирование</h3><p>Ежедневные копии, хранение вне сервера и ежемесячная проверка, что из копии база действительно восстанавливается.</p></div>
+      <div class="card"><h3>Мониторинг</h3><p>Следим за дисками, нагрузкой и службами 1С и узнаём о проблеме раньше, чем пользователи.</p></div>
+      <div class="card"><h3>Безопасность</h3><p>Права пользователей, доступ через VPN вместо открытого RDP, обновления системы, защита от шифровальщиков.</p></div>
+      <div class="card"><h3>Windows и Linux</h3><p>Терминальные и файловые серверы, контроллер домена, Linux-серверы и VPS под ваши задачи.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="in">
+    <h2>Как начинаем работу</h2>
+    <ol class="steps">
+      <li><b>Диагностика</b>Бесплатно подключаемся и смотрим конфигурацию, нагрузку и резервные копии.</li>
+      <li><b>Отчёт</b>Список рисков и что исправить в первую очередь — простым языком, без давления.</li>
+      <li><b>Наводим порядок</b>Разовые работы по согласованному плану и бюджету.</li>
+      <li><b>Сопровождение</b>Абонентское обслуживание: фиксированная плата и время реакции в договоре.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="in">
+    <h2>Стоимость</h2>
+    <p>Абонентское обслуживание — фиксированная ежемесячная плата, она зависит от числа серверов и информационных баз. Разовые работы оплачиваются почасово по согласованному плану. Точную цену называем после бесплатной диагностики — до неё любая цифра была бы гаданием.</p>
+  </div>
+</section>
+
+<section>
+  <div class="in faq">
+    <h2>Частые вопросы</h2>
+    <details><summary>Вы работаете удалённо?</summary><p>Да. Подключаемся по защищённому каналу к серверу, который вы укажете. Доступы выдаёте вы и можете отозвать их в любой момент. В Оренбурге, если нужно, приезжаем.</p></details><details><summary>У нас уже есть программист 1С. Зачем ещё вы?</summary><p>Программист отвечает за конфигурацию: доработки, отчёты, обмены. Мы отвечаем за то, на чём она работает: сервер, платформу, СУБД, резервные копии и доступы. Вместе вы перестаёте делить ответственность за «1С тормозит».</p></details><details><summary>Придётся покупать новый сервер или лицензии?</summary><p>Не обязательно. Сначала проводим диагностику и показываем, что можно исправить на текущем оборудовании. Лицензии 1С и Windows остаются вашими; если что-то нужно докупить, согласуем с вами заранее.</p></details><details><summary>Можно разово, без абонемента?</summary><p>Да. Например, перевести базу с файлового варианта на клиент-серверный, обновить платформу или настроить резервное копирование. Разовые работы оплачиваются почасово по согласованному плану.</p></details>
+  </div>
+</section>
+
+<section class="alt" id="form">
+  <div class="in">
+    <h2>Заявка на бесплатную диагностику</h2>
+    <p>Опишите, что происходит с сервером. Перезвоним, уточним детали и договоримся о подключении.</p>
+    <form class="form" id="lead-form" novalidate>
+  <div class="row2">
+    <input type="text" name="name" placeholder="Имя*" aria-label="Имя" autocomplete="name">
+    <input type="text" name="company" placeholder="Компания" aria-label="Компания" autocomplete="organization">
+  </div>
+  <input type="tel" name="phone" placeholder="Телефон*" aria-label="Телефон" autocomplete="tel">
+  <textarea name="comment" placeholder="Что с сервером: версия 1С, сколько пользователей, что не работает" aria-label="Опишите задачу"></textarea>
+  <label class="consent"><input type="checkbox" name="consent" value="yes"><span>Даю <a href="./consent.html" target="_blank">согласие на обработку персональных данных</a> и принимаю <a href="./privacy.html" target="_blank">политику конфиденциальности</a></span></label>
+  <p class="msg" role="alert"></p>
+  <div><button class="btn" type="submit">Отправить заявку</button></div>
+</form>
+  </div>
+</section>
+<footer class="bottom">
+  <div class="bottom-in">
+    <span>© 2026 ООО «Про технологии», Оренбург · <a href="tel:+79969241648">+7 (996) 924-16-48</a> · <a href="mailto:protechnologii22@yandex.ru">protechnologii22@yandex.ru</a></span>
+    <span><a href="./privacy.html">Политика конфиденциальности</a> · <a href="./consent.html">Согласие на обработку ПДн</a></span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var f = document.getElementById('lead-form');
+  if (!f) return;
+  var msg = f.querySelector('.msg');
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    msg.className = 'msg';
+    msg.textContent = '';
+    if (!f.name.value.trim() || !f.phone.value.trim()) { msg.className = 'msg err'; msg.textContent = 'Укажите имя и телефон'; return; }
+    if (!f.consent.checked) { msg.className = 'msg err'; msg.textContent = 'Отметьте согласие на обработку персональных данных'; return; }
+    var btn = f.querySelector('button');
+    btn.disabled = true; btn.textContent = 'Отправка...';
+    var data = new FormData(f);
+    data.set('consent', 'yes');
+    fetch('/send.php', { method: 'POST', body: data })
+      .then(function (r) { if (!r.ok) throw new Error(); })
+      .then(function () {
+        f.reset();
+        msg.className = 'msg ok';
+        msg.textContent = 'Заявка отправлена. Свяжемся с вами в рабочее время в течение 15 минут.';
+        if (window.ym) window.ym(113752459, 'reachGoal', 'lead');
+      })
+      .catch(function () { msg.className = 'msg err'; msg.textContent = 'Не удалось отправить заявку. Позвоните нам: +7 (996) 924-16-48'; })
+      .then(function () { btn.disabled = false; btn.textContent = 'Отправить заявку'; });
+  });
+})();
+</script>
+</body>
+</html>

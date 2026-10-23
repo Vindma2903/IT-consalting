@@ -5,6 +5,8 @@
 ## Основное
 - [Главная](https://it-consalting24.ru/): услуги, этапы работы, тарифы, частые вопросы
 - [Все услуги](https://it-consalting24.ru/services.html): полный перечень работ по направлениям
+- [Администрирование серверов 1С](https://it-consalting24.ru/servers.html): сервер 1С, СУБД, резервные копии, Windows и Linux — удалённо по России
+- [Консоль администрирования серверов 1С](https://it-consalting24.ru/1c-konsol-administrirovaniya.html): инструкция по установке и частым ошибкам
 - [О компании](https://it-consalting24.ru/about.html): реквизиты, адрес, контакты
 
 ## Факты
