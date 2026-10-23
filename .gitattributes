@@ -1,0 +1,5 @@
+# Vendored files must stay byte-identical (Subresource Integrity in support.js)
+vendor/** -text
+*.woff2 binary
+*.ico binary
+*.png binary
