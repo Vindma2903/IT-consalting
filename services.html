@@ -28,6 +28,7 @@
     ym(113752459, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
 </script>
 <!-- /Yandex.Metrika counter -->
+<link rel="stylesheet" href="/mobile.css">
 </head>
 <body>
 <noscript><div><img src="https://mc.yandex.ru/watch/113752459" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
@@ -45,13 +46,13 @@
 </helmet>
 
 <doc-page margin="0.65in">
-  <div slot="footer" style="display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:10.5px;color:#5b6472;border-top:1px solid #e2e5ea;padding-top:8px">
+  <div slot="footer" class="doc-footer" style="display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:10.5px;color:#5b6472;border-top:1px solid #e2e5ea;padding-top:8px">
     <span>ООО «Про технологии» · г. Оренбург, проезд Автоматики, д.10/3Б, офис 10</span>
     <span>+7 (996) 924-16-48</span>
   </div>
 
-  <div style="background:#101114;color:#ffffff;padding:36px 40px;border-radius:18px;margin-bottom:38px">
-    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:28px;margin-bottom:28px">
+  <div class="doc-hero" style="background:#101114;color:#ffffff;padding:36px 40px;border-radius:18px;margin-bottom:38px">
+    <div class="doc-hero-top" style="display:flex;align-items:flex-start;justify-content:space-between;gap:28px;margin-bottom:28px">
       <div style="font-size:19px;font-weight:800;letter-spacing:-0.02em">Про технологии</div>
       <div style="text-align:right;font-size:11.5px;color:#8891a0;line-height:1.65">
         +7 (996) 924-16-48<br>protechnologii22@yandex.ru
@@ -61,7 +62,7 @@
     <p style="font-size:13.5px;line-height:1.7;color:#c7ccd6;margin:0;max-width:460px">Берём на себя весь ИТ-контур бизнеса, включая ИТ-обслуживание и защиту данных. Бесплатный аудит инфраструктуры за 1 день с отчётом о рисках и расчётами.</p>
   </div>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:40px;break-inside:avoid">
+  <div class="doc-highlights" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:40px;break-inside:avoid">
     <sc-for list="{{ highlights }}" as="h" hint-placeholder-count="3">
       <div style="border:1px solid #e2e5ea;border-radius:12px;padding:16px 18px">
         <div style="font-size:11px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:#12161f;margin-bottom:8px">{{ h.label }}</div>

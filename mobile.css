@@ -1,0 +1,156 @@
+/* ==========================================================================
+   Мобильная версия сайта «Про технологии»
+   Подключается на всех страницах. Правила с !important нужны, потому что
+   основная вёрстка задана inline-стилями.
+   ========================================================================== */
+
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+img,svg,video{max-width:100%}
+
+/* ---------- Кнопка-бургер (по умолчанию скрыта) ---------- */
+.nav-toggle{display:none;position:relative;width:42px;height:42px;padding:0;margin:0;border:1px solid rgba(255,255,255,0.3);border-radius:10px;background:transparent;cursor:pointer;flex-shrink:0;-webkit-tap-highlight-color:transparent}
+.nav-toggle span{position:absolute;left:11px;right:11px;height:2px;border-radius:2px;background:#ffffff;transition:transform .25s ease,opacity .2s ease,top .25s ease}
+.nav-toggle span:nth-child(1){top:13px}
+.nav-toggle span:nth-child(2){top:19px}
+.nav-toggle span:nth-child(3){top:25px}
+html.nav-open .nav-toggle span:nth-child(1){top:19px;transform:rotate(45deg)}
+html.nav-open .nav-toggle span:nth-child(2){opacity:0}
+html.nav-open .nav-toggle span:nth-child(3){top:19px;transform:rotate(-45deg)}
+
+/* ==========================================================================
+   Планшеты и телефоны: меню прячется в бургер
+   ========================================================================== */
+@media (max-width: 900px){
+  html .site-header-in{flex-wrap:wrap !important;padding:12px 20px !important;gap:12px !important}
+  html .nav-toggle{display:block}
+  html .site-nav{display:none !important;order:3;flex:0 0 100% !important;flex-direction:column !important;align-items:stretch !important;gap:0 !important;padding:6px 0 4px;border-top:1px solid #2a2c33}
+  html.nav-open .site-nav{display:flex !important;animation:navDrop .2s ease}
+  html .site-nav a{display:block;padding:14px 2px !important;font-size:16px !important;border-bottom:1px solid #1f2127}
+  html .site-nav a:last-child{border-bottom:none}
+  html .site-actions{gap:10px !important}
+}
+@keyframes navDrop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* ==========================================================================
+   Телефоны
+   ========================================================================== */
+@media (max-width: 640px){
+  /* Шапка: телефон превращается в круглую кнопку-иконку */
+  html .site-logo{font-size:18px !important}
+  html .site-phone{width:42px;height:42px;justify-content:center;border:1px solid rgba(255,255,255,0.3);border-radius:10px;box-sizing:border-box;gap:0 !important}
+  html .site-phone svg{width:18px;height:18px}
+  html .site-phone-num{display:none}
+
+  /* Отступы секций */
+  html .sec-px{padding-left:20px !important;padding-right:20px !important}
+  html .sec-py{padding-top:64px !important;padding-bottom:64px !important}
+
+  /* Заголовки */
+  html .h-sec{font-size:26px !important;line-height:1.2 !important}
+  html .h-page{font-size:30px !important}
+
+  /* Hero */
+  html .hero-sec{padding:56px 0 64px !important}
+  html .hero-badge{margin-bottom:20px !important;font-size:12px !important}
+  html .hero-lead{font-size:16.5px !important;margin-bottom:28px !important}
+  html .hero-btn{width:100%}
+
+  /* Таблицы «признак — описание» и реквизиты: в одну колонку */
+  html .kv-head{display:none !important}
+  html .kv-row{grid-template-columns:1fr !important;gap:8px !important;padding:18px 20px !important}
+  html .kv-row > div:first-child{color:#2f6bff !important}
+  html .kv-row > div:last-child{text-transform:none !important;font-family:inherit !important;font-size:15px !important;line-height:1.55 !important;word-break:break-word}
+
+  /* Этапы работы */
+  html .stages-h2{margin-bottom:28px !important}
+  html .stage-list{padding-bottom:40px !important;gap:2px !important}
+  html .stage-list button span:last-child{font-size:18px !important}
+  html .stage-list button span:first-child{font-size:16px !important}
+  html .stage-media-grid{padding-top:32px !important;padding-bottom:40px !important;gap:24px !important}
+
+  /* Команда */
+  html .team-card{padding:28px 22px !important}
+  html .team-card h3{font-size:22px !important;margin-bottom:18px !important}
+  html .directions-deco{display:none}
+  html .directions-wrap{margin-top:56px !important}
+
+  /* Тарифы: каждая карточка в столбик */
+  html .pricing-head{margin-bottom:24px !important}
+  html .plan-row{grid-template-columns:1fr !important;grid-template-areas:"name" "price" "feats" "btn" !important;gap:14px !important;padding:28px 0 !important}
+  html .plan-row > div:nth-child(2){justify-self:start !important;font-size:24px !important}
+  html .plan-row > ul{margin-top:4px !important}
+  html .plan-btn{justify-self:stretch !important;width:100%;padding:15px 22px !important}
+
+  /* FAQ */
+  html .faq-item-grid{grid-template-columns:36px 1fr auto !important;gap:12px !important}
+  html .faq-num{font-size:24px !important;padding-top:3px}
+  html .faq-q{font-size:16.5px !important;padding-top:2px !important}
+  html .faq-row{padding:22px 0 !important}
+
+  /* Форма */
+  html .contact-grid{gap:32px !important}
+  html .form-row2{grid-template-columns:1fr !important}
+  input,textarea,select{font-size:16px !important} /* без автозума в iOS */
+
+  /* Подвал */
+  html .footer-grid{grid-template-columns:1fr 1fr !important;gap:28px 20px !important;padding-top:48px !important}
+  html .footer-grid > div:last-child{grid-column:1 / -1}
+
+  /* Плашка cookie */
+  html .cookie-banner{left:12px !important;right:12px !important;bottom:12px !important;max-width:none !important;padding:16px 18px !important}
+  html .cookie-banner button{width:100%}
+
+  /* Всплывающая форма */
+  html .popup-overlay{align-items:flex-start !important;padding:16px !important;overflow-y:auto}
+  html .popup-card{padding:28px 20px 22px !important;border-radius:18px !important;margin:auto 0}
+  html .popup-card h3{font-size:21px !important;padding-right:36px}
+
+  /* Уведомление об отправке */
+  html .toast-wrap{width:calc(100% - 32px);bottom:16px !important}
+  html .toast-in{white-space:normal !important;padding:14px 18px !important;font-size:14px !important}
+
+  /* О компании */
+  html .about-addr{grid-template-columns:1fr !important;gap:14px !important}
+
+  /* Блог */
+  html .article-overlay{padding:12px !important}
+  html .article-card{padding:28px 20px !important;border-radius:16px !important}
+  html .article-card h2{font-size:22px !important;padding-right:32px}
+}
+
+/* ==========================================================================
+   Карточки услуг: на сенсорных экранах нет наведения, поэтому вместо
+   переворота показываем лицевую сторону и список услуг сразу
+   ========================================================================== */
+@media (hover: none), (max-width: 640px){
+  html .hover-hint{display:none !important}
+  html .cards-grid{gap:16px !important}
+  html .flip-wrap{height:auto !important;perspective:none !important}
+  html .flip-card{height:auto !important;transform:none !important;transform-style:flat !important;cursor:default !important;background:#1c1d22;border:1px solid #2a2c33;border-radius:20px;overflow:hidden}
+  html .flip-front,.flip-back{position:relative !important;inset:auto !important;transform:none !important;-webkit-backface-visibility:visible !important;backface-visibility:visible !important;background:transparent !important;border:none !important;border-radius:0 !important}
+  html .flip-front{padding:24px 24px 4px !important}
+  html .flip-front h3{font-size:19px !important}
+  html .mini-tags{display:none !important}
+  html .flip-back{padding:12px 24px 24px !important}
+  html .flip-back-title{display:none !important}
+  html .flip-back li{font-size:14px !important;line-height:1.45 !important;align-items:center !important}
+  html .flip-back li span{margin-top:0 !important}
+  html .flip-back button{margin-top:6px}
+}
+
+/* ==========================================================================
+   Страница услуг (документ): лист растягивается на ширину экрана
+   ========================================================================== */
+@media screen and (max-width: 900px){
+  html doc-page{--doc-page-w:100%;--doc-page-margin:20px;padding:12px 10px 24px !important;min-width:0 !important}
+  html .doc-hero{padding:26px 22px !important;margin-bottom:24px !important}
+  html .doc-hero h1{font-size:26px !important}
+  html .doc-hero-top{flex-direction:column;gap:12px !important;margin-bottom:22px !important}
+  html .doc-hero-top > div:last-child{text-align:left !important}
+  html .doc-highlights{grid-template-columns:1fr !important;gap:10px !important;margin-bottom:30px !important}
+  html .doc-page-body{font-size:14px}
+  html .doc-page-body h2{font-size:15px !important}
+}
+@media screen and (max-width: 640px){
+  html .doc-footer{flex-direction:column;align-items:flex-start !important;gap:4px !important}
+}
