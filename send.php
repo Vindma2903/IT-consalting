@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 // ─── Настройки (берутся из переменных окружения или .env) ────────────────────
 $to   = getenv('MAIL_TO')   ?: 'protechnologii22@yandex.ru';
-$from = getenv('MAIL_FROM') ?: 'info@' . ($_SERVER['HTTP_HOST'] ?? 'pro-technologies.ru');
+$from = getenv('MAIL_FROM') ?: 'info@pro-technologii.ru'; // ящик, через который идёт отправка (как на pro-technologii.ru)
 // ─────────────────────────────────────────────────────────────────────────────
 
 $name    = trim(strip_tags($_POST['name']    ?? ''));
@@ -38,14 +38,15 @@ if ($comment !== '') {
 $body .= "\n" . str_repeat('─', 40) . "\n";
 $body .= "Дата: " . date('d.m.Y H:i') . "\n";
 
-$headers  = "From: Сайт Про технологии <{$from}>\r\n";
-$headers .= "Reply-To: {$from}\r\n";
+$headers  = "From: =?UTF-8?B?" . base64_encode("Сайт it-consalting24.ru") . "?= <{$from}>\r\n";
+$headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 $headers .= "X-Mailer: PHP/" . PHP_VERSION . "\r\n";
 
 $encodedSubject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
 
-$sent = mail($to, $encodedSubject, $body, $headers);
+// -f задаёт адрес отправителя в конверте — иначе SMTP Яндекса отклонит письмо
+$sent = mail($to, $encodedSubject, $body, $headers, '-f' . $from);
 
 if ($sent) {
     echo json_encode(['success' => true]);
