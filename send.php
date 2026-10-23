@@ -8,8 +8,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // ─── Настройки (берутся из переменных окружения или .env) ────────────────────
-$to   = getenv('MAIL_TO')   ?: 'akolomiec10@gmail.com';
-$from = getenv('MAIL_FROM') ?: 'no-reply@' . ($_SERVER['HTTP_HOST'] ?? 'pro-technologies.ru');
+$to   = getenv('MAIL_TO')   ?: 'protechnologii22@yandex.ru';
+$from = getenv('MAIL_FROM') ?: 'info@' . ($_SERVER['HTTP_HOST'] ?? 'pro-technologies.ru');
 // ─────────────────────────────────────────────────────────────────────────────
 
 $name    = trim(strip_tags($_POST['name']    ?? ''));
@@ -25,7 +25,7 @@ if ($name === '' || $phone === '') {
 
 $subject = 'Новая заявка с сайта — ' . $name;
 
-$body  = "Новая заявка с сайта «Про технологии»\n";
+$body  = "Новая заявка с сайта «IT-консалтинг»\n";
 $body .= str_repeat('─', 40) . "\n\n";
 $body .= "Имя:      {$name}\n";
 $body .= "Телефон:  {$phone}\n";
