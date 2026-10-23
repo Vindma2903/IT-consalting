@@ -163,7 +163,8 @@
       <div class="services-grid" style="display:grid;grid-template-columns:240px 1fr;gap:40px;align-items:start">
         <div>
           <h2 style="font-size:30px;font-weight:800;letter-spacing:-0.02em;margin:0 0 16px;color:#ffffff;line-height:1.25">Услуги, которые закрывают всю ИТ-рутину</h2>
-          <p style="font-size:15px;line-height:1.7;color:#8891a0;margin:0 0 28px">Наведите на карточку, чтобы увидеть список услуг</p>
+          <p style="font-size:15px;line-height:1.7;color:#8891a0;margin:0 0 20px">Наведите на карточку, чтобы увидеть список услуг</p>
+          <a href="./services.html" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;background:transparent;color:#ffffff;border:1px solid rgba(255,255,255,0.5);padding:12px 20px;border-radius:10px;font-size:14px;font-weight:700;margin-bottom:28px" style-hover="background:#ffffff;color:#12161f;border-color:#ffffff">Все услуги →</a>
           <div style="display:flex;flex-wrap:wrap;gap:10px">
             <sc-for list="{{ tags }}" as="tag" hint-placeholder-count="10">
               <span style="background:#1c1d22;border:1px solid #2a2c33;color:#c7ccd6;font-size:13px;padding:8px 14px;border-radius:100px">{{ tag }}</span>
@@ -190,7 +191,7 @@
                 </div>
                 <div style="position:absolute;inset:0;backface-visibility:hidden;transform:rotateY(180deg);background:#20222a;border:1px solid #ffffff;border-radius:24px;padding:24px 28px;display:flex;flex-direction:column">
                   <h3 style="font-size:16px;font-weight:700;margin:0 0 10px;color:#ffffff;flex:none">{{ group.title }}</h3>
-                  <ul style="margin:0 0 12px;padding:0;list-style:none;display:flex;flex-direction:column;gap:5px;flex:1;min-height:0;overflow-y:auto">
+                  <ul style="margin:0 0 12px;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px;flex:1;min-height:0">
                     <sc-for list="{{ group.items }}" as="item" hint-placeholder-count="5">
                       <li style="color:#c7ccd6;font-size:12.5px;line-height:1.3;display:flex;gap:7px;align-items:baseline">
                         <span style="width:4px;height:4px;border-radius:50%;background:#ffffff;flex:none;margin-top:5px"></span>

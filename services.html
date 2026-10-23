@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="./doc-page.js"></script>
+<style>
+  body{margin:0;font-family:'Inter',system-ui,sans-serif;color:#12161f;-webkit-font-smoothing:antialiased}
+  doc-page:not(:defined){visibility:hidden}
+  a{color:#2f6bff}
+  a:hover{color:#1f4fd6}
+</style>
+</helmet>
+
+<doc-page margin="0.65in">
+  <div slot="footer" style="display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:10.5px;color:#8891a0;border-top:1px solid #e2e5ea;padding-top:8px">
+    <span>ООО «Про технологии» · г. Оренбург, проезд Автоматики, д.10/3Б, офис 10</span>
+    <span>+7 (996) 924-16-48</span>
+  </div>
+
+  <div style="background:#101114;color:#ffffff;padding:36px 40px;border-radius:18px;margin-bottom:38px">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:28px;margin-bottom:28px">
+      <div style="font-size:19px;font-weight:800;letter-spacing:-0.02em">Про технологии</div>
+      <div style="text-align:right;font-size:11.5px;color:#8891a0;line-height:1.65">
+        +7 (996) 924-16-48<br>protechnologii22@yandex.ru
+      </div>
+    </div>
+    <h1 style="font-size:32px;font-weight:800;letter-spacing:-0.015em;margin:0 0 14px;line-height:1.15;text-transform:uppercase">Услуги<br>и обслуживание</h1>
+    <p style="font-size:13.5px;line-height:1.7;color:#c7ccd6;margin:0;max-width:460px">Берём на себя весь ИТ-контур бизнеса, включая ИТ-обслуживание и защиту данных. Бесплатный аудит инфраструктуры за 1 день с отчётом о рисках и расчётами.</p>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:40px;break-inside:avoid">
+    <sc-for list="{{ highlights }}" as="h" hint-placeholder-count="3">
+      <div style="border:1px solid #e2e5ea;border-radius:12px;padding:16px 18px">
+        <div style="font-size:11px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:#12161f;margin-bottom:8px">{{ h.label }}</div>
+        <div style="font-size:12.5px;line-height:1.55;color:#3a4150">{{ h.text }}</div>
+      </div>
+    </sc-for>
+  </div>
+
+  <sc-for list="{{ sections }}" as="sec" hint-placeholder-count="6">
+    <div style="break-inside:avoid;margin-bottom:34px">
+      <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #12161f">
+        <span style="font-family:ui-monospace,Menlo,monospace;font-size:12px;font-weight:700;color:#8891a0">{{ sec.num }}</span>
+        <h2 style="font-size:16px;font-weight:800;letter-spacing:0.02em;text-transform:uppercase;color:#12161f;margin:0;flex:1">{{ sec.title }}</h2>
+      </div>
+      <p style="font-size:12.5px;color:#5b6472;margin:0 0 14px;line-height:1.65;max-width:560px">{{ sec.lead }}</p>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <sc-for list="{{ sec.items }}" as="item" hint-placeholder-count="5">
+          <div style="display:grid;grid-template-columns:auto 1fr;gap:11px;align-items:baseline;break-inside:avoid">
+            <span style="width:5px;height:5px;border-radius:50%;background:#12161f"></span>
+            <div style="font-size:12.5px;line-height:1.65;color:#1a1f2b">
+              <span style="font-weight:700">{{ item.label }}</span>{{ item.text }}
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </sc-for>
+
+  <div style="break-inside:avoid;margin-top:8px;background:#f4f6fa;border-radius:14px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+    <div>
+      <div style="font-size:15px;font-weight:800;color:#12161f;margin-bottom:6px">Начнём с бесплатного аудита</div>
+      <div style="font-size:12.5px;color:#5b6472;line-height:1.6">Проверим инфраструктуру за 1 день и покажем, что стоит исправить в первую очередь.</div>
+    </div>
+    <div style="text-align:right;font-size:14px;font-weight:800;color:#12161f;white-space:nowrap">+7 (996) 924-16-48</div>
+  </div>
+</doc-page>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const raw = [
+      {
+        title: 'Что входит в обслуживание',
+        lead: 'Постоянное сопровождение инфраструктуры вместо разовых вызовов.',
+        items: [
+          ['Дежурный администратор: ', 'закрепляем за компанией постоянного специалиста, который непрерывно отвечает за инфраструктуру.'],
+          ['Постоянный мониторинг: ', 'регулярное наблюдение за системами и техникой, автоматическая проверка их состояния.'],
+          ['Работа на опережение: ', 'выявляем проблемы через систему мониторинга и устраняем их, зачастую до того, как вы заметите зависание.'],
+          ['Мгновенная реакция: ', 'подключаемся к любым сбоям и инцидентам без ожидания в очереди.'],
+        ],
+      },
+      {
+        title: 'Резервное копирование и защита данных',
+        lead: 'Данные компании сохраняются даже при отказе оборудования.',
+        items: [
+          ['Резервное копирование: ', 'регулярно сохраняем рабочие данные компании.'],
+          ['Быстрое восстановление: ', 'поддерживаем свежую копию, чтобы оперативно восстановить данные при поломке оборудования.'],
+          ['Клиентская база: ', 'обеспечиваем бесперебойную работу и сохранность данных в CRM.'],
+          ['Персональные данные: ', 'защита и корректная обработка, приведение ИТ-процессов в соответствие 152-ФЗ и 242-ФЗ.'],
+        ],
+      },
+      {
+        title: 'Рабочие станции пользователей',
+        lead: 'Компьютеры, ноутбуки и моноблоки, с которыми сотрудники работают каждый день.',
+        items: [
+          ['Базовая настройка и поддержка: ', 'установка, настройка и обновление операционных систем — Windows, macOS, Linux.'],
+          ['Специализированное ПО: ', 'бухгалтерские и клиент-банковские программы, настройка ЭЦП (КриптоПро, Рутокен), офисные пакеты.'],
+          ['Антивирусная защита: ', 'централизованное управление антивирусами, обновление баз, блокировка вредоносных сайтов.'],
+          ['Оптимизация производительности: ', 'очистка систем от «мусора», устранение причин зависания программ, контроль автозагрузки.'],
+          ['Удалённая помощь (Helpdesk): ', 'решение проблем пользователей «здесь и сейчас» по удалённому доступу.'],
+          ['Аппаратный контроль: ', 'отслеживание состояния жёстких дисков (SMART) и температуры процессоров, чтобы предотвратить потерю данных.'],
+        ],
+      },
+      {
+        title: 'Серверная инфраструктура и хранилища данных',
+        lead: 'Стабильная работа серверов, баз данных и прав доступа сотрудников.',
+        items: [
+          ['Администрирование серверов: ', 'поддержка физических серверов и систем виртуализации — Hyper-V, VMware, Proxmox.'],
+          ['Контроль дисковых массивов: ', 'настройка и мониторинг RAID — если один диск выходит из строя, система продолжает работать без потери баз.'],
+          ['Управление доступом: ', 'ведение каталога пользователей, учётные записи новым сотрудникам, права доступа к папкам, мгновенная блокировка при увольнении.'],
+          ['Обслуживание баз данных: ', 'стабильная работа серверов SQL для 1С, CRM-систем и складских программ.'],
+        ],
+      },
+      {
+        title: 'Сетевое оборудование и интернет',
+        lead: 'Сеть, которая не подводит в рабочий день.',
+        items: [
+          ['Маршрутизаторы и коммутаторы: ', 'настройка оборудования MikroTik, Cisco, Keenetic и других.'],
+          ['Организация удалённой работы: ', 'защищённые VPN-каналы для подключения сотрудников из дома к офисной сети.'],
+          ['Сетевая безопасность: ', 'настройка файрволов, защита от взлома RDP и сетевых атак.'],
+          ['Беспроводная сеть (Wi-Fi): ', 'корпоративный и гостевой Wi-Fi с ограничением скорости для гостей и защитой внутренней сети.'],
+          ['Резервирование интернета: ', 'автоматическое переключение на запасного провайдера или 4G/LTE-модем, если основной канал пропал.'],
+        ],
+      },
+      {
+        title: 'Оргтехника и периферия',
+        lead: 'Принтеры, МФУ, сканеры и IP-телефоны в общей сети офиса.',
+        items: [
+          ['Интеграция в сеть: ', 'подключение сетевых принтеров, бесперебойная печать с любого рабочего места.'],
+          ['Настройка сканирования: ', 'маршрутизация сканов напрямую на почту сотрудника или в защищённую сетевую папку.'],
+          ['Программная диагностика: ', 'сброс зависших очередей печати, переустановка сбойных драйверов.'],
+        ],
+      },
+    ];
+
+    return {
+      highlights: [
+        { label: 'Полный контур', text: 'Берём на себя весь ИТ-контур бизнеса, включая обслуживание и защиту данных.' },
+        { label: 'Аудит за 1 день', text: 'Бесплатно проверяем инфраструктуру и выдаём отчёт о рисках с расчётами.' },
+        { label: 'Сопровождение', text: 'Принимаем инфраструктуру на обслуживание и ведём её на регулярной основе.' },
+      ],
+      sections: raw.map((s, i) => ({
+        ...s,
+        num: String(i + 1).padStart(2, '0'),
+        items: s.items.map(([label, text]) => ({ label, text })),
+      })),
+    };
+  }
+}
+
+</script>
+</body>
+</html>
