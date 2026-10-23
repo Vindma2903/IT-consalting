@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /blog-admin.html
+Disallow: /standalone.html
+Disallow: /send.php
+
+Sitemap: https://it-consalting24.ru/sitemap.xml

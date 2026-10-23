@@ -17,10 +17,18 @@ $name    = trim(strip_tags($_POST['name']    ?? ''));
 $phone   = trim(strip_tags($_POST['phone']   ?? ''));
 $company = trim(strip_tags($_POST['company'] ?? ''));
 $comment = trim(strip_tags($_POST['comment'] ?? ''));
+$consent = $_POST['consent'] ?? '';
 
 if ($name === '' || $phone === '') {
     http_response_code(400);
     echo json_encode(['success' => false, 'error' => 'Заполните обязательные поля']);
+    exit;
+}
+
+// Без согласия на обработку ПДн заявку не принимаем (152-ФЗ)
+if ($consent !== 'yes') {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'error' => 'Нет согласия на обработку персональных данных']);
     exit;
 }
 
@@ -38,6 +46,7 @@ if ($comment !== '') {
 }
 $body .= "\n" . str_repeat('─', 40) . "\n";
 $body .= "Дата: " . date('d.m.Y H:i') . "\n";
+$body .= "Согласие на обработку ПДн: получено (Политика, ред. от 23.10.2026)\n";
 
 $headers  = "From: =?UTF-8?B?" . base64_encode("Сайт it-consalting24.ru") . "?= <{$from}>\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
