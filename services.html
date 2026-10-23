@@ -15,7 +15,7 @@
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<script src="./support.js"></script>
+<link href="/fonts/inter.css" rel="stylesheet">
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
@@ -28,162 +28,412 @@
     ym(113752459, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
 </script>
 <!-- /Yandex.Metrika counter -->
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Inter',system-ui,sans-serif;background:#ffffff;color:#1a1f2b;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:#2f6bff}
+  a:hover{color:#1f4fd6}
+  ::selection{background:#dbe6ff}
+
+  /* Шапка — как на главной */
+  .site-header{position:sticky;top:0;z-index:40;background:#101114;border-bottom:1px solid #2a2c33}
+  .site-header-in{max-width:1240px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .site-logo{text-decoration:none;font-size:19px;font-weight:800;letter-spacing:-0.02em;white-space:nowrap;flex-shrink:0;color:#ffffff}
+  .site-logo:hover{color:#ffffff}
+  .site-nav{display:flex;align-items:center;gap:14px;flex-wrap:wrap;flex:1;justify-content:center;min-width:0}
+  .site-nav a{text-decoration:none;color:#ffffff;font-size:14px;font-weight:500;white-space:nowrap}
+  .site-nav a:hover{color:#8fb2ff}
+  .site-nav a.active{font-weight:700}
+  .site-actions{display:flex;align-items:center;gap:14px;flex-shrink:0}
+  .site-phone{text-decoration:none;color:#ffffff;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px;white-space:nowrap}
+  .site-phone:hover{color:#8fb2ff}
+
+  /* Общие элементы */
+  .wrap{max-width:1176px;margin:0 auto}
+  .sec{padding:100px 32px}
+  .dark{background:#101114}
+  .eyebrow{font-size:13px;font-weight:700;color:#5b6472;letter-spacing:0.14em;text-transform:uppercase;margin:0 0 16px}
+  .dark .eyebrow{color:#8891a0}
+  .h2{font-size:clamp(26px,4vw,38px);font-weight:800;letter-spacing:-0.01em;margin:0 0 16px;color:#12161f;text-transform:uppercase;line-height:1.2}
+  .dark .h2{color:#ffffff}
+  .lead{font-size:17px;line-height:1.7;color:#5b6472;margin:0;max-width:640px}
+  .dark .lead{color:#8891a0}
+  .btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#ffffff;border:1px solid rgba(255,255,255,0.5);padding:16px 30px;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;text-decoration:none;font-family:inherit}
+  .btn-ghost:hover{background:#ffffff;color:#12161f;border-color:#ffffff}
+
+  /* Первый экран */
+  .hero{position:relative;background:#0a0c12;padding:100px 32px 90px;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:url(./uploads/hero-bg.webp) center/cover no-repeat;opacity:.45}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,8,16,0.85),rgba(5,8,16,0.4))}
+  .hero .wrap{position:relative;z-index:1}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);color:#ffffff;font-size:13px;font-weight:600;padding:7px 14px;border-radius:100px;margin-bottom:28px}
+  .hero h1{font-size:clamp(32px,4.6vw,58px);line-height:1.12;font-weight:800;letter-spacing:-0.01em;margin:0 0 24px;color:#ffffff;text-transform:uppercase;max-width:820px}
+  .hero p{font-size:19px;line-height:1.6;color:rgba(255,255,255,0.8);margin:0 0 40px;max-width:720px}
+  .hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+
+  /* Три преимущества */
+  .highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .hl{background:#1c1d22;border:1px solid #2a2c33;border-radius:24px;padding:32px}
+  .hl-num{font-size:14px;font-weight:800;color:#2f6bff;margin-bottom:18px}
+  .hl h3{font-size:21px;font-weight:700;margin:0 0 10px;color:#ffffff}
+  .hl p{font-size:15px;line-height:1.6;color:#8891a0;margin:0}
+
+  /* Разделы услуг */
+  .svc{display:grid;grid-template-columns:340px 1fr;gap:56px;align-items:start}
+  .svc-head{position:sticky;top:100px}
+  .svc-num{font-size:clamp(44px,6vw,72px);font-weight:800;color:#e2e5ea;line-height:1;letter-spacing:-0.02em;margin-bottom:20px}
+  .dark .svc-num{color:#3a3d45}
+  .svc-head .lead{font-size:16px}
+  .svc-more{display:inline-block;margin-top:20px;font-size:15px;font-weight:700;text-decoration:none}
+  .dark .svc-more{color:#8fb2ff}
+  .table{border-radius:16px;overflow:hidden;border:1px solid #e2e5ea}
+  .row{display:grid;grid-template-columns:1fr 1.6fr;padding:22px 28px;gap:24px;border-top:1px solid #e2e5ea}
+  .row:first-child{border-top:none}
+  .row:nth-child(odd){background:#f6f8fc}
+  .row-t{font-family:ui-monospace,Menlo,monospace;font-size:13.5px;font-weight:700;letter-spacing:0.02em;text-transform:uppercase;color:#12161f;line-height:1.5}
+  .row-d{font-size:15px;line-height:1.6;color:#3a4150}
+  .dark .table{border-color:#2a2c33}
+  .dark .row{border-top-color:#2a2c33}
+  .dark .row:nth-child(odd){background:#1c1d22}
+  .dark .row-t{color:#ffffff}
+  .dark .row-d{color:#c7ccd6}
+
+  /* Форма */
+  .contact{display:grid;grid-template-columns:1fr 1.3fr;gap:56px;align-items:start}
+  .mono-eyebrow{font-family:ui-monospace,Menlo,monospace;font-size:13px;font-weight:700;color:#2f6bff;letter-spacing:0.05em;margin-bottom:20px}
+  .contact h2{font-size:clamp(24px,4.5vw,36px);font-weight:800;letter-spacing:-0.01em;margin:0 0 24px;color:#12161f;line-height:1.25}
+  .phone-box{text-decoration:none;display:flex;align-items:center;justify-content:space-between;background:#f6f8fc;border-radius:12px;padding:20px 24px;color:#12161f;font-family:ui-monospace,Menlo,monospace;font-size:14px;font-weight:700;letter-spacing:0.03em}
+  .phone-box:hover{background:#eef1f6;color:#12161f}
+  .form{display:flex;flex-direction:column;gap:16px}
+  .form-row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .form input[type=text],.form input[type=tel],.form textarea{width:100%;padding:18px 20px;border-radius:12px;border:none;background:#f6f8fc;font-size:15px;font-family:inherit;color:#12161f}
+  .form input:focus,.form textarea:focus{outline:2px solid #8891a0}
+  .form textarea{resize:none}
+  .consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#5b6472;line-height:1.5;cursor:pointer}
+  .consent input{margin:2px 0 0;width:16px;height:16px;flex-shrink:0;accent-color:#2f6bff}
+  .consent a{color:inherit}
+  .msg{font-size:13px;margin:0;line-height:1.5}
+  .msg:empty{display:none}
+  .msg.err{color:#c0392b}
+  .msg.ok{color:#1f8a4c;font-size:15px;font-weight:600}
+  .submit{background:#12161f;color:#ffffff;border:none;padding:20px 24px;border-radius:12px;font-family:ui-monospace,Menlo,monospace;font-size:14px;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:space-between}
+  .submit:hover{background:#2f6bff}
+  .submit:disabled{opacity:.6;cursor:default}
+
+  /* Подвал — как на главной */
+  .footer-grid{max-width:1240px;margin:0 auto;padding:64px 32px 32px;display:grid;grid-template-columns:1fr 1fr 1fr 1.2fr;gap:32px}
+  .f-title{font-size:13px;font-weight:700;color:#8891a0;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:20px}
+  .f-links{display:flex;flex-direction:column;gap:14px}
+  .f-links a{text-decoration:none;color:#c7ccd6;font-size:15px}
+  .f-links a:hover{color:#ffffff}
+  .f-links a.f-phone{color:#ffffff;font-size:16px;font-weight:700}
+  .f-links a.f-phone:hover{color:#8fb2ff}
+  .f-bottom{border-top:1px solid #2a2c33}
+  .f-bottom-in{max-width:1240px;margin:0 auto;padding:24px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  .f-brand{font-size:16px;font-weight:800;letter-spacing:-0.02em;color:#ffffff}
+  .f-copy{font-size:13px;color:#8891a0}
+  .f-copy a{color:#8891a0}
+  .f-copy a:hover{color:#ffffff}
+  .f-badge{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;letter-spacing:0.03em;text-transform:uppercase;color:#8891a0}
+
+  /* Планшет */
+  @media (max-width:1024px){
+    .sec,.hero{padding-left:24px;padding-right:24px}
+    .highlights{grid-template-columns:1fr}
+    .svc{grid-template-columns:1fr;gap:28px}
+    .svc-head{position:static}
+    .svc-num{margin-bottom:12px}
+    .contact{grid-template-columns:1fr;gap:40px}
+    .footer-grid{grid-template-columns:1fr 1fr}
+  }
+  /* Телефон */
+  @media (max-width:640px){
+    .sec{padding:64px 20px}
+    .hero{padding:56px 20px 64px}
+    .badge{margin-bottom:20px;font-size:12px}
+    .hero p{font-size:16.5px;margin-bottom:28px}
+    .hero-btns .btn-ghost{width:100%;justify-content:center}
+    .hl{padding:24px;border-radius:20px}
+    .svc-num{font-size:40px}
+    .row{grid-template-columns:1fr;gap:8px;padding:18px 20px}
+    .row-t{color:#2f6bff}
+    .dark .row-t{color:#8fb2ff}
+    .form-row2{grid-template-columns:1fr}
+    .footer-grid{padding:48px 20px 32px;gap:28px 20px}
+    .footer-grid > div:last-child{grid-column:1 / -1}
+    .f-bottom-in{padding-left:20px;padding-right:20px}
+  }
+</style>
 <link rel="stylesheet" href="/mobile.css">
+<script src="/mobile.js" defer></script>
 </head>
 <body>
 <noscript><div><img src="https://mc.yandex.ru/watch/113752459" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<x-dc>
 
-<helmet>
-<link href="/fonts/inter.css" rel="stylesheet">
-<script src="./doc-page.js"></script>
-<style>
-  body{margin:0;font-family:'Inter',system-ui,sans-serif;color:#12161f;-webkit-font-smoothing:antialiased}
-  doc-page:not(:defined){visibility:hidden}
-  a{color:#2f6bff}
-  a:hover{color:#1f4fd6}
-</style>
-</helmet>
-
-<doc-page margin="0.65in">
-  <div slot="footer" class="doc-footer" style="display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:10.5px;color:#5b6472;border-top:1px solid #e2e5ea;padding-top:8px">
-    <span>ООО «Про технологии» · г. Оренбург, проезд Автоматики, д.10/3Б, офис 10</span>
-    <span>+7 (996) 924-16-48</span>
+<!-- ШАПКА -->
+<header class="site-header">
+  <div class="site-header-in">
+    <a href="./" class="site-logo">Про технологии</a>
+    <nav class="site-nav">
+      <a href="./services.html" class="active">Услуги</a>
+      <a href="./#stages">Этапы работы</a>
+      <a href="./about.html">О компании</a>
+      <a href="./#pricing">Стоимость</a>
+      <a href="./blog.html">Блог</a>
+      <a href="./#faq">FAQ</a>
+    </nav>
+    <div class="site-actions">
+      <a href="tel:+79969241648" class="site-phone" aria-label="Позвонить: +7 (996) 924-16-48">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <span class="site-phone-num">+7 (996) 924-16-48</span>
+      </a>
+      <button type="button" class="nav-toggle" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
   </div>
+</header>
 
-  <div class="doc-hero" style="background:#101114;color:#ffffff;padding:36px 40px;border-radius:18px;margin-bottom:38px">
-    <div class="doc-hero-top" style="display:flex;align-items:flex-start;justify-content:space-between;gap:28px;margin-bottom:28px">
-      <div style="font-size:19px;font-weight:800;letter-spacing:-0.02em">Про технологии</div>
-      <div style="text-align:right;font-size:11.5px;color:#8891a0;line-height:1.65">
-        +7 (996) 924-16-48<br>protechnologii22@yandex.ru
+<main>
+
+<!-- ПЕРВЫЙ ЭКРАН -->
+<section class="hero">
+  <div class="wrap">
+    <div class="badge">Услуги и обслуживание</div>
+    <h1>Берём на себя весь ИТ-контур бизнеса</h1>
+    <p>ИТ-обслуживание и защита данных для офисов и магазинов. Бесплатный аудит инфраструктуры за 1 день с отчётом о рисках и расчётами.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-ghost">Получить бесплатный аудит</a>
+    </div>
+  </div>
+</section>
+
+<!-- ПРЕИМУЩЕСТВА -->
+<section class="sec dark">
+  <div class="wrap">
+    <div class="eyebrow">Как мы работаем</div>
+    <div class="highlights">
+      <div class="hl">
+        <div class="hl-num">01.</div>
+        <h3>Полный контур</h3>
+        <p>Берём на себя весь ИТ-контур бизнеса, включая обслуживание и защиту данных.</p>
+      </div>
+      <div class="hl">
+        <div class="hl-num">02.</div>
+        <h3>Аудит за 1 день</h3>
+        <p>Бесплатно проверяем инфраструктуру и выдаём отчёт о рисках с расчётами.</p>
+      </div>
+      <div class="hl">
+        <div class="hl-num">03.</div>
+        <h3>Сопровождение</h3>
+        <p>Принимаем инфраструктуру на обслуживание и ведём её на регулярной основе.</p>
       </div>
     </div>
-    <h1 style="font-size:32px;font-weight:800;letter-spacing:-0.015em;margin:0 0 14px;line-height:1.15;text-transform:uppercase">Услуги<br>и обслуживание</h1>
-    <p style="font-size:13.5px;line-height:1.7;color:#c7ccd6;margin:0;max-width:460px">Берём на себя весь ИТ-контур бизнеса, включая ИТ-обслуживание и защиту данных. Бесплатный аудит инфраструктуры за 1 день с отчётом о рисках и расчётами.</p>
   </div>
+</section>
 
-  <div class="doc-highlights" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:40px;break-inside:avoid">
-    <sc-for list="{{ highlights }}" as="h" hint-placeholder-count="3">
-      <div style="border:1px solid #e2e5ea;border-radius:12px;padding:16px 18px">
-        <div style="font-size:11px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:#12161f;margin-bottom:8px">{{ h.label }}</div>
-        <div style="font-size:12.5px;line-height:1.55;color:#3a4150">{{ h.text }}</div>
-      </div>
-    </sc-for>
-  </div>
-
-  <sc-for list="{{ sections }}" as="sec" hint-placeholder-count="6">
-    <div style="break-inside:avoid;margin-bottom:34px">
-      <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #12161f">
-        <span style="font-family:ui-monospace,Menlo,monospace;font-size:12px;font-weight:700;color:#5b6472">{{ sec.num }}</span>
-        <h2 style="font-size:16px;font-weight:800;letter-spacing:0.02em;text-transform:uppercase;color:#12161f;margin:0;flex:1">{{ sec.title }}</h2>
-      </div>
-      <p style="font-size:12.5px;color:#5b6472;margin:0 0 14px;line-height:1.65;max-width:560px">{{ sec.lead }}</p>
-      <div style="display:flex;flex-direction:column;gap:10px">
-        <sc-for list="{{ sec.items }}" as="item" hint-placeholder-count="5">
-          <div style="display:grid;grid-template-columns:auto 1fr;gap:11px;align-items:baseline;break-inside:avoid">
-            <span style="width:5px;height:5px;border-radius:50%;background:#12161f"></span>
-            <div style="font-size:12.5px;line-height:1.65;color:#1a1f2b">
-              <span style="font-weight:700">{{ item.label }}</span>{{ item.text }}
-            </div>
-          </div>
-        </sc-for>
-      </div>
+<!-- 01 -->
+<section class="sec">
+  <div class="wrap svc">
+    <div class="svc-head">
+      <div class="svc-num">01</div>
+      <h2 class="h2">Что входит в обслуживание</h2>
+      <p class="lead">Постоянное сопровождение инфраструктуры вместо разовых вызовов.</p>
     </div>
-  </sc-for>
+    <div class="table">
+      <div class="row"><div class="row-t">Дежурный администратор</div><div class="row-d">Закрепляем за компанией постоянного специалиста, который непрерывно отвечает за инфраструктуру.</div></div>
+      <div class="row"><div class="row-t">Постоянный мониторинг</div><div class="row-d">Регулярное наблюдение за системами и техникой, автоматическая проверка их состояния.</div></div>
+      <div class="row"><div class="row-t">Работа на опережение</div><div class="row-d">Выявляем проблемы через систему мониторинга и устраняем их, зачастую до того, как вы заметите зависание.</div></div>
+      <div class="row"><div class="row-t">Мгновенная реакция</div><div class="row-d">Подключаемся к любым сбоям и инцидентам без ожидания в очереди.</div></div>
+    </div>
+  </div>
+</section>
 
-  <div style="break-inside:avoid;margin-top:8px;background:#f4f6fa;border-radius:14px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+<!-- 02 -->
+<section class="sec dark">
+  <div class="wrap svc">
+    <div class="svc-head">
+      <div class="svc-num">02</div>
+      <h2 class="h2">Резервное копирование и защита данных</h2>
+      <p class="lead">Данные компании сохраняются даже при отказе оборудования.</p>
+    </div>
+    <div class="table">
+      <div class="row"><div class="row-t">Резервное копирование</div><div class="row-d">Регулярно сохраняем рабочие данные компании.</div></div>
+      <div class="row"><div class="row-t">Быстрое восстановление</div><div class="row-d">Поддерживаем свежую копию, чтобы оперативно восстановить данные при поломке оборудования.</div></div>
+      <div class="row"><div class="row-t">Клиентская база</div><div class="row-d">Обеспечиваем бесперебойную работу и сохранность данных в CRM.</div></div>
+      <div class="row"><div class="row-t">Персональные данные</div><div class="row-d">Защита и корректная обработка, приведение ИТ-процессов в соответствие 152-ФЗ и 242-ФЗ.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 -->
+<section class="sec">
+  <div class="wrap svc">
+    <div class="svc-head">
+      <div class="svc-num">03</div>
+      <h2 class="h2">Рабочие станции пользователей</h2>
+      <p class="lead">Компьютеры, ноутбуки и моноблоки, с которыми сотрудники работают каждый день.</p>
+    </div>
+    <div class="table">
+      <div class="row"><div class="row-t">Базовая настройка и поддержка</div><div class="row-d">Установка, настройка и обновление операционных систем — Windows, macOS, Linux.</div></div>
+      <div class="row"><div class="row-t">Специализированное ПО</div><div class="row-d">Бухгалтерские и клиент-банковские программы, настройка ЭЦП (КриптоПро, Рутокен), офисные пакеты.</div></div>
+      <div class="row"><div class="row-t">Антивирусная защита</div><div class="row-d">Централизованное управление антивирусами, обновление баз, блокировка вредоносных сайтов.</div></div>
+      <div class="row"><div class="row-t">Оптимизация производительности</div><div class="row-d">Очистка систем от «мусора», устранение причин зависания программ, контроль автозагрузки.</div></div>
+      <div class="row"><div class="row-t">Удалённая помощь (Helpdesk)</div><div class="row-d">Решение проблем пользователей «здесь и сейчас» по удалённому доступу.</div></div>
+      <div class="row"><div class="row-t">Аппаратный контроль</div><div class="row-d">Отслеживание состояния жёстких дисков (SMART) и температуры процессоров, чтобы предотвратить потерю данных.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 -->
+<section class="sec dark">
+  <div class="wrap svc">
+    <div class="svc-head">
+      <div class="svc-num">04</div>
+      <h2 class="h2">Серверная инфраструктура и хранилища данных</h2>
+      <p class="lead">Стабильная работа серверов, баз данных и прав доступа сотрудников.</p>
+      <a href="./servers.html" class="svc-more">Администрирование серверов 1С →</a>
+    </div>
+    <div class="table">
+      <div class="row"><div class="row-t">Администрирование серверов</div><div class="row-d">Поддержка физических серверов и систем виртуализации — Hyper-V, VMware, Proxmox.</div></div>
+      <div class="row"><div class="row-t">Контроль дисковых массивов</div><div class="row-d">Настройка и мониторинг RAID — если один диск выходит из строя, система продолжает работать без потери баз.</div></div>
+      <div class="row"><div class="row-t">Управление доступом</div><div class="row-d">Ведение каталога пользователей, учётные записи новым сотрудникам, права доступа к папкам, мгновенная блокировка при увольнении.</div></div>
+      <div class="row"><div class="row-t">Обслуживание баз данных</div><div class="row-d">Стабильная работа серверов SQL для 1С, CRM-систем и складских программ.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 -->
+<section class="sec">
+  <div class="wrap svc">
+    <div class="svc-head">
+      <div class="svc-num">05</div>
+      <h2 class="h2">Сетевое оборудование и интернет</h2>
+      <p class="lead">Сеть, которая не подводит в рабочий день.</p>
+    </div>
+    <div class="table">
+      <div class="row"><div class="row-t">Маршрутизаторы и коммутаторы</div><div class="row-d">Настройка оборудования MikroTik, Cisco, Keenetic и других.</div></div>
+      <div class="row"><div class="row-t">Организация удалённой работы</div><div class="row-d">Защищённые VPN-каналы для подключения сотрудников из дома к офисной сети.</div></div>
+      <div class="row"><div class="row-t">Сетевая безопасность</div><div class="row-d">Настройка файрволов, защита от взлома RDP и сетевых атак.</div></div>
+      <div class="row"><div class="row-t">Беспроводная сеть (Wi-Fi)</div><div class="row-d">Корпоративный и гостевой Wi-Fi с ограничением скорости для гостей и защитой внутренней сети.</div></div>
+      <div class="row"><div class="row-t">Резервирование интернета</div><div class="row-d">Автоматическое переключение на запасного провайдера или 4G/LTE-модем, если основной канал пропал.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 -->
+<section class="sec dark">
+  <div class="wrap svc">
+    <div class="svc-head">
+      <div class="svc-num">06</div>
+      <h2 class="h2">Оргтехника и периферия</h2>
+      <p class="lead">Принтеры, МФУ, сканеры и IP-телефоны в общей сети офиса.</p>
+    </div>
+    <div class="table">
+      <div class="row"><div class="row-t">Интеграция в сеть</div><div class="row-d">Подключение сетевых принтеров, бесперебойная печать с любого рабочего места.</div></div>
+      <div class="row"><div class="row-t">Настройка сканирования</div><div class="row-d">Маршрутизация сканов напрямую на почту сотрудника или в защищённую сетевую папку.</div></div>
+      <div class="row"><div class="row-t">Программная диагностика</div><div class="row-d">Сброс зависших очередей печати, переустановка сбойных драйверов.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ЗАЯВКА -->
+<section id="contact" class="sec">
+  <div class="wrap contact">
     <div>
-      <div style="font-size:15px;font-weight:800;color:#12161f;margin-bottom:6px">Начнём с бесплатного аудита</div>
-      <div style="font-size:12.5px;color:#5b6472;line-height:1.6">Проверим инфраструктуру за 1 день и покажем, что стоит исправить в первую очередь.</div>
+      <div class="mono-eyebrow">[ ОБРАТНАЯ СВЯЗЬ ]</div>
+      <h2>Запишитесь на бесплатный аудит — расскажем, что можно улучшить</h2>
+      <a href="tel:+79969241648" class="phone-box">+7 (996) 924-16-48 <span style="font-size:18px">→</span></a>
     </div>
-    <div style="text-align:right;font-size:14px;font-weight:800;color:#12161f;white-space:nowrap">+7 (996) 924-16-48</div>
+    <form class="form" id="lead-form" novalidate>
+      <div class="form-row2">
+        <input type="text" name="name" placeholder="Имя*" aria-label="Имя" autocomplete="name">
+        <input type="text" name="company" placeholder="Компания" aria-label="Компания" autocomplete="organization">
+      </div>
+      <input type="tel" name="phone" placeholder="Телефон*" aria-label="Телефон" autocomplete="tel">
+      <textarea name="comment" rows="3" placeholder="Расскажите о задаче" aria-label="Расскажите о задаче"></textarea>
+      <label class="consent">
+        <input type="checkbox" name="consent" value="yes">
+        <span>Даю <a href="./consent.html" target="_blank">согласие на обработку персональных данных</a> и принимаю <a href="./privacy.html" target="_blank">политику конфиденциальности</a></span>
+      </label>
+      <p class="msg" role="alert"></p>
+      <button type="submit" class="submit"><span class="submit-label">Отправить заявку</span><span style="font-size:18px">→</span></button>
+    </form>
   </div>
-</doc-page>
+</section>
 
-</x-dc>
-<script type="text/x-dc" data-dc-script>
-class Component extends DCLogic {
-  renderVals() {
-    const raw = [
-      {
-        title: 'Что входит в обслуживание',
-        lead: 'Постоянное сопровождение инфраструктуры вместо разовых вызовов.',
-        items: [
-          ['Дежурный администратор: ', 'закрепляем за компанией постоянного специалиста, который непрерывно отвечает за инфраструктуру.'],
-          ['Постоянный мониторинг: ', 'регулярное наблюдение за системами и техникой, автоматическая проверка их состояния.'],
-          ['Работа на опережение: ', 'выявляем проблемы через систему мониторинга и устраняем их, зачастую до того, как вы заметите зависание.'],
-          ['Мгновенная реакция: ', 'подключаемся к любым сбоям и инцидентам без ожидания в очереди.'],
-        ],
-      },
-      {
-        title: 'Резервное копирование и защита данных',
-        lead: 'Данные компании сохраняются даже при отказе оборудования.',
-        items: [
-          ['Резервное копирование: ', 'регулярно сохраняем рабочие данные компании.'],
-          ['Быстрое восстановление: ', 'поддерживаем свежую копию, чтобы оперативно восстановить данные при поломке оборудования.'],
-          ['Клиентская база: ', 'обеспечиваем бесперебойную работу и сохранность данных в CRM.'],
-          ['Персональные данные: ', 'защита и корректная обработка, приведение ИТ-процессов в соответствие 152-ФЗ и 242-ФЗ.'],
-        ],
-      },
-      {
-        title: 'Рабочие станции пользователей',
-        lead: 'Компьютеры, ноутбуки и моноблоки, с которыми сотрудники работают каждый день.',
-        items: [
-          ['Базовая настройка и поддержка: ', 'установка, настройка и обновление операционных систем — Windows, macOS, Linux.'],
-          ['Специализированное ПО: ', 'бухгалтерские и клиент-банковские программы, настройка ЭЦП (КриптоПро, Рутокен), офисные пакеты.'],
-          ['Антивирусная защита: ', 'централизованное управление антивирусами, обновление баз, блокировка вредоносных сайтов.'],
-          ['Оптимизация производительности: ', 'очистка систем от «мусора», устранение причин зависания программ, контроль автозагрузки.'],
-          ['Удалённая помощь (Helpdesk): ', 'решение проблем пользователей «здесь и сейчас» по удалённому доступу.'],
-          ['Аппаратный контроль: ', 'отслеживание состояния жёстких дисков (SMART) и температуры процессоров, чтобы предотвратить потерю данных.'],
-        ],
-      },
-      {
-        title: 'Серверная инфраструктура и хранилища данных',
-        lead: 'Стабильная работа серверов, баз данных и прав доступа сотрудников.',
-        items: [
-          ['Администрирование серверов: ', 'поддержка физических серверов и систем виртуализации — Hyper-V, VMware, Proxmox.'],
-          ['Контроль дисковых массивов: ', 'настройка и мониторинг RAID — если один диск выходит из строя, система продолжает работать без потери баз.'],
-          ['Управление доступом: ', 'ведение каталога пользователей, учётные записи новым сотрудникам, права доступа к папкам, мгновенная блокировка при увольнении.'],
-          ['Обслуживание баз данных: ', 'стабильная работа серверов SQL для 1С, CRM-систем и складских программ.'],
-        ],
-      },
-      {
-        title: 'Сетевое оборудование и интернет',
-        lead: 'Сеть, которая не подводит в рабочий день.',
-        items: [
-          ['Маршрутизаторы и коммутаторы: ', 'настройка оборудования MikroTik, Cisco, Keenetic и других.'],
-          ['Организация удалённой работы: ', 'защищённые VPN-каналы для подключения сотрудников из дома к офисной сети.'],
-          ['Сетевая безопасность: ', 'настройка файрволов, защита от взлома RDP и сетевых атак.'],
-          ['Беспроводная сеть (Wi-Fi): ', 'корпоративный и гостевой Wi-Fi с ограничением скорости для гостей и защитой внутренней сети.'],
-          ['Резервирование интернета: ', 'автоматическое переключение на запасного провайдера или 4G/LTE-модем, если основной канал пропал.'],
-        ],
-      },
-      {
-        title: 'Оргтехника и периферия',
-        lead: 'Принтеры, МФУ, сканеры и IP-телефоны в общей сети офиса.',
-        items: [
-          ['Интеграция в сеть: ', 'подключение сетевых принтеров, бесперебойная печать с любого рабочего места.'],
-          ['Настройка сканирования: ', 'маршрутизация сканов напрямую на почту сотрудника или в защищённую сетевую папку.'],
-          ['Программная диагностика: ', 'сброс зависших очередей печати, переустановка сбойных драйверов.'],
-        ],
-      },
-    ];
+</main>
 
-    return {
-      highlights: [
-        { label: 'Полный контур', text: 'Берём на себя весь ИТ-контур бизнеса, включая обслуживание и защиту данных.' },
-        { label: 'Аудит за 1 день', text: 'Бесплатно проверяем инфраструктуру и выдаём отчёт о рисках с расчётами.' },
-        { label: 'Сопровождение', text: 'Принимаем инфраструктуру на обслуживание и ведём её на регулярной основе.' },
-      ],
-      sections: raw.map((s, i) => ({
-        ...s,
-        num: String(i + 1).padStart(2, '0'),
-        items: s.items.map(([label, text]) => ({ label, text })),
-      })),
-    };
-  }
-}
+<!-- ПОДВАЛ -->
+<footer class="dark">
+  <div class="footer-grid">
+    <div>
+      <div class="f-title">Услуги</div>
+      <div class="f-links">
+        <a href="./services.html">Все услуги</a>
+        <a href="./servers.html">Серверы и 1С</a>
+        <a href="./#services">Компьютеры и сети</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-title">Компания</div>
+      <div class="f-links">
+        <a href="./about.html">О компании</a>
+        <a href="./#pricing">Тарифы</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-title">Инфо</div>
+      <div class="f-links">
+        <a href="./#faq">FAQ</a>
+        <a href="./blog.html">Блог</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-title">Контакты</div>
+      <div class="f-links">
+        <a href="tel:+79969241648" class="f-phone">+7 (996) 924-16-48</a>
+      </div>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <div class="f-bottom-in">
+      <div class="f-brand">Про технологии</div>
+      <div class="f-copy">© 2026 Про технологии. ИТ-консалтинг для бизнеса. · <a href="./privacy.html">Политика конфиденциальности</a></div>
+      <div class="f-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8891a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"></path><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"></path></svg>
+        Аккредитованы Минцифры
+      </div>
+    </div>
+  </div>
+</footer>
 
+<script>
+(function () {
+  var f = document.getElementById('lead-form');
+  if (!f) return;
+  var msg = f.querySelector('.msg');
+  var btn = f.querySelector('.submit');
+  var label = f.querySelector('.submit-label');
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    msg.className = 'msg';
+    msg.textContent = '';
+    if (!f.name.value.trim() || !f.phone.value.trim()) { msg.className = 'msg err'; msg.textContent = 'Укажите имя и телефон'; return; }
+    if (!f.consent.checked) { msg.className = 'msg err'; msg.textContent = 'Отметьте согласие на обработку персональных данных'; return; }
+    btn.disabled = true; label.textContent = 'Отправка...';
+    var data = new FormData(f);
+    data.set('consent', 'yes');
+    fetch('/send.php', { method: 'POST', body: data })
+      .then(function (r) { if (!r.ok) throw new Error(); })
+      .then(function () {
+        f.reset();
+        msg.className = 'msg ok';
+        msg.textContent = '✓ Заявка принята! Менеджер свяжется с вами в течение 15 минут.';
+        if (window.ym) window.ym(113752459, 'reachGoal', 'lead');
+      })
+      .catch(function () { msg.className = 'msg err'; msg.textContent = 'Не удалось отправить заявку. Позвоните нам: +7 (996) 924-16-48'; })
+      .then(function () { btn.disabled = false; label.textContent = 'Отправить заявку'; });
+  });
+})();
 </script>
 </body>
 </html>
