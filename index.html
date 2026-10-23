@@ -15,8 +15,21 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "@id": "https://it-consalting24.ru/#org", "name": "Про технологии", "legalName": "ООО «Про технологии»", "url": "https://it-consalting24.ru/", "telephone": "+7-996-924-16-48", "email": "protechnologii22@yandex.ru", "description": "ИТ-обслуживание и ИТ-аутсорсинг для малого бизнеса в Оренбурге: компьютеры, серверы, сети, оргтехника, защита данных.", "address": {"@type": "PostalAddress", "streetAddress": "проезд Автоматики, д. 10/3Б, офис 10", "addressLocality": "Оренбург", "addressRegion": "Оренбургская область", "postalCode": "460048", "addressCountry": "RU"}, "areaServed": {"@type": "City", "name": "Оренбург"}, "taxID": "5609199039"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Как быстро вы приезжаете?", "acceptedAnswer": {"@type": "Answer", "text": "В большинстве случаев выезжаем в день обращения, для срочных задач — в течение 2–3 часов по Оренбургу."}}, {"@type": "Question", "name": "Работаете ли вы с разовыми задачами?", "acceptedAnswer": {"@type": "Answer", "text": "Да, можно вызвать нас один раз — например заменить картридж или настроить компьютер — без абонемента."}}, {"@type": "Question", "name": "Работаете ли с небольшими компаниями?", "acceptedAnswer": {"@type": "Answer", "text": "Именно с ними мы и работаем чаще всего: магазины, офисы и компании до 80 рабочих мест."}}]}</script>
 <script src="./support.js"></script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113752459', 'ym');
+
+    ym(113752459, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<!-- /Yandex.Metrika counter -->
 </head>
 <body>
+<noscript><div><img src="https://mc.yandex.ru/watch/113752459" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <x-dc>
 <helmet>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -588,6 +601,7 @@ class Component extends DCLogic {
       submitted: true, submitting: false, popupOpen: false,
       formName: '', formPhone: '', formCompany: '', formComment: '', formConsent: false,
     });
+    if (window.ym) window.ym(113752459, 'reachGoal', 'lead'); // цель «Заявка» в Метрике
     setTimeout(() => this.setState({ submitted: false }), 5000);
   };
 
