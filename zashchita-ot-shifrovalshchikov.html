@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Защита от шифровальщиков: как уберечь данные офиса</title>
+<meta name="description" content="Защита от шифровальщиков для малого бизнеса: как вирус попадает в сеть, какие бэкапы спасают, чек-лист мер и что делать, если файлы уже зашифрованы.">
+<link rel="canonical" href="https://it-consalting24.ru/zashchita-ot-shifrovalshchikov.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Про технологии">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Защита от шифровальщиков: как уберечь данные офиса">
+<meta property="og:description" content="Защита от шифровальщиков для малого бизнеса: как вирус попадает в сеть, какие бэкапы спасают, чек-лист мер и что делать, если файлы уже зашифрованы.">
+<meta property="og:url" content="https://it-consalting24.ru/zashchita-ot-shifrovalshchikov.html">
+<link href="/fonts/inter.css" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Inter',system-ui,sans-serif;background:#ffffff;color:#1a1f2b;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:#2f6bff}
+  a:hover{color:#1f4fd6}
+  ::selection{background:#dbe6ff}
+
+  /* Шапка — как на главной */
+  .site-header{position:sticky;top:0;z-index:40;background:#101114;border-bottom:1px solid #2a2c33}
+  .site-header-in{max-width:1240px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .site-logo{text-decoration:none;font-size:19px;font-weight:800;letter-spacing:-0.02em;white-space:nowrap;flex-shrink:0;color:#ffffff}
+  .site-logo:hover{color:#ffffff}
+  .site-nav{display:flex;align-items:center;gap:14px;flex-wrap:wrap;flex:1;justify-content:center;min-width:0}
+  .site-nav a{text-decoration:none;color:#ffffff;font-size:14px;font-weight:500;white-space:nowrap}
+  .site-nav a:hover{color:#8fb2ff}
+  .site-nav a.active{font-weight:700}
+  .site-actions{display:flex;align-items:center;gap:14px;flex-shrink:0}
+  .site-phone{text-decoration:none;color:#ffffff;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px;white-space:nowrap}
+  .site-phone:hover{color:#8fb2ff}
+
+  /* Общие элементы */
+  .wrap{max-width:1176px;margin:0 auto}
+  .sec{padding:100px 32px}
+  .dark{background:#101114}
+  .eyebrow{font-size:13px;font-weight:700;color:#5b6472;letter-spacing:0.14em;text-transform:uppercase;margin:0 0 16px}
+  .dark .eyebrow{color:#8891a0}
+  .h2{font-size:clamp(26px,4vw,38px);font-weight:800;letter-spacing:-0.01em;margin:0 0 16px;color:#12161f;text-transform:uppercase;line-height:1.2}
+  .dark .h2{color:#ffffff}
+  .lead{font-size:17px;line-height:1.7;color:#5b6472;margin:0;max-width:640px}
+  .dark .lead{color:#8891a0}
+  .btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#ffffff;border:1px solid rgba(255,255,255,0.5);padding:16px 30px;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;text-decoration:none;font-family:inherit}
+  .btn-ghost:hover{background:#ffffff;color:#12161f;border-color:#ffffff}
+
+  /* Первый экран */
+  .hero{position:relative;background:#0a0c12;padding:100px 32px 90px;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:url(./uploads/hero-bg.webp) center/cover no-repeat;opacity:.45}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,8,16,0.85),rgba(5,8,16,0.4))}
+  .hero .wrap{position:relative;z-index:1}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);color:#ffffff;font-size:13px;font-weight:600;padding:7px 14px;border-radius:100px;margin-bottom:28px}
+  .hero h1{font-size:clamp(32px,4.6vw,58px);line-height:1.12;font-weight:800;letter-spacing:-0.01em;margin:0 0 24px;color:#ffffff;text-transform:uppercase;max-width:820px}
+  .hero p{font-size:19px;line-height:1.6;color:rgba(255,255,255,0.8);margin:0 0 40px;max-width:720px}
+  .hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+
+  /* Три преимущества */
+  .highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .hl{background:#1c1d22;border:1px solid #2a2c33;border-radius:24px;padding:32px}
+  .hl-num{font-size:14px;font-weight:800;color:#2f6bff;margin-bottom:18px}
+  .hl h3{font-size:21px;font-weight:700;margin:0 0 10px;color:#ffffff}
+  .hl p{font-size:15px;line-height:1.6;color:#8891a0;margin:0}
+
+  /* Разделы услуг */
+  .svc{display:grid;grid-template-columns:340px 1fr;gap:56px;align-items:start}
+  .svc-head{position:sticky;top:100px}
+  .svc-num{font-size:clamp(44px,6vw,72px);font-weight:800;color:#e2e5ea;line-height:1;letter-spacing:-0.02em;margin-bottom:20px}
+  .dark .svc-num{color:#3a3d45}
+  .svc-head .lead{font-size:16px}
+  .svc-more{display:inline-block;margin-top:20px;font-size:15px;font-weight:700;text-decoration:none}
+  .dark .svc-more{color:#8fb2ff}
+  .table{border-radius:16px;overflow:hidden;border:1px solid #e2e5ea}
+  .row{display:grid;grid-template-columns:1fr 1.6fr;padding:22px 28px;gap:24px;border-top:1px solid #e2e5ea}
+  .row:first-child{border-top:none}
+  .row:nth-child(odd){background:#f6f8fc}
+  .row-t{font-family:ui-monospace,Menlo,monospace;font-size:13.5px;font-weight:700;letter-spacing:0.02em;text-transform:uppercase;color:#12161f;line-height:1.5}
+  .row-d{font-size:15px;line-height:1.6;color:#3a4150}
+  .dark .table{border-color:#2a2c33}
+  .dark .row{border-top-color:#2a2c33}
+  .dark .row:nth-child(odd){background:#1c1d22}
+  .dark .row-t{color:#ffffff}
+  .dark .row-d{color:#c7ccd6}
+
+  /* Форма */
+  .contact{display:grid;grid-template-columns:1fr 1.3fr;gap:56px;align-items:start}
+  .mono-eyebrow{font-family:ui-monospace,Menlo,monospace;font-size:13px;font-weight:700;color:#2f6bff;letter-spacing:0.05em;margin-bottom:20px}
+  .contact h2{font-size:clamp(24px,4.5vw,36px);font-weight:800;letter-spacing:-0.01em;margin:0 0 24px;color:#12161f;line-height:1.25}
+  .phone-box{text-decoration:none;display:flex;align-items:center;justify-content:space-between;background:#f6f8fc;border-radius:12px;padding:20px 24px;color:#12161f;font-family:ui-monospace,Menlo,monospace;font-size:14px;font-weight:700;letter-spacing:0.03em}
+  .phone-box:hover{background:#eef1f6;color:#12161f}
+  .form{display:flex;flex-direction:column;gap:16px}
+  .form-row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .form input[type=text],.form input[type=tel],.form textarea{width:100%;padding:18px 20px;border-radius:12px;border:none;background:#f6f8fc;font-size:15px;font-family:inherit;color:#12161f}
+  .form input:focus,.form textarea:focus{outline:2px solid #8891a0}
+  .form textarea{resize:none}
+  .consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#5b6472;line-height:1.5;cursor:pointer}
+  .consent input{margin:2px 0 0;width:16px;height:16px;flex-shrink:0;accent-color:#2f6bff}
+  .consent a{color:inherit}
+  .msg{font-size:13px;margin:0;line-height:1.5}
+  .msg:empty{display:none}
+  .msg.err{color:#c0392b}
+  .msg.ok{color:#1f8a4c;font-size:15px;font-weight:600}
+  .submit{background:#12161f;color:#ffffff;border:none;padding:20px 24px;border-radius:12px;font-family:ui-monospace,Menlo,monospace;font-size:14px;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:space-between}
+  .submit:hover{background:#2f6bff}
+  .submit:disabled{opacity:.6;cursor:default}
+
+  /* Подвал — как на главной */
+  .footer-grid{max-width:1240px;margin:0 auto;padding:64px 32px 32px;display:grid;grid-template-columns:1fr 1fr 1fr 1.2fr;gap:32px}
+  .f-title{font-size:13px;font-weight:700;color:#8891a0;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:20px}
+  .f-links{display:flex;flex-direction:column;gap:14px}
+  .f-links a{text-decoration:none;color:#c7ccd6;font-size:15px}
+  .f-links a:hover{color:#ffffff}
+  .f-links a.f-phone{color:#ffffff;font-size:16px;font-weight:700}
+  .f-links a.f-phone:hover{color:#8fb2ff}
+  .f-bottom{border-top:1px solid #2a2c33}
+  .f-bottom-in{max-width:1240px;margin:0 auto;padding:24px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  .f-brand{font-size:16px;font-weight:800;letter-spacing:-0.02em;color:#ffffff}
+  .f-copy{font-size:13px;color:#8891a0}
+  .f-copy a{color:#8891a0}
+  .f-copy a:hover{color:#ffffff}
+  .f-badge{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;letter-spacing:0.03em;text-transform:uppercase;color:#8891a0}
+
+  /* Планшет */
+  @media (max-width:1024px){
+    .sec,.hero{padding-left:24px;padding-right:24px}
+    .highlights{grid-template-columns:1fr}
+    .svc{grid-template-columns:1fr;gap:28px}
+    .svc-head{position:static}
+    .svc-num{margin-bottom:12px}
+    .contact{grid-template-columns:1fr;gap:40px}
+    .footer-grid{grid-template-columns:1fr 1fr}
+  }
+  /* Телефон */
+  @media (max-width:640px){
+    .sec{padding:64px 20px}
+    .hero{padding:56px 20px 64px}
+    .badge{margin-bottom:20px;font-size:12px}
+    .hero p{font-size:16.5px;margin-bottom:28px}
+    .hero-btns .btn-ghost{width:100%;justify-content:center}
+    .hl{padding:24px;border-radius:20px}
+    .svc-num{font-size:40px}
+    .row{grid-template-columns:1fr;gap:8px;padding:18px 20px}
+    .row-t{color:#2f6bff}
+    .dark .row-t{color:#8fb2ff}
+    .form-row2{grid-template-columns:1fr}
+    .footer-grid{padding:48px 20px 32px;gap:28px 20px}
+    .footer-grid > div:last-child{grid-column:1 / -1}
+    .f-bottom-in{padding-left:20px;padding-right:20px}
+  }
+
+  /* Дополнительно для страницы «Серверы и 1С» */
+  .crumbs{font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:24px}
+  .crumbs a{color:rgba(255,255,255,0.75);text-decoration:none}
+  .crumbs a:hover{color:#ffffff}
+  .lead a{color:#2f6bff}
+  .row-n{grid-template-columns:48px 1fr}
+  .row-n .row-t{color:#2f6bff}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .step{background:#f6f8fc;border-radius:20px;padding:28px}
+  .step-n{font-size:20px;font-weight:800;color:#2f6bff;margin-bottom:16px}
+  .step h3{font-size:19px;font-weight:700;margin:0 0 8px;color:#12161f}
+  .step p{font-size:15px;line-height:1.6;color:#5b6472;margin:0}
+  .price{margin-top:56px;background:#101114;border-radius:24px;padding:40px;display:grid;grid-template-columns:1fr 1.4fr auto;gap:40px;align-items:center}
+  .price h3{font-size:22px;font-weight:800;color:#ffffff;margin:0;line-height:1.3}
+  .price p{font-size:15px;line-height:1.7;color:#c7ccd6;margin:0}
+  .price .btn-ghost{white-space:nowrap}
+  .faq-outer{display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:start}
+  .faq-big{font-size:clamp(44px,10vw,88px);font-weight:800;color:#3a3d45;line-height:1;letter-spacing:-0.02em}
+  .faq details{border-bottom:1px solid #2a2c33;padding:28px 0}
+  .faq details:first-child{padding-top:0}
+  .faq summary{display:grid;grid-template-columns:90px 1fr auto;gap:20px;align-items:start;cursor:pointer;list-style:none}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq-n{font-size:44px;font-weight:800;color:#ffffff;line-height:1}
+  .faq-q{font-size:19px;font-weight:700;color:#ffffff;line-height:1.4;padding-top:6px}
+  .faq-i{color:#ffffff;font-size:22px;font-weight:300;padding-top:6px}
+  .faq-i::before{content:"+"}
+  .faq details[open] .faq-i::before{content:"−"}
+  .faq details p{font-size:15px;line-height:1.7;color:#8891a0;margin:14px 0 0 110px;max-width:640px}
+  #form{position:relative;top:-80px}
+  @media (max-width:1024px){
+    .cards{grid-template-columns:1fr 1fr}
+    .steps{grid-template-columns:1fr 1fr}
+    .price{grid-template-columns:1fr;gap:20px;padding:32px}
+    .price .btn-ghost{justify-self:start}
+    .faq-outer{grid-template-columns:1fr;gap:20px}
+  }
+  @media (max-width:640px){
+    .hero h1{font-size:26px;-webkit-hyphens:auto;hyphens:auto;overflow-wrap:break-word}
+    .cards,.steps{grid-template-columns:1fr;gap:16px}
+    .step{padding:24px}
+    .row-n{grid-template-columns:36px 1fr !important;gap:12px !important}
+    .price{margin-top:40px;padding:26px 22px;border-radius:20px}
+    .price .btn-ghost{width:100%;justify-content:center}
+    .faq details{padding:22px 0}
+    .faq summary{grid-template-columns:36px 1fr auto;gap:12px}
+    .faq-n{font-size:24px;padding-top:3px}
+    .faq-q{font-size:16.5px;padding-top:2px}
+    .faq details p{margin-left:48px}
+  }
+</style>
+<style>
+  /* Статья */
+  .hero h1{font-size:clamp(26px,3.4vw,44px);max-width:960px}
+  .art-meta{font-size:14px;color:rgba(255,255,255,0.6);margin:0}
+  .art{max-width:820px;margin:0 auto}
+  .art p,.art li{font-size:17px;line-height:1.75;color:#2b313c}
+  .art p{margin:0 0 16px}
+  .art ul{margin:0 0 16px;padding-left:22px}
+  .art li{margin-bottom:6px}
+  .art h2{font-size:clamp(22px,3vw,28px);font-weight:800;letter-spacing:-0.01em;text-transform:uppercase;color:#12161f;line-height:1.25;margin:48px 0 16px}
+  .art h2:first-child{margin-top:0}
+  .art code{font-family:ui-monospace,Menlo,monospace;font-size:14.5px;background:#eef1f6;border-radius:6px;padding:2px 6px;color:#12161f;word-break:break-word}
+  .art pre{background:#101114;color:#e6e9ef;border-radius:14px;padding:18px 20px;overflow-x:auto;font-size:14.5px;line-height:1.6;margin:0 0 16px}
+  .art pre code{background:none;color:inherit;padding:0}
+  .art .tbl{border:1px solid #e2e5ea;border-radius:16px;overflow:hidden;margin:8px 0 16px}
+  .art table{width:100%;border-collapse:collapse}
+  .art th,.art td{text-align:left;vertical-align:top;padding:16px 18px;font-size:15px;line-height:1.6;color:#3a4150;border-top:1px solid #e2e5ea}
+  .art tr:first-child th{border-top:none}
+  .art th{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#12161f;background:#f6f8fc}
+  .art td:first-child{font-weight:600;color:#12161f}
+  .art h3{font-size:19px;font-weight:700;color:#12161f;line-height:1.35;margin:28px 0 10px}
+  .art-cta{max-width:820px;margin:56px auto 0;background:#101114;border-radius:24px;padding:36px 40px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+  .art-cta h3{font-size:22px;font-weight:800;color:#ffffff;margin:0 0 8px}
+  .art-cta p{font-size:15px;line-height:1.6;color:#c7ccd6;margin:0}
+  .art-cta .btn-ghost{white-space:nowrap}
+  @media (max-width:640px){
+    .hero h1{font-size:23px;-webkit-hyphens:manual;hyphens:manual}
+    .art p,.art li{font-size:16px}
+    .art h2{margin-top:36px}
+    .art pre{white-space:pre-wrap;word-break:break-all}
+    .art .tbl{border:none;border-radius:0}
+    .art table,.art tbody,.art tr,.art td{display:block;width:100%}
+    .art tr:first-child{display:none}
+    .art tr{border:1px solid #e2e5ea;border-radius:14px;margin-bottom:12px;overflow:hidden}
+    .art td{border-top:none;padding:6px 16px}
+    .art td:first-child{padding-top:14px;background:#f6f8fc;padding-bottom:12px}
+    .art td:last-child{padding-bottom:14px}
+    .art td:nth-child(2)::before{content:"Чем опасно: ";font-weight:700;color:#12161f}
+    .art td:nth-child(3)::before{content:"Что сделать: ";font-weight:700;color:#12161f}
+    .art-cta{grid-template-columns:1fr;padding:26px 22px;border-radius:20px;margin-top:40px}
+    .art-cta .btn-ghost{width:100%;justify-content:center}
+  }
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Защита от шифровальщиков: как уберечь данные офиса и что делать при атаке", "description": "Защита от шифровальщиков для малого бизнеса: как вирус попадает в сеть, какие бэкапы спасают, чек-лист мер и что делать, если файлы уже зашифрованы.", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "author": {"@type": "Organization", "name": "Про технологии", "url": "https://it-consalting24.ru/"}, "publisher": {"@id": "https://it-consalting24.ru/#org"}, "mainEntityOfPage": "https://it-consalting24.ru/zashchita-ot-shifrovalshchikov.html", "inLanguage": "ru"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Можно ли расшифровать файлы без выкупа?", "acceptedAnswer": {"@type": "Answer", "text": "Иногда да: для некоторых старых или плохо написанных шифровальщиков существуют бесплатные расшифровщики. Но для большинства современных версий ключ есть только у злоумышленников, поэтому реальный способ вернуть данные — резервная копия."}}, {"@type": "Question", "name": "Достаточно ли одного антивируса для защиты от шифровальщиков?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Антивирус снижает риск, но новые версии вирусов могут им не распознаваться. Защиту дают несколько слоёв вместе: резервные копии вне сети, закрытый удалённый доступ, обновления, ограниченные права пользователей и антивирус."}}, {"@type": "Question", "name": "Спасёт ли облачное хранилище вроде синхронизируемой папки?", "acceptedAnswer": {"@type": "Answer", "text": "Только если у хранилища есть история версий и её глубины хватает. Простая синхронизация перенесёт в облако уже зашифрованные файлы. Проверьте, можно ли откатить папку на дату до заражения."}}, {"@type": "Question", "name": "Как часто делать резервные копии?", "acceptedAnswer": {"@type": "Answer", "text": "Ориентируйтесь на то, сколько работы вы готовы потерять. Для 1С и бухгалтерии обычно нужна ежедневная копия, для активно меняющихся баз — несколько раз в день."}}, {"@type": "Question", "name": "С чего начать защиту от шифровальщиков, если бюджет небольшой?", "acceptedAnswer": {"@type": "Answer", "text": "Настроить автоматические резервные копии с одной копией вне сети, закрыть RDP из интернета и убрать у сотрудников права администратора. Эти три шага закрывают основную часть риска и почти не требуют затрат на программы."}}]}</script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113752459', 'ym');
+
+    ym(113752459, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<!-- /Yandex.Metrika counter -->
+<link rel="stylesheet" href="/mobile.css">
+<script src="/mobile.js" defer></script>
+</head>
+<body>
+<noscript><div><img src="https://mc.yandex.ru/watch/113752459" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<!-- ШАПКА -->
+<header class="site-header">
+  <div class="site-header-in">
+    <a href="./" class="site-logo">Про технологии</a>
+    <nav class="site-nav">
+      <a href="./services.html">Услуги</a>
+      <a href="./#stages">Этапы работы</a>
+      <a href="./about.html">О компании</a>
+      <a href="./#pricing">Стоимость</a>
+      <a href="./blog.html">Блог</a>
+      <a href="./#faq">FAQ</a>
+    </nav>
+    <div class="site-actions">
+      <a href="tel:+79969241648" class="site-phone" aria-label="Позвонить: +7 (996) 924-16-48">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <span class="site-phone-num">+7 (996) 924-16-48</span>
+      </a>
+      <button type="button" class="nav-toggle" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ПЕРВЫЙ ЭКРАН -->
+<section class="hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="./">Главная</a> / <a href="./blog.html">Блог</a> / Защита от шифровальщиков</div>
+    <div class="badge">Безопасность · Чек-лист для офиса</div>
+    <h1>Защита от шифровальщиков: как уберечь данные офиса и что делать при атаке</h1>
+    <p class="art-meta">26 октября 2026 · Про технологии</p>
+  </div>
+</section>
+
+<!-- СТАТЬЯ -->
+<section class="sec">
+  <article class="art">
+<p>Шифровальщик — это вирус, который превращает документы, базы 1С и архивы в набор нечитаемых файлов, а за ключ расшифровки просит выкуп. Для небольшой компании такая атака означает остановку работы: нельзя выставить счёт, отгрузить товар, сдать отчётность. Хорошая новость в том, что защита от шифровальщиков не требует дорогих систем — большую часть риска закрывают правильные резервные копии, закрытый удалённый доступ и порядок с правами. Ниже разберём, как вирус попадает в офисную сеть, какие меры действительно работают, дадим чек-лист и план действий на случай, если файлы уже зашифрованы.</p>
+
+<h2>Что такое шифровальщик и почему он опасен для малого бизнеса</h2>
+<p>Обычный вирус ломает компьютер или ворует пароли. Шифровальщик действует иначе: он ничего не удаляет, а шифрует файлы стойким алгоритмом. Без ключа, который хранится у злоумышленников, вернуть данные обычно невозможно — ни антивирус, ни переустановка Windows здесь не помогут. После шифрования на рабочем столе появляется записка с требованием заплатить, чаще всего в криптовалюте.</p>
+<p>Многие владельцы небольших фирм считают, что атакуют только крупные компании. На практике злоумышленники часто работают массово: рассылают письма тысячам адресов и автоматически ищут в интернете компьютеры с открытым удалённым доступом. Небольшой офис для них удобная цель — там реже есть отдельный специалист по безопасности, а резервные копии нередко лежат на том же сервере, что и сами данные.</p>
+
+<h2>Как шифровальщик попадает в сеть офиса</h2>
+<p>Чтобы выстроить защиту, полезно понимать основные пути заражения. Их немного, и почти все закрываются организационными мерами:</p>
+<ul>
+  <li><strong>Письма с вложениями и ссылками.</strong> «Акт сверки», «счёт на оплату», «требование налоговой» — сотрудник открывает файл, и запускается вредоносная программа. Особенно опасны архивы с паролем и документы, которые просят «включить содержимое» или макросы.</li>
+  <li><strong>Открытый удалённый рабочий стол (RDP).</strong> Если сервер или компьютер доступен из интернета по RDP, его пароль подбирают автоматически. Простой пароль администратора в такой ситуации — открытая дверь.</li>
+  <li><strong>Необновлённые программы и системы.</strong> Уязвимости в Windows, роутерах, VPN-шлюзах и популярных программах позволяют попасть внутрь без участия пользователя.</li>
+  <li><strong>Флешки и личные устройства.</strong> Ноутбук сотрудника, который дома пользуются дети, а утром подключают к офисной сети, — частый источник проблем.</li>
+</ul>
+<p>Дальше атака обычно развивается по одной схеме: вирус закрепляется в системе, изучает сеть, пытается получить права администратора, удаляет или портит резервные копии и только потом запускает шифрование — часто ночью или в выходные, когда никто не смотрит на компьютеры. Между проникновением и шифрованием может пройти от нескольких часов до нескольких недель, поэтому ранние признаки важно замечать: внезапно отключённый антивирус, незнакомые учётные записи, необычная активность на сервере по ночам.</p>
+
+<h2>Резервные копии — главная защита от шифровальщиков</h2>
+<p>Если после атаки у вас есть свежая неповреждённая копия данных, шифровальщик превращается из катастрофы в неприятность на день-два. Поэтому начинать стоит именно с бэкапов, а не с покупки нового антивируса.</p>
+<p>Ориентир — правило <strong>3-2-1</strong>: три копии данных (рабочая и две резервные), на двух разных типах носителей, и одна из копий — вне офиса. Но для защиты от шифровальщиков важнее другое: хотя бы одна копия должна быть <strong>недоступна с заражённого компьютера</strong>. Если резервная папка видна в сети как обычный диск, вирус зашифрует её вместе со всем остальным.</p>
+<p>Что это значит на практике:</p>
+<ul>
+  <li>Копии делаются автоматически по расписанию, а не «когда вспомнили». Для 1С и бухгалтерии — ежедневно.</li>
+  <li>Одна копия хранится отдельно: в облачном хранилище с версиями файлов, на отдельном сервере резервного копирования со своими учётными данными или на внешнем диске, который отключают после копирования.</li>
+  <li>Учётная запись, которой пишутся бэкапы, не совпадает с учётными записями пользователей и администратора домена.</li>
+  <li>Хранится несколько версий за разные дни. Шифрование могут заметить не сразу, и последняя копия к тому моменту уже будет испорчена.</li>
+  <li>Восстановление регулярно проверяется. Копия, из которой никто ни разу не пробовал развернуть базу, — это надежда, а не защита.</li>
+</ul>
+<p>Отдельно о теневых копиях Windows (VSS) и «Корзине»: они удобны, чтобы вернуть случайно удалённый файл, но шифровальщики первым делом стирают теневые копии. Полагаться на них как на единственный бэкап нельзя.</p>
+
+<h2>Закройте двери: удалённый доступ, обновления, права</h2>
+<p><strong>Удалённый доступ — только через VPN.</strong> Сервер 1С или компьютер бухгалтера не должен быть доступен из интернета по RDP напрямую. Сотрудники из дома сначала подключаются к офисной сети через VPN, и только потом — к нужному компьютеру. Если без внешнего доступа никак, нужны сложные пароли, блокировка после нескольких неудачных попыток и, по возможности, двухфакторная аутентификация.</p>
+<p><strong>Обновления.</strong> Включите автоматическое обновление Windows на всех компьютерах и сервере, следите за прошивками роутера и VPN-шлюза, обновляйте браузеры, офисный пакет и программы для работы с документами. Компьютеры на системах, которые уже не получают обновлений безопасности, стоит заменить или хотя бы изолировать от основной сети.</p>
+<p><strong>Права пользователей.</strong> Обычный сотрудник не должен работать под учётной записью администратора. Тогда большая часть вредоносных программ просто не сможет установиться или отключить защиту. Пароль администратора у каждого компьютера должен быть свой, а не один на весь офис — иначе, захватив одну машину, вирус получает доступ ко всем.</p>
+<p><strong>Доступ к общим папкам.</strong> Каждый видит только то, что нужно для работы. Шифровальщик действует с правами того пользователя, на чьём компьютере он запустился.</p>
+
+<h2>Антивирус и встроенная защита Windows</h2>
+<p>Антивирус должен стоять на всех компьютерах и на сервере, обновляться автоматически и управляться централизованно, чтобы было видно, где защита отключена или базы устарели. Корпоративные версии умеют замечать подозрительное поведение программ, например массовое изменение файлов.</p>
+<p>В Windows 10 и 11 есть встроенная функция против шифровальщиков — <strong>контролируемый доступ к папкам</strong>. Её включают в разделе «Безопасность Windows» → «Защита от вирусов и угроз» → «Защита от программ-шантажистов». После включения менять файлы в защищённых папках могут только доверенные программы. Учтите два момента: функция работает, только когда основной антивирус — сам Microsoft Defender, и после включения некоторые нужные программы придётся добавить в разрешённые вручную.</p>
+
+<h2>Сегментация сети и обучение сотрудников</h2>
+<p>Чем меньше компьютеров «видят» друг друга, тем меньше вирус успеет зашифровать. В небольшом офисе разумный минимум такой: отдельная гостевая сеть Wi-Fi для посетителей и личных телефонов, отдельный сегмент для камер видеонаблюдения и другого «умного» оборудования, а сервер и хранилище с резервными копиями доступны только тем, кому это действительно нужно.</p>
+<p>Вторая половина защиты — люди. Не нужно проводить многочасовые курсы, достаточно договориться о нескольких простых правилах:</p>
+<ul>
+  <li>не открывать вложения от неизвестных отправителей и неожиданные «документы» от знакомых — лучше перезвонить и уточнить;</li>
+  <li>не включать макросы и «редактирование» в присланных документах без необходимости;</li>
+  <li>не устанавливать программы самостоятельно и не приносить софт из интернета;</li>
+  <li>сразу сообщать ответственному за ИТ, если компьютер ведёт себя странно, файлы перестали открываться или появилось незнакомое окно.</li>
+</ul>
+
+<h2>Слабые места офиса: что проверить в первую очередь</h2>
+<div class="tbl"><table>
+  <tr><th>Слабое место</th><th>Чем опасно</th><th>Что сделать</th></tr>
+  <tr><td>Бэкап лежит на том же сервере или в сетевой папке</td><td>Шифровальщик зашифрует копию вместе с данными</td><td>Хранить одну копию отдельно: облако с версиями, отдельный сервер или отключаемый диск</td></tr>
+  <tr><td>RDP открыт в интернет</td><td>Пароль подбирают автоматически, злоумышленник заходит как администратор</td><td>Закрыть порт на роутере, доступ — только через VPN</td></tr>
+  <tr><td>Все работают под администратором</td><td>Вирус устанавливается и отключает антивирус без препятствий</td><td>Выдать сотрудникам обычные учётные записи, права администратора — только ИТ-специалисту</td></tr>
+  <tr><td>Один пароль администратора на всех ПК</td><td>Захват одного компьютера открывает доступ ко всей сети</td><td>Уникальные пароли администратора для каждого компьютера</td></tr>
+  <tr><td>Обновления отключены или «потом»</td><td>Через известные уязвимости заражают без участия пользователя</td><td>Включить автообновление Windows, обновлять роутер и программы</td></tr>
+  <tr><td>Антивирус есть «где-то» и не проверяется</td><td>На части компьютеров защита выключена или устарела, и об этом никто не знает</td><td>Единая консоль управления антивирусом, регулярная проверка состояния</td></tr>
+  <tr><td>Гости и камеры в одной сети с бухгалтерией</td><td>Заражённое устройство получает доступ к рабочим компьютерам и серверу</td><td>Отдельная гостевая сеть и отдельный сегмент для камер</td></tr>
+</table></div>
+
+<h2>Чек-лист защиты от шифровальщиков для небольшого офиса</h2>
+<p>Пройдитесь по списку и отметьте, что у вас уже сделано. Каждый пункт без галочки — задача на ближайший месяц:</p>
+<ul>
+  <li>☐ Резервные копии 1С, документов и почты создаются автоматически каждый день.</li>
+  <li>☐ Минимум одна копия хранится там, куда нельзя попасть с рабочих компьютеров.</li>
+  <li>☐ Хранится несколько версий копий, а восстановление проверялось за последние три месяца.</li>
+  <li>☐ RDP и другие службы удалённого доступа закрыты из интернета, сотрудники подключаются через VPN.</li>
+  <li>☐ Windows, роутер и основные программы обновляются.</li>
+  <li>☐ Сотрудники работают без прав администратора.</li>
+  <li>☐ У каждого компьютера свой пароль локального администратора.</li>
+  <li>☐ Антивирус установлен на всех ПК и сервере, его состояние видно централизованно.</li>
+  <li>☐ Доступ к общим папкам выдан по принципу «только то, что нужно».</li>
+  <li>☐ Гостевой Wi-Fi и камеры отделены от рабочей сети.</li>
+  <li>☐ Сотрудники знают, кому сообщать о подозрительных письмах и странном поведении компьютера.</li>
+  <li>☐ Есть записанный план: кто и что делает, если файлы зашифрованы.</li>
+</ul>
+
+<h2>Что делать, если файлы уже зашифрованы</h2>
+<p>Первые минуты решают, сколько данных удастся спасти. Порядок действий:</p>
+<ul>
+  <li><strong>Отключите заражённый компьютер от сети</strong> — выньте сетевой кабель и выключите Wi-Fi. Без специалиста не выключайте и не перезагружайте его: в работающей системе могут остаться следы, полезные для расследования.</li>
+  <li><strong>Проверьте остальные компьютеры и сервер.</strong> Если шифрование идёт и там, отключите от сети и их, а при необходимости — весь офисный коммутатор.</li>
+  <li><strong>Сразу отключите от сети устройства с резервными копиями</strong>, если они ещё не затронуты.</li>
+  <li><strong>Сфотографируйте записку с требованием выкупа</strong> и запишите, как изменились имена файлов. По этим данным определяют тип шифровальщика.</li>
+  <li><strong>Позовите специалиста.</strong> Нужно найти, как вирус попал внутрь, и закрыть эту дыру, иначе после восстановления всё повторится.</li>
+  <li><strong>Проверьте, есть ли бесплатный расшифровщик.</strong> Для части известных шифровальщиков антивирусные компании публикуют утилиты, многие из них собраны на проекте No More Ransom.</li>
+  <li><strong>Восстанавливайтесь только на чистую систему</strong> и из копии, проверенной на отсутствие вируса. Пароли всех учётных записей после инцидента нужно сменить.</li>
+</ul>
+
+<h2>Стоит ли платить выкуп</h2>
+<p>Решение остаётся за владельцем бизнеса, но важно понимать риски. Оплата не гарантирует, что вам пришлют рабочий ключ: расшифровка может пройти частично или не пройти вовсе. Заплатившая компания попадает в список тех, кто платит, и её могут атаковать снова. Некоторые группировки перед шифрованием выкачивают данные и после оплаты продолжают шантажировать угрозой публикации. Поэтому самый надёжный «выкуп» — это деньги и время, вложенные в резервные копии заранее.</p>
+
+<h2>Типичные ошибки</h2>
+<ul>
+  <li><strong>«У нас есть бэкап» — на том же сервере.</strong> Самая частая ситуация: копии делались годами, но лежали рядом с данными и были зашифрованы вместе с ними.</li>
+  <li><strong>Копии никто не проверял.</strong> В момент восстановления выясняется, что задание не выполнялось несколько месяцев или копия базы повреждена.</li>
+  <li><strong>RDP «временно» открыли для подрядчика и забыли закрыть.</strong></li>
+  <li><strong>Переустановили Windows и вернулись к работе</strong>, не выяснив, как вирус попал в сеть. Через неделю атака повторяется.</li>
+</ul>
+
+<h2>Когда стоит позвать специалиста</h2>
+<p>Часть пунктов чек-листа можно сделать самостоятельно: включить обновления, договориться с сотрудниками, проверить антивирус. Но настройка VPN, разграничение прав, отдельное хранилище для резервных копий и регулярная проверка восстановления требуют времени и опыта. Если в компании нет своего системного администратора, эти задачи удобно передать на <a href="./outsourcing.html">ИТ-аутсорсинг</a>: мы берём на себя резервное копирование, обновления, антивирус и контроль доступа, а вы получаете один понятный договор. Абонентское обслуживание стоит от 15 000 ₽ в месяц, а перед стартом мы проводим бесплатный аудит инфраструктуры за 1 день — он как раз покажет, какие пункты из таблицы выше у вас открыты.</p>
+<p>Если нужна разовая помощь — настроить <a href="./servers.html">резервное копирование сервера и 1С</a>, закрыть удалённый доступ и поднять <a href="./network.html">VPN и гостевую сеть</a> или почистить <a href="./computers.html">компьютеры от вирусов</a>, — разовый вызов в Оренбурге стоит от 1 500 ₽, диагностика бесплатна, выезжаем в день обращения, а срочные случаи — в течение 2–3 часов.</p>
+
+<h2>Частые вопросы</h2>
+<h3>Можно ли расшифровать файлы без выкупа?</h3>
+<p>Иногда да: для некоторых старых или плохо написанных шифровальщиков существуют бесплатные расшифровщики. Но для большинства современных версий ключ есть только у злоумышленников, поэтому реальный способ вернуть данные — резервная копия.</p>
+<h3>Достаточно ли одного антивируса для защиты от шифровальщиков?</h3>
+<p>Нет. Антивирус снижает риск, но новые версии вирусов могут им не распознаваться. Защиту дают несколько слоёв вместе: резервные копии вне сети, закрытый удалённый доступ, обновления, ограниченные права пользователей и антивирус.</p>
+<h3>Спасёт ли облачное хранилище вроде синхронизируемой папки?</h3>
+<p>Только если у хранилища есть история версий и её глубины хватает. Простая синхронизация перенесёт в облако уже зашифрованные файлы. Проверьте, можно ли откатить папку на дату до заражения.</p>
+<h3>Как часто делать резервные копии?</h3>
+<p>Ориентируйтесь на то, сколько работы вы готовы потерять. Для 1С и бухгалтерии обычно нужна ежедневная копия, для активно меняющихся баз — несколько раз в день.</p>
+<h3>С чего начать защиту от шифровальщиков, если бюджет небольшой?</h3>
+<p>Настроить автоматические резервные копии с одной копией вне сети, закрыть RDP из интернета и убрать у сотрудников права администратора. Эти три шага закрывают основную часть риска и почти не требуют затрат на программы.</p>
+  </article>
+
+  <div class="art-cta">
+    <div>
+      <h3>Проверим защиту вашего офиса</h3>
+      <p>Бесплатный аудит за 1 день: посмотрим резервные копии, удалённый доступ, права и антивирус и скажем, что закрыть в первую очередь. Если уже зашифровали — выедем в день обращения.</p>
+    </div>
+    <a href="#contact" class="btn-ghost">Оставить заявку →</a>
+  </div>
+</section>
+
+<!-- ЗАЯВКА -->
+<section id="contact" class="sec" style="padding-top:0">
+  <span id="form"></span>
+  <div class="wrap contact">
+    <div>
+      <div class="mono-eyebrow">[ БЕСПЛАТНАЯ ДИАГНОСТИКА ]</div>
+      <h2>Опишите, что происходит с сервером</h2>
+      <p class="lead" style="margin-bottom:24px">Перезвоним, уточним детали и договоримся о подключении.</p>
+      <a href="tel:+79969241648" class="phone-box">+7 (996) 924-16-48 <span style="font-size:18px">→</span></a>
+    </div>
+    <form class="form" id="lead-form" novalidate>
+      <div class="form-row2">
+        <input type="text" name="name" placeholder="Имя*" aria-label="Имя" autocomplete="name">
+        <input type="text" name="company" placeholder="Компания" aria-label="Компания" autocomplete="organization">
+      </div>
+      <input type="tel" name="phone" placeholder="Телефон*" aria-label="Телефон" autocomplete="tel">
+      <textarea name="comment" rows="3" placeholder="Что с сервером: версия 1С, сколько пользователей, что не работает" aria-label="Опишите задачу"></textarea>
+      <label class="consent">
+        <input type="checkbox" name="consent" value="yes">
+        <span>Даю <a href="./consent.html" target="_blank">согласие на обработку персональных данных</a> и принимаю <a href="./privacy.html" target="_blank">политику конфиденциальности</a></span>
+      </label>
+      <p class="msg" role="alert"></p>
+      <button type="submit" class="submit"><span class="submit-label">Отправить заявку</span><span style="font-size:18px">→</span></button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ПОДВАЛ -->
+<footer class="dark">
+  <div class="footer-grid">
+    <div>
+      <div class="f-title">Услуги</div>
+      <div class="f-links">
+        <a href="./computers.html">Компьютеры</a>
+        <a href="./servers.html">Серверы и 1С</a>
+        <a href="./network.html">Сети и Wi-Fi</a>
+        <a href="./services.html">Все услуги</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-title">Компания</div>
+      <div class="f-links">
+        <a href="./about.html">О компании</a>
+        <a href="./#pricing">Тарифы</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-title">Инфо</div>
+      <div class="f-links">
+        <a href="./#faq">FAQ</a>
+        <a href="./blog.html">Блог</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-title">Контакты</div>
+      <div class="f-links">
+        <a href="tel:+79969241648" class="f-phone">+7 (996) 924-16-48</a>
+      </div>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <div class="f-bottom-in">
+      <div class="f-brand">Про технологии</div>
+      <div class="f-copy">© 2026 Про технологии. ИТ-консалтинг для бизнеса. · <a href="./privacy.html">Политика конфиденциальности</a></div>
+      <div class="f-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8891a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"></path><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"></path></svg>
+        Аккредитованы Минцифры
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var f = document.getElementById('lead-form');
+  if (!f) return;
+  var msg = f.querySelector('.msg');
+  var btn = f.querySelector('.submit');
+  var label = f.querySelector('.submit-label');
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    msg.className = 'msg';
+    msg.textContent = '';
+    if (!f.name.value.trim() || !f.phone.value.trim()) { msg.className = 'msg err'; msg.textContent = 'Укажите имя и телефон'; return; }
+    if (!f.consent.checked) { msg.className = 'msg err'; msg.textContent = 'Отметьте согласие на обработку персональных данных'; return; }
+    btn.disabled = true; label.textContent = 'Отправка...';
+    var data = new FormData(f);
+    data.set('consent', 'yes');
+    fetch('/send.php', { method: 'POST', body: data })
+      .then(function (r) { if (!r.ok) throw new Error(); })
+      .then(function () {
+        f.reset();
+        msg.className = 'msg ok';
+        msg.textContent = '✓ Заявка отправлена. Свяжемся с вами в рабочее время в течение 15 минут.';
+        if (window.ym) window.ym(113752459, 'reachGoal', 'lead');
+      })
+      .catch(function () { msg.className = 'msg err'; msg.textContent = 'Не удалось отправить заявку. Позвоните нам: +7 (996) 924-16-48'; })
+      .then(function () { btn.disabled = false; label.textContent = 'Отправить заявку'; });
+  });
+})();
+</script>
+</body>
+</html>
