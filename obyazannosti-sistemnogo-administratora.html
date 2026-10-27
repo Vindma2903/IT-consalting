@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Обязанности системного администратора в организации</title>
+<meta name="description" content="Обязанности системного администратора в организации: полный список задач, регламент на день, неделю и месяц, чек-лист руководителя и сравнение с аутсорсингом.">
+<link rel="canonical" href="https://it-consalting24.ru/obyazannosti-sistemnogo-administratora.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Про технологии">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Обязанности системного администратора в организации">
+<meta property="og:description" content="Обязанности системного администратора в организации: полный список задач, регламент на день, неделю и месяц, чек-лист руководителя и сравнение с аутсорсингом.">
+<meta property="og:url" content="https://it-consalting24.ru/obyazannosti-sistemnogo-administratora.html">
+<link href="/fonts/inter.css" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Inter',system-ui,sans-serif;background:#ffffff;color:#1a1f2b;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:#2f6bff}
+  a:hover{color:#1f4fd6}
+  ::selection{background:#dbe6ff}
+
+  /* Шапка — как на главной */
+  .site-header{position:sticky;top:0;z-index:40;background:#101114;border-bottom:1px solid #2a2c33}
+  .site-header-in{max-width:1240px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .site-logo{text-decoration:none;font-size:19px;font-weight:800;letter-spacing:-0.02em;white-space:nowrap;flex-shrink:0;color:#ffffff}
+  .site-logo:hover{color:#ffffff}
+  .site-nav{display:flex;align-items:center;gap:14px;flex-wrap:wrap;flex:1;justify-content:center;min-width:0}
+  .site-nav a{text-decoration:none;color:#ffffff;font-size:14px;font-weight:500;white-space:nowrap}
+  .site-nav a:hover{color:#8fb2ff}
+  .site-nav a.active{font-weight:700}
+  .site-actions{display:flex;align-items:center;gap:14px;flex-shrink:0}
+  .site-phone{text-decoration:none;color:#ffffff;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px;white-space:nowrap}
+  .site-phone:hover{color:#8fb2ff}
+
+  /* Общие элементы */
+  .wrap{max-width:1176px;margin:0 auto}
+  .sec{padding:100px 32px}
+  .dark{background:#101114}
+  .eyebrow{font-size:13px;font-weight:700;color:#5b6472;letter-spacing:0.14em;text-transform:uppercase;margin:0 0 16px}
+  .dark .eyebrow{color:#8891a0}
+  .h2{font-size:clamp(26px,4vw,38px);font-weight:800;letter-spacing:-0.01em;margin:0 0 16px;color:#12161f;text-transform:uppercase;line-height:1.2}
+  .dark .h2{color:#ffffff}
+  .lead{font-size:17px;line-height:1.7;color:#5b6472;margin:0;max-width:640px}
+  .dark .lead{color:#8891a0}
+  .btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#ffffff;border:1px solid rgba(255,255,255,0.5);padding:16px 30px;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;text-decoration:none;font-family:inherit}
+  .btn-ghost:hover{background:#ffffff;color:#12161f;border-color:#ffffff}
+
+  /* Первый экран */
+  .hero{position:relative;background:#0a0c12;padding:100px 32px 90px;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:url(./uploads/hero-bg.webp) center/cover no-repeat;opacity:.45}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,8,16,0.85),rgba(5,8,16,0.4))}
+  .hero .wrap{position:relative;z-index:1}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);color:#ffffff;font-size:13px;font-weight:600;padding:7px 14px;border-radius:100px;margin-bottom:28px}
+  .hero h1{font-size:clamp(32px,4.6vw,58px);line-height:1.12;font-weight:800;letter-spacing:-0.01em;margin:0 0 24px;color:#ffffff;text-transform:uppercase;max-width:820px}
+  .hero p{font-size:19px;line-height:1.6;color:rgba(255,255,255,0.8);margin:0 0 40px;max-width:720px}
+  .hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+
+  /* Три преимущества */
+  .highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .hl{background:#1c1d22;border:1px solid #2a2c33;border-radius:24px;padding:32px}
+  .hl-num{font-size:14px;font-weight:800;color:#2f6bff;margin-bottom:18px}
+  .hl h3{font-size:21px;font-weight:700;margin:0 0 10px;color:#ffffff}
+  .hl p{font-size:15px;line-height:1.6;color:#8891a0;margin:0}
+
+  /* Разделы услуг */
+  .svc{display:grid;grid-template-columns:340px 1fr;gap:56px;align-items:start}
+  .svc-head{position:sticky;top:100px}
+  .svc-num{font-size:clamp(44px,6vw,72px);font-weight:800;color:#e2e5ea;line-height:1;letter-spacing:-0.02em;margin-bottom:20px}
+  .dark .svc-num{color:#3a3d45}
+  .svc-head .lead{font-size:16px}
+  .svc-more{display:inline-block;margin-top:20px;font-size:15px;font-weight:700;text-decoration:none}
+  .dark .svc-more{color:#8fb2ff}
+  .table{border-radius:16px;overflow:hidden;border:1px solid #e2e5ea}
+  .row{display:grid;grid-template-columns:1fr 1.6fr;padding:22px 28px;gap:24px;border-top:1px solid #e2e5ea}
+  .row:first-child{border-top:none}
+  .row:nth-child(odd){background:#f6f8fc}
+  .row-t{font-family:ui-monospace,Menlo,monospace;font-size:13.5px;font-weight:700;letter-spacing:0.02em;text-transform:uppercase;color:#12161f;line-height:1.5}
+  .row-d{font-size:15px;line-height:1.6;color:#3a4150}
+  .dark .table{border-color:#2a2c33}
+  .dark .row{border-top-color:#2a2c33}
+  .dark .row:nth-child(odd){background:#1c1d22}
+  .dark .row-t{color:#ffffff}
+  .dark .row-d{color:#c7ccd6}
+
+  /* Форма */
+  .contact{display:grid;grid-template-columns:1fr 1.3fr;gap:56px;align-items:start}
+  .mono-eyebrow{font-family:ui-monospace,Menlo,monospace;font-size:13px;font-weight:700;color:#2f6bff;letter-spacing:0.05em;margin-bottom:20px}
+  .contact h2{font-size:clamp(24px,4.5vw,36px);font-weight:800;letter-spacing:-0.01em;margin:0 0 24px;color:#12161f;line-height:1.25}
+  .phone-box{text-decoration:none;display:flex;align-items:center;justify-content:space-between;background:#f6f8fc;border-radius:12px;padding:20px 24px;color:#12161f;font-family:ui-monospace,Menlo,monospace;font-size:14px;font-weight:700;letter-spacing:0.03em}
+  .phone-box:hover{background:#eef1f6;color:#12161f}
+  .form{display:flex;flex-direction:column;gap:16px}
+  .form-row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .form input[type=text],.form input[type=tel],.form textarea{width:100%;padding:18px 20px;border-radius:12px;border:none;background:#f6f8fc;font-size:15px;font-family:inherit;color:#12161f}
+  .form input:focus,.form textarea:focus{outline:2px solid #8891a0}
+  .form textarea{resize:none}
+  .consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#5b6472;line-height:1.5;cursor:pointer}
+  .consent input{margin:2px 0 0;width:16px;height:16px;flex-shrink:0;accent-color:#2f6bff}
+  .consent a{color:inherit}
+  .msg{font-size:13px;margin:0;line-height:1.5}
+  .msg:empty{display:none}
+  .msg.err{color:#c0392b}
+  .msg.ok{color:#1f8a4c;font-size:15px;font-weight:600}
+  .submit{background:#12161f;color:#ffffff;border:none;padding:20px 24px;border-radius:12px;font-family:ui-monospace,Menlo,monospace;font-size:14px;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:space-between}
+  .submit:hover{background:#2f6bff}
+  .submit:disabled{opacity:.6;cursor:default}
+
+  /* Подвал — как на главной */
+  .footer-grid{max-width:1240px;margin:0 auto;padding:64px 32px 32px;display:grid;grid-template-columns:1fr 1fr 1fr 1.2fr;gap:32px}
+  .f-title{font-size:13px;font-weight:700;color:#8891a0;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:20px}
+  .f-links{display:flex;flex-direction:column;gap:14px}
+  .f-links a{text-decoration:none;color:#c7ccd6;font-size:15px}
+  .f-links a:hover{color:#ffffff}
+  .f-links a.f-phone{color:#ffffff;font-size:16px;font-weight:700}
+  .f-links a.f-phone:hover{color:#8fb2ff}
+  .f-bottom{border-top:1px solid #2a2c33}
+  .f-bottom-in{max-width:1240px;margin:0 auto;padding:24px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  .f-brand{font-size:16px;font-weight:800;letter-spacing:-0.02em;color:#ffffff}
+  .f-copy{font-size:13px;color:#8891a0}
+  .f-copy a{color:#8891a0}
+  .f-copy a:hover{color:#ffffff}
+  .f-badge{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;letter-spacing:0.03em;text-transform:uppercase;color:#8891a0}
+
+  /* Планшет */
+  @media (max-width:1024px){
+    .sec,.hero{padding-left:24px;padding-right:24px}
+    .highlights{grid-template-columns:1fr}
+    .svc{grid-template-columns:1fr;gap:28px}
+    .svc-head{position:static}
+    .svc-num{margin-bottom:12px}
+    .contact{grid-template-columns:1fr;gap:40px}
+    .footer-grid{grid-template-columns:1fr 1fr}
+  }
+  /* Телефон */
+  @media (max-width:640px){
+    .sec{padding:64px 20px}
+    .hero{padding:56px 20px 64px}
+    .badge{margin-bottom:20px;font-size:12px}
+    .hero p{font-size:16.5px;margin-bottom:28px}
+    .hero-btns .btn-ghost{width:100%;justify-content:center}
+    .hl{padding:24px;border-radius:20px}
+    .svc-num{font-size:40px}
+    .row{grid-template-columns:1fr;gap:8px;padding:18px 20px}
+    .row-t{color:#2f6bff}
+    .dark .row-t{color:#8fb2ff}
+    .form-row2{grid-template-columns:1fr}
+    .footer-grid{padding:48px 20px 32px;gap:28px 20px}
+    .footer-grid > div:last-child{grid-column:1 / -1}
+    .f-bottom-in{padding-left:20px;padding-right:20px}
+  }
+
+  /* Дополнительно для страницы «Серверы и 1С» */
+  .crumbs{font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:24px}
+  .crumbs a{color:rgba(255,255,255,0.75);text-decoration:none}
+  .crumbs a:hover{color:#ffffff}
+  .lead a{color:#2f6bff}
+  .row-n{grid-template-columns:48px 1fr}
+  .row-n .row-t{color:#2f6bff}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .step{background:#f6f8fc;border-radius:20px;padding:28px}
+  .step-n{font-size:20px;font-weight:800;color:#2f6bff;margin-bottom:16px}
+  .step h3{font-size:19px;font-weight:700;margin:0 0 8px;color:#12161f}
+  .step p{font-size:15px;line-height:1.6;color:#5b6472;margin:0}
+  .price{margin-top:56px;background:#101114;border-radius:24px;padding:40px;display:grid;grid-template-columns:1fr 1.4fr auto;gap:40px;align-items:center}
+  .price h3{font-size:22px;font-weight:800;color:#ffffff;margin:0;line-height:1.3}
+  .price p{font-size:15px;line-height:1.7;color:#c7ccd6;margin:0}
+  .price .btn-ghost{white-space:nowrap}
+  .faq-outer{display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:start}
+  .faq-big{font-size:clamp(44px,10vw,88px);font-weight:800;color:#3a3d45;line-height:1;letter-spacing:-0.02em}
+  .faq details{border-bottom:1px solid #2a2c33;padding:28px 0}
+  .faq details:first-child{padding-top:0}
+  .faq summary{display:grid;grid-template-columns:90px 1fr auto;gap:20px;align-items:start;cursor:pointer;list-style:none}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq-n{font-size:44px;font-weight:800;color:#ffffff;line-height:1}
+  .faq-q{font-size:19px;font-weight:700;color:#ffffff;line-height:1.4;padding-top:6px}
+  .faq-i{color:#ffffff;font-size:22px;font-weight:300;padding-top:6px}
+  .faq-i::before{content:"+"}
+  .faq details[open] .faq-i::before{content:"−"}
+  .faq details p{font-size:15px;line-height:1.7;color:#8891a0;margin:14px 0 0 110px;max-width:640px}
+  #form{position:relative;top:-80px}
+  @media (max-width:1024px){
+    .cards{grid-template-columns:1fr 1fr}
+    .steps{grid-template-columns:1fr 1fr}
+    .price{grid-template-columns:1fr;gap:20px;padding:32px}
+    .price .btn-ghost{justify-self:start}
+    .faq-outer{grid-template-columns:1fr;gap:20px}
+  }
+  @media (max-width:640px){
+    .hero h1{font-size:26px;-webkit-hyphens:auto;hyphens:auto;overflow-wrap:break-word}
+    .cards,.steps{grid-template-columns:1fr;gap:16px}
+    .step{padding:24px}
+    .row-n{grid-template-columns:36px 1fr !important;gap:12px !important}
+    .price{margin-top:40px;padding:26px 22px;border-radius:20px}
+    .price .btn-ghost{width:100%;justify-content:center}
+    .faq details{padding:22px 0}
+    .faq summary{grid-template-columns:36px 1fr auto;gap:12px}
+    .faq-n{font-size:24px;padding-top:3px}
+    .faq-q{font-size:16.5px;padding-top:2px}
+    .faq details p{margin-left:48px}
+  }
+</style>
+<style>
+  /* Статья */
+  .hero h1{font-size:clamp(26px,3.4vw,44px);max-width:960px}
+  .art-meta{font-size:14px;color:rgba(255,255,255,0.6);margin:0}
+  .art{max-width:820px;margin:0 auto}
+  .art p,.art li{font-size:17px;line-height:1.75;color:#2b313c}
+  .art p{margin:0 0 16px}
+  .art ul{margin:0 0 16px;padding-left:22px}
+  .art li{margin-bottom:6px}
+  .art h2{font-size:clamp(22px,3vw,28px);font-weight:800;letter-spacing:-0.01em;text-transform:uppercase;color:#12161f;line-height:1.25;margin:48px 0 16px}
+  .art h2:first-child{margin-top:0}
+  .art code{font-family:ui-monospace,Menlo,monospace;font-size:14.5px;background:#eef1f6;border-radius:6px;padding:2px 6px;color:#12161f;word-break:break-word}
+  .art pre{background:#101114;color:#e6e9ef;border-radius:14px;padding:18px 20px;overflow-x:auto;font-size:14.5px;line-height:1.6;margin:0 0 16px}
+  .art pre code{background:none;color:inherit;padding:0}
+  .art .tbl{border:1px solid #e2e5ea;border-radius:16px;overflow:hidden;margin:8px 0 16px}
+  .art table{width:100%;border-collapse:collapse}
+  .art th,.art td{text-align:left;vertical-align:top;padding:16px 18px;font-size:15px;line-height:1.6;color:#3a4150;border-top:1px solid #e2e5ea}
+  .art tr:first-child th{border-top:none}
+  .art th{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#12161f;background:#f6f8fc}
+  .art td:first-child{font-weight:600;color:#12161f}
+  .art-cta{max-width:820px;margin:56px auto 0;background:#101114;border-radius:24px;padding:36px 40px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+  .art-cta h3{font-size:22px;font-weight:800;color:#ffffff;margin:0 0 8px}
+  .art-cta p{font-size:15px;line-height:1.6;color:#c7ccd6;margin:0}
+  .art-cta .btn-ghost{white-space:nowrap}
+  @media (max-width:640px){
+    .hero h1{font-size:23px;-webkit-hyphens:manual;hyphens:manual}
+    .art p,.art li{font-size:16px}
+    .art h2{margin-top:36px}
+    .art pre{white-space:pre-wrap;word-break:break-all}
+    .art .tbl{border:none;border-radius:0}
+    .art table,.art tbody,.art tr,.art td{display:block;width:100%}
+    .art tr:first-child{display:none}
+    .art tr{border:1px solid #e2e5ea;border-radius:14px;margin-bottom:12px;overflow:hidden}
+    .art td{border-top:none;padding:6px 16px}
+    .art td:first-child{padding-top:14px;background:#f6f8fc;padding-bottom:12px}
+    .art td:last-child{padding-bottom:14px}
+    .art .err td:nth-child(2)::before{content:"Причина: ";font-weight:700;color:#12161f}
+    .art .err td:nth-child(3)::before{content:"Что сделать: ";font-weight:700;color:#12161f}
+    .art .cmp td:nth-child(2)::before{content:"Штатный: ";font-weight:700;color:#12161f}
+    .art .cmp td:nth-child(3)::before{content:"Аутсорсинг: ";font-weight:700;color:#12161f}
+    .art-cta{grid-template-columns:1fr;padding:26px 22px;border-radius:20px;margin-top:40px}
+    .art-cta .btn-ghost{width:100%;justify-content:center}
+  }
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Обязанности системного администратора в организации: полный список для руководителя", "description": "Обязанности системного администратора в организации: полный список задач, регламент на день, неделю и месяц, чек-лист руководителя и сравнение с аутсорсингом.", "datePublished": "2026-10-27", "dateModified": "2026-10-27", "author": {"@type": "Organization", "name": "Про технологии", "url": "https://it-consalting24.ru/"}, "publisher": {"@id": "https://it-consalting24.ru/#org"}, "mainEntityOfPage": "https://it-consalting24.ru/obyazannosti-sistemnogo-administratora.html", "inLanguage": "ru"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Обязательно ли иметь должностную инструкцию системного администратора?", "acceptedAnswer": {"@type": "Answer", "text": "Закон не обязывает коммерческую компанию её составлять, но без инструкции сложно спросить за результат и решить спор о том, входит ли задача в обязанности. Достаточно короткого документа с зоной ответственности, регламентом и сроками реакции."}}, {"@type": "Question", "name": "Нужен ли сисадмин маленькому офису на 5–10 человек?", "acceptedAnswer": {"@type": "Answer", "text": "Штатный — чаще всего нет: задач на полный день не наберётся. Но кто-то должен отвечать за резервные копии, обновления и доступы. Обычно это решают абонентским обслуживанием или разовыми вызовами специалиста."}}, {"@type": "Question", "name": "Должен ли системный администратор дорабатывать 1С?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Сисадмин отвечает за сервер 1С, платформу, резервные копии и права доступа. Изменение конфигурации, отчётов и обработок — работа программиста 1С."}}, {"@type": "Question", "name": "Как понять, что сисадмин работает хорошо, если ничего не ломается?", "acceptedAnswer": {"@type": "Answer", "text": "Попросите показать результат профилактики: журнал проверки резервных копий, дату последнего тестового восстановления, список техники, схему сети и учёт заявок. Если всё это есть и актуально, тишина — заслуга администратора."}}, {"@type": "Question", "name": "Можно ли совмещать штатного специалиста и аутсорсинг?", "acceptedAnswer": {"@type": "Answer", "text": "Да, это распространённая схема. Штатный сотрудник помогает пользователям на месте, а подрядчик ведёт серверы, сеть, резервное копирование и подменяет сотрудника в отпуске."}}]}</script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113752459', 'ym');
+
+    ym(113752459, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<!-- /Yandex.Metrika counter -->
+<link rel="stylesheet" href="/mobile.css">
+<script src="/mobile.js" defer></script>
+</head>
+<body>
+<noscript><div><img src="https://mc.yandex.ru/watch/113752459" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<!-- ШАПКА -->
+<header class="site-header">
+  <div class="site-header-in">
+    <a href="./" class="site-logo">Про технологии</a>
+    <nav class="site-nav">
+      <a href="./services.html">Услуги</a>
+      <a href="./#stages">Этапы работы</a>
+      <a href="./about.html">О компании</a>
+      <a href="./#pricing">Стоимость</a>
+      <a href="./blog.html">Блог</a>
+      <a href="./#faq">FAQ</a>
+    </nav>
+    <div class="site-actions">
+      <a href="tel:+79969241648" class="site-phone" aria-label="Позвонить: +7 (996) 924-16-48">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <span class="site-phone-num">+7 (996) 924-16-48</span>
+      </a>
+      <button type="button" class="nav-toggle" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ПЕРВЫЙ ЭКРАН -->
+<section class="hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="./">Главная</a> / <a href="./blog.html">Блог</a> / Обязанности сисадмина</div>
+    <div class="badge">Руководителю · ИТ в компании</div>
+    <h1>Обязанности системного администратора в организации: полный список для руководителя</h1>
+    <p class="art-meta">27 октября 2026 · Про технологии</p>
+  </div>
+</section>
+
+<!-- СТАТЬЯ -->
+<section class="sec">
+  <article class="art">
+<p>Обязанности системного администратора в организации редко записаны так, чтобы их понимали обе стороны. Руководитель думает, что сисадмин «отвечает за всё, что с проводами», а сам сисадмин — что его дело чинить то, что сломалось. В итоге резервные копии никто не проверяет, пароли от роутера знает только уволившийся сотрудник, а 1С падает в день сдачи отчётности.</p>
+<p>Ниже — полный список задач системного администратора в небольшой компании, разбитый по направлениям, регламент «день — неделя — месяц», чек-лист для руководителя и сравнение штатного специалиста с ИТ-аутсорсингом. Материал написан для владельца или директора, которому нужно поставить задачи айтишнику и понимать, справляется ли он.</p>
+
+<h2>Кто такой системный администратор и за что он отвечает</h2>
+<p>Системный администратор — специалист, который обеспечивает бесперебойную работу ИТ-инфраструктуры компании: компьютеров, серверов, сети, программ и данных. Его главный результат не в том, что он быстро чинит, а в том, что ломается редко, а если ломается — данные не теряются и работа восстанавливается за понятное время.</p>
+<p>В крупной компании эти функции делят между несколькими людьми: специалист поддержки пользователей, сетевой инженер, администратор серверов, специалист по информационной безопасности. В малом бизнесе всё это обычно ложится на одного человека или на подрядчика. Поэтому ниже мы перечисляем именно «объединённый» набор задач, который нужен офису на 5–80 рабочих мест.</p>
+<p>Есть и официальный ориентир — профессиональный стандарт «Системный администратор информационно-коммуникационных систем» (приказ Минтруда России от 29.09.2020 № 680н). Для коммерческой компании он не обязателен, но удобен как источник формулировок для должностной инструкции.</p>
+
+<h2>Основные обязанности системного администратора: полный список</h2>
+<p>Удобнее всего делить работу сисадмина на направления. В каждом есть «текущие» задачи (сделать по запросу) и «профилактические» (делать регулярно, даже если никто не просит). Именно вторые чаще всего и выпадают.</p>
+
+<h3>1. Рабочие места и пользователи</h3>
+<ul>
+<li>подготовка компьютеров и ноутбуков для новых сотрудников: установка системы, программ, принтеров, почты;</li>
+<li>создание и отключение учётных записей — особенно важно в день увольнения сотрудника;</li>
+<li>помощь пользователям: не печатает, не открывается, «всё зависло», забыл пароль;</li>
+<li>установка обновлений Windows и программ, контроль антивируса;</li>
+<li>диагностика и мелкий ремонт, организация ремонта в сервисе, замена комплектующих.</li>
+</ul>
+<p>Подробнее о том, что входит в обслуживание рабочих мест, — на странице <a href="./computers.html">обслуживания компьютеров</a>.</p>
+
+<h3>2. Серверы и 1С</h3>
+<ul>
+<li>настройка и поддержка серверов: файловый сервер, контроллер домена, терминальный сервер, сервер 1С;</li>
+<li>управление правами доступа к общим папкам и базам;</li>
+<li>обновление платформы и конфигураций 1С (вместе с программистом 1С или по его инструкции), контроль сеансов и блокировок;</li>
+<li>контроль места на дисках, состояния дисков и нагрузки;</li>
+<li>плановая перезагрузка и установка обновлений в нерабочее время.</li>
+</ul>
+<p>Если сервер 1С работает у вас удалённо или в облаке, задачи те же — меняется только способ доступа. Как мы ведём такие серверы, описано на странице <a href="./servers.html">администрирования серверов 1С</a>.</p>
+
+<h3>3. Сеть, интернет, Wi-Fi и VPN</h3>
+<ul>
+<li>настройка роутера, коммутаторов и точек доступа;</li>
+<li>отдельная гостевая сеть Wi-Fi, чтобы посетители не попадали в рабочую;</li>
+<li>VPN для удалённых сотрудников и филиалов;</li>
+<li>общение с провайдером при сбоях, контроль скорости и резервного канала, если он есть;</li>
+<li>схема сети: что куда подключено и где какой адрес.</li>
+</ul>
+
+<h3>4. Резервное копирование</h3>
+<p>Это самая недооценённая обязанность. Сисадмин должен не просто «настроить бэкап», а отвечать за три вещи: что копируется (базы 1С, общие папки, почта, настройки), куда (минимум одна копия вне офиса или недоступная из сети) и восстанавливается ли копия на самом деле. Последнее проверяется только тестовым восстановлением — без него наличие резервных копий ничего не гарантирует.</p>
+
+<h3>5. Информационная безопасность</h3>
+<ul>
+<li>антивирус на всех компьютерах и серверах;</li>
+<li>своевременные обновления — большинство атак используют уже закрытые уязвимости;</li>
+<li>политика паролей, отказ от общих учёток «на всех»;</li>
+<li>закрытый снаружи удалённый доступ (RDP только через VPN);</li>
+<li>права «по минимуму»: бухгалтер видит бухгалтерию, менеджер — свои папки;</li>
+<li>напоминания сотрудникам о фишинговых письмах.</li>
+</ul>
+<p>Отдельно о защите от вирусов-вымогателей мы писали в статье <a href="./zashchita-ot-shifrovalshchikov.html">«Защита от шифровальщиков»</a>.</p>
+
+<h3>6. Учёт техники, лицензий и закупки</h3>
+<ul>
+<li>список техники: что, у кого, когда куплено, когда заканчивается гарантия;</li>
+<li>учёт лицензий на Windows, Office, антивирус, 1С и сроков их продления;</li>
+<li>сроки оплаты домена, хостинга, облачных сервисов, сертификатов;</li>
+<li>подбор техники к закупке и подготовка её к работе.</li>
+</ul>
+
+<h3>7. Принтеры, телефония, видеонаблюдение</h3>
+<p>Периферия формально не «система», но в небольшом офисе ей тоже занимается сисадмин: подключение МФУ к сети, сканирование в папку, замена картриджей или контроль подрядчика, IP-телефония, видеорегистраторы и доступ к камерам с телефона.</p>
+
+<h3>8. Документация и пароли</h3>
+<p>Обязанность, без которой все остальные теряют половину ценности. Сисадмин ведёт описание инфраструктуры: схему сети, список серверов и служб, где и как делаются копии, кто имеет доступ куда. Пароли администраторов хранятся в менеджере паролей, доступ к которому есть и у руководителя. Если сисадмин заболел или уволился, по этим документам другой специалист должен разобраться за день, а не за месяц.</p>
+
+<h2>Регламент: что сисадмин делает каждый день, неделю и месяц</h2>
+<p>Список обязанностей превращается в работу только тогда, когда у задач есть периодичность. Ниже — базовый регламент для офиса до нескольких десятков рабочих мест. Его можно взять за основу и дописать под свои системы.</p>
+<div class="tbl"><table>
+<tr><th>Когда</th><th>Что делать</th></tr>
+<tr><td>Каждый день</td><td>Проверить, что ночные резервные копии создались без ошибок; посмотреть оповещения антивируса и мониторинга; разобрать заявки пользователей</td></tr>
+<tr><td>Каждую неделю</td><td>Проверить место на дисках серверов, состояние дисков, установить обновления в нерабочее время; убедиться, что копия вне офиса актуальна</td></tr>
+<tr><td>Каждый месяц</td><td>Тестовое восстановление одного файла или базы из копии; ревизия учётных записей (нет ли «висящих» после увольнений); проверка сроков лицензий и оплат</td></tr>
+<tr><td>Раз в квартал</td><td>Обновление схемы сети и документации; проверка прав доступа к общим папкам; чистка серверной и рабочих мест от пыли по необходимости</td></tr>
+<tr><td>Раз в год</td><td>План замены устаревшей техники и бюджет на следующий год; проверка, что все пароли администраторов актуальны и лежат в хранилище</td></tr>
+</table></div>
+
+<h2>Типы администраторов: кого вы на самом деле ищете</h2>
+<p>Под словом «сисадмин» часто имеют в виду разных специалистов. Полезно понимать разницу, чтобы не переплачивать и не ждать невозможного.</p>
+<ul>
+<li><strong>Специалист поддержки («эникейщик»).</strong> Помогает пользователям, ставит программы, подключает принтеры. Серверы и сеть проектировать не возьмётся.</li>
+<li><strong>Системный администратор.</strong> Ведёт серверы, домен, резервное копирование, права доступа. Основная фигура для офиса с сервером 1С.</li>
+<li><strong>Сетевой инженер.</strong> Проектирует и настраивает сеть, VPN между филиалами, сложное оборудование. В малом бизнесе нужен эпизодически.</li>
+<li><strong>Специалист по информационной безопасности.</strong> Строит защиту, анализирует инциденты, готовит документы для проверок. Малому бизнесу обычно хватает базовых мер, которые делает сисадмин.</li>
+</ul>
+<p>Небольшой компании нужен человек, который закрывает первые два пункта и разбирается в третьем и четвёртом на базовом уровне. Найти одного такого специалиста сложнее, чем кажется, — об этом ниже.</p>
+
+<h2>Чего не стоит требовать от сисадмина</h2>
+<p>Часть конфликтов возникает из-за задач, которые к администрированию не относятся или требуют другой квалификации:</p>
+<ul>
+<li><strong>Программирование и доработка 1С.</strong> Это работа программиста 1С. Сисадмин отвечает за сервер, платформу, копии и доступы, но не за изменение отчётов и обработок.</li>
+<li><strong>Сайт и реклама.</strong> Продвижение, контекстная реклама и дизайн — отдельные профессии.</li>
+<li><strong>Ремонт плат и техники «в железе».</strong> Сисадмин может диагностировать неисправность и организовать ремонт, но паять материнские платы — задача сервисного центра.</li>
+<li><strong>Роль завхоза.</strong> Покупка канцелярии, чайников и мебели к ИТ не относится, хотя в маленьких офисах это часто «прилипает».</li>
+</ul>
+<p>Если такие задачи всё-таки нужны, их стоит прямо записать в должностную инструкцию или договор, чтобы потом не было взаимных претензий.</p>
+
+<h2>Навыки и требования к системному администратору</h2>
+<p>Для офиса малого бизнеса от сисадмина обычно ждут уверенной работы с Windows и Windows Server, понимания домена и прав доступа, умения настроить роутер, Wi-Fi и VPN, опыта с сервером 1С и резервным копированием. Плюсом будет знание Linux, систем мониторинга и виртуализации.</p>
+<p>Не менее важны «нетехнические» качества: привычка документировать, умение объяснить проблему руководителю без жаргона, аккуратность с чужими данными. Сисадмин, который «всё держит в голове», опасен для компании, даже если работает отлично.</p>
+
+<h2>Должностная инструкция системного администратора: что в неё записать</h2>
+<p>Трудовой кодекс не требует обязательно иметь должностную инструкцию, но без неё трудно спросить с сотрудника за конкретный результат. Хорошая инструкция короткая и проверяемая: в ней обязанности системного администратора в организации перечислены так, чтобы выполнение можно было проверить. Минимальный набор разделов:</p>
+<ul>
+<li><strong>Общие положения</strong> — кому подчиняется, кто замещает в отпуске и на больничном.</li>
+<li><strong>Зона ответственности</strong> — перечень систем: рабочие места, серверы, сеть, 1С, почта, периферия.</li>
+<li><strong>Обязанности</strong> — по направлениям из списка выше, включая регламентные работы.</li>
+<li><strong>Сроки реакции</strong> — например, критическая авария (не работает 1С у всех) — немедленно, обычная заявка — в течение рабочего дня.</li>
+<li><strong>Права</strong> — доступы, право останавливать работу системы для обслуживания, право требовать соблюдения правил безопасности.</li>
+<li><strong>Ответственность и передача дел</strong> — обязательство вести документацию и передать пароли и описание систем при увольнении.</li>
+</ul>
+<p>Последний пункт стоит подписать отдельно и проверять раз в год: именно на передаче дел компании теряют больше всего.</p>
+
+<h2>Приём и увольнение сотрудника: зона ответственности сисадмина</h2>
+<p>Самые частые «дыры» в ИТ небольшой компании возникают не из-за поломок, а при движении людей. Поэтому стоит отдельно записать, что делает администратор в эти моменты.</p>
+<h3>Когда сотрудник выходит на работу</h3>
+<ul>
+<li>заранее подготовить компьютер или ноутбук с нужными программами;</li>
+<li>создать учётную запись, почту, доступ к 1С и только к тем папкам, которые нужны по должности;</li>
+<li>подключить принтер, сканирование, телефон, VPN, если человек работает удалённо;</li>
+<li>коротко объяснить правила: где хранить файлы, как сообщать о проблеме, что делать с подозрительным письмом;</li>
+<li>внести выданную технику в учёт.</li>
+</ul>
+<h3>Когда сотрудник увольняется</h3>
+<ul>
+<li>в последний рабочий день отключить вход в компьютер, почту, 1С, VPN и облачные сервисы;</li>
+<li>сменить общие пароли, которые знал сотрудник (Wi-Fi, банк-клиент, сервисы);</li>
+<li>сохранить его рабочие файлы и почту, передать их преемнику;</li>
+<li>принять технику по списку.</li>
+</ul>
+<p>Удобно, когда эти шаги включены в обходной лист отдела кадров: тогда о них не забудут даже в загруженную неделю.</p>
+
+<h2>Первые две недели нового сисадмина: что поручить</h2>
+<p>Если вы взяли администратора в штат или сменили подрядчика, не стоит сразу загружать его заявками. Первые дни лучше отдать на инвентаризацию — она покажет, в каком состоянии ИТ на самом деле.</p>
+<ul>
+<li><strong>Дни 1–3.</strong> Получить все пароли и доступы от предшественника, составить список техники, серверов и программ.</li>
+<li><strong>Дни 4–6.</strong> Нарисовать схему сети, проверить, какие резервные копии делаются и восстанавливаются ли они.</li>
+<li><strong>Дни 7–10.</strong> Найти и закрыть явные риски: устаревшие пароли, открытый наружу удалённый доступ, учётки уволенных, компьютеры без обновлений.</li>
+<li><strong>Конец второй недели.</strong> Показать руководителю короткий отчёт: что в порядке, что срочно исправить, что запланировать и сколько это стоит.</li>
+</ul>
+<p>Такой отчёт — хорошая проверка квалификации: специалист, который не может его составить, вряд ли будет поддерживать документацию дальше.</p>
+
+<h2>Как проверить, что сисадмин справляется: чек-лист руководителя</h2>
+<p>Руководителю не нужно разбираться в технике, чтобы оценить работу администратора. Достаточно раз в квартал пройтись по вопросам ниже. Если на большинство ответ «да» и это можно показать — всё в порядке.</p>
+<ul>
+<li>Можете ли вы получить список всей техники с датами покупки?</li>
+<li>Есть ли схема сети и описание серверов, понятные другому специалисту?</li>
+<li>Лежат ли пароли администраторов в хранилище, к которому у вас есть доступ?</li>
+<li>Когда последний раз восстанавливали базу 1С из резервной копии — и сколько это заняло?</li>
+<li>Есть ли копия данных вне офиса или недоступная из рабочей сети?</li>
+<li>Отключены ли учётные записи всех уволенных сотрудников?</li>
+<li>Закрыт ли удалённый рабочий стол от прямого доступа из интернета?</li>
+<li>Знаете ли вы, когда заканчиваются лицензии, домен и гарантия на сервер?</li>
+<li>Ведётся ли учёт заявок: сколько было обращений и как быстро их решали?</li>
+<li>Есть ли план замены устаревшей техники с примерным бюджетом?</li>
+</ul>
+<p>Если по этому списку хочется получить независимую оценку, мы проводим бесплатный аудит ИТ-инфраструктуры за 1 день и показываем результат в виде понятного отчёта.</p>
+
+<h2>Типичные проблемы в работе ИТ: причина и что сделать</h2>
+<p>Многие «технические» проблемы офиса на самом деле — следствие того, что обязанности системного администратора в организации не распределены и какая-то задача не закреплена ни за кем.</p>
+<div class="tbl err"><table>
+<tr><th>Проблема</th><th>Причина</th><th>Что сделать</th></tr>
+<tr><td>Сисадмин постоянно «тушит пожары», на профилактику нет времени</td><td>Нет регламента и учёта заявок, всё делается по звонку</td><td>Ввести регламент «день — неделя — месяц» и вести заявки в одном месте</td></tr>
+<tr><td>После увольнения сисадмина никто не может зайти на сервер и роутер</td><td>Пароли и схема сети были только у него</td><td>Хранить пароли в общем хранилище, закрепить передачу дел в инструкции</td></tr>
+<tr><td>Резервная копия есть, но базу восстановить не удалось</td><td>Копию ни разу не проверяли, она битая или неполная</td><td>Ежемесячное тестовое восстановление с записью результата</td></tr>
+<tr><td>Бывший сотрудник продолжает заходить в почту или облако</td><td>Нет процедуры отключения учётных записей при увольнении</td><td>Добавить ИТ в лист увольнения: доступы отключаются в последний рабочий день</td></tr>
+<tr><td>Внезапно перестал работать сайт или почта</td><td>Не продлён домен, хостинг или сертификат</td><td>Вести календарь сроков оплат и продлений</td></tr>
+<tr><td>В отпуск сисадмина офис остаётся без поддержки</td><td>Один человек без замены</td><td>Договориться о замещении или передать поддержку подрядчику на время отсутствия</td></tr>
+</table></div>
+
+<h2>Когда даже хорошему сисадмину нужна помощь со стороны</h2>
+<p>Один специалист не обязан уметь всё. Признак зрелого администратора — он сам говорит, где нужна внешняя помощь, а не берётся за задачу «на авось». Типичные ситуации:</p>
+<ul>
+<li>переезд офиса или прокладка новой кабельной сети;</li>
+<li>перенос 1С на новый сервер или в облако, переход на новую платформу;</li>
+<li>монтаж видеонаблюдения на объекте с десятками камер;</li>
+<li>заражение шифровальщиком или подозрение на взлом;</li>
+<li>независимая проверка: руководитель хочет понять, всё ли сделано правильно.</li>
+</ul>
+<p>Для таких задач удобнее привлечь подрядчика разово, чем держать в штате узкого специалиста. Штатный сисадмин при этом остаётся «хозяином» инфраструктуры и принимает работу.</p>
+
+<h2>Штатный системный администратор или ИТ-аутсорсинг</h2>
+<p>Когда список обязанностей составлен, становится видно главное противоречие: для небольшого офиса это слишком разнообразная работа для одного человека и при этом слишком маленький объём, чтобы держать нескольких. Отсюда два пути.</p>
+<div class="tbl cmp"><table>
+<tr><th>Критерий</th><th>Штатный сисадмин</th><th>ИТ-аутсорсинг</th></tr>
+<tr><td>Затраты</td><td>Зарплата, налоги и взносы, рабочее место, обучение</td><td>Фиксированный ежемесячный платёж по договору</td></tr>
+<tr><td>Отпуск и больничный</td><td>Поддержки нет, пока сотрудник отсутствует</td><td>Работу ведёт команда, замена не нужна</td></tr>
+<tr><td>Компетенции</td><td>Ограничены опытом одного человека</td><td>Опыт команды: серверы, сеть, 1С, безопасность</td></tr>
+<tr><td>Присутствие в офисе</td><td>Всегда на месте</td><td>Удалённое подключение и выезд по заявке</td></tr>
+<tr><td>Документация</td><td>Зависит от добросовестности сотрудника</td><td>Можно закрепить в договоре как обязанность подрядчика</td></tr>
+<tr><td>Когда выгоднее</td><td>Много техники и ежедневных мелких задач на месте</td><td>Офис до нескольких десятков рабочих мест без постоянной очереди заявок</td></tr>
+</table></div>
+<p>Часто работает и смешанная схема: внутри компании есть сотрудник, который помогает пользователям, а серверы, резервное копирование и безопасность ведёт подрядчик. Так закрываются задачи, на которые у штатного специалиста не хватает опыта или времени.</p>
+<p>Мы обслуживаем компании до 80 рабочих мест в Оренбурге: <a href="./outsourcing.html">ИТ-аутсорсинг</a> стоит от 15 000 ₽ в месяц и включает закреплённого специалиста, плановое обслуживание, мониторинг, резервные копии и приоритетные заявки. Если постоянное обслуживание пока не нужно, можно вызвать специалиста разово — от 1 500 ₽, выезд в день обращения, диагностика бесплатно.</p>
+
+<h2>Частые вопросы</h2>
+<h3>Обязательно ли иметь должностную инструкцию системного администратора?</h3>
+<p>Закон не обязывает коммерческую компанию её составлять, но без инструкции сложно спросить за результат и решить спор о том, входит ли задача в обязанности. Достаточно короткого документа с зоной ответственности, регламентом и сроками реакции.</p>
+<h3>Нужен ли сисадмин маленькому офису на 5–10 человек?</h3>
+<p>Штатный — чаще всего нет: задач на полный день не наберётся. Но кто-то должен отвечать за резервные копии, обновления и доступы. Обычно это решают абонентским обслуживанием или разовыми вызовами специалиста.</p>
+<h3>Должен ли системный администратор дорабатывать 1С?</h3>
+<p>Нет. Сисадмин отвечает за сервер 1С, платформу, резервные копии и права доступа. Изменение конфигурации, отчётов и обработок — работа программиста 1С.</p>
+<h3>Как понять, что сисадмин работает хорошо, если ничего не ломается?</h3>
+<p>Попросите показать результат профилактики: журнал проверки резервных копий, дату последнего тестового восстановления, список техники, схему сети и учёт заявок. Если всё это есть и актуально, тишина — заслуга администратора.</p>
+<h3>Можно ли совмещать штатного специалиста и аутсорсинг?</h3>
+<p>Да, это распространённая схема. Штатный сотрудник помогает пользователям на месте, а подрядчик ведёт серверы, сеть, резервное копирование и подменяет сотрудника в отпуске.</p>
+  </article>
+
+  <div class="art-cta">
+    <div>
+      <h3>Хотите понять, всё ли в порядке с ИТ?</h3>
+      <p>Проведём бесплатный аудит за 1 день: проверим резервные копии, доступы, сеть и серверы и покажем, какие обязанности сейчас никем не закрыты. По Оренбургу выезжаем в день обращения.</p>
+    </div>
+    <a href="#contact" class="btn-ghost">Оставить заявку →</a>
+  </div>
+</section>
+
+<!-- ЗАЯВКА -->
+<section id="contact" class="sec" style="padding-top:0">
+  <span id="form"></span>
+  <div class="wrap contact">
+    <div>
+      <div class="mono-eyebrow">[ БЕСПЛАТНАЯ ДИАГНОСТИКА ]</div>
+      <h2>Опишите, что происходит с сервером</h2>
+      <p class="lead" style="margin-bottom:24px">Перезвоним, уточним детали и договоримся о подключении.</p>
+      <a href="tel:+79969241648" class="phone-box">+7 (996) 924-16-48 <span style="font-size:18px">→</span></a>
+    </div>
+    <form class="form" id="lead-form" novalidate>
+      <div class="form-row2">
+        <input type="text" name="name" placeholder="Имя*" aria-label="Имя" autocomplete="name">
+        <input type="text" name="company" placeholder="Компания" aria-label="Компания" autocomplete="organization">
+      </div>
+      <input type="tel" name="phone" placeholder="Телефон*" aria-label="Телефон" autocomplete="tel">
+      <textarea name="comment" rows="3" placeholder="Что с сервером: версия 1С, сколько пользователей, что не работает" aria-label="Опишите задачу"></textarea>
+      <label class="consent">
+        <input type="checkbox" name="consent" value="yes">
+        <span>Даю <a href="./consent.html" target="_blank">согласие на обработку персональных данных</a> и принимаю <a href="./privacy.html" target="_blank">политику конфиденциальности</a></span>
+      </label>
+      <p class="msg" role="alert"></p>
+      <button type="submit" class="submit"><span class="submit-label">Отправить заявку</span><span style="font-size:18px">→</span></button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ПОДВАЛ -->
+<footer class="dark">
+  <div class="footer-grid">
+    <div>
+      <div class="f-title">Услуги</div>
+      <div class="f-links">
+        <a href="./computers.html">Компьютеры</a>
+        <a href="./servers.html">Серверы и 1С</a>
+        <a href="./network.html">Сети и Wi-Fi</a>
+        <a href="./services.html">Все услуги</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-title">Компания</div>
+      <div class="f-links">
+        <a href="./about.html">О компании</a>
+        <a href="./#pricing">Тарифы</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-title">Инфо</div>
+      <div class="f-links">
+        <a href="./#faq">FAQ</a>
+        <a href="./blog.html">Блог</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-title">Контакты</div>
+      <div class="f-links">
+        <a href="tel:+79969241648" class="f-phone">+7 (996) 924-16-48</a>
+      </div>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <div class="f-bottom-in">
+      <div class="f-brand">Про технологии</div>
+      <div class="f-copy">© 2026 Про технологии. ИТ-консалтинг для бизнеса. · <a href="./privacy.html">Политика конфиденциальности</a></div>
+      <div class="f-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8891a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"></path><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"></path></svg>
+        Аккредитованы Минцифры
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var f = document.getElementById('lead-form');
+  if (!f) return;
+  var msg = f.querySelector('.msg');
+  var btn = f.querySelector('.submit');
+  var label = f.querySelector('.submit-label');
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    msg.className = 'msg';
+    msg.textContent = '';
+    if (!f.name.value.trim() || !f.phone.value.trim()) { msg.className = 'msg err'; msg.textContent = 'Укажите имя и телефон'; return; }
+    if (!f.consent.checked) { msg.className = 'msg err'; msg.textContent = 'Отметьте согласие на обработку персональных данных'; return; }
+    btn.disabled = true; label.textContent = 'Отправка...';
+    var data = new FormData(f);
+    data.set('consent', 'yes');
+    fetch('/send.php', { method: 'POST', body: data })
+      .then(function (r) { if (!r.ok) throw new Error(); })
+      .then(function () {
+        f.reset();
+        msg.className = 'msg ok';
+        msg.textContent = '✓ Заявка отправлена. Свяжемся с вами в рабочее время в течение 15 минут.';
+        if (window.ym) window.ym(113752459, 'reachGoal', 'lead');
+      })
+      .catch(function () { msg.className = 'msg err'; msg.textContent = 'Не удалось отправить заявку. Позвоните нам: +7 (996) 924-16-48'; })
+      .then(function () { btn.disabled = false; label.textContent = 'Отправить заявку'; });
+  });
+})();
+</script>
+</body>
+</html>
