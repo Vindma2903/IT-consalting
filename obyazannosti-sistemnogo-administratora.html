@@ -12,6 +12,10 @@
 <meta property="og:title" content="Обязанности системного администратора в организации">
 <meta property="og:description" content="Обязанности системного администратора в организации: полный список задач, регламент на день, неделю и месяц, чек-лист руководителя и сравнение с аутсорсингом.">
 <meta property="og:url" content="https://it-consalting24.ru/obyazannosti-sistemnogo-administratora.html">
+<meta property="og:image" content="https://it-consalting24.ru/img/blog/obyazannosti-sistemnogo-administratora-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link href="/fonts/inter.css" rel="stylesheet">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -223,6 +227,9 @@
   .art tr:first-child th{border-top:none}
   .art th{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#12161f;background:#f6f8fc}
   .art td:first-child{font-weight:600;color:#12161f}
+  .art figure{margin:28px 0 32px}
+  .art figure img{display:block;width:100%;height:auto}
+  .art figcaption{font-size:14px;line-height:1.5;color:#5b6472;margin-top:10px;text-align:center}
   .art-cta{max-width:820px;margin:56px auto 0;background:#101114;border-radius:24px;padding:36px 40px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
   .art-cta h3{font-size:22px;font-weight:800;color:#ffffff;margin:0 0 8px}
   .art-cta p{font-size:15px;line-height:1.6;color:#c7ccd6;margin:0}
@@ -247,7 +254,7 @@
     .art-cta .btn-ghost{width:100%;justify-content:center}
   }
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Обязанности системного администратора в организации: полный список для руководителя", "description": "Обязанности системного администратора в организации: полный список задач, регламент на день, неделю и месяц, чек-лист руководителя и сравнение с аутсорсингом.", "datePublished": "2026-10-27", "dateModified": "2026-10-27", "author": {"@type": "Organization", "name": "Про технологии", "url": "https://it-consalting24.ru/"}, "publisher": {"@id": "https://it-consalting24.ru/#org"}, "mainEntityOfPage": "https://it-consalting24.ru/obyazannosti-sistemnogo-administratora.html", "inLanguage": "ru"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Обязанности системного администратора в организации: полный список для руководителя", "description": "Обязанности системного администратора в организации: полный список задач, регламент на день, неделю и месяц, чек-лист руководителя и сравнение с аутсорсингом.", "datePublished": "2026-10-27", "dateModified": "2026-10-27", "author": {"@type": "Organization", "name": "Про технологии", "url": "https://it-consalting24.ru/"}, "publisher": {"@id": "https://it-consalting24.ru/#org"}, "mainEntityOfPage": "https://it-consalting24.ru/obyazannosti-sistemnogo-administratora.html", "inLanguage": "ru", "image": "https://it-consalting24.ru/img/blog/obyazannosti-sistemnogo-administratora-cover.jpg"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Обязательно ли иметь должностную инструкцию системного администратора?", "acceptedAnswer": {"@type": "Answer", "text": "Закон не обязывает коммерческую компанию её составлять, но без инструкции сложно спросить за результат и решить спор о том, входит ли задача в обязанности. Достаточно короткого документа с зоной ответственности, регламентом и сроками реакции."}}, {"@type": "Question", "name": "Нужен ли сисадмин маленькому офису на 5–10 человек?", "acceptedAnswer": {"@type": "Answer", "text": "Штатный — чаще всего нет: задач на полный день не наберётся. Но кто-то должен отвечать за резервные копии, обновления и доступы. Обычно это решают абонентским обслуживанием или разовыми вызовами специалиста."}}, {"@type": "Question", "name": "Должен ли системный администратор дорабатывать 1С?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Сисадмин отвечает за сервер 1С, платформу, резервные копии и права доступа. Изменение конфигурации, отчётов и обработок — работа программиста 1С."}}, {"@type": "Question", "name": "Как понять, что сисадмин работает хорошо, если ничего не ломается?", "acceptedAnswer": {"@type": "Answer", "text": "Попросите показать результат профилактики: журнал проверки резервных копий, дату последнего тестового восстановления, список техники, схему сети и учёт заявок. Если всё это есть и актуально, тишина — заслуга администратора."}}, {"@type": "Question", "name": "Можно ли совмещать штатного специалиста и аутсорсинг?", "acceptedAnswer": {"@type": "Answer", "text": "Да, это распространённая схема. Штатный сотрудник помогает пользователям на месте, а подрядчик ведёт серверы, сеть, резервное копирование и подменяет сотрудника в отпуске."}}]}</script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
@@ -314,6 +321,7 @@
 
 <h2>Основные обязанности системного администратора: полный список</h2>
 <p>Удобнее всего делить работу сисадмина на направления. В каждом есть «текущие» задачи (сделать по запросу) и «профилактические» (делать регулярно, даже если никто не просит). Именно вторые чаще всего и выпадают.</p>
+<figure class="ig"><picture><source media="(max-width:640px)" srcset="./img/blog/obyazannosti-sistemnogo-administratora-zony-m.webp" width="750" height="2576"><img src="./img/blog/obyazannosti-sistemnogo-administratora-zony.webp" width="1640" height="1536" alt="Инфографика: 8 зон ответственности системного администратора — рабочие места, серверы и 1С, сеть и VPN, резервные копии, безопасность, учёт и лицензии, периферия, документация" loading="lazy" decoding="async"></picture><figcaption>Восемь направлений, которые должны быть закреплены за сисадмином или подрядчиком</figcaption></figure>
 
 <h3>1. Рабочие места и пользователи</h3>
 <ul>
@@ -383,6 +391,7 @@
 <tr><td>Раз в год</td><td>План замены устаревшей техники и бюджет на следующий год; проверка, что все пароли администраторов актуальны и лежат в хранилище</td></tr>
 </table></div>
 
+<figure class="ig"><picture><source media="(max-width:640px)" srcset="./img/blog/obyazannosti-sistemnogo-administratora-reglament-m.webp" width="750" height="1820"><img src="./img/blog/obyazannosti-sistemnogo-administratora-reglament.webp" width="1640" height="990" alt="Инфографика: регламент работ системного администратора — каждый день, каждую неделю, каждый месяц, раз в квартал и раз в год" loading="lazy" decoding="async"></picture><figcaption>Регламент профилактических работ: от ежедневной проверки бэкапов до годового плана</figcaption></figure>
 <h2>Типы администраторов: кого вы на самом деле ищете</h2>
 <p>Под словом «сисадмин» часто имеют в виду разных специалистов. Полезно понимать разницу, чтобы не переплачивать и не ждать невозможного.</p>
 <ul>

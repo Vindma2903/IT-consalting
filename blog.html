@@ -83,7 +83,7 @@
       <sc-for list="{{ posts }}" as="post" hint-placeholder-count="6">
         <div onClick="{{ post.open }}" style="border:1px solid #e2e5ea;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer" style-hover="border-color:#2f6bff">
           <div style="aspect-ratio:16/10;background:#f4f5f7">
-            <image-slot id="{{ post.imgId }}" placeholder="Обложка статьи" shape="rect" style="width:100%;height:100%"></image-slot>
+            <image-slot id="{{ post.imgId }}" src="{{ post.img }}" placeholder="Обложка статьи" shape="rect" style="width:100%;height:100%"></image-slot>
           </div>
           <div style="padding:24px;display:flex;flex-direction:column;gap:10px;flex:1">
             <div style="font-size:13px;color:#5b6472;font-weight:600">{{ post.tag }}</div>
@@ -158,9 +158,9 @@
 <script type="text/x-dc" data-dc-script>
 const STORAGE_KEY = 'blogPosts';
 const DEFAULT_POSTS = [
-  { id: 'obyazannosti-sistemnogo-administratora', imgId: 'blog-obyazannosti-sistemnogo-administratora', tag: 'ИТ в компании', title: 'Обязанности системного администратора в организации', excerpt: 'Полный список задач сисадмина, регламент на день, неделю и месяц, чек-лист для руководителя и сравнение штатного специалиста с аутсорсингом.', href: './obyazannosti-sistemnogo-administratora.html' },
-  { id: 'zashchita-ot-shifrovalshchikov', imgId: 'blog-zashchita-ot-shifrovalshchikov', tag: 'Безопасность', title: 'Защита от шифровальщиков: как уберечь данные офиса', excerpt: 'Как шифровальщик попадает в сеть офиса, какие резервные копии действительно спасают, чек-лист мер и план действий, если файлы уже зашифрованы.', href: './zashchita-ot-shifrovalshchikov.html' },
-  { id: '1c-konsol-administrirovaniya', imgId: 'blog-1c-konsol', tag: 'Серверы и 1С', title: 'Консоль администрирования серверов 1С: установка, регистрация, запуск', excerpt: 'Как установить и зарегистрировать консоль администрирования серверов 1С 8.3 и что делать, если она не подключается к серверу.', href: './1c-konsol-administrirovaniya.html' },
+  { id: 'obyazannosti-sistemnogo-administratora', img: './img/blog/obyazannosti-sistemnogo-administratora-card.webp', imgId: 'blog-obyazannosti-sistemnogo-administratora', tag: 'ИТ в компании', title: 'Обязанности системного администратора в организации', excerpt: 'Полный список задач сисадмина, регламент на день, неделю и месяц, чек-лист для руководителя и сравнение штатного специалиста с аутсорсингом.', href: './obyazannosti-sistemnogo-administratora.html' },
+  { id: 'zashchita-ot-shifrovalshchikov', img: './img/blog/zashchita-ot-shifrovalshchikov-card.webp', imgId: 'blog-zashchita-ot-shifrovalshchikov', tag: 'Безопасность', title: 'Защита от шифровальщиков: как уберечь данные офиса', excerpt: 'Как шифровальщик попадает в сеть офиса, какие резервные копии действительно спасают, чек-лист мер и план действий, если файлы уже зашифрованы.', href: './zashchita-ot-shifrovalshchikov.html' },
+  { id: '1c-konsol-administrirovaniya', img: './img/blog/1c-konsol-administrirovaniya-card.webp', imgId: 'blog-1c-konsol', tag: 'Серверы и 1С', title: 'Консоль администрирования серверов 1С: установка, регистрация, запуск', excerpt: 'Как установить и зарегистрировать консоль администрирования серверов 1С 8.3 и что делать, если она не подключается к серверу.', href: './1c-konsol-administrirovaniya.html' },
 ];
 
 function loadPosts() {
