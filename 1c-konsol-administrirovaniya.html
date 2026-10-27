@@ -310,7 +310,7 @@
   <article class="art">
 <p>Консоль администрирования серверов 1С — это оснастка Windows (MMC), через которую управляют кластером: базами, сеансами, рабочими процессами. Чтобы она заработала, нужны три условия: компонент установлен, библиотека <code>radmin.dll</code> зарегистрирована в той же версии, что и сервер, и компьютер видит агент сервера по сети. Ниже — по шагам, а в конце разбор частых ошибок.</p>
 
-<figure class="ig"><picture><source media="(max-width:640px)" srcset="./img/blog/1c-konsol-administrirovaniya-shagi-m.webp" width="750" height="1636"><img src="./img/blog/1c-konsol-administrirovaniya-shagi.webp" width="1640" height="1112" alt="Инфографика: 4 шага запуска консоли администрирования серверов 1С — установить компонент, зарегистрировать radmin.dll, запустить консоль, подключиться к серверу по порту 1540" loading="lazy" decoding="async"></picture><figcaption>Порядок действий: от установки компонента до подключения к агенту сервера</figcaption></figure>
+<figure class="ig"><picture><source media="(max-width:640px)" srcset="./img/blog/1c-konsol-administrirovaniya-shagi-m.webp" width="750" height="1632"><img src="./img/blog/1c-konsol-administrirovaniya-shagi.webp" width="1640" height="1108" alt="Инфографика: 4 шага запуска консоли администрирования серверов 1С — установить компонент, зарегистрировать radmin.dll, запустить консоль, подключиться к серверу по порту 1540" loading="lazy" decoding="async"></picture><figcaption>Порядок действий: от установки компонента до подключения к агенту сервера</figcaption></figure>
 <h2>1. Установите компонент администрирования</h2>
 <p>Консоль ставится вместе с платформой, но только если при установке отмечен компонент «Администрирование сервера 1С:Предприятия». Если на компьютере стоит только клиент, запустите <code>setup.exe</code> полного дистрибутива той же версии, выберите «Изменить» и добавьте этот компонент.</p>
 
@@ -330,7 +330,7 @@
 <h2>4. Подключитесь к серверу</h2>
 <p>В дереве слева нажмите правой кнопкой на «Central 1C:Enterprise 8.3 servers» → «Создать» → «Центральный сервер 1С:Предприятия 8.3». Укажите имя компьютера, где работает сервер, и порт агента — по умолчанию <code>1540</code>. После этого в дереве появятся кластер и информационные базы.</p>
 
-<figure class="ig"><picture><source media="(max-width:640px)" srcset="./img/blog/1c-konsol-administrirovaniya-porty-m.webp" width="750" height="1688"><img src="./img/blog/1c-konsol-administrirovaniya-porty.webp" width="1640" height="1018" alt="Инфографика: порты сервера 1С — агент ragent 1540, менеджер кластера rmngr 1541, рабочие процессы rphost 1560–1591" loading="lazy" decoding="async"></picture><figcaption>Порты, которые должны быть открыты между консолью и сервером 1С</figcaption></figure>
+<figure class="ig"><picture><source media="(max-width:640px)" srcset="./img/blog/1c-konsol-administrirovaniya-porty-m.webp" width="750" height="1682"><img src="./img/blog/1c-konsol-administrirovaniya-porty.webp" width="1640" height="1016" alt="Инфографика: порты сервера 1С — агент ragent 1540, менеджер кластера rmngr 1541, рабочие процессы rphost 1560–1591" loading="lazy" decoding="async"></picture><figcaption>Порты, которые должны быть открыты между консолью и сервером 1С</figcaption></figure>
 <h2>Частые ошибки и что с ними делать</h2>
 <div class="tbl"><table>
   <tr><th>Что видите</th><th>Причина</th><th>Что сделать</th></tr>
