@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Сервер администрирования использует недоверенный сертификат</title>
+<meta name="description" content="Сервер администрирования использует недоверенный сертификат в Kaspersky Security Center: почему так бывает, как исправить Web Console и не потерять компьютеры.">
+<link rel="canonical" href="https://it-consalting24.ru/nedoverennyj-sertifikat-servera-administrirovaniya.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Про технологии">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Сервер администрирования использует недоверенный сертификат">
+<meta property="og:description" content="Сервер администрирования использует недоверенный сертификат в Kaspersky Security Center: почему так бывает, как исправить Web Console и не потерять компьютеры.">
+<meta property="og:url" content="https://it-consalting24.ru/nedoverennyj-sertifikat-servera-administrirovaniya.html">
+<meta property="og:image" content="https://it-consalting24.ru/img/blog/nedoverennyj-sertifikat-servera-administrirovaniya-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link href="/fonts/inter.css" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Inter',system-ui,sans-serif;background:#ffffff;color:#1a1f2b;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:#2f6bff}
+  a:hover{color:#1f4fd6}
+  ::selection{background:#dbe6ff}
+
+  /* Шапка — как на главной */
+  .site-header{position:sticky;top:0;z-index:40;background:#101114;border-bottom:1px solid #2a2c33}
+  .site-header-in{max-width:1240px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .site-logo{text-decoration:none;font-size:19px;font-weight:800;letter-spacing:-0.02em;white-space:nowrap;flex-shrink:0;color:#ffffff}
+  .site-logo:hover{color:#ffffff}
+  .site-nav{display:flex;align-items:center;gap:14px;flex-wrap:wrap;flex:1;justify-content:center;min-width:0}
+  .site-nav a{text-decoration:none;color:#ffffff;font-size:14px;font-weight:500;white-space:nowrap}
+  .site-nav a:hover{color:#8fb2ff}
+  .site-nav a.active{font-weight:700}
+  .site-actions{display:flex;align-items:center;gap:14px;flex-shrink:0}
+  .site-phone{text-decoration:none;color:#ffffff;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px;white-space:nowrap}
+  .site-phone:hover{color:#8fb2ff}
+
+  /* Общие элементы */
+  .wrap{max-width:1176px;margin:0 auto}
+  .sec{padding:100px 32px}
+  .dark{background:#101114}
+  .eyebrow{font-size:13px;font-weight:700;color:#5b6472;letter-spacing:0.14em;text-transform:uppercase;margin:0 0 16px}
+  .dark .eyebrow{color:#8891a0}
+  .h2{font-size:clamp(26px,4vw,38px);font-weight:800;letter-spacing:-0.01em;margin:0 0 16px;color:#12161f;text-transform:uppercase;line-height:1.2}
+  .dark .h2{color:#ffffff}
+  .lead{font-size:17px;line-height:1.7;color:#5b6472;margin:0;max-width:640px}
+  .dark .lead{color:#8891a0}
+  .btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#ffffff;border:1px solid rgba(255,255,255,0.5);padding:16px 30px;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;text-decoration:none;font-family:inherit}
+  .btn-ghost:hover{background:#ffffff;color:#12161f;border-color:#ffffff}
+
+  /* Первый экран */
+  .hero{position:relative;background:#0a0c12;padding:100px 32px 90px;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:url(./uploads/hero-bg.webp) center/cover no-repeat;opacity:.45}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,8,16,0.85),rgba(5,8,16,0.4))}
+  .hero .wrap{position:relative;z-index:1}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);color:#ffffff;font-size:13px;font-weight:600;padding:7px 14px;border-radius:100px;margin-bottom:28px}
+  .hero h1{font-size:clamp(32px,4.6vw,58px);line-height:1.12;font-weight:800;letter-spacing:-0.01em;margin:0 0 24px;color:#ffffff;text-transform:uppercase;max-width:820px}
+  .hero p{font-size:19px;line-height:1.6;color:rgba(255,255,255,0.8);margin:0 0 40px;max-width:720px}
+  .hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+
+  /* Три преимущества */
+  .highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .hl{background:#1c1d22;border:1px solid #2a2c33;border-radius:24px;padding:32px}
+  .hl-num{font-size:14px;font-weight:800;color:#2f6bff;margin-bottom:18px}
+  .hl h3{font-size:21px;font-weight:700;margin:0 0 10px;color:#ffffff}
+  .hl p{font-size:15px;line-height:1.6;color:#8891a0;margin:0}
+
+  /* Разделы услуг */
+  .svc{display:grid;grid-template-columns:340px 1fr;gap:56px;align-items:start}
+  .svc-head{position:sticky;top:100px}
+  .svc-num{font-size:clamp(44px,6vw,72px);font-weight:800;color:#e2e5ea;line-height:1;letter-spacing:-0.02em;margin-bottom:20px}
+  .dark .svc-num{color:#3a3d45}
+  .svc-head .lead{font-size:16px}
+  .svc-more{display:inline-block;margin-top:20px;font-size:15px;font-weight:700;text-decoration:none}
+  .dark .svc-more{color:#8fb2ff}
+  .table{border-radius:16px;overflow:hidden;border:1px solid #e2e5ea}
+  .row{display:grid;grid-template-columns:1fr 1.6fr;padding:22px 28px;gap:24px;border-top:1px solid #e2e5ea}
+  .row:first-child{border-top:none}
+  .row:nth-child(odd){background:#f6f8fc}
+  .row-t{font-family:ui-monospace,Menlo,monospace;font-size:13.5px;font-weight:700;letter-spacing:0.02em;text-transform:uppercase;color:#12161f;line-height:1.5}
+  .row-d{font-size:15px;line-height:1.6;color:#3a4150}
+  .dark .table{border-color:#2a2c33}
+  .dark .row{border-top-color:#2a2c33}
+  .dark .row:nth-child(odd){background:#1c1d22}
+  .dark .row-t{color:#ffffff}
+  .dark .row-d{color:#c7ccd6}
+
+  /* Форма */
+  .contact{display:grid;grid-template-columns:1fr 1.3fr;gap:56px;align-items:start}
+  .mono-eyebrow{font-family:ui-monospace,Menlo,monospace;font-size:13px;font-weight:700;color:#2f6bff;letter-spacing:0.05em;margin-bottom:20px}
+  .contact h2{font-size:clamp(24px,4.5vw,36px);font-weight:800;letter-spacing:-0.01em;margin:0 0 24px;color:#12161f;line-height:1.25}
+  .phone-box{text-decoration:none;display:flex;align-items:center;justify-content:space-between;background:#f6f8fc;border-radius:12px;padding:20px 24px;color:#12161f;font-family:ui-monospace,Menlo,monospace;font-size:14px;font-weight:700;letter-spacing:0.03em}
+  .phone-box:hover{background:#eef1f6;color:#12161f}
+  .form{display:flex;flex-direction:column;gap:16px}
+  .form-row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .form input[type=text],.form input[type=tel],.form textarea{width:100%;padding:18px 20px;border-radius:12px;border:none;background:#f6f8fc;font-size:15px;font-family:inherit;color:#12161f}
+  .form input:focus,.form textarea:focus{outline:2px solid #8891a0}
+  .form textarea{resize:none}
+  .consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#5b6472;line-height:1.5;cursor:pointer}
+  .consent input{margin:2px 0 0;width:16px;height:16px;flex-shrink:0;accent-color:#2f6bff}
+  .consent a{color:inherit}
+  .msg{font-size:13px;margin:0;line-height:1.5}
+  .msg:empty{display:none}
+  .msg.err{color:#c0392b}
+  .msg.ok{color:#1f8a4c;font-size:15px;font-weight:600}
+  .submit{background:#12161f;color:#ffffff;border:none;padding:20px 24px;border-radius:12px;font-family:ui-monospace,Menlo,monospace;font-size:14px;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:space-between}
+  .submit:hover{background:#2f6bff}
+  .submit:disabled{opacity:.6;cursor:default}
+
+  /* Подвал — как на главной */
+  .footer-grid{max-width:1240px;margin:0 auto;padding:64px 32px 32px;display:grid;grid-template-columns:1fr 1fr 1fr 1.2fr;gap:32px}
+  .f-title{font-size:13px;font-weight:700;color:#8891a0;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:20px}
+  .f-links{display:flex;flex-direction:column;gap:14px}
+  .f-links a{text-decoration:none;color:#c7ccd6;font-size:15px}
+  .f-links a:hover{color:#ffffff}
+  .f-links a.f-phone{color:#ffffff;font-size:16px;font-weight:700}
+  .f-links a.f-phone:hover{color:#8fb2ff}
+  .f-bottom{border-top:1px solid #2a2c33}
+  .f-bottom-in{max-width:1240px;margin:0 auto;padding:24px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  .f-brand{font-size:16px;font-weight:800;letter-spacing:-0.02em;color:#ffffff}
+  .f-copy{font-size:13px;color:#8891a0}
+  .f-copy a{color:#8891a0}
+  .f-copy a:hover{color:#ffffff}
+  .f-badge{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;letter-spacing:0.03em;text-transform:uppercase;color:#8891a0}
+
+  /* Планшет */
+  @media (max-width:1024px){
+    .sec,.hero{padding-left:24px;padding-right:24px}
+    .highlights{grid-template-columns:1fr}
+    .svc{grid-template-columns:1fr;gap:28px}
+    .svc-head{position:static}
+    .svc-num{margin-bottom:12px}
+    .contact{grid-template-columns:1fr;gap:40px}
+    .footer-grid{grid-template-columns:1fr 1fr}
+  }
+  /* Телефон */
+  @media (max-width:640px){
+    .sec{padding:64px 20px}
+    .hero{padding:56px 20px 64px}
+    .badge{margin-bottom:20px;font-size:12px}
+    .hero p{font-size:16.5px;margin-bottom:28px}
+    .hero-btns .btn-ghost{width:100%;justify-content:center}
+    .hl{padding:24px;border-radius:20px}
+    .svc-num{font-size:40px}
+    .row{grid-template-columns:1fr;gap:8px;padding:18px 20px}
+    .row-t{color:#2f6bff}
+    .dark .row-t{color:#8fb2ff}
+    .form-row2{grid-template-columns:1fr}
+    .footer-grid{padding:48px 20px 32px;gap:28px 20px}
+    .footer-grid > div:last-child{grid-column:1 / -1}
+    .f-bottom-in{padding-left:20px;padding-right:20px}
+  }
+
+  /* Дополнительно для страницы «Серверы и 1С» */
+  .crumbs{font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:24px}
+  .crumbs a{color:rgba(255,255,255,0.75);text-decoration:none}
+  .crumbs a:hover{color:#ffffff}
+  .lead a{color:#2f6bff}
+  .row-n{grid-template-columns:48px 1fr}
+  .row-n .row-t{color:#2f6bff}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .step{background:#f6f8fc;border-radius:20px;padding:28px}
+  .step-n{font-size:20px;font-weight:800;color:#2f6bff;margin-bottom:16px}
+  .step h3{font-size:19px;font-weight:700;margin:0 0 8px;color:#12161f}
+  .step p{font-size:15px;line-height:1.6;color:#5b6472;margin:0}
+  .price{margin-top:56px;background:#101114;border-radius:24px;padding:40px;display:grid;grid-template-columns:1fr 1.4fr auto;gap:40px;align-items:center}
+  .price h3{font-size:22px;font-weight:800;color:#ffffff;margin:0;line-height:1.3}
+  .price p{font-size:15px;line-height:1.7;color:#c7ccd6;margin:0}
+  .price .btn-ghost{white-space:nowrap}
+  .faq-outer{display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:start}
+  .faq-big{font-size:clamp(44px,10vw,88px);font-weight:800;color:#3a3d45;line-height:1;letter-spacing:-0.02em}
+  .faq details{border-bottom:1px solid #2a2c33;padding:28px 0}
+  .faq details:first-child{padding-top:0}
+  .faq summary{display:grid;grid-template-columns:90px 1fr auto;gap:20px;align-items:start;cursor:pointer;list-style:none}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq-n{font-size:44px;font-weight:800;color:#ffffff;line-height:1}
+  .faq-q{font-size:19px;font-weight:700;color:#ffffff;line-height:1.4;padding-top:6px}
+  .faq-i{color:#ffffff;font-size:22px;font-weight:300;padding-top:6px}
+  .faq-i::before{content:"+"}
+  .faq details[open] .faq-i::before{content:"−"}
+  .faq details p{font-size:15px;line-height:1.7;color:#8891a0;margin:14px 0 0 110px;max-width:640px}
+  #form{position:relative;top:-80px}
+  @media (max-width:1024px){
+    .cards{grid-template-columns:1fr 1fr}
+    .steps{grid-template-columns:1fr 1fr}
+    .price{grid-template-columns:1fr;gap:20px;padding:32px}
+    .price .btn-ghost{justify-self:start}
+    .faq-outer{grid-template-columns:1fr;gap:20px}
+  }
+  @media (max-width:640px){
+    .hero h1{font-size:26px;-webkit-hyphens:auto;hyphens:auto;overflow-wrap:break-word}
+    .cards,.steps{grid-template-columns:1fr;gap:16px}
+    .step{padding:24px}
+    .row-n{grid-template-columns:36px 1fr !important;gap:12px !important}
+    .price{margin-top:40px;padding:26px 22px;border-radius:20px}
+    .price .btn-ghost{width:100%;justify-content:center}
+    .faq details{padding:22px 0}
+    .faq summary{grid-template-columns:36px 1fr auto;gap:12px}
+    .faq-n{font-size:24px;padding-top:3px}
+    .faq-q{font-size:16.5px;padding-top:2px}
+    .faq details p{margin-left:48px}
+  }
+</style>
+<style>
+  /* Статья */
+  .hero h1{font-size:clamp(26px,3.4vw,44px);max-width:960px}
+  .art-meta{font-size:14px;color:rgba(255,255,255,0.6);margin:0}
+  .art{max-width:820px;margin:0 auto}
+  .art p,.art li{font-size:17px;line-height:1.75;color:#2b313c}
+  .art p{margin:0 0 16px}
+  .art ul{margin:0 0 16px;padding-left:22px}
+  .art li{margin-bottom:6px}
+  .art h2{font-size:clamp(22px,3vw,28px);font-weight:800;letter-spacing:-0.01em;text-transform:uppercase;color:#12161f;line-height:1.25;margin:48px 0 16px}
+  .art h2:first-child{margin-top:0}
+  .art code{font-family:ui-monospace,Menlo,monospace;font-size:14.5px;background:#eef1f6;border-radius:6px;padding:2px 6px;color:#12161f;word-break:break-word}
+  .art pre{background:#101114;color:#e6e9ef;border-radius:14px;padding:18px 20px;overflow-x:auto;font-size:14.5px;line-height:1.6;margin:0 0 16px}
+  .art pre code{background:none;color:inherit;padding:0}
+  .art .tbl{border:1px solid #e2e5ea;border-radius:16px;overflow:hidden;margin:8px 0 16px}
+  .art table{width:100%;border-collapse:collapse}
+  .art th,.art td{text-align:left;vertical-align:top;padding:16px 18px;font-size:15px;line-height:1.6;color:#3a4150;border-top:1px solid #e2e5ea}
+  .art tr:first-child th{border-top:none}
+  .art th{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#12161f;background:#f6f8fc}
+  .art td:first-child{font-weight:600;color:#12161f}
+  .art h3{font-size:19px;font-weight:700;color:#12161f;line-height:1.35;margin:28px 0 10px}
+  .art figure{margin:28px 0 32px}
+  .art figure img{display:block;width:100%;height:auto}
+  .art figcaption{font-size:14px;line-height:1.5;color:#5b6472;margin-top:10px;text-align:center}
+  .art-cta{max-width:820px;margin:56px auto 0;background:#101114;border-radius:24px;padding:36px 40px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+  .art-cta h3{font-size:22px;font-weight:800;color:#ffffff;margin:0 0 8px}
+  .art-cta p{font-size:15px;line-height:1.6;color:#c7ccd6;margin:0}
+  .art-cta .btn-ghost{white-space:nowrap}
+  @media (max-width:640px){
+    .hero h1{font-size:23px;-webkit-hyphens:manual;hyphens:manual}
+    .art p,.art li{font-size:16px}
+    .art h2{margin-top:36px}
+    .art pre{white-space:pre-wrap;word-break:break-all}
+    .art .tbl{border:none;border-radius:0}
+    .art table,.art tbody,.art tr,.art td{display:block;width:100%}
+    .art tr:first-child{display:none}
+    .art tr{border:1px solid #e2e5ea;border-radius:14px;margin-bottom:12px;overflow:hidden}
+    .art td{border-top:none;padding:6px 16px}
+    .art td:first-child{padding-top:14px;background:#f6f8fc;padding-bottom:12px}
+    .art td:last-child{padding-bottom:14px}
+    .art td:nth-child(2)::before{content:"Причина: ";font-weight:700;color:#12161f}
+    .art td:nth-child(3)::before{content:"Что сделать: ";font-weight:700;color:#12161f}
+    .art-cta{grid-template-columns:1fr;padding:26px 22px;border-radius:20px;margin-top:40px}
+    .art-cta .btn-ghost{width:100%;justify-content:center}
+  }
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Сервер администрирования использует недоверенный сертификат: что делать", "description": "Сервер администрирования использует недоверенный сертификат в Kaspersky Security Center: почему так бывает, как исправить Web Console и не потерять компьютеры.", "image": "https://it-consalting24.ru/img/blog/nedoverennyj-sertifikat-servera-administrirovaniya-cover.jpg", "datePublished": "2026-10-29", "dateModified": "2026-10-29", "inLanguage": "ru", "mainEntityOfPage": "https://it-consalting24.ru/nedoverennyj-sertifikat-servera-administrirovaniya.html", "author": {"@type": "Organization", "name": "Про технологии", "url": "https://it-consalting24.ru/"}, "publisher": {"@id": "https://it-consalting24.ru/#org"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Перестанет ли работать антивирус на компьютерах из-за этой ошибки?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Ошибка в веб-консоли означает, что вы не можете управлять защитой, но антивирус на рабочих местах продолжает работать с последними полученными настройками. Затягивать с исправлением всё же не стоит: без консоли вы не увидите заражений и не раздадите новые задачи."}}, {"@type": "Question", "name": "Где взять файл klserver.cer?", "acceptedAnswer": {"@type": "Answer", "text": "На Сервере администрирования в папке C:\\ProgramData\\KasperskyLab\\adminkit\\1093\\cert\\. Папка ProgramData скрыта, поэтому путь удобнее вставить в адресную строку проводника."}}, {"@type": "Question", "name": "Как часто нужно обновлять сертификат Web Console?", "acceptedAnswer": {"@type": "Answer", "text": "Сертификат веб-консоли действует 397 дней и автоматически не продлевается. Перевыпускайте его примерно раз в год, заранее, по напоминанию."}}, {"@type": "Question", "name": "Можно ли просто переустановить веб-консоль?", "acceptedAnswer": {"@type": "Answer", "text": "Можно: настройки и список компьютеров хранятся на Сервере администрирования, а не в Web Console. Но обычно хватает перевыпуска сертификата или изменения параметров подключения — это быстрее."}}, {"@type": "Question", "name": "Что делать, если после замены сертификата компьютеры пропали из консоли?", "acceptedAnswer": {"@type": "Answer", "text": "Агенты не получили новый сертификат и не могут подключиться к серверу. Их возвращают утилитой klmover или переустановкой агента администрирования. Если компьютеров много, лучше поручить это специалисту."}}]}</script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113752459', 'ym');
+
+    ym(113752459, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<!-- /Yandex.Metrika counter -->
+<link rel="stylesheet" href="/mobile.css">
+<script src="/mobile.js" defer></script>
+</head>
+<body>
+<noscript><div><img src="https://mc.yandex.ru/watch/113752459" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<!-- ШАПКА -->
+<header class="site-header">
+  <div class="site-header-in">
+    <a href="./" class="site-logo">Про технологии</a>
+    <nav class="site-nav">
+      <a href="./services.html">Услуги</a>
+      <a href="./#stages">Этапы работы</a>
+      <a href="./about.html">О компании</a>
+      <a href="./#pricing">Стоимость</a>
+      <a href="./blog.html">Блог</a>
+      <a href="./#faq">FAQ</a>
+    </nav>
+    <div class="site-actions">
+      <a href="tel:+79969241648" class="site-phone" aria-label="Позвонить: +7 (996) 924-16-48">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <span class="site-phone-num">+7 (996) 924-16-48</span>
+      </a>
+      <button type="button" class="nav-toggle" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ПЕРВЫЙ ЭКРАН -->
+<section class="hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="./">Главная</a> / <a href="./blog.html">Блог</a> / Недоверенный сертификат KSC</div>
+    <div class="badge">Антивирус · Kaspersky Security Center</div>
+    <h1>Сервер администрирования использует недоверенный сертификат: что делать</h1>
+    <p class="art-meta">29 октября 2026 · Про технологии</p>
+  </div>
+</section>
+
+<!-- СТАТЬЯ -->
+<section class="sec">
+  <article class="art">
+<p>Сообщение «Сервер администрирования использует недоверенный сертификат» появляется при входе в Kaspersky Security Center Web Console — веб-консоль, через которую администратор управляет антивирусом на всех компьютерах офиса. Чаще всего это случается внезапно: вчера консоль открывалась, а сегодня вместо списка устройств — ошибка. Сам антивирус на компьютерах при этом продолжает работать, но управлять им, смотреть отчёты и раздавать задачи уже нельзя.</p>
+<p>Хорошая новость: в большинстве случаев причина в сроке действия или смене сертификата, а не в поломке сервера. Ниже разберём, почему возникает ошибка, чем отличаются два похожих сообщения, как исправить каждое и как сменить сертификат так, чтобы компьютеры не «отвалились» от сервера.</p>
+
+<h2>Что означает «Сервер администрирования использует недоверенный сертификат»</h2>
+<p>Kaspersky Security Center (KSC) состоит из нескольких частей. Сервер администрирования хранит политики, задачи и сведения обо всех защищаемых компьютерах. Агенты администрирования на рабочих местах регулярно связываются с ним. Web Console — это отдельный веб-сервис, через который администратор открывает управление в браузере.</p>
+<p>Все эти части общаются по защищённому соединению, и каждая сторона проверяет сертификат собеседника. Сертификат — это электронный «паспорт» сервера. Веб-консоль запоминает, какой сертификат был у Сервера администрирования при установке, и сравнивает его при каждом подключении. Если «паспорт» поменялся или истёк, консоль считает сервер недоверенным и отказывается с ним работать. Это защитный механизм: так нельзя подменить сервер управления антивирусом поддельным.</p>
+<p>Поэтому сообщение о недоверенном сертификате почти всегда означает одно из трёх:</p>
+<ul>
+  <li>закончился срок действия сертификата самой веб-консоли;</li>
+  <li>сертификат Сервера администрирования обновился (плановое ежегодное обновление или замена на собственный сертификат компании), а веб-консоль по-прежнему ждёт старый;</li>
+  <li>консоль подключается не к тому серверу, к которому была настроена, — например, после переноса KSC на другую машину.</li>
+</ul>
+
+<h2>Два похожих сообщения — две разные причины</h2>
+<p>Первое, что нужно сделать, — внимательно прочитать текст ошибки целиком. По документации «Лаборатории Касперского» у веб-консоли есть два очень похожих сообщения, и лечатся они по-разному.</p>
+<p><strong>«Сервер администрирования использует недоверенный сертификат».</strong> Проблема в сертификате самой Web Console. Он выпускается на 397 дней — это предел, который допускают современные браузеры. Сервер администрирования не продлевает его автоматически, поэтому примерно через год после установки или последнего перевыпуска консоль перестаёт открываться.</p>
+<p><strong>«Сервер администрирования использует недоверенный самоподписанный сертификат».</strong> Здесь дело в сертификате Сервера администрирования. Он сменился — после ежегодного обновления или после того, как его заменили на собственный сертификат организации, — а в настройках веб-консоли остался старый файл.</p>
+<figure class="ig"><picture><source media="(max-width:640px)" srcset="./img/blog/nedoverennyj-sertifikat-servera-administrirovaniya-dve-oshibki-m.webp" width="750" height="2046"><img src="./img/blog/nedoverennyj-sertifikat-servera-administrirovaniya-dve-oshibki.webp" width="1640" height="1490" alt="Инфографика: сервер администрирования использует недоверенный сертификат или недоверенный самоподписанный сертификат — причины и что делать в Kaspersky Security Center" loading="lazy" decoding="async"></picture><figcaption>Слово «самоподписанный» в тексте ошибки подсказывает, какой сертификат нужно обновить</figcaption></figure>
+<p>Перед любыми действиями сделайте две простые вещи: сохраните резервную копию Сервера администрирования (если её регулярно не делает задача KSC) и выясните, менял ли кто-то сертификаты в последнее время. Если работу ведёт подрядчик — спросите его: часто ошибка появляется сразу после того, как сертификат заменили, но веб-консоль забыли перенастроить.</p>
+
+<h2>Вариант 1: перевыпустить сертификат Web Console</h2>
+<p>Этот способ подходит, если сервер администрирования использует недоверенный сертификат, но в сообщении нет слова «самоподписанный». Выполняется на компьютере, где установлена Kaspersky Security Center Web Console, под учётной записью администратора:</p>
+<ol>
+  <li>Откройте «Программы и компоненты» — например, нажмите Win+R и выполните <code>appwiz.cpl</code>.</li>
+  <li>Выберите в списке Kaspersky Security Center Web Console и нажмите «Удалить/Изменить».</li>
+  <li>Выберите язык и вариант перевыпуска сертификата.</li>
+  <li>Дождитесь окончания процесса и нажмите «Готово».</li>
+  <li>Обновите страницу в браузере и снова войдите в консоль.</li>
+</ol>
+<p>Если после перевыпуска ошибка осталась, в том же мастере можно выбрать восстановление Web Console, а в крайнем случае — удалить и заново установить веб-консоль. Политики, задачи и список компьютеров хранятся на Сервере администрирования, поэтому переустановка самой веб-консоли их не затрагивает.</p>
+<p>Отметьте в календаре дату через год: сертификат веб-консоли снова закончится, и проще перевыпустить его заранее, чем разбираться с ошибкой в день, когда срочно нужно проверить заражённый компьютер.</p>
+
+<h2>Вариант 2: указать новый сертификат Сервера администрирования</h2>
+<p>Если в тексте ошибки есть слово «самоподписанный», веб-консоли нужно «показать» новый сертификат сервера. Он хранится на Сервере администрирования в файле:</p>
+<pre><code>C:\ProgramData\KasperskyLab\adminkit\1093\cert\klserver.cer</code></pre>
+<p>Порядок действий:</p>
+<ol>
+  <li>Если веб-консоль стоит на другом компьютере, скопируйте на него файл <code>klserver.cer</code> с Сервера администрирования.</li>
+  <li>На компьютере с Web Console откройте <code>appwiz.cpl</code>, выберите Kaspersky Security Center Web Console и нажмите «Удалить/Изменить».</li>
+  <li>Выберите «Изменить параметры подключения» и нажимайте «Далее», пока не дойдёте до окна «Доверенные Серверы администрирования».</li>
+  <li>Выделите нужный сервер, нажмите «Изменить» и укажите путь к новому файлу <code>klserver.cer</code>.</li>
+  <li>Подтвердите изменения, пройдите мастер до конца, нажмите «Изменить» и «Готово».</li>
+</ol>
+<p>При повторной настройке веб-консоль перечитывает сертификат, и подключение восстанавливается. Если серверов несколько (например, главный и подчинённый), сертификат указывается для каждого, к которому подключается консоль.</p>
+<p>В классической консоли администрирования (MMC) похожая ситуация выглядит иначе: при подключении она предупреждает, что сертификат Сервера администрирования не совпадает с сохранённым, и предлагает получить сертификат с сервера или указать файл. Если вы точно знаете, что сертификат меняли сами, укажите тот же <code>klserver.cer</code>. Если никто ничего не менял — не подтверждайте подключение вслепую, а сначала выясните, к какому серверу вы подключаетесь.</p>
+
+<h2>Когда дело не в сертификате</h2>
+<p>Иногда сообщение о сертификате сопровождается другими ошибками или консоль не открывается совсем. Тогда стоит проверить ещё несколько вещей:</p>
+<ul>
+  <li><strong>Версии.</strong> Версия Web Console не должна быть ниже версии Сервера администрирования. После обновления KSC веб-консоль обновляют следующей.</li>
+  <li><strong>Порты.</strong> Веб-консоль по умолчанию принимает подключения на порту 8080, и его не должна занимать другая служба. Агенты связываются с сервером по портам 13000 и 13291 — их нельзя закрывать брандмауэром.</li>
+  <li><strong>Учётная запись.</strong> Если появляется ошибка аутентификации, проверьте, не заблокирована ли учётная запись и не истёк ли её пароль.</li>
+  <li><strong>Служба сервера.</strong> Убедитесь, что служба Сервера администрирования запущена, а сервер не перегружен и на диске есть место.</li>
+</ul>
+
+<h2>Как сменить сертификат сервера и не потерять компьютеры</h2>
+<p>Самая неприятная ситуация — не ошибка в консоли, а массовая потеря связи с компьютерами после смены сертификата. Агенты администрирования доверяют старому сертификату сервера. Если заменить его сразу, агенты перестанут подключаться, и каждый компьютер придётся возвращать вручную утилитой <code>klmover</code> или переустановкой агента.</p>
+<p>Чтобы этого не случилось, «Лаборатория Касперского» рекомендует менять сертификат в два этапа с помощью утилиты <code>klsetsrvcert</code>, которая входит в дистрибутив KSC:</p>
+<ol>
+  <li>Установить новый сертификат как <strong>резервный</strong> (тип <code>CR</code>). Свой сертификат подаётся в контейнере PKCS#12 (.p12 или .pfx) с паролем.</li>
+  <li>Дождаться, пока служба Сервера администрирования полностью запустится, и отдельной командой назначить дату перехода (параметр <code>-f</code>) — через 3–4 недели.</li>
+  <li>За это время агенты на компьютерах получают резервный сертификат.</li>
+  <li>В назначенный срок сервер переключается на новый сертификат, и агенты остаются на связи.</li>
+  <li>После перехода указать новый <code>klserver.cer</code> в Web Console, как описано выше.</li>
+</ol>
+<figure class="ig"><picture><source media="(max-width:640px)" srcset="./img/blog/nedoverennyj-sertifikat-servera-administrirovaniya-zamena-m.webp" width="750" height="2424"><img src="./img/blog/nedoverennyj-sertifikat-servera-administrirovaniya-zamena.webp" width="1640" height="1408" alt="Инфографика: замена сертификата Сервера администрирования Kaspersky Security Center через резервный сертификат klsetsrvcert без потери связи с агентами" loading="lazy" decoding="async"></picture><figcaption>Плановая замена через резервный сертификат: агенты успевают получить его заранее</figcaption></figure>
+<p>Команды <code>-t CR</code> и <code>-f</code> не стоит объединять в одну строку: на форуме поддержки «Лаборатории Касперского» описано, что в этом случае возникает ошибка соединения. Точный синтаксис для вашей версии сверяйте со справкой KSC — параметры утилиты отличаются в разных версиях.</p>
+
+<h2>Таблица: проблема → причина → что сделать</h2>
+<div class="tbl"><table>
+  <tr><th>Что видите</th><th>Вероятная причина</th><th>Что сделать</th></tr>
+  <tr><td>«…использует недоверенный сертификат»</td><td>Истёк сертификат Web Console (397 дней)</td><td>Перевыпустить сертификат через «Удалить/Изменить» Web Console</td></tr>
+  <tr><td>«…использует недоверенный самоподписанный сертификат»</td><td>Сменился сертификат Сервера администрирования</td><td>Указать новый klserver.cer в «Доверенных Серверах администрирования»</td></tr>
+  <tr><td>Ошибка сразу после обновления KSC</td><td>Web Console старее сервера или не перенастроена</td><td>Обновить Web Console, затем указать актуальный сертификат</td></tr>
+  <tr><td>Консоль MMC предупреждает о сертификате</td><td>Сертификат сервера отличается от сохранённого</td><td>Если меняли сами — указать klserver.cer; если нет — выяснить причину</td></tr>
+  <tr><td>Компьютеры перестали подключаться к серверу</td><td>Сертификат заменили сразу, без резервного</td><td>Вернуть агентов утилитой klmover, впредь менять через тип CR</td></tr>
+  <tr><td>Консоль не открывается вообще</td><td>Занят порт 8080 или остановлена служба</td><td>Проверить порты, службы и свободное место на сервере</td></tr>
+</table></div>
+
+<h2>Чек-лист: как не встретить эту ошибку снова</h2>
+<ul>
+  <li>Записать даты окончания сертификата Web Console и Сервера администрирования и поставить напоминание за месяц.</li>
+  <li>Перевыпускать сертификат веб-консоли заранее, а не после того, как она перестала открываться.</li>
+  <li>Менять сертификат сервера только через резервный (тип CR) с запасом в 3–4 недели.</li>
+  <li>Обновлять Web Console вместе с Сервером администрирования.</li>
+  <li>Настроить регулярное резервное копирование Сервера администрирования.</li>
+  <li>Держать в документации, кто и когда менял сертификаты и где лежат файлы.</li>
+  <li>Раз в месяц проверять в консоли, все ли компьютеры на связи и у всех ли актуальные базы.</li>
+</ul>
+
+<h2>Типичные ошибки при исправлении</h2>
+<ul>
+  <li><strong>Переустанавливать весь Kaspersky Security Center.</strong> Это долго и рискованно: можно потерять политики и связь с агентами. Для этой ошибки достаточно перенастроить веб-консоль.</li>
+  <li><strong>Менять сертификат сервера «сразу».</strong> Самый частый путь к ситуации, когда половина компьютеров пропала из консоли.</li>
+  <li><strong>Брать старый файл klserver.cer.</strong> Если сертификат обновлялся, файл нужно скопировать заново, а не взять из прошлогодней папки.</li>
+  <li><strong>Нажимать «Принять» не глядя.</strong> Предупреждение о сертификате — защитный механизм. Если никто ничего не менял, это повод разобраться, а не закрыть окно.</li>
+</ul>
+
+<h2>Когда звать специалиста</h2>
+<p>Перенастроить Web Console администратор может за несколько минут. Помощь нужна, если компьютеры уже потеряли связь с сервером, если KSC переносили на другую машину, если используется собственный сертификат организации или если в сети несколько Серверов администрирования. Ошибки в этих случаях оборачиваются тем, что антивирус на рабочих местах остаётся без управления и обновлений политик.</p>
+<p>Мы обслуживаем серверы и рабочие места компаний в Оренбурге: <a href="./servers.html">администрируем серверы</a>, следим за антивирусной защитой и <a href="./computers.html">обслуживаем компьютеры</a>. Разовый вызов — от 1 500 ₽, диагностика бесплатно. Если нужен постоянный присмотр за ИТ, подойдёт <a href="./outsourcing.html">ИТ-аутсорсинг</a> от 15 000 ₽/мес — тогда сроки сертификатов, обновления и резервные копии отслеживаем мы.</p>
+
+<h2>Частые вопросы</h2>
+<h3>Перестанет ли работать антивирус на компьютерах из-за этой ошибки?</h3>
+<p>Нет. Ошибка в веб-консоли означает, что вы не можете управлять защитой, но антивирус на рабочих местах продолжает работать с последними полученными настройками. Затягивать с исправлением всё же не стоит: без консоли вы не увидите заражений и не раздадите новые задачи.</p>
+<h3>Где взять файл klserver.cer?</h3>
+<p>На Сервере администрирования в папке <code>C:\ProgramData\KasperskyLab\adminkit\1093\cert\</code>. Папка ProgramData скрыта, поэтому путь удобнее вставить в адресную строку проводника.</p>
+<h3>Как часто нужно обновлять сертификат Web Console?</h3>
+<p>Сертификат веб-консоли действует 397 дней и автоматически не продлевается. Перевыпускайте его примерно раз в год, заранее, по напоминанию.</p>
+<h3>Можно ли просто переустановить веб-консоль?</h3>
+<p>Можно: настройки и список компьютеров хранятся на Сервере администрирования, а не в Web Console. Но обычно хватает перевыпуска сертификата или изменения параметров подключения — это быстрее.</p>
+<h3>Что делать, если после замены сертификата компьютеры пропали из консоли?</h3>
+<p>Агенты не получили новый сертификат и не могут подключиться к серверу. Их возвращают утилитой klmover или переустановкой агента администрирования. Если компьютеров много, лучше поручить это специалисту.</p>
+  </article>
+
+  <div class="art-cta">
+    <div>
+      <h3>Не открывается консоль Касперского?</h3>
+      <p>Разберёмся с сертификатами и вернём управление антивирусом без переустановки. Диагностика бесплатно, разовый вызов от 1 500 ₽, выезд по Оренбургу в день обращения.</p>
+    </div>
+    <a href="#contact" class="btn-ghost">Оставить заявку →</a>
+  </div>
+</section>
+
+<!-- ЗАЯВКА -->
+<section id="contact" class="sec" style="padding-top:0">
+  <span id="form"></span>
+  <div class="wrap contact">
+    <div>
+      <div class="mono-eyebrow">[ БЕСПЛАТНАЯ ДИАГНОСТИКА ]</div>
+      <h2>Опишите, что происходит с сервером</h2>
+      <p class="lead" style="margin-bottom:24px">Перезвоним, уточним детали и договоримся о подключении.</p>
+      <a href="tel:+79969241648" class="phone-box">+7 (996) 924-16-48 <span style="font-size:18px">→</span></a>
+    </div>
+    <form class="form" id="lead-form" novalidate>
+      <div class="form-row2">
+        <input type="text" name="name" placeholder="Имя*" aria-label="Имя" autocomplete="name">
+        <input type="text" name="company" placeholder="Компания" aria-label="Компания" autocomplete="organization">
+      </div>
+      <input type="tel" name="phone" placeholder="Телефон*" aria-label="Телефон" autocomplete="tel">
+      <textarea name="comment" rows="3" placeholder="Что с сервером: версия 1С, сколько пользователей, что не работает" aria-label="Опишите задачу"></textarea>
+      <label class="consent">
+        <input type="checkbox" name="consent" value="yes">
+        <span>Даю <a href="./consent.html" target="_blank">согласие на обработку персональных данных</a> и принимаю <a href="./privacy.html" target="_blank">политику конфиденциальности</a></span>
+      </label>
+      <p class="msg" role="alert"></p>
+      <button type="submit" class="submit"><span class="submit-label">Отправить заявку</span><span style="font-size:18px">→</span></button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ПОДВАЛ -->
+<footer class="dark">
+  <div class="footer-grid">
+    <div>
+      <div class="f-title">Услуги</div>
+      <div class="f-links">
+        <a href="./computers.html">Компьютеры</a>
+        <a href="./servers.html">Серверы и 1С</a>
+        <a href="./network.html">Сети и Wi-Fi</a>
+        <a href="./services.html">Все услуги</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-title">Компания</div>
+      <div class="f-links">
+        <a href="./about.html">О компании</a>
+        <a href="./#pricing">Тарифы</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-title">Инфо</div>
+      <div class="f-links">
+        <a href="./#faq">FAQ</a>
+        <a href="./blog.html">Блог</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-title">Контакты</div>
+      <div class="f-links">
+        <a href="tel:+79969241648" class="f-phone">+7 (996) 924-16-48</a>
+      </div>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <div class="f-bottom-in">
+      <div class="f-brand">Про технологии</div>
+      <div class="f-copy">© 2026 Про технологии. ИТ-консалтинг для бизнеса. · <a href="./privacy.html">Политика конфиденциальности</a></div>
+      <div class="f-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8891a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"></path><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"></path></svg>
+        Аккредитованы Минцифры
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var f = document.getElementById('lead-form');
+  if (!f) return;
+  var msg = f.querySelector('.msg');
+  var btn = f.querySelector('.submit');
+  var label = f.querySelector('.submit-label');
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    msg.className = 'msg';
+    msg.textContent = '';
+    if (!f.name.value.trim() || !f.phone.value.trim()) { msg.className = 'msg err'; msg.textContent = 'Укажите имя и телефон'; return; }
+    if (!f.consent.checked) { msg.className = 'msg err'; msg.textContent = 'Отметьте согласие на обработку персональных данных'; return; }
+    btn.disabled = true; label.textContent = 'Отправка...';
+    var data = new FormData(f);
+    data.set('consent', 'yes');
+    fetch('/send.php', { method: 'POST', body: data })
+      .then(function (r) { if (!r.ok) throw new Error(); })
+      .then(function () {
+        f.reset();
+        msg.className = 'msg ok';
+        msg.textContent = '✓ Заявка отправлена. Свяжемся с вами в рабочее время в течение 15 минут.';
+        if (window.ym) window.ym(113752459, 'reachGoal', 'lead');
+      })
+      .catch(function () { msg.className = 'msg err'; msg.textContent = 'Не удалось отправить заявку. Позвоните нам: +7 (996) 924-16-48'; })
+      .then(function () { btn.disabled = false; label.textContent = 'Отправить заявку'; });
+  });
+})();
+</script>
+</body>
+</html>
