@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Техническая поддержка в виде абонентского обслуживания</title>
+<meta name="description" content="Техническая поддержка в виде абонентского обслуживания: что входит в плату, чем лучше разовых вызовов и штатного сисадмина, сколько стоит и как выбрать.">
+<link rel="canonical" href="https://it-consalting24.ru/tekhnicheskaya-podderzhka-abonentskoe-obsluzhivanie.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Про технологии">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Техническая поддержка в виде абонентского обслуживания">
+<meta property="og:description" content="Техническая поддержка в виде абонентского обслуживания: что входит в плату, чем лучше разовых вызовов и штатного сисадмина, сколько стоит и как выбрать.">
+<meta property="og:url" content="https://it-consalting24.ru/tekhnicheskaya-podderzhka-abonentskoe-obsluzhivanie.html">
+<meta property="og:image" content="https://it-consalting24.ru/img/blog/tekhnicheskaya-podderzhka-abonentskoe-obsluzhivanie-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link href="/fonts/inter.css" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Inter',system-ui,sans-serif;background:#ffffff;color:#1a1f2b;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:#2f6bff}
+  a:hover{color:#1f4fd6}
+  ::selection{background:#dbe6ff}
+
+  /* Шапка — как на главной */
+  .site-header{position:sticky;top:0;z-index:40;background:#101114;border-bottom:1px solid #2a2c33}
+  .site-header-in{max-width:1240px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .site-logo{text-decoration:none;font-size:19px;font-weight:800;letter-spacing:-0.02em;white-space:nowrap;flex-shrink:0;color:#ffffff}
+  .site-logo:hover{color:#ffffff}
+  .site-nav{display:flex;align-items:center;gap:14px;flex-wrap:wrap;flex:1;justify-content:center;min-width:0}
+  .site-nav a{text-decoration:none;color:#ffffff;font-size:14px;font-weight:500;white-space:nowrap}
+  .site-nav a:hover{color:#8fb2ff}
+  .site-nav a.active{font-weight:700}
+  .site-actions{display:flex;align-items:center;gap:14px;flex-shrink:0}
+  .site-phone{text-decoration:none;color:#ffffff;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px;white-space:nowrap}
+  .site-phone:hover{color:#8fb2ff}
+
+  /* Общие элементы */
+  .wrap{max-width:1176px;margin:0 auto}
+  .sec{padding:100px 32px}
+  .dark{background:#101114}
+  .eyebrow{font-size:13px;font-weight:700;color:#5b6472;letter-spacing:0.14em;text-transform:uppercase;margin:0 0 16px}
+  .dark .eyebrow{color:#8891a0}
+  .h2{font-size:clamp(26px,4vw,38px);font-weight:800;letter-spacing:-0.01em;margin:0 0 16px;color:#12161f;text-transform:uppercase;line-height:1.2}
+  .dark .h2{color:#ffffff}
+  .lead{font-size:17px;line-height:1.7;color:#5b6472;margin:0;max-width:640px}
+  .dark .lead{color:#8891a0}
+  .btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#ffffff;border:1px solid rgba(255,255,255,0.5);padding:16px 30px;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;text-decoration:none;font-family:inherit}
+  .btn-ghost:hover{background:#ffffff;color:#12161f;border-color:#ffffff}
+
+  /* Первый экран */
+  .hero{position:relative;background:#0a0c12;padding:100px 32px 90px;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:url(./uploads/hero-bg.webp) center/cover no-repeat;opacity:.45}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,8,16,0.85),rgba(5,8,16,0.4))}
+  .hero .wrap{position:relative;z-index:1}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);color:#ffffff;font-size:13px;font-weight:600;padding:7px 14px;border-radius:100px;margin-bottom:28px}
+  .hero h1{font-size:clamp(32px,4.6vw,58px);line-height:1.12;font-weight:800;letter-spacing:-0.01em;margin:0 0 24px;color:#ffffff;text-transform:uppercase;max-width:820px}
+  .hero p{font-size:19px;line-height:1.6;color:rgba(255,255,255,0.8);margin:0 0 40px;max-width:720px}
+  .hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+
+  /* Три преимущества */
+  .highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .hl{background:#1c1d22;border:1px solid #2a2c33;border-radius:24px;padding:32px}
+  .hl-num{font-size:14px;font-weight:800;color:#2f6bff;margin-bottom:18px}
+  .hl h3{font-size:21px;font-weight:700;margin:0 0 10px;color:#ffffff}
+  .hl p{font-size:15px;line-height:1.6;color:#8891a0;margin:0}
+
+  /* Разделы услуг */
+  .svc{display:grid;grid-template-columns:340px 1fr;gap:56px;align-items:start}
+  .svc-head{position:sticky;top:100px}
+  .svc-num{font-size:clamp(44px,6vw,72px);font-weight:800;color:#e2e5ea;line-height:1;letter-spacing:-0.02em;margin-bottom:20px}
+  .dark .svc-num{color:#3a3d45}
+  .svc-head .lead{font-size:16px}
+  .svc-more{display:inline-block;margin-top:20px;font-size:15px;font-weight:700;text-decoration:none}
+  .dark .svc-more{color:#8fb2ff}
+  .table{border-radius:16px;overflow:hidden;border:1px solid #e2e5ea}
+  .row{display:grid;grid-template-columns:1fr 1.6fr;padding:22px 28px;gap:24px;border-top:1px solid #e2e5ea}
+  .row:first-child{border-top:none}
+  .row:nth-child(odd){background:#f6f8fc}
+  .row-t{font-family:ui-monospace,Menlo,monospace;font-size:13.5px;font-weight:700;letter-spacing:0.02em;text-transform:uppercase;color:#12161f;line-height:1.5}
+  .row-d{font-size:15px;line-height:1.6;color:#3a4150}
+  .dark .table{border-color:#2a2c33}
+  .dark .row{border-top-color:#2a2c33}
+  .dark .row:nth-child(odd){background:#1c1d22}
+  .dark .row-t{color:#ffffff}
+  .dark .row-d{color:#c7ccd6}
+
+  /* Форма */
+  .contact{display:grid;grid-template-columns:1fr 1.3fr;gap:56px;align-items:start}
+  .mono-eyebrow{font-family:ui-monospace,Menlo,monospace;font-size:13px;font-weight:700;color:#2f6bff;letter-spacing:0.05em;margin-bottom:20px}
+  .contact h2{font-size:clamp(24px,4.5vw,36px);font-weight:800;letter-spacing:-0.01em;margin:0 0 24px;color:#12161f;line-height:1.25}
+  .phone-box{text-decoration:none;display:flex;align-items:center;justify-content:space-between;background:#f6f8fc;border-radius:12px;padding:20px 24px;color:#12161f;font-family:ui-monospace,Menlo,monospace;font-size:14px;font-weight:700;letter-spacing:0.03em}
+  .phone-box:hover{background:#eef1f6;color:#12161f}
+  .form{display:flex;flex-direction:column;gap:16px}
+  .form-row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .form input[type=text],.form input[type=tel],.form textarea{width:100%;padding:18px 20px;border-radius:12px;border:none;background:#f6f8fc;font-size:15px;font-family:inherit;color:#12161f}
+  .form input:focus,.form textarea:focus{outline:2px solid #8891a0}
+  .form textarea{resize:none}
+  .consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#5b6472;line-height:1.5;cursor:pointer}
+  .consent input{margin:2px 0 0;width:16px;height:16px;flex-shrink:0;accent-color:#2f6bff}
+  .consent a{color:inherit}
+  .msg{font-size:13px;margin:0;line-height:1.5}
+  .msg:empty{display:none}
+  .msg.err{color:#c0392b}
+  .msg.ok{color:#1f8a4c;font-size:15px;font-weight:600}
+  .submit{background:#12161f;color:#ffffff;border:none;padding:20px 24px;border-radius:12px;font-family:ui-monospace,Menlo,monospace;font-size:14px;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:space-between}
+  .submit:hover{background:#2f6bff}
+  .submit:disabled{opacity:.6;cursor:default}
+
+  /* Подвал — как на главной */
+  .footer-grid{max-width:1240px;margin:0 auto;padding:64px 32px 32px;display:grid;grid-template-columns:1fr 1fr 1fr 1.2fr;gap:32px}
+  .f-title{font-size:13px;font-weight:700;color:#8891a0;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:20px}
+  .f-links{display:flex;flex-direction:column;gap:14px}
+  .f-links a{text-decoration:none;color:#c7ccd6;font-size:15px}
+  .f-links a:hover{color:#ffffff}
+  .f-links a.f-phone{color:#ffffff;font-size:16px;font-weight:700}
+  .f-links a.f-phone:hover{color:#8fb2ff}
+  .f-bottom{border-top:1px solid #2a2c33}
+  .f-bottom-in{max-width:1240px;margin:0 auto;padding:24px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  .f-brand{font-size:16px;font-weight:800;letter-spacing:-0.02em;color:#ffffff}
+  .f-copy{font-size:13px;color:#8891a0}
+  .f-copy a{color:#8891a0}
+  .f-copy a:hover{color:#ffffff}
+  .f-badge{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;letter-spacing:0.03em;text-transform:uppercase;color:#8891a0}
+
+  /* Планшет */
+  @media (max-width:1024px){
+    .sec,.hero{padding-left:24px;padding-right:24px}
+    .highlights{grid-template-columns:1fr}
+    .svc{grid-template-columns:1fr;gap:28px}
+    .svc-head{position:static}
+    .svc-num{margin-bottom:12px}
+    .contact{grid-template-columns:1fr;gap:40px}
+    .footer-grid{grid-template-columns:1fr 1fr}
+  }
+  /* Телефон */
+  @media (max-width:640px){
+    .sec{padding:64px 20px}
+    .hero{padding:56px 20px 64px}
+    .badge{margin-bottom:20px;font-size:12px}
+    .hero p{font-size:16.5px;margin-bottom:28px}
+    .hero-btns .btn-ghost{width:100%;justify-content:center}
+    .hl{padding:24px;border-radius:20px}
+    .svc-num{font-size:40px}
+    .row{grid-template-columns:1fr;gap:8px;padding:18px 20px}
+    .row-t{color:#2f6bff}
+    .dark .row-t{color:#8fb2ff}
+    .form-row2{grid-template-columns:1fr}
+    .footer-grid{padding:48px 20px 32px;gap:28px 20px}
+    .footer-grid > div:last-child{grid-column:1 / -1}
+    .f-bottom-in{padding-left:20px;padding-right:20px}
+  }
+
+  /* Дополнительно для страницы «Серверы и 1С» */
+  .crumbs{font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:24px}
+  .crumbs a{color:rgba(255,255,255,0.75);text-decoration:none}
+  .crumbs a:hover{color:#ffffff}
+  .lead a{color:#2f6bff}
+  .row-n{grid-template-columns:48px 1fr}
+  .row-n .row-t{color:#2f6bff}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .step{background:#f6f8fc;border-radius:20px;padding:28px}
+  .step-n{font-size:20px;font-weight:800;color:#2f6bff;margin-bottom:16px}
+  .step h3{font-size:19px;font-weight:700;margin:0 0 8px;color:#12161f}
+  .step p{font-size:15px;line-height:1.6;color:#5b6472;margin:0}
+  .price{margin-top:56px;background:#101114;border-radius:24px;padding:40px;display:grid;grid-template-columns:1fr 1.4fr auto;gap:40px;align-items:center}
+  .price h3{font-size:22px;font-weight:800;color:#ffffff;margin:0;line-height:1.3}
+  .price p{font-size:15px;line-height:1.7;color:#c7ccd6;margin:0}
+  .price .btn-ghost{white-space:nowrap}
+  .faq-outer{display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:start}
+  .faq-big{font-size:clamp(44px,10vw,88px);font-weight:800;color:#3a3d45;line-height:1;letter-spacing:-0.02em}
+  .faq details{border-bottom:1px solid #2a2c33;padding:28px 0}
+  .faq details:first-child{padding-top:0}
+  .faq summary{display:grid;grid-template-columns:90px 1fr auto;gap:20px;align-items:start;cursor:pointer;list-style:none}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq-n{font-size:44px;font-weight:800;color:#ffffff;line-height:1}
+  .faq-q{font-size:19px;font-weight:700;color:#ffffff;line-height:1.4;padding-top:6px}
+  .faq-i{color:#ffffff;font-size:22px;font-weight:300;padding-top:6px}
+  .faq-i::before{content:"+"}
+  .faq details[open] .faq-i::before{content:"−"}
+  .faq details p{font-size:15px;line-height:1.7;color:#8891a0;margin:14px 0 0 110px;max-width:640px}
+  #form{position:relative;top:-80px}
+  @media (max-width:1024px){
+    .cards{grid-template-columns:1fr 1fr}
+    .steps{grid-template-columns:1fr 1fr}
+    .price{grid-template-columns:1fr;gap:20px;padding:32px}
+    .price .btn-ghost{justify-self:start}
+    .faq-outer{grid-template-columns:1fr;gap:20px}
+  }
+  @media (max-width:640px){
+    .hero h1{font-size:26px;-webkit-hyphens:auto;hyphens:auto;overflow-wrap:break-word}
+    .cards,.steps{grid-template-columns:1fr;gap:16px}
+    .step{padding:24px}
+    .row-n{grid-template-columns:36px 1fr !important;gap:12px !important}
+    .price{margin-top:40px;padding:26px 22px;border-radius:20px}
+    .price .btn-ghost{width:100%;justify-content:center}
+    .faq details{padding:22px 0}
+    .faq summary{grid-template-columns:36px 1fr auto;gap:12px}
+    .faq-n{font-size:24px;padding-top:3px}
+    .faq-q{font-size:16.5px;padding-top:2px}
+    .faq details p{margin-left:48px}
+  }
+</style>
+<style>
+  /* Статья */
+  .hero h1{font-size:clamp(26px,3.4vw,44px);max-width:960px}
+  .art-meta{font-size:14px;color:rgba(255,255,255,0.6);margin:0}
+  .art{max-width:820px;margin:0 auto}
+  .art p,.art li{font-size:17px;line-height:1.75;color:#2b313c}
+  .art p{margin:0 0 16px}
+  .art ul{margin:0 0 16px;padding-left:22px}
+  .art li{margin-bottom:6px}
+  .art h2{font-size:clamp(22px,3vw,28px);font-weight:800;letter-spacing:-0.01em;text-transform:uppercase;color:#12161f;line-height:1.25;margin:48px 0 16px}
+  .art h2:first-child{margin-top:0}
+  .art h3{font-size:19px;font-weight:700;color:#12161f;line-height:1.35;margin:28px 0 10px}
+  .art code{font-family:ui-monospace,Menlo,monospace;font-size:14.5px;background:#eef1f6;border-radius:6px;padding:2px 6px;color:#12161f;word-break:break-word}
+  .art pre{background:#101114;color:#e6e9ef;border-radius:14px;padding:18px 20px;overflow-x:auto;font-size:14.5px;line-height:1.6;margin:0 0 16px}
+  .art pre code{background:none;color:inherit;padding:0}
+  .art .tbl{border:1px solid #e2e5ea;border-radius:16px;overflow:hidden;margin:8px 0 16px}
+  .art table{width:100%;border-collapse:collapse}
+  .art th,.art td{text-align:left;vertical-align:top;padding:16px 18px;font-size:15px;line-height:1.6;color:#3a4150;border-top:1px solid #e2e5ea}
+  .art tr:first-child th{border-top:none}
+  .art th{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#12161f;background:#f6f8fc}
+  .art td:first-child{font-weight:600;color:#12161f}
+  .art figure{margin:28px 0 32px}
+  .art figure img{display:block;width:100%;height:auto}
+  .art figcaption{font-size:14px;line-height:1.5;color:#5b6472;margin-top:10px;text-align:center}
+  .art-cta{max-width:820px;margin:56px auto 0;background:#101114;border-radius:24px;padding:36px 40px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+  .art-cta h3{font-size:22px;font-weight:800;color:#ffffff;margin:0 0 8px}
+  .art-cta p{font-size:15px;line-height:1.6;color:#c7ccd6;margin:0}
+  .art-cta .btn-ghost{white-space:nowrap}
+  @media (max-width:640px){
+    .hero h1{font-size:23px;-webkit-hyphens:manual;hyphens:manual}
+    .art p,.art li{font-size:16px}
+    .art h2{margin-top:36px}
+    .art pre{white-space:pre-wrap;word-break:break-all}
+    .art .tbl{border:none;border-radius:0}
+    .art table,.art tbody,.art tr,.art td{display:block;width:100%}
+    .art tr:first-child{display:none}
+    .art tr{border:1px solid #e2e5ea;border-radius:14px;margin-bottom:12px;overflow:hidden}
+    .art td{border-top:none;padding:6px 16px}
+    .art td:first-child{padding-top:14px;background:#f6f8fc;padding-bottom:12px}
+    .art td:last-child{padding-bottom:14px}
+    .art .err td:nth-child(2)::before{content:"Причина: ";font-weight:700;color:#12161f}
+    .art .err td:nth-child(3)::before{content:"Что сделать: ";font-weight:700;color:#12161f}
+    .art .cmp td:nth-child(2)::before{content:"Разовые вызовы: ";font-weight:700;color:#12161f}
+    .art .cmp td:nth-child(3)::before{content:"Абонентское обслуживание: ";font-weight:700;color:#12161f}
+    .art .cmp td:nth-child(4)::before{content:"Штатный сисадмин: ";font-weight:700;color:#12161f}
+    .art-cta{grid-template-columns:1fr;padding:26px 22px;border-radius:20px;margin-top:40px}
+    .art-cta .btn-ghost{width:100%;justify-content:center}
+  }
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Техническая поддержка в виде абонентского обслуживания: как это работает", "description": "Техническая поддержка в виде абонентского обслуживания: что входит в плату, чем лучше разовых вызовов и штатного сисадмина, сколько стоит и как выбрать.", "datePublished": "2026-10-29", "dateModified": "2026-10-29", "author": {"@type": "Organization", "name": "Про технологии", "url": "https://it-consalting24.ru/"}, "publisher": {"@id": "https://it-consalting24.ru/#org"}, "mainEntityOfPage": "https://it-consalting24.ru/tekhnicheskaya-podderzhka-abonentskoe-obsluzhivanie.html", "inLanguage": "ru", "image": "https://it-consalting24.ru/img/blog/tekhnicheskaya-podderzhka-abonentskoe-obsluzhivanie-cover.jpg"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Чем абонентское обслуживание отличается от ИТ-аутсорсинга?", "acceptedAnswer": {"@type": "Answer", "text": "По сути это одно и то же: передача ИТ-поддержки офиса внешнему подрядчику по договору с ежемесячной оплатой. «Абонентское обслуживание» чаще говорят про компьютеры и рабочие места, «ИТ-аутсорсинг» — про всю инфраструктуру, включая серверы и сеть."}}, {"@type": "Question", "name": "Можно ли перейти на абонентку, если у нас уже есть сисадмин?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Часто подрядчик берёт на себя серверы, резервные копии и сложные задачи, а штатный специалист помогает сотрудникам на месте. Либо подрядчик подменяет администратора на время отпуска и болезни."}}, {"@type": "Question", "name": "Что будет, если в месяце не было ни одной заявки?", "acceptedAnswer": {"@type": "Answer", "text": "Абонентская плата сохраняется: подрядчик в это время выполняет плановые работы, следит за серверами и резервными копиями. Месяц без заявок — обычно признак того, что профилактика работает."}}, {"@type": "Question", "name": "Сколько стоит абонентское обслуживание в Оренбурге?", "acceptedAnswer": {"@type": "Answer", "text": "У нас — от 15 000 ₽ в месяц. Итоговая сумма зависит от количества рабочих мест, серверов и задач; точную цену называем после бесплатного аудита за 1 день."}}]}</script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113752459', 'ym');
+
+    ym(113752459, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<!-- /Yandex.Metrika counter -->
+<link rel="stylesheet" href="/mobile.css">
+<script src="/mobile.js" defer></script>
+</head>
+<body>
+<noscript><div><img src="https://mc.yandex.ru/watch/113752459" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<!-- ШАПКА -->
+<header class="site-header">
+  <div class="site-header-in">
+    <a href="./" class="site-logo">Про технологии</a>
+    <nav class="site-nav">
+      <a href="./services.html">Услуги</a>
+      <a href="./#stages">Этапы работы</a>
+      <a href="./about.html">О компании</a>
+      <a href="./#pricing">Стоимость</a>
+      <a href="./blog.html">Блог</a>
+      <a href="./#faq">FAQ</a>
+    </nav>
+    <div class="site-actions">
+      <a href="tel:+79969241648" class="site-phone" aria-label="Позвонить: +7 (996) 924-16-48">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <span class="site-phone-num">+7 (996) 924-16-48</span>
+      </a>
+      <button type="button" class="nav-toggle" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ПЕРВЫЙ ЭКРАН -->
+<section class="hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="./">Главная</a> / <a href="./blog.html">Блог</a> / Абонентская техподдержка</div>
+    <div class="badge">ИТ-аутсорсинг · Гид для руководителя</div>
+    <h1>Техническая поддержка в виде абонентского обслуживания: как это работает</h1>
+    <p class="art-meta">29 октября 2026 · Про технологии</p>
+  </div>
+</section>
+
+<!-- СТАТЬЯ -->
+<section class="sec">
+  <article class="art">
+<p>Техническая поддержка в виде абонентского обслуживания — это когда за компьютеры, серверы, сеть и принтеры офиса отвечает внешний подрядчик, а вы платите ему фиксированную сумму каждый месяц. Не «вызвали мастера — заплатили за час», а постоянный договор: инженеры знают вашу технику, делают плановые работы и берут заявки сотрудников в приоритете.</p>
+<p>Ниже разберём, как такая поддержка устроена на практике, что обычно входит в абонентскую плату, чем она отличается от разовых вызовов и штатного системного администратора, сколько стоит и как понять, нужна ли она вашей компании. В конце — таблица типичных проблем, чек-лист и ответы на частые вопросы.</p>
+
+<h2>Как устроена техническая поддержка в виде абонентского обслуживания</h2>
+<p>Схема у большинства подрядчиков похожая, отличаются детали. Обычно работа идёт в четыре этапа.</p>
+<ul>
+<li><strong>Аудит.</strong> Инженер смотрит, что есть в офисе: сколько рабочих мест, какие серверы и программы, как устроена сеть, есть ли резервные копии и работают ли они. Без этого подрядчик не может честно назвать цену, а вы — понять, какие риски уже есть.</li>
+<li><strong>Договор.</strong> Фиксируется перечень оборудования, состав работ, время реакции на заявки и ежемесячная плата. Что именно стоит прописать, мы подробно разобрали в статье <a href="./dogovor-abonentskogo-obsluzhivaniya-kompyuterov.html">про договор абонентского обслуживания компьютеров</a>.</li>
+<li><strong>Наведение порядка.</strong> Первый месяц обычно уходит на то, чтобы исправить найденное на аудите: настроить резервное копирование, обновить системы, собрать пароли и доступы в одном месте, описать сеть.</li>
+<li><strong>Сопровождение.</strong> Дальше идёт обычная жизнь: сотрудники пишут заявки, инженеры решают их удалённо или с выездом, параллельно выполняют плановые работы и следят за серверами и сетью.</li>
+</ul>
+<p>Ключевое отличие от разовых вызовов — постоянство. Подрядчик отвечает не за «починить сегодня», а за то, чтобы техника работала весь месяц. Поэтому ему выгодно предупреждать поломки, а не ждать их.</p>
+<figure class="ig"><picture><source media="(max-width:640px)" srcset="./img/blog/tekhnicheskaya-podderzhka-abonentskoe-obsluzhivanie-etapy-m.webp" width="750" height="2024"><img src="./img/blog/tekhnicheskaya-podderzhka-abonentskoe-obsluzhivanie-etapy.webp" width="1640" height="1304" alt="Инфографика: как работает техническая поддержка в виде абонентского обслуживания — аудит, договор, наведение порядка, ежедневная поддержка" loading="lazy" decoding="async"></picture><figcaption>Четыре этапа абонентской техподдержки: от аудита до ежедневного сопровождения</figcaption></figure>
+
+<h2>Что входит в абонентское обслуживание</h2>
+<p>Состав работ зависит от договора, но в типичный набор для небольшого офиса входит следующее.</p>
+<ul>
+<li><strong>Помощь сотрудникам.</strong> Не печатает принтер, не открывается программа, не приходит почта, забыли пароль — такие заявки решаются чаще всего удалённо, за минуты.</li>
+<li><strong>Рабочие места.</strong> Настройка и обновление Windows и программ, антивирус, подготовка компьютера для нового сотрудника, перенос данных со старого. Подробнее — на странице <a href="./computers.html">обслуживания компьютеров</a>.</li>
+<li><strong>Серверы и 1С.</strong> Файловый сервер, права доступа к папкам, сервер 1С, обновления, контроль места на дисках. См. <a href="./servers.html">администрирование серверов</a>.</li>
+<li><strong>Сеть и интернет.</strong> Роутер, Wi-Fi, удалённый доступ для сотрудников, разбор проблем со связью.</li>
+<li><strong>Принтеры и МФУ.</strong> Подключение, драйверы, сканирование в папку или на почту.</li>
+<li><strong>Резервное копирование.</strong> Настройка копий важных данных и регулярная проверка, что из них можно восстановиться.</li>
+<li><strong>Мониторинг.</strong> Наблюдение за серверами, дисками и сетью, чтобы узнавать о сбое раньше, чем сотрудники.</li>
+<li><strong>Документация.</strong> Список оборудования, схема сети, где лежат пароли и кто к чему имеет доступ. Если вы смените подрядчика, всё это останется у вас.</li>
+</ul>
+<p>Что обычно оплачивается отдельно: покупка оборудования и комплектующих, ремонт в сервисном центре, крупные проекты (переезд офиса, прокладка новой сети, установка видеонаблюдения), разработка и доработка программ. Эту границу лучше обсудить заранее, чтобы потом не было сюрпризов.</p>
+
+<h2>Абонентка, разовые вызовы или штатный сисадмин</h2>
+<p>У малого бизнеса обычно три варианта. Каждый подходит в своей ситуации — сравним их по тому, что важно владельцу.</p>
+<div class="tbl cmp"><table>
+<tr><th>Критерий</th><th>Разовые вызовы</th><th>Абонентское обслуживание</th><th>Штатный сисадмин</th></tr>
+<tr><td>Как платите</td><td>За каждый вызов или час работы</td><td>Фиксированная сумма в месяц</td><td>Зарплата, налоги, рабочее место</td></tr>
+<tr><td>Предсказуемость расходов</td><td>Низкая: месяц без поломок — ноль, авария — крупный счёт</td><td>Высокая: сумма известна заранее</td><td>Высокая, но расходы есть всегда</td></tr>
+<tr><td>Знание вашей техники</td><td>Каждый раз может приехать новый человек</td><td>Команда знает офис и ведёт документацию</td><td>Знает, пока работает у вас</td></tr>
+<tr><td>Профилактика</td><td>Обычно нет — вызывают, когда уже сломалось</td><td>Плановые работы и мониторинг входят в договор</td><td>Зависит от загрузки и квалификации</td></tr>
+<tr><td>Отпуск и болезнь</td><td>Не важно</td><td>Подменяют коллеги из команды</td><td>На это время офис остаётся без поддержки</td></tr>
+<tr><td>Кому подходит</td><td>Офис на несколько компьютеров с редкими проблемами</td><td>Офисы и компании, где ИТ нужно каждый день</td><td>Крупные компании с постоянным объёмом ИТ-задач</td></tr>
+</table></div>
+<p>Абонентская модель занимает середину: она дешевле собственного специалиста для небольшой компании и надёжнее разовых вызовов, когда техника нужна каждый день. При этом один инженер в штате — это ещё и вопрос подмены: если он заболел или уволился, вместе с ним уходят знания о вашей инфраструктуре. В абонентке за офисом закреплена команда, а документация остаётся у клиента.</p>
+
+<h2>Кому подходит абонентская техподдержка, а кому нет</h2>
+<p>Чаще всего на абонентское обслуживание переходят, когда:</p>
+<ul>
+<li>в офисе от 5–10 компьютеров и есть общий сервер, 1С или сетевые папки;</li>
+<li>простой хотя бы на полдня ощутимо бьёт по продажам или работе с клиентами;</li>
+<li>разовые вызовы стали регулярными — проще договориться один раз;</li>
+<li>ИТ «на ком-то из сотрудников», и этот человек тратит на него время вместо своей работы;</li>
+<li>штатный сисадмин ушёл, и нужно быстро закрыть поддержку, не тратя месяцы на поиск.</li>
+</ul>
+<p>А вот когда абонентка, скорее всего, не нужна: в офисе два-три компьютера, все программы облачные, проблемы случаются раз в несколько месяцев. Тогда разумнее вызывать специалиста по факту. Также она не заменит отдельный проект: если нужно построить сеть с нуля или переехать, это делают отдельной работой, а потом уже берут офис на обслуживание.</p>
+
+<h2>Сколько стоит абонентское обслуживание и от чего зависит цена</h2>
+<p>Универсальной цены нет, и это нормально: ежемесячная плата складывается из нескольких факторов.</p>
+<ul>
+<li><strong>Количество рабочих мест.</strong> Основная часть нагрузки — заявки пользователей, поэтому чем больше сотрудников за компьютерами, тем больше работы.</li>
+<li><strong>Серверы и сложные системы.</strong> Сервер 1С, домен, файловое хранилище, удалённые рабочие столы требуют регулярного внимания.</li>
+<li><strong>Время реакции и режим работы.</strong> Поддержка в рабочие часы и поддержка с выездом в течение пары часов — разные по стоимости услуги.</li>
+<li><strong>Состояние инфраструктуры.</strong> Старая техника, отсутствие резервных копий и документации означают больше работы, особенно в начале.</li>
+</ul>
+<figure class="ig"><picture><source media="(max-width:640px)" srcset="./img/blog/tekhnicheskaya-podderzhka-abonentskoe-obsluzhivanie-cena-m.webp" width="750" height="1740"><img src="./img/blog/tekhnicheskaya-podderzhka-abonentskoe-obsluzhivanie-cena.webp" width="1640" height="1252" alt="Инфографика: из чего складывается стоимость абонентского обслуживания — рабочие места, серверы и 1С, время реакции, состояние ИТ-инфраструктуры" loading="lazy" decoding="async"></picture><figcaption>Четыре фактора, от которых зависит ежемесячная плата за абонентское обслуживание</figcaption></figure>
+<p>У нас ИТ-аутсорсинг стоит <strong>от 15 000 ₽ в месяц</strong>. Точную сумму называем после <strong>бесплатного аудита, который занимает 1 день</strong>, и фиксируем её в договоре. Если вы пока не готовы к абонентке, можно начать с разового вызова — <strong>от 1 500 ₽</strong>, диагностика бесплатно. Условия описаны на странице <a href="./outsourcing.html">ИТ-аутсорсинга для бизнеса</a>.</p>
+<p>Сравнивая предложения разных подрядчиков, смотрите не только на итоговую цифру, а на то, что в неё входит. Дешёвый тариф, в котором выезды, работа с сервером и резервное копирование оплачиваются отдельно, в итоге может выйти дороже.</p>
+
+<h2>Удалённая поддержка или выезды</h2>
+<p>Большую часть заявок — настройку программ, почты, принтера, доступов — инженер решает удалённо: подключается к компьютеру сотрудника и делает всё сам, сотруднику достаточно описать проблему. Это быстрее выезда и не отвлекает людей от работы.</p>
+<p>Выезд нужен, когда проблема «в железе»: не включается компьютер, пропала сеть во всём офисе, нужно подключить новое оборудование или проверить кабели. Поэтому для офиса важно, чтобы подрядчик был в том же городе. Мы работаем в Оренбурге: в большинстве случаев выезжаем в день обращения, для срочных задач — в течение 2–3 часов.</p>
+
+<h2>Как выбрать подрядчика на абонентское обслуживание</h2>
+<p>Техническая поддержка в виде абонентского обслуживания хороша ровно настолько, насколько хорош подрядчик. Несколько вопросов, которые стоит задать до подписания договора:</p>
+<ul>
+<li><strong>Есть ли аудит до договора?</strong> Подрядчик, который называет точную цену, не видя офиса, либо заложил большой запас, либо потом будет доплачивать «за допработы».</li>
+<li><strong>Как подаются заявки и за какое время на них реагируют?</strong> Телефон, почта, мессенджер — и конкретные сроки для срочных и обычных задач.</li>
+<li><strong>Что входит в плату, а что нет?</strong> Попросите перечень работ письменно.</li>
+<li><strong>Кому принадлежат пароли и документация?</strong> Правильный ответ — вам. При смене подрядчика всё должно передаваться по акту.</li>
+<li><strong>Как вы узнаете, что сделано за месяц?</strong> Отчёт по заявкам и плановым работам помогает понять, за что вы платите.</li>
+<li><strong>Насколько подрядчик близко?</strong> Для выездов важно, чтобы инженер мог приехать в тот же день.</li>
+</ul>
+
+<h2>Типичные проблемы и что с ними делать</h2>
+<p>Абонентская поддержка работает хорошо, когда обе стороны понимают правила. Вот частые ситуации, на которые жалуются клиенты, и как их избежать.</p>
+<div class="tbl err"><table>
+<tr><th>Проблема</th><th>Причина</th><th>Что сделать</th></tr>
+<tr><td>Платим каждый месяц, а не понимаем за что</td><td>Нет отчётов и плановых работ, подрядчик только отвечает на заявки</td><td>Попросите ежемесячный отчёт и график профилактики, закрепите их в договоре</td></tr>
+<tr><td>«Это не входит в абонентку» — и новый счёт</td><td>Состав работ в договоре описан общими словами</td><td>Приложите к договору конкретный перечень работ и оборудования</td></tr>
+<tr><td>На заявки отвечают через день</td><td>Время реакции не зафиксировано</td><td>Пропишите сроки для срочных и обычных заявок</td></tr>
+<tr><td>Сменили подрядчика — потеряли доступы</td><td>Пароли и схема сети хранились только у старого исполнителя</td><td>Требуйте документацию и передачу доступов по акту</td></tr>
+<tr><td>Сломался сервер, а резервной копии нет</td><td>Копии настроили, но не проверяли</td><td>Включите в регламент регулярную проверку восстановления</td></tr>
+<tr><td>Сотрудники звонят инженеру напрямую в обход заявок</td><td>Нет единого канала для обращений</td><td>Договоритесь об одном канале заявок, чтобы ничего не терялось</td></tr>
+</table></div>
+
+<h2>Чек-лист: готовы ли вы перейти на абонентское обслуживание</h2>
+<ul>
+<li>Знаете, сколько у вас компьютеров, серверов, принтеров и сетевого оборудования.</li>
+<li>Понимаете, какие программы и данные критичны: 1С, почта, общие папки, базы клиентов.</li>
+<li>Знаете, где хранятся пароли администратора, от роутера и облачных сервисов.</li>
+<li>Определили, сколько может длиться простой без серьёзных потерь — от этого зависит нужное время реакции.</li>
+<li>Назначили одного человека, который будет связующим звеном с подрядчиком.</li>
+<li>Прошли аудит и получили список найденных проблем.</li>
+<li>Получили от подрядчика перечень работ, сроки реакции и цену в письменном виде.</li>
+</ul>
+<p>Если половины пунктов нет — это не повод откладывать. Как раз с инвентаризации и аудита и начинается нормальная абонентская поддержка.</p>
+
+<h2>Частые вопросы</h2>
+<h3>Чем абонентское обслуживание отличается от ИТ-аутсорсинга?</h3>
+<p>По сути это одно и то же: передача ИТ-поддержки офиса внешнему подрядчику по договору с ежемесячной оплатой. «Абонентское обслуживание» чаще говорят про компьютеры и рабочие места, «ИТ-аутсорсинг» — про всю инфраструктуру, включая серверы и сеть.</p>
+<h3>Можно ли перейти на абонентку, если у нас уже есть сисадмин?</h3>
+<p>Да. Часто подрядчик берёт на себя серверы, резервные копии и сложные задачи, а штатный специалист помогает сотрудникам на месте. Либо подрядчик подменяет администратора на время отпуска и болезни.</p>
+<h3>Что будет, если в месяце не было ни одной заявки?</h3>
+<p>Абонентская плата сохраняется: подрядчик в это время выполняет плановые работы, следит за серверами и резервными копиями. Месяц без заявок — обычно признак того, что профилактика работает.</p>
+<h3>Сколько стоит абонентское обслуживание в Оренбурге?</h3>
+<p>У нас — от 15 000 ₽ в месяц. Итоговая сумма зависит от количества рабочих мест, серверов и задач; точную цену называем после бесплатного аудита за 1 день.</p>
+  </article>
+
+  <div class="art-cta">
+    <div>
+      <h3>Хотите передать ИТ на абонентское обслуживание?</h3>
+      <p>Начнём с бесплатного аудита за 1 день: проверим компьютеры, серверы, сеть и резервные копии и назовём точную цену. ИТ-аутсорсинг — от 15 000 ₽ в месяц, Оренбург.</p>
+    </div>
+    <a href="#contact" class="btn-ghost">Оставить заявку →</a>
+  </div>
+</section>
+
+<!-- ЗАЯВКА -->
+<section id="contact" class="sec" style="padding-top:0">
+  <span id="form"></span>
+  <div class="wrap contact">
+    <div>
+      <div class="mono-eyebrow">[ БЕСПЛАТНАЯ ДИАГНОСТИКА ]</div>
+      <h2>Опишите, что происходит с сервером</h2>
+      <p class="lead" style="margin-bottom:24px">Перезвоним, уточним детали и договоримся о подключении.</p>
+      <a href="tel:+79969241648" class="phone-box">+7 (996) 924-16-48 <span style="font-size:18px">→</span></a>
+    </div>
+    <form class="form" id="lead-form" novalidate>
+      <div class="form-row2">
+        <input type="text" name="name" placeholder="Имя*" aria-label="Имя" autocomplete="name">
+        <input type="text" name="company" placeholder="Компания" aria-label="Компания" autocomplete="organization">
+      </div>
+      <input type="tel" name="phone" placeholder="Телефон*" aria-label="Телефон" autocomplete="tel">
+      <textarea name="comment" rows="3" placeholder="Что с сервером: версия 1С, сколько пользователей, что не работает" aria-label="Опишите задачу"></textarea>
+      <label class="consent">
+        <input type="checkbox" name="consent" value="yes">
+        <span>Даю <a href="./consent.html" target="_blank">согласие на обработку персональных данных</a> и принимаю <a href="./privacy.html" target="_blank">политику конфиденциальности</a></span>
+      </label>
+      <p class="msg" role="alert"></p>
+      <button type="submit" class="submit"><span class="submit-label">Отправить заявку</span><span style="font-size:18px">→</span></button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ПОДВАЛ -->
+<footer class="dark">
+  <div class="footer-grid">
+    <div>
+      <div class="f-title">Услуги</div>
+      <div class="f-links">
+        <a href="./computers.html">Компьютеры</a>
+        <a href="./servers.html">Серверы и 1С</a>
+        <a href="./network.html">Сети и Wi-Fi</a>
+        <a href="./services.html">Все услуги</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-title">Компания</div>
+      <div class="f-links">
+        <a href="./about.html">О компании</a>
+        <a href="./#pricing">Тарифы</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-title">Инфо</div>
+      <div class="f-links">
+        <a href="./#faq">FAQ</a>
+        <a href="./blog.html">Блог</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-title">Контакты</div>
+      <div class="f-links">
+        <a href="tel:+79969241648" class="f-phone">+7 (996) 924-16-48</a>
+      </div>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <div class="f-bottom-in">
+      <div class="f-brand">Про технологии</div>
+      <div class="f-copy">© 2026 Про технологии. ИТ-консалтинг для бизнеса. · <a href="./privacy.html">Политика конфиденциальности</a></div>
+      <div class="f-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8891a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"></path><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"></path></svg>
+        Аккредитованы Минцифры
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var f = document.getElementById('lead-form');
+  if (!f) return;
+  var msg = f.querySelector('.msg');
+  var btn = f.querySelector('.submit');
+  var label = f.querySelector('.submit-label');
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    msg.className = 'msg';
+    msg.textContent = '';
+    if (!f.name.value.trim() || !f.phone.value.trim()) { msg.className = 'msg err'; msg.textContent = 'Укажите имя и телефон'; return; }
+    if (!f.consent.checked) { msg.className = 'msg err'; msg.textContent = 'Отметьте согласие на обработку персональных данных'; return; }
+    btn.disabled = true; label.textContent = 'Отправка...';
+    var data = new FormData(f);
+    data.set('consent', 'yes');
+    fetch('/send.php', { method: 'POST', body: data })
+      .then(function (r) { if (!r.ok) throw new Error(); })
+      .then(function () {
+        f.reset();
+        msg.className = 'msg ok';
+        msg.textContent = '✓ Заявка отправлена. Свяжемся с вами в рабочее время в течение 15 минут.';
+        if (window.ym) window.ym(113752459, 'reachGoal', 'lead');
+      })
+      .catch(function () { msg.className = 'msg err'; msg.textContent = 'Не удалось отправить заявку. Позвоните нам: +7 (996) 924-16-48'; })
+      .then(function () { btn.disabled = false; label.textContent = 'Отправить заявку'; });
+  });
+})();
+</script>
+</body>
+</html>

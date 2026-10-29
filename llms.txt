@@ -16,6 +16,7 @@
 - [Договор абонентского обслуживания компьютеров](https://it-consalting24.ru/dogovor-abonentskogo-obsluzhivaniya-kompyuterov.html): разделы договора, время реакции, доступы и пароли, допработы, расторжение, чек-лист перед подписанием
 - [Защита от шифровальщиков](https://it-consalting24.ru/zashchita-ot-shifrovalshchikov.html): как вирус попадает в сеть офиса, резервные копии, чек-лист мер и план действий при заражении
 - [Сервер администрирования использует недоверенный сертификат](https://it-consalting24.ru/nedoverennyj-sertifikat-servera-administrirovaniya.html): две похожие ошибки Kaspersky Security Center Web Console, перевыпуск сертификата, klserver.cer, безопасная замена через резервный сертификат
+- [Техническая поддержка в виде абонентского обслуживания](https://it-consalting24.ru/tekhnicheskaya-podderzhka-abonentskoe-obsluzhivanie.html): как устроена абонентская ИТ-поддержка офиса, что входит в плату, сравнение с разовыми вызовами и штатным сисадмином, цена и выбор подрядчика
 - [О компании](https://it-consalting24.ru/about.html): реквизиты, адрес, контакты
 
 ## Факты
