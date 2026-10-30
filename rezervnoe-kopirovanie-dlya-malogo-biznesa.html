@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Резервное копирование для малого бизнеса: как настроить</title>
+<meta name="description" content="Резервное копирование для малого бизнеса: что копировать, правило 3-2-1, NAS или облако, расписание и проверка восстановления. Чек-лист для офиса.">
+<link rel="canonical" href="https://it-consalting24.ru/rezervnoe-kopirovanie-dlya-malogo-biznesa.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Про технологии">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Резервное копирование для малого бизнеса: как настроить">
+<meta property="og:description" content="Резервное копирование для малого бизнеса: что копировать, правило 3-2-1, NAS или облако, расписание и проверка восстановления. Чек-лист для офиса.">
+<meta property="og:url" content="https://it-consalting24.ru/rezervnoe-kopirovanie-dlya-malogo-biznesa.html">
+<meta property="og:image" content="https://it-consalting24.ru/img/blog/rezervnoe-kopirovanie-dlya-malogo-biznesa-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link href="/fonts/inter.css" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Inter',system-ui,sans-serif;background:#ffffff;color:#1a1f2b;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:#2f6bff}
+  a:hover{color:#1f4fd6}
+  ::selection{background:#dbe6ff}
+
+  /* Шапка — как на главной */
+  .site-header{position:sticky;top:0;z-index:40;background:#101114;border-bottom:1px solid #2a2c33}
+  .site-header-in{max-width:1240px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .site-logo{text-decoration:none;font-size:19px;font-weight:800;letter-spacing:-0.02em;white-space:nowrap;flex-shrink:0;color:#ffffff}
+  .site-logo:hover{color:#ffffff}
+  .site-nav{display:flex;align-items:center;gap:14px;flex-wrap:wrap;flex:1;justify-content:center;min-width:0}
+  .site-nav a{text-decoration:none;color:#ffffff;font-size:14px;font-weight:500;white-space:nowrap}
+  .site-nav a:hover{color:#8fb2ff}
+  .site-nav a.active{font-weight:700}
+  .site-actions{display:flex;align-items:center;gap:14px;flex-shrink:0}
+  .site-phone{text-decoration:none;color:#ffffff;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px;white-space:nowrap}
+  .site-phone:hover{color:#8fb2ff}
+
+  /* Общие элементы */
+  .wrap{max-width:1176px;margin:0 auto}
+  .sec{padding:100px 32px}
+  .dark{background:#101114}
+  .eyebrow{font-size:13px;font-weight:700;color:#5b6472;letter-spacing:0.14em;text-transform:uppercase;margin:0 0 16px}
+  .dark .eyebrow{color:#8891a0}
+  .h2{font-size:clamp(26px,4vw,38px);font-weight:800;letter-spacing:-0.01em;margin:0 0 16px;color:#12161f;text-transform:uppercase;line-height:1.2}
+  .dark .h2{color:#ffffff}
+  .lead{font-size:17px;line-height:1.7;color:#5b6472;margin:0;max-width:640px}
+  .dark .lead{color:#8891a0}
+  .btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#ffffff;border:1px solid rgba(255,255,255,0.5);padding:16px 30px;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;text-decoration:none;font-family:inherit}
+  .btn-ghost:hover{background:#ffffff;color:#12161f;border-color:#ffffff}
+
+  /* Первый экран */
+  .hero{position:relative;background:#0a0c12;padding:100px 32px 90px;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:url(./uploads/hero-bg.webp) center/cover no-repeat;opacity:.45}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,8,16,0.85),rgba(5,8,16,0.4))}
+  .hero .wrap{position:relative;z-index:1}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);color:#ffffff;font-size:13px;font-weight:600;padding:7px 14px;border-radius:100px;margin-bottom:28px}
+  .hero h1{font-size:clamp(32px,4.6vw,58px);line-height:1.12;font-weight:800;letter-spacing:-0.01em;margin:0 0 24px;color:#ffffff;text-transform:uppercase;max-width:820px}
+  .hero p{font-size:19px;line-height:1.6;color:rgba(255,255,255,0.8);margin:0 0 40px;max-width:720px}
+  .hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+
+  /* Три преимущества */
+  .highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .hl{background:#1c1d22;border:1px solid #2a2c33;border-radius:24px;padding:32px}
+  .hl-num{font-size:14px;font-weight:800;color:#2f6bff;margin-bottom:18px}
+  .hl h3{font-size:21px;font-weight:700;margin:0 0 10px;color:#ffffff}
+  .hl p{font-size:15px;line-height:1.6;color:#8891a0;margin:0}
+
+  /* Разделы услуг */
+  .svc{display:grid;grid-template-columns:340px 1fr;gap:56px;align-items:start}
+  .svc-head{position:sticky;top:100px}
+  .svc-num{font-size:clamp(44px,6vw,72px);font-weight:800;color:#e2e5ea;line-height:1;letter-spacing:-0.02em;margin-bottom:20px}
+  .dark .svc-num{color:#3a3d45}
+  .svc-head .lead{font-size:16px}
+  .svc-more{display:inline-block;margin-top:20px;font-size:15px;font-weight:700;text-decoration:none}
+  .dark .svc-more{color:#8fb2ff}
+  .table{border-radius:16px;overflow:hidden;border:1px solid #e2e5ea}
+  .row{display:grid;grid-template-columns:1fr 1.6fr;padding:22px 28px;gap:24px;border-top:1px solid #e2e5ea}
+  .row:first-child{border-top:none}
+  .row:nth-child(odd){background:#f6f8fc}
+  .row-t{font-family:ui-monospace,Menlo,monospace;font-size:13.5px;font-weight:700;letter-spacing:0.02em;text-transform:uppercase;color:#12161f;line-height:1.5}
+  .row-d{font-size:15px;line-height:1.6;color:#3a4150}
+  .dark .table{border-color:#2a2c33}
+  .dark .row{border-top-color:#2a2c33}
+  .dark .row:nth-child(odd){background:#1c1d22}
+  .dark .row-t{color:#ffffff}
+  .dark .row-d{color:#c7ccd6}
+
+  /* Форма */
+  .contact{display:grid;grid-template-columns:1fr 1.3fr;gap:56px;align-items:start}
+  .mono-eyebrow{font-family:ui-monospace,Menlo,monospace;font-size:13px;font-weight:700;color:#2f6bff;letter-spacing:0.05em;margin-bottom:20px}
+  .contact h2{font-size:clamp(24px,4.5vw,36px);font-weight:800;letter-spacing:-0.01em;margin:0 0 24px;color:#12161f;line-height:1.25}
+  .phone-box{text-decoration:none;display:flex;align-items:center;justify-content:space-between;background:#f6f8fc;border-radius:12px;padding:20px 24px;color:#12161f;font-family:ui-monospace,Menlo,monospace;font-size:14px;font-weight:700;letter-spacing:0.03em}
+  .phone-box:hover{background:#eef1f6;color:#12161f}
+  .form{display:flex;flex-direction:column;gap:16px}
+  .form-row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .form input[type=text],.form input[type=tel],.form textarea{width:100%;padding:18px 20px;border-radius:12px;border:none;background:#f6f8fc;font-size:15px;font-family:inherit;color:#12161f}
+  .form input:focus,.form textarea:focus{outline:2px solid #8891a0}
+  .form textarea{resize:none}
+  .consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#5b6472;line-height:1.5;cursor:pointer}
+  .consent input{margin:2px 0 0;width:16px;height:16px;flex-shrink:0;accent-color:#2f6bff}
+  .consent a{color:inherit}
+  .msg{font-size:13px;margin:0;line-height:1.5}
+  .msg:empty{display:none}
+  .msg.err{color:#c0392b}
+  .msg.ok{color:#1f8a4c;font-size:15px;font-weight:600}
+  .submit{background:#12161f;color:#ffffff;border:none;padding:20px 24px;border-radius:12px;font-family:ui-monospace,Menlo,monospace;font-size:14px;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:space-between}
+  .submit:hover{background:#2f6bff}
+  .submit:disabled{opacity:.6;cursor:default}
+
+  /* Подвал — как на главной */
+  .footer-grid{max-width:1240px;margin:0 auto;padding:64px 32px 32px;display:grid;grid-template-columns:1fr 1fr 1fr 1.2fr;gap:32px}
+  .f-title{font-size:13px;font-weight:700;color:#8891a0;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:20px}
+  .f-links{display:flex;flex-direction:column;gap:14px}
+  .f-links a{text-decoration:none;color:#c7ccd6;font-size:15px}
+  .f-links a:hover{color:#ffffff}
+  .f-links a.f-phone{color:#ffffff;font-size:16px;font-weight:700}
+  .f-links a.f-phone:hover{color:#8fb2ff}
+  .f-bottom{border-top:1px solid #2a2c33}
+  .f-bottom-in{max-width:1240px;margin:0 auto;padding:24px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  .f-brand{font-size:16px;font-weight:800;letter-spacing:-0.02em;color:#ffffff}
+  .f-copy{font-size:13px;color:#8891a0}
+  .f-copy a{color:#8891a0}
+  .f-copy a:hover{color:#ffffff}
+  .f-badge{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;letter-spacing:0.03em;text-transform:uppercase;color:#8891a0}
+
+  /* Планшет */
+  @media (max-width:1024px){
+    .sec,.hero{padding-left:24px;padding-right:24px}
+    .highlights{grid-template-columns:1fr}
+    .svc{grid-template-columns:1fr;gap:28px}
+    .svc-head{position:static}
+    .svc-num{margin-bottom:12px}
+    .contact{grid-template-columns:1fr;gap:40px}
+    .footer-grid{grid-template-columns:1fr 1fr}
+  }
+  /* Телефон */
+  @media (max-width:640px){
+    .sec{padding:64px 20px}
+    .hero{padding:56px 20px 64px}
+    .badge{margin-bottom:20px;font-size:12px}
+    .hero p{font-size:16.5px;margin-bottom:28px}
+    .hero-btns .btn-ghost{width:100%;justify-content:center}
+    .hl{padding:24px;border-radius:20px}
+    .svc-num{font-size:40px}
+    .row{grid-template-columns:1fr;gap:8px;padding:18px 20px}
+    .row-t{color:#2f6bff}
+    .dark .row-t{color:#8fb2ff}
+    .form-row2{grid-template-columns:1fr}
+    .footer-grid{padding:48px 20px 32px;gap:28px 20px}
+    .footer-grid > div:last-child{grid-column:1 / -1}
+    .f-bottom-in{padding-left:20px;padding-right:20px}
+  }
+
+  /* Дополнительно для страницы «Серверы и 1С» */
+  .crumbs{font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:24px}
+  .crumbs a{color:rgba(255,255,255,0.75);text-decoration:none}
+  .crumbs a:hover{color:#ffffff}
+  .lead a{color:#2f6bff}
+  .row-n{grid-template-columns:48px 1fr}
+  .row-n .row-t{color:#2f6bff}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .step{background:#f6f8fc;border-radius:20px;padding:28px}
+  .step-n{font-size:20px;font-weight:800;color:#2f6bff;margin-bottom:16px}
+  .step h3{font-size:19px;font-weight:700;margin:0 0 8px;color:#12161f}
+  .step p{font-size:15px;line-height:1.6;color:#5b6472;margin:0}
+  .price{margin-top:56px;background:#101114;border-radius:24px;padding:40px;display:grid;grid-template-columns:1fr 1.4fr auto;gap:40px;align-items:center}
+  .price h3{font-size:22px;font-weight:800;color:#ffffff;margin:0;line-height:1.3}
+  .price p{font-size:15px;line-height:1.7;color:#c7ccd6;margin:0}
+  .price .btn-ghost{white-space:nowrap}
+  .faq-outer{display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:start}
+  .faq-big{font-size:clamp(44px,10vw,88px);font-weight:800;color:#3a3d45;line-height:1;letter-spacing:-0.02em}
+  .faq details{border-bottom:1px solid #2a2c33;padding:28px 0}
+  .faq details:first-child{padding-top:0}
+  .faq summary{display:grid;grid-template-columns:90px 1fr auto;gap:20px;align-items:start;cursor:pointer;list-style:none}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq-n{font-size:44px;font-weight:800;color:#ffffff;line-height:1}
+  .faq-q{font-size:19px;font-weight:700;color:#ffffff;line-height:1.4;padding-top:6px}
+  .faq-i{color:#ffffff;font-size:22px;font-weight:300;padding-top:6px}
+  .faq-i::before{content:"+"}
+  .faq details[open] .faq-i::before{content:"−"}
+  .faq details p{font-size:15px;line-height:1.7;color:#8891a0;margin:14px 0 0 110px;max-width:640px}
+  #form{position:relative;top:-80px}
+  @media (max-width:1024px){
+    .cards{grid-template-columns:1fr 1fr}
+    .steps{grid-template-columns:1fr 1fr}
+    .price{grid-template-columns:1fr;gap:20px;padding:32px}
+    .price .btn-ghost{justify-self:start}
+    .faq-outer{grid-template-columns:1fr;gap:20px}
+  }
+  @media (max-width:640px){
+    .hero h1{font-size:26px;-webkit-hyphens:auto;hyphens:auto;overflow-wrap:break-word}
+    .cards,.steps{grid-template-columns:1fr;gap:16px}
+    .step{padding:24px}
+    .row-n{grid-template-columns:36px 1fr !important;gap:12px !important}
+    .price{margin-top:40px;padding:26px 22px;border-radius:20px}
+    .price .btn-ghost{width:100%;justify-content:center}
+    .faq details{padding:22px 0}
+    .faq summary{grid-template-columns:36px 1fr auto;gap:12px}
+    .faq-n{font-size:24px;padding-top:3px}
+    .faq-q{font-size:16.5px;padding-top:2px}
+    .faq details p{margin-left:48px}
+  }
+</style>
+<style>
+  /* Статья */
+  .hero h1{font-size:clamp(26px,3.4vw,44px);max-width:960px}
+  .art-meta{font-size:14px;color:rgba(255,255,255,0.6);margin:0}
+  .art{max-width:820px;margin:0 auto}
+  .art p,.art li{font-size:17px;line-height:1.75;color:#2b313c}
+  .art p{margin:0 0 16px}
+  .art ul{margin:0 0 16px;padding-left:22px}
+  .art li{margin-bottom:6px}
+  .art h2{font-size:clamp(22px,3vw,28px);font-weight:800;letter-spacing:-0.01em;text-transform:uppercase;color:#12161f;line-height:1.25;margin:48px 0 16px}
+  .art h2:first-child{margin-top:0}
+  .art code{font-family:ui-monospace,Menlo,monospace;font-size:14.5px;background:#eef1f6;border-radius:6px;padding:2px 6px;color:#12161f;word-break:break-word}
+  .art pre{background:#101114;color:#e6e9ef;border-radius:14px;padding:18px 20px;overflow-x:auto;font-size:14.5px;line-height:1.6;margin:0 0 16px}
+  .art pre code{background:none;color:inherit;padding:0}
+  .art .tbl{border:1px solid #e2e5ea;border-radius:16px;overflow:hidden;margin:8px 0 16px}
+  .art table{width:100%;border-collapse:collapse}
+  .art th,.art td{text-align:left;vertical-align:top;padding:16px 18px;font-size:15px;line-height:1.6;color:#3a4150;border-top:1px solid #e2e5ea}
+  .art tr:first-child th{border-top:none}
+  .art th{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#12161f;background:#f6f8fc}
+  .art td:first-child{font-weight:600;color:#12161f}
+  .art figure{margin:28px 0 32px}
+  .art figure img{display:block;width:100%;height:auto}
+  .art figcaption{font-size:14px;line-height:1.5;color:#5b6472;margin-top:10px;text-align:center}
+  .art-cta{max-width:820px;margin:56px auto 0;background:#101114;border-radius:24px;padding:36px 40px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+  .art-cta h3{font-size:22px;font-weight:800;color:#ffffff;margin:0 0 8px}
+  .art-cta p{font-size:15px;line-height:1.6;color:#c7ccd6;margin:0}
+  .art-cta .btn-ghost{white-space:nowrap}
+  @media (max-width:640px){
+    .hero h1{font-size:23px;-webkit-hyphens:manual;hyphens:manual}
+    .art p,.art li{font-size:16px}
+    .art h2{margin-top:36px}
+    .art pre{white-space:pre-wrap;word-break:break-all}
+    .art .tbl{border:none;border-radius:0}
+    .art table,.art tbody,.art tr,.art td{display:block;width:100%}
+    .art tr:first-child{display:none}
+    .art tr{border:1px solid #e2e5ea;border-radius:14px;margin-bottom:12px;overflow:hidden}
+    .art td{border-top:none;padding:6px 16px}
+    .art td:first-child{padding-top:14px;background:#f6f8fc;padding-bottom:12px}
+    .art td:last-child{padding-bottom:14px}
+    .art .tbl-err td:nth-child(2)::before{content:"Причина: ";font-weight:700;color:#12161f}
+    .art .tbl-err td:nth-child(3)::before{content:"Что сделать: ";font-weight:700;color:#12161f}
+    .art-cta{grid-template-columns:1fr;padding:26px 22px;border-radius:20px;margin-top:40px}
+    .art-cta .btn-ghost{width:100%;justify-content:center}
+  }
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Резервное копирование для малого бизнеса: что копировать, куда и как проверять", "description": "Резервное копирование для малого бизнеса: что копировать, правило 3-2-1, NAS или облако, расписание и проверка восстановления. Чек-лист для офиса.", "datePublished": "2026-10-30", "dateModified": "2026-10-30", "author": {"@type": "Organization", "name": "Про технологии", "url": "https://it-consalting24.ru/"}, "publisher": {"@id": "https://it-consalting24.ru/#org"}, "mainEntityOfPage": "https://it-consalting24.ru/rezervnoe-kopirovanie-dlya-malogo-biznesa.html", "inLanguage": "ru", "image": "https://it-consalting24.ru/img/blog/rezervnoe-kopirovanie-dlya-malogo-biznesa-cover.jpg"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Как часто нужно резервное копирование для малого бизнеса?", "acceptedAnswer": {"@type": "Answer", "text": "Ориентируйтесь на то, сколько работы вы готовы потерять. Для баз 1С и учётных программ — минимум раз в сутки, а в периоды активной работы — несколько раз в день. Общие папки — ежедневно. Образ сервера — раз в неделю и перед крупными изменениями."}}, {"@type": "Question", "name": "Достаточно ли облачного диска для резервного копирования?", "acceptedAnswer": {"@type": "Answer", "text": "Сам по себе синхронизируемый облачный диск не заменяет резервное копирование: удаление или шифрование файлов на компьютере повторится и в облаке. Облако подходит как место для копии вне офиса, если у него есть история версий, а копии туда делает отдельная программа под отдельной учётной записью."}}, {"@type": "Question", "name": "Сколько хранить резервные копии?", "acceptedAnswer": {"@type": "Answer", "text": "Удобная базовая схема — ежедневные копии за 1–2 недели, еженедельные за 1–2 месяца и ежемесячные за год. Это позволяет откатиться и на вчера, и на состояние до давно незамеченной ошибки. Сроки можно увеличить для данных, которые нужно хранить дольше."}}, {"@type": "Question", "name": "Можно ли просто копировать базу 1С на флешку?", "acceptedAnswer": {"@type": "Answer", "text": "Можно как дополнительную меру, но не как основную. Ручное копирование быстро забывают делать, флешки теряются и ломаются, а копия файловой базы во время работы пользователей может оказаться повреждённой. Надёжнее настроить автоматическую выгрузку или копирование по расписанию с проверкой восстановления."}}, {"@type": "Question", "name": "Что делать, если копий нет совсем?", "acceptedAnswer": {"@type": "Answer", "text": "Начните сегодня с самого ценного: сделайте выгрузку баз 1С и скопируйте общие папки на внешний диск, после чего отключите его. Затем по шагам из этой статьи настройте автоматическое копирование и проверку. Если нет времени разбираться, закажите аудит — посмотрим, что и где хранится, и предложим схему под ваш офис."}}]}</script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113752459', 'ym');
+
+    ym(113752459, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<!-- /Yandex.Metrika counter -->
+<link rel="stylesheet" href="/mobile.css">
+<script src="/mobile.js" defer></script>
+</head>
+<body>
+<noscript><div><img src="https://mc.yandex.ru/watch/113752459" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<!-- ШАПКА -->
+<header class="site-header">
+  <div class="site-header-in">
+    <a href="./" class="site-logo">Про технологии</a>
+    <nav class="site-nav">
+      <a href="./services.html">Услуги</a>
+      <a href="./#stages">Этапы работы</a>
+      <a href="./about.html">О компании</a>
+      <a href="./#pricing">Стоимость</a>
+      <a href="./blog.html">Блог</a>
+      <a href="./#faq">FAQ</a>
+    </nav>
+    <div class="site-actions">
+      <a href="tel:+79969241648" class="site-phone" aria-label="Позвонить: +7 (996) 924-16-48">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <span class="site-phone-num">+7 (996) 924-16-48</span>
+      </a>
+      <button type="button" class="nav-toggle" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ПЕРВЫЙ ЭКРАН -->
+<section class="hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="./">Главная</a> / <a href="./blog.html">Блог</a> / Резервное копирование</div>
+    <div class="badge">Защита данных · Чек-лист для офиса</div>
+    <h1>Резервное копирование для малого бизнеса: что копировать, куда и как проверять</h1>
+    <p class="art-meta">30 октября 2026 · Про технологии</p>
+  </div>
+</section>
+
+<!-- СТАТЬЯ -->
+<section class="sec">
+  <article class="art">
+<p>Резервное копирование для малого бизнеса — это не покупка «программы для бэкапа», а простая система: что именно копировать, куда, как часто и как убедиться, что из копии реально можно восстановиться. В небольшой компании обычно нет отдельного ИТ-отдела, и копии либо не делают вовсе, либо делают «на флешку, когда вспомнят». Ниже — как наладить резервное копирование в офисе на 5–80 рабочих мест без лишних затрат: по шагам, с таблицами, чек-листом и разбором частых ошибок.</p>
+
+<h2>Зачем малому бизнесу резервные копии</h2>
+<p>Данные небольшой компании — это база 1С с учётом за несколько лет, договоры и сметы, клиентская база, переписка, макеты, отчётность. Потерять их можно по множеству причин, и почти все они не зависят от размера бизнеса:</p>
+<ul>
+<li><strong>Поломка диска.</strong> Жёсткие диски и SSD выходят из строя внезапно, в том числе в сервере и сетевом хранилище.</li>
+<li><strong>Ошибка человека.</strong> Сотрудник удалил папку, перезаписал файл старой версией, «почистил» базу.</li>
+<li><strong>Шифровальщик.</strong> Вирус шифрует файлы на компьютерах и в сетевых папках, а заодно ищет и портит доступные резервные копии. Подробно о защите — в статье <a href="./zashchita-ot-shifrovalshchikov.html">«Защита от шифровальщиков»</a>.</li>
+<li><strong>Сбой при обновлении.</strong> Неудачное обновление конфигурации 1С или Windows может оставить базу или сервер в нерабочем состоянии.</li>
+<li><strong>Кража, пожар, затопление.</strong> Если копия лежит в том же офисе, что и сервер, она пропадёт вместе с ним.</li>
+</ul>
+<p>Резервная копия не предотвращает ни одну из этих проблем, но превращает их из катастрофы в неприятность: вместо «всё потеряно» — «откатились на вчерашний вечер и продолжили работу».</p>
+
+<h2>Какие данные копировать в первую очередь</h2>
+<p>Начните с короткой инвентаризации. Задайте себе вопрос: без каких данных офис завтра не сможет работать, а что можно восстановить или скачать заново? Обычно список выглядит так:</p>
+<ul>
+<li><strong>Базы 1С и других учётных программ</strong> — самое ценное. Файловые базы и базы на SQL-сервере копируются по-разному, об этом ниже.</li>
+<li><strong>Общие папки на сервере или NAS</strong> — договоры, сметы, прайсы, макеты, кадровые документы.</li>
+<li><strong>Документы на рабочих компьютерах</strong> — то, что сотрудники хранят на рабочем столе и в «Документах», хотя не должны.</li>
+<li><strong>Почта</strong> — если она хранится только в почтовой программе на одном компьютере, это риск.</li>
+<li><strong>Облачные сервисы</strong> — CRM, облачный диск, онлайн-таблицы. Узнайте, сколько сервис хранит удалённые данные и можно ли сделать выгрузку.</li>
+<li><strong>Настройки и служебные данные</strong> — конфигурация роутера и сервера, ключи ЭЦП, файлы лицензий, список паролей в защищённом менеджере.</li>
+</ul>
+<p>Операционную систему и программы тоже можно копировать целиком (образ диска), чтобы после поломки сервера не настраивать всё с нуля. Для сервера это почти всегда оправдано, для обычных рабочих мест — по ситуации: часто быстрее переустановить систему и вернуть документы из копии.</p>
+
+<figure class="ig"><picture><source media="(max-width:640px)" srcset="./img/blog/rezervnoe-kopirovanie-dlya-malogo-biznesa-chto-kopirovat-m.webp" width="750" height="2476"><img src="./img/blog/rezervnoe-kopirovanie-dlya-malogo-biznesa-chto-kopirovat.webp" width="1640" height="1378" alt="Инфографика: что копировать при резервном копировании для малого бизнеса — базы 1С, общие папки, почта и облака, настройки" loading="lazy" decoding="async"></picture><figcaption>Четыре группы данных, которые стоит включить в резервное копирование офиса.</figcaption></figure>
+
+<h3>Особенность баз 1С</h3>
+<p>Файловую базу 1С нельзя надёжно скопировать простым копированием папки, пока с ней работают пользователи: копия может оказаться несогласованной. Безопасные варианты — копировать, когда в базе никого нет (ночью), либо делать выгрузку информационной базы в файл <code>.dt</code> через конфигуратор, либо использовать средства резервного копирования, которые умеют делать снимки работающих файлов. Базы на SQL-сервере копируются средствами самой СУБД по расписанию. Перед каждым обновлением конфигурации — отдельная внеплановая копия. Если 1С у вас на сервере, это обычно настраивают в рамках <a href="./servers.html">администрирования серверов 1С</a>.</p>
+
+<h2>Синхронизация и RAID — это не резервное копирование</h2>
+<p>Две самые частые иллюзии, из-за которых компании уверены, что «копии есть», а их нет.</p>
+<p><strong>Синхронизируемая папка в облаке.</strong> Сервисы вроде облачного диска повторяют на сервере всё, что происходит на компьютере. Удалили файл — он удалится и в облаке. Шифровальщик зашифровал папку — в облако уедут зашифрованные файлы. Спасти может только история версий и корзина сервиса, и то если их глубины хватает. Синхронизация удобна для совместной работы, но резервной копией сама по себе не является.</p>
+<p><strong>RAID-массив в сервере или NAS.</strong> Зеркало из двух дисков защищает от выхода из строя одного диска — и только. Удалённый или зашифрованный файл исчезает сразу на обоих дисках. Ошибка контроллера, скачок напряжения или кража уносят весь массив. RAID — это про непрерывность работы, а не про сохранность данных.</p>
+<p>Настоящая резервная копия — это отдельная копия данных на определённый момент времени, хранящаяся там, где до неё не дотянется проблема, случившаяся с основными данными.</p>
+
+<h2>Правило 3-2-1: простой ориентир</h2>
+<p>Самая известная схема резервного копирования легко запоминается:</p>
+<ul>
+<li><strong>3 копии данных</strong> — рабочие данные и минимум две резервные копии;</li>
+<li><strong>2 разных носителя</strong> — например, сетевое хранилище в офисе и облако или внешний диск;</li>
+<li><strong>1 копия вне офиса</strong> — на случай пожара, кражи или затопления.</li>
+</ul>
+<p>Сейчас к правилу часто добавляют ещё два пункта и называют схему 3-2-1-1-0: <strong>ещё одна копия должна быть изолированной или неизменяемой</strong> (её нельзя удалить или перезаписать с рабочих компьютеров — это защита от шифровальщиков), а <strong>ноль</strong> — это число ошибок при проверке восстановления. Резервное копирование для малого бизнеса по этой схеме реалистично выглядит так: ежедневная копия на NAS или отдельный диск сервера плюс копия в облачное хранилище с версиями, к которому у сотрудников нет доступа.</p>
+
+<h2>Полное, инкрементное и дифференциальное копирование</h2>
+<p>Программы резервного копирования предлагают несколько типов копий. Разница влияет на скорость, занимаемое место и удобство восстановления.</p>
+<div class="tbl"><table>
+<tr><th>Тип копии</th><th>Что копируется</th><th>Плюсы и минусы</th></tr>
+<tr><td>Полная</td><td>Все выбранные данные целиком</td><td>Восстановить проще всего, но занимает больше места и времени</td></tr>
+<tr><td>Инкрементная</td><td>Только изменения с момента предыдущей копии любого типа</td><td>Быстро и компактно, но для восстановления нужна вся цепочка копий</td></tr>
+<tr><td>Дифференциальная</td><td>Изменения с момента последней полной копии</td><td>Для восстановления достаточно полной и последней дифференциальной, но копия растёт день ото дня</td></tr>
+</table></div>
+<p>Типичная схема для небольшого офиса: полная копия раз в неделю (например, в ночь на воскресенье) и инкрементные — каждую ночь. Большинство современных программ делают это автоматически и сами удаляют устаревшие цепочки по заданным правилам.</p>
+
+<h2>Куда хранить копии: диск, NAS, облако</h2>
+<p>У каждого варианта есть свои сильные и слабые стороны, поэтому на практике их комбинируют.</p>
+<div class="tbl"><table>
+<tr><th>Где хранить</th><th>Сильные стороны</th><th>Слабые стороны</th></tr>
+<tr><td>Внешний USB-диск</td><td>Дёшево, просто, быстро восстанавливать</td><td>Пока подключён — уязвим для шифровальщика; легко забыть поменять или унести</td></tr>
+<tr><td>Сетевое хранилище (NAS)</td><td>Автоматические копии со всех компьютеров и сервера, снимки, быстрое восстановление</td><td>Находится в том же офисе; нужен отдельный пароль администратора и настройка доступа</td></tr>
+<tr><td>Отдельный сервер или диск в сервере</td><td>Удобно для образов системы и баз 1С</td><td>Если пострадает сервер целиком, пострадает и копия</td></tr>
+<tr><td>Облачное хранилище</td><td>Копия вне офиса, не нужно ничего возить, есть версии</td><td>Зависит от скорости интернета; полное восстановление большого объёма может занять много времени; нужна ежемесячная оплата</td></tr>
+</table></div>
+<p>Самый практичный вариант, когда речь идёт о резервном копировании для малого бизнеса, — гибридный: быстрая локальная копия на NAS или диске для повседневных случаев («удалили файл», «откатить базу на утро») и облачная копия как страховка от серьёзных происшествий. При выборе облака обращайте внимание на шифрование, хранение версий, расположение серверов и то, как быстро можно скачать данные обратно.</p>
+
+<h2>RPO и RTO простыми словами</h2>
+<p>Два термина, которые помогают решить, как часто делать копии и сколько тратить на систему.</p>
+<p><strong>RPO</strong> — сколько данных вы готовы потерять. Если копия делается раз в сутки ночью, то при сбое в 17:00 пропадёт вся работа за день. Для бухгалтерии в период сдачи отчётности это может быть неприемлемо — тогда базу копируют несколько раз в день.</p>
+<p><strong>RTO</strong> — за какое время нужно вернуться к работе. Восстановить один файл с NAS — минуты. Поднять сервер с нуля и развернуть базы из облака — уже часы. Если простой больше нескольких часов обходится дорого, нужен образ сервера и локальная копия, а не только облако.</p>
+<p>Задайте RPO и RTO отдельно для каждой группы данных: для базы 1С — одни, для архива старых проектов — совсем другие. Это убережёт от лишних трат там, где они не нужны.</p>
+
+<h2>Расписание и глубина хранения</h2>
+<p>Резервное копирование должно работать без участия людей. Ручной режим «скопирую в пятницу» ломается в первую же загруженную неделю.</p>
+<ul>
+<li><strong>Время запуска</strong> — ночью или в обед, когда нагрузка меньше и базы свободны.</li>
+<li><strong>Частота</strong> — по RPO: базы учёта ежедневно или чаще, общие папки ежедневно, образы серверов раз в неделю и после крупных изменений.</li>
+<li><strong>Глубина хранения</strong> — сколько копий держать. Хорошая базовая схема: ежедневные за 1–2 недели, еженедельные за 1–2 месяца, ежемесячные за год. Глубина важна, потому что ошибку или заражение иногда замечают не сразу — нужна копия «до того, как всё началось».</li>
+<li><strong>Отчёты</strong> — программа должна присылать уведомление о неудачном копировании. Без этого копии могут не делаться месяцами, а узнаете вы об этом в день аварии.</li>
+</ul>
+
+<h2>Шифрование и доступ к копиям</h2>
+<p>Резервная копия содержит те же данные, что и рабочие системы, поэтому защищать её нужно не хуже.</p>
+<ul>
+<li>Включите шифрование копий, особенно тех, что уходят в облако или на переносной диск. Пароль от шифрования храните отдельно и надёжно: без него копию не восстановит никто, включая вас.</li>
+<li>Используйте для хранилища копий отдельную учётную запись, которой нет на рабочих компьютерах. Если шифровальщик получит пароль администратора домена, он не должен автоматически получить и доступ к копиям.</li>
+<li>Не подключайте хранилище копий как сетевой диск у сотрудников.</li>
+<li>По возможности включите неизменяемые снимки или защиту от удаления в облаке на заданный срок.</li>
+</ul>
+
+<h2>Как наладить резервное копирование: 5 шагов</h2>
+<p>Если копий сейчас нет или они «какие-то есть», двигайтесь по порядку.</p>
+<ol>
+<li><strong>Составьте список данных</strong>: где лежат базы, общие папки, почта, что хранится на отдельных компьютерах.</li>
+<li><strong>Определите сроки</strong>: сколько данных каждой группы можно потерять и за сколько их нужно вернуть.</li>
+<li><strong>Выберите носители</strong>: локальная копия (NAS, отдельный диск) плюс копия вне офиса (облако или второй диск, который увозят).</li>
+<li><strong>Настройте расписание</strong> в программе резервного копирования, глубину хранения и уведомления об ошибках. Под Windows для этого подойдут встроенные средства или специализированное ПО, у NAS обычно есть собственные приложения для резервного копирования.</li>
+<li><strong>Проверьте восстановление</strong> — сразу после настройки и дальше регулярно.</li>
+</ol>
+
+<figure class="ig"><picture><source media="(max-width:640px)" srcset="./img/blog/rezervnoe-kopirovanie-dlya-malogo-biznesa-vnedrenie-m.webp" width="750" height="2376"><img src="./img/blog/rezervnoe-kopirovanie-dlya-malogo-biznesa-vnedrenie.webp" width="1640" height="1390" alt="Инфографика: 5 шагов настройки резервного копирования в малом бизнесе — список данных, сроки, носители, расписание, проверка" loading="lazy" decoding="async"></picture><figcaption>Резервное копирование считается налаженным только после успешной проверки восстановления.</figcaption></figure>
+
+<h2>Проверка восстановления: то, что пропускают чаще всего</h2>
+<p>Программа может месяцами рапортовать «копия создана успешно», а в нужный момент окажется, что копируется не та папка, архив повреждён или пароль от шифрования никто не помнит. Поэтому раз в месяц или хотя бы раз в квартал устраивайте небольшую учебную тревогу:</p>
+<ol>
+<li>Выберите случайный файл из общей папки и восстановите его из копии в отдельное место. Откройте и убедитесь, что он целый.</li>
+<li>Разверните копию базы 1С в тестовую базу (не поверх рабочей!) и зайдите в неё: открываются ли документы, сходятся ли последние данные.</li>
+<li>Попробуйте восстановить данные не из последней копии, а недельной давности — так вы проверите глубину хранения.</li>
+<li>Скачайте что-нибудь из облачной копии и оцените, сколько времени это заняло.</li>
+<li>Запишите дату проверки и результат. Если что-то не получилось — это повод исправить систему сейчас, а не в день аварии.</li>
+</ol>
+<p>Раз в год имеет смысл проверить и худший сценарий: сколько времени уйдёт на то, чтобы поднять сервер с нуля и вернуть на него все базы.</p>
+
+<h2>Частые проблемы: причина и что сделать</h2>
+<div class="tbl tbl-err"><table>
+<tr><th>Проблема</th><th>Причина</th><th>Что сделать</th></tr>
+<tr><td>Копии перестали создаваться, и никто не заметил</td><td>Закончилось место, сменился пароль, отключили диск — а уведомлений нет</td><td>Настроить отчёты на почту или в мессенджер и раз в неделю их просматривать</td></tr>
+<tr><td>Копия есть, но база 1С из неё не открывается</td><td>Файловую базу копировали во время работы пользователей</td><td>Копировать ночью, делать выгрузку .dt или использовать ПО со снимками работающих файлов</td></tr>
+<tr><td>Шифровальщик зашифровал и рабочие файлы, и копии</td><td>Хранилище копий было доступно с рабочих компьютеров под той же учётной записью</td><td>Отдельная учётка для копий, изолированная или неизменяемая копия, копия вне офиса</td></tr>
+<tr><td>Нужен файл месячной давности, а копии только за 3 дня</td><td>Слишком маленькая глубина хранения</td><td>Ввести схему: ежедневные, еженедельные и ежемесячные копии</td></tr>
+<tr><td>Восстановление из облака идёт сутками</td><td>Большой объём данных и медленный канал</td><td>Держать локальную копию для быстрого восстановления, облако — как страховку</td></tr>
+<tr><td>Копия зашифрована, а пароль никто не знает</td><td>Пароль задал бывший сотрудник или подрядчик и не передал</td><td>Хранить пароли от копий в менеджере паролей компании, передавать при смене ответственного</td></tr>
+<tr><td>Удалённый файл пропал и из облачной папки</td><td>Использовалась синхронизация вместо резервного копирования</td><td>Включить историю версий и настроить отдельное резервное копирование</td></tr>
+</table></div>
+
+<h2>Чек-лист резервного копирования для небольшого офиса</h2>
+<ul>
+<li>Есть список важных данных и того, где они хранятся.</li>
+<li>Для каждой группы данных понятно, как часто делается копия и сколько копий хранится.</li>
+<li>Копии делаются автоматически по расписанию, без участия сотрудников.</li>
+<li>Базы 1С копируются корректно — ночью, выгрузкой или средствами СУБД; перед обновлением делается внеплановая копия.</li>
+<li>Есть минимум одна копия вне офиса.</li>
+<li>Хотя бы одна копия недоступна с рабочих компьютеров.</li>
+<li>Копии в облаке и на переносных дисках зашифрованы, пароль хранится надёжно и известен не одному человеку.</li>
+<li>Об ошибках копирования приходят уведомления, и их кто-то читает.</li>
+<li>Восстановление проверяется хотя бы раз в квартал, результат записывается.</li>
+<li>Назначен ответственный за резервное копирование — сотрудник или подрядчик.</li>
+</ul>
+
+<h2>Когда стоит позвать специалиста</h2>
+<p>Простую схему — внешний диск и облачная папка с версиями — владелец небольшого офиса может настроить сам. Помощь нужна, если в компании есть сервер 1С или SQL, несколько десятков компьютеров, NAS, удалённые сотрудники, или если вы не уверены, что нынешние копии вообще восстанавливаются. Также стоит обратиться к специалисту после любой аварии или атаки: сначала нужно понять, какие копии чистые, и только потом восстанавливать.</p>
+<p>Мы в Оренбурге настраиваем резервное копирование серверов, баз 1С и рабочих мест под задачи конкретного офиса. Можно заказать разовую работу — разовый вызов от 1 500 ₽, диагностика бесплатно, выезд в день обращения. Если нужна постоянная забота о копиях с ежемесячной проверкой восстановления, это входит в <a href="./outsourcing.html">ИТ-аутсорсинг</a> от 15 000 ₽ в месяц; начать можно с бесплатного аудита за 1 день. Перенос данных и настройку копирования на отдельных компьютерах делаем в рамках <a href="./computers.html">обслуживания компьютеров</a>.</p>
+
+<h2>Частые вопросы</h2>
+<h3>Как часто нужно резервное копирование для малого бизнеса?</h3>
+<p>Ориентируйтесь на то, сколько работы вы готовы потерять. Для баз 1С и учётных программ — минимум раз в сутки, а в периоды активной работы — несколько раз в день. Общие папки — ежедневно. Образ сервера — раз в неделю и перед крупными изменениями.</p>
+<h3>Достаточно ли облачного диска для резервного копирования?</h3>
+<p>Сам по себе синхронизируемый облачный диск не заменяет резервное копирование: удаление или шифрование файлов на компьютере повторится и в облаке. Облако подходит как место для копии вне офиса, если у него есть история версий, а копии туда делает отдельная программа под отдельной учётной записью.</p>
+<h3>Сколько хранить резервные копии?</h3>
+<p>Удобная базовая схема — ежедневные копии за 1–2 недели, еженедельные за 1–2 месяца и ежемесячные за год. Это позволяет откатиться и на вчера, и на состояние до давно незамеченной ошибки. Сроки можно увеличить для данных, которые нужно хранить дольше.</p>
+<h3>Можно ли просто копировать базу 1С на флешку?</h3>
+<p>Можно как дополнительную меру, но не как основную. Ручное копирование быстро забывают делать, флешки теряются и ломаются, а копия файловой базы во время работы пользователей может оказаться повреждённой. Надёжнее настроить автоматическую выгрузку или копирование по расписанию с проверкой восстановления.</p>
+<h3>Что делать, если копий нет совсем?</h3>
+<p>Начните сегодня с самого ценного: сделайте выгрузку баз 1С и скопируйте общие папки на внешний диск, после чего отключите его. Затем по шагам из этой статьи настройте автоматическое копирование и проверку. Если нет времени разбираться, закажите аудит — посмотрим, что и где хранится, и предложим схему под ваш офис.</p>
+  </article>
+
+  <div class="art-cta">
+    <div>
+      <h3>Проверим ваши резервные копии</h3>
+      <p>Бесплатно посмотрим, что и куда копируется в вашем офисе, проверим восстановление баз 1С и файлов и предложим схему под ваш бюджет. Аудит — за 1 день, выезд по Оренбургу в день обращения.</p>
+    </div>
+    <a href="#contact" class="btn-ghost">Оставить заявку →</a>
+  </div>
+</section>
+
+<!-- ЗАЯВКА -->
+<section id="contact" class="sec" style="padding-top:0">
+  <span id="form"></span>
+  <div class="wrap contact">
+    <div>
+      <div class="mono-eyebrow">[ БЕСПЛАТНАЯ ДИАГНОСТИКА ]</div>
+      <h2>Опишите, что происходит с сервером</h2>
+      <p class="lead" style="margin-bottom:24px">Перезвоним, уточним детали и договоримся о подключении.</p>
+      <a href="tel:+79969241648" class="phone-box">+7 (996) 924-16-48 <span style="font-size:18px">→</span></a>
+    </div>
+    <form class="form" id="lead-form" novalidate>
+      <div class="form-row2">
+        <input type="text" name="name" placeholder="Имя*" aria-label="Имя" autocomplete="name">
+        <input type="text" name="company" placeholder="Компания" aria-label="Компания" autocomplete="organization">
+      </div>
+      <input type="tel" name="phone" placeholder="Телефон*" aria-label="Телефон" autocomplete="tel">
+      <textarea name="comment" rows="3" placeholder="Что с сервером: версия 1С, сколько пользователей, что не работает" aria-label="Опишите задачу"></textarea>
+      <label class="consent">
+        <input type="checkbox" name="consent" value="yes">
+        <span>Даю <a href="./consent.html" target="_blank">согласие на обработку персональных данных</a> и принимаю <a href="./privacy.html" target="_blank">политику конфиденциальности</a></span>
+      </label>
+      <p class="msg" role="alert"></p>
+      <button type="submit" class="submit"><span class="submit-label">Отправить заявку</span><span style="font-size:18px">→</span></button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ПОДВАЛ -->
+<footer class="dark">
+  <div class="footer-grid">
+    <div>
+      <div class="f-title">Услуги</div>
+      <div class="f-links">
+        <a href="./computers.html">Компьютеры</a>
+        <a href="./servers.html">Серверы и 1С</a>
+        <a href="./network.html">Сети и Wi-Fi</a>
+        <a href="./services.html">Все услуги</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-title">Компания</div>
+      <div class="f-links">
+        <a href="./about.html">О компании</a>
+        <a href="./#pricing">Тарифы</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-title">Инфо</div>
+      <div class="f-links">
+        <a href="./#faq">FAQ</a>
+        <a href="./blog.html">Блог</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-title">Контакты</div>
+      <div class="f-links">
+        <a href="tel:+79969241648" class="f-phone">+7 (996) 924-16-48</a>
+      </div>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <div class="f-bottom-in">
+      <div class="f-brand">Про технологии</div>
+      <div class="f-copy">© 2026 Про технологии. ИТ-консалтинг для бизнеса. · <a href="./privacy.html">Политика конфиденциальности</a></div>
+      <div class="f-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8891a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"></path><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"></path></svg>
+        Аккредитованы Минцифры
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var f = document.getElementById('lead-form');
+  if (!f) return;
+  var msg = f.querySelector('.msg');
+  var btn = f.querySelector('.submit');
+  var label = f.querySelector('.submit-label');
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    msg.className = 'msg';
+    msg.textContent = '';
+    if (!f.name.value.trim() || !f.phone.value.trim()) { msg.className = 'msg err'; msg.textContent = 'Укажите имя и телефон'; return; }
+    if (!f.consent.checked) { msg.className = 'msg err'; msg.textContent = 'Отметьте согласие на обработку персональных данных'; return; }
+    btn.disabled = true; label.textContent = 'Отправка...';
+    var data = new FormData(f);
+    data.set('consent', 'yes');
+    fetch('/send.php', { method: 'POST', body: data })
+      .then(function (r) { if (!r.ok) throw new Error(); })
+      .then(function () {
+        f.reset();
+        msg.className = 'msg ok';
+        msg.textContent = '✓ Заявка отправлена. Свяжемся с вами в рабочее время в течение 15 минут.';
+        if (window.ym) window.ym(113752459, 'reachGoal', 'lead');
+      })
+      .catch(function () { msg.className = 'msg err'; msg.textContent = 'Не удалось отправить заявку. Позвоните нам: +7 (996) 924-16-48'; })
+      .then(function () { btn.disabled = false; label.textContent = 'Отправить заявку'; });
+  });
+})();
+</script>
+</body>
+</html>
