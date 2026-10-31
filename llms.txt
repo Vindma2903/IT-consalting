@@ -18,6 +18,7 @@
 - [Сервер администрирования использует недоверенный сертификат](https://it-consalting24.ru/nedoverennyj-sertifikat-servera-administrirovaniya.html): две похожие ошибки Kaspersky Security Center Web Console, перевыпуск сертификата, klserver.cer, безопасная замена через резервный сертификат
 - [Техническая поддержка в виде абонентского обслуживания](https://it-consalting24.ru/tekhnicheskaya-podderzhka-abonentskoe-obsluzhivanie.html): как устроена абонентская ИТ-поддержка офиса, что входит в плату, сравнение с разовыми вызовами и штатным сисадмином, цена и выбор подрядчика
 - [Резервное копирование для малого бизнеса](https://it-consalting24.ru/rezervnoe-kopirovanie-dlya-malogo-biznesa.html): какие данные копировать, правило 3-2-1, NAS или облако, расписание и глубина хранения, проверка восстановления, чек-лист для офиса
+- [Почему тормозит Wi-Fi в офисе](https://it-consalting24.ru/pochemu-tormozit-wifi-v-ofise.html): как отличить проблему провайдера от Wi-Fi, 10 причин медленной беспроводной сети, таблица симптомов, чек-лист проверки и типичные ошибки
 - [О компании](https://it-consalting24.ru/about.html): реквизиты, адрес, контакты
 
 ## Факты
