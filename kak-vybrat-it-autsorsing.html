@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Как выбрать ИТ-аутсорсинг: 7 критериев и чек-лист</title>
+<meta name="description" content="Как выбрать ИТ-аутсорсинг для малого бизнеса: 7 критериев, вопросы подрядчику, красные флаги и чек-лист перед подписанием договора. Разбираем простым языком.">
+<link rel="canonical" href="https://it-consalting24.ru/kak-vybrat-it-autsorsing.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Про технологии">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Как выбрать ИТ-аутсорсинг: 7 критериев и чек-лист">
+<meta property="og:description" content="Как выбрать ИТ-аутсорсинг для малого бизнеса: 7 критериев, вопросы подрядчику, красные флаги и чек-лист перед подписанием договора. Разбираем простым языком.">
+<meta property="og:url" content="https://it-consalting24.ru/kak-vybrat-it-autsorsing.html">
+<meta property="og:image" content="https://it-consalting24.ru/img/blog/kak-vybrat-it-autsorsing-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link href="/fonts/inter.css" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Inter',system-ui,sans-serif;background:#ffffff;color:#1a1f2b;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:#2f6bff}
+  a:hover{color:#1f4fd6}
+  ::selection{background:#dbe6ff}
+
+  /* Шапка — как на главной */
+  .site-header{position:sticky;top:0;z-index:40;background:#101114;border-bottom:1px solid #2a2c33}
+  .site-header-in{max-width:1240px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .site-logo{text-decoration:none;font-size:19px;font-weight:800;letter-spacing:-0.02em;white-space:nowrap;flex-shrink:0;color:#ffffff}
+  .site-logo:hover{color:#ffffff}
+  .site-nav{display:flex;align-items:center;gap:14px;flex-wrap:wrap;flex:1;justify-content:center;min-width:0}
+  .site-nav a{text-decoration:none;color:#ffffff;font-size:14px;font-weight:500;white-space:nowrap}
+  .site-nav a:hover{color:#8fb2ff}
+  .site-nav a.active{font-weight:700}
+  .site-actions{display:flex;align-items:center;gap:14px;flex-shrink:0}
+  .site-phone{text-decoration:none;color:#ffffff;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px;white-space:nowrap}
+  .site-phone:hover{color:#8fb2ff}
+
+  /* Общие элементы */
+  .wrap{max-width:1176px;margin:0 auto}
+  .sec{padding:100px 32px}
+  .dark{background:#101114}
+  .eyebrow{font-size:13px;font-weight:700;color:#5b6472;letter-spacing:0.14em;text-transform:uppercase;margin:0 0 16px}
+  .dark .eyebrow{color:#8891a0}
+  .h2{font-size:clamp(26px,4vw,38px);font-weight:800;letter-spacing:-0.01em;margin:0 0 16px;color:#12161f;text-transform:uppercase;line-height:1.2}
+  .dark .h2{color:#ffffff}
+  .lead{font-size:17px;line-height:1.7;color:#5b6472;margin:0;max-width:640px}
+  .dark .lead{color:#8891a0}
+  .btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#ffffff;border:1px solid rgba(255,255,255,0.5);padding:16px 30px;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;text-decoration:none;font-family:inherit}
+  .btn-ghost:hover{background:#ffffff;color:#12161f;border-color:#ffffff}
+
+  /* Первый экран */
+  .hero{position:relative;background:#0a0c12;padding:100px 32px 90px;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:url(./uploads/hero-bg.webp) center/cover no-repeat;opacity:.45}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,8,16,0.85),rgba(5,8,16,0.4))}
+  .hero .wrap{position:relative;z-index:1}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);color:#ffffff;font-size:13px;font-weight:600;padding:7px 14px;border-radius:100px;margin-bottom:28px}
+  .hero h1{font-size:clamp(32px,4.6vw,58px);line-height:1.12;font-weight:800;letter-spacing:-0.01em;margin:0 0 24px;color:#ffffff;text-transform:uppercase;max-width:820px}
+  .hero p{font-size:19px;line-height:1.6;color:rgba(255,255,255,0.8);margin:0 0 40px;max-width:720px}
+  .hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+
+  /* Три преимущества */
+  .highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .hl{background:#1c1d22;border:1px solid #2a2c33;border-radius:24px;padding:32px}
+  .hl-num{font-size:14px;font-weight:800;color:#2f6bff;margin-bottom:18px}
+  .hl h3{font-size:21px;font-weight:700;margin:0 0 10px;color:#ffffff}
+  .hl p{font-size:15px;line-height:1.6;color:#8891a0;margin:0}
+
+  /* Разделы услуг */
+  .svc{display:grid;grid-template-columns:340px 1fr;gap:56px;align-items:start}
+  .svc-head{position:sticky;top:100px}
+  .svc-num{font-size:clamp(44px,6vw,72px);font-weight:800;color:#e2e5ea;line-height:1;letter-spacing:-0.02em;margin-bottom:20px}
+  .dark .svc-num{color:#3a3d45}
+  .svc-head .lead{font-size:16px}
+  .svc-more{display:inline-block;margin-top:20px;font-size:15px;font-weight:700;text-decoration:none}
+  .dark .svc-more{color:#8fb2ff}
+  .table{border-radius:16px;overflow:hidden;border:1px solid #e2e5ea}
+  .row{display:grid;grid-template-columns:1fr 1.6fr;padding:22px 28px;gap:24px;border-top:1px solid #e2e5ea}
+  .row:first-child{border-top:none}
+  .row:nth-child(odd){background:#f6f8fc}
+  .row-t{font-family:ui-monospace,Menlo,monospace;font-size:13.5px;font-weight:700;letter-spacing:0.02em;text-transform:uppercase;color:#12161f;line-height:1.5}
+  .row-d{font-size:15px;line-height:1.6;color:#3a4150}
+  .dark .table{border-color:#2a2c33}
+  .dark .row{border-top-color:#2a2c33}
+  .dark .row:nth-child(odd){background:#1c1d22}
+  .dark .row-t{color:#ffffff}
+  .dark .row-d{color:#c7ccd6}
+
+  /* Форма */
+  .contact{display:grid;grid-template-columns:1fr 1.3fr;gap:56px;align-items:start}
+  .mono-eyebrow{font-family:ui-monospace,Menlo,monospace;font-size:13px;font-weight:700;color:#2f6bff;letter-spacing:0.05em;margin-bottom:20px}
+  .contact h2{font-size:clamp(24px,4.5vw,36px);font-weight:800;letter-spacing:-0.01em;margin:0 0 24px;color:#12161f;line-height:1.25}
+  .phone-box{text-decoration:none;display:flex;align-items:center;justify-content:space-between;background:#f6f8fc;border-radius:12px;padding:20px 24px;color:#12161f;font-family:ui-monospace,Menlo,monospace;font-size:14px;font-weight:700;letter-spacing:0.03em}
+  .phone-box:hover{background:#eef1f6;color:#12161f}
+  .form{display:flex;flex-direction:column;gap:16px}
+  .form-row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .form input[type=text],.form input[type=tel],.form textarea{width:100%;padding:18px 20px;border-radius:12px;border:none;background:#f6f8fc;font-size:15px;font-family:inherit;color:#12161f}
+  .form input:focus,.form textarea:focus{outline:2px solid #8891a0}
+  .form textarea{resize:none}
+  .consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#5b6472;line-height:1.5;cursor:pointer}
+  .consent input{margin:2px 0 0;width:16px;height:16px;flex-shrink:0;accent-color:#2f6bff}
+  .consent a{color:inherit}
+  .msg{font-size:13px;margin:0;line-height:1.5}
+  .msg:empty{display:none}
+  .msg.err{color:#c0392b}
+  .msg.ok{color:#1f8a4c;font-size:15px;font-weight:600}
+  .submit{background:#12161f;color:#ffffff;border:none;padding:20px 24px;border-radius:12px;font-family:ui-monospace,Menlo,monospace;font-size:14px;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:space-between}
+  .submit:hover{background:#2f6bff}
+  .submit:disabled{opacity:.6;cursor:default}
+
+  /* Подвал — как на главной */
+  .footer-grid{max-width:1240px;margin:0 auto;padding:64px 32px 32px;display:grid;grid-template-columns:1fr 1fr 1fr 1.2fr;gap:32px}
+  .f-title{font-size:13px;font-weight:700;color:#8891a0;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:20px}
+  .f-links{display:flex;flex-direction:column;gap:14px}
+  .f-links a{text-decoration:none;color:#c7ccd6;font-size:15px}
+  .f-links a:hover{color:#ffffff}
+  .f-links a.f-phone{color:#ffffff;font-size:16px;font-weight:700}
+  .f-links a.f-phone:hover{color:#8fb2ff}
+  .f-bottom{border-top:1px solid #2a2c33}
+  .f-bottom-in{max-width:1240px;margin:0 auto;padding:24px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  .f-brand{font-size:16px;font-weight:800;letter-spacing:-0.02em;color:#ffffff}
+  .f-copy{font-size:13px;color:#8891a0}
+  .f-copy a{color:#8891a0}
+  .f-copy a:hover{color:#ffffff}
+  .f-badge{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;letter-spacing:0.03em;text-transform:uppercase;color:#8891a0}
+
+  /* Планшет */
+  @media (max-width:1024px){
+    .sec,.hero{padding-left:24px;padding-right:24px}
+    .highlights{grid-template-columns:1fr}
+    .svc{grid-template-columns:1fr;gap:28px}
+    .svc-head{position:static}
+    .svc-num{margin-bottom:12px}
+    .contact{grid-template-columns:1fr;gap:40px}
+    .footer-grid{grid-template-columns:1fr 1fr}
+  }
+  /* Телефон */
+  @media (max-width:640px){
+    .sec{padding:64px 20px}
+    .hero{padding:56px 20px 64px}
+    .badge{margin-bottom:20px;font-size:12px}
+    .hero p{font-size:16.5px;margin-bottom:28px}
+    .hero-btns .btn-ghost{width:100%;justify-content:center}
+    .hl{padding:24px;border-radius:20px}
+    .svc-num{font-size:40px}
+    .row{grid-template-columns:1fr;gap:8px;padding:18px 20px}
+    .row-t{color:#2f6bff}
+    .dark .row-t{color:#8fb2ff}
+    .form-row2{grid-template-columns:1fr}
+    .footer-grid{padding:48px 20px 32px;gap:28px 20px}
+    .footer-grid > div:last-child{grid-column:1 / -1}
+    .f-bottom-in{padding-left:20px;padding-right:20px}
+  }
+
+  /* Дополнительно для страницы «Серверы и 1С» */
+  .crumbs{font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:24px}
+  .crumbs a{color:rgba(255,255,255,0.75);text-decoration:none}
+  .crumbs a:hover{color:#ffffff}
+  .lead a{color:#2f6bff}
+  .row-n{grid-template-columns:48px 1fr}
+  .row-n .row-t{color:#2f6bff}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .step{background:#f6f8fc;border-radius:20px;padding:28px}
+  .step-n{font-size:20px;font-weight:800;color:#2f6bff;margin-bottom:16px}
+  .step h3{font-size:19px;font-weight:700;margin:0 0 8px;color:#12161f}
+  .step p{font-size:15px;line-height:1.6;color:#5b6472;margin:0}
+  .price{margin-top:56px;background:#101114;border-radius:24px;padding:40px;display:grid;grid-template-columns:1fr 1.4fr auto;gap:40px;align-items:center}
+  .price h3{font-size:22px;font-weight:800;color:#ffffff;margin:0;line-height:1.3}
+  .price p{font-size:15px;line-height:1.7;color:#c7ccd6;margin:0}
+  .price .btn-ghost{white-space:nowrap}
+  .faq-outer{display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:start}
+  .faq-big{font-size:clamp(44px,10vw,88px);font-weight:800;color:#3a3d45;line-height:1;letter-spacing:-0.02em}
+  .faq details{border-bottom:1px solid #2a2c33;padding:28px 0}
+  .faq details:first-child{padding-top:0}
+  .faq summary{display:grid;grid-template-columns:90px 1fr auto;gap:20px;align-items:start;cursor:pointer;list-style:none}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq-n{font-size:44px;font-weight:800;color:#ffffff;line-height:1}
+  .faq-q{font-size:19px;font-weight:700;color:#ffffff;line-height:1.4;padding-top:6px}
+  .faq-i{color:#ffffff;font-size:22px;font-weight:300;padding-top:6px}
+  .faq-i::before{content:"+"}
+  .faq details[open] .faq-i::before{content:"−"}
+  .faq details p{font-size:15px;line-height:1.7;color:#8891a0;margin:14px 0 0 110px;max-width:640px}
+  #form{position:relative;top:-80px}
+  @media (max-width:1024px){
+    .cards{grid-template-columns:1fr 1fr}
+    .steps{grid-template-columns:1fr 1fr}
+    .price{grid-template-columns:1fr;gap:20px;padding:32px}
+    .price .btn-ghost{justify-self:start}
+    .faq-outer{grid-template-columns:1fr;gap:20px}
+  }
+  @media (max-width:640px){
+    .hero h1{font-size:26px;-webkit-hyphens:auto;hyphens:auto;overflow-wrap:break-word}
+    .cards,.steps{grid-template-columns:1fr;gap:16px}
+    .step{padding:24px}
+    .row-n{grid-template-columns:36px 1fr !important;gap:12px !important}
+    .price{margin-top:40px;padding:26px 22px;border-radius:20px}
+    .price .btn-ghost{width:100%;justify-content:center}
+    .faq details{padding:22px 0}
+    .faq summary{grid-template-columns:36px 1fr auto;gap:12px}
+    .faq-n{font-size:24px;padding-top:3px}
+    .faq-q{font-size:16.5px;padding-top:2px}
+    .faq details p{margin-left:48px}
+  }
+</style>
+<style>
+  /* Статья */
+  .hero h1{font-size:clamp(26px,3.4vw,44px);max-width:960px}
+  .art-meta{font-size:14px;color:rgba(255,255,255,0.6);margin:0}
+  .art{max-width:820px;margin:0 auto}
+  .art p,.art li{font-size:17px;line-height:1.75;color:#2b313c}
+  .art p{margin:0 0 16px}
+  .art ul{margin:0 0 16px;padding-left:22px}
+  .art li{margin-bottom:6px}
+  .art h2{font-size:clamp(22px,3vw,28px);font-weight:800;letter-spacing:-0.01em;text-transform:uppercase;color:#12161f;line-height:1.25;margin:48px 0 16px}
+  .art h2:first-child{margin-top:0}
+  .art h3{font-size:19px;font-weight:700;color:#12161f;line-height:1.35;margin:28px 0 10px}
+  .art code{font-family:ui-monospace,Menlo,monospace;font-size:14.5px;background:#eef1f6;border-radius:6px;padding:2px 6px;color:#12161f;word-break:break-word}
+  .art pre{background:#101114;color:#e6e9ef;border-radius:14px;padding:18px 20px;overflow-x:auto;font-size:14.5px;line-height:1.6;margin:0 0 16px}
+  .art pre code{background:none;color:inherit;padding:0}
+  .art .tbl{border:1px solid #e2e5ea;border-radius:16px;overflow:hidden;margin:8px 0 16px}
+  .art table{width:100%;border-collapse:collapse}
+  .art th,.art td{text-align:left;vertical-align:top;padding:16px 18px;font-size:15px;line-height:1.6;color:#3a4150;border-top:1px solid #e2e5ea}
+  .art tr:first-child th{border-top:none}
+  .art th{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#12161f;background:#f6f8fc}
+  .art td:first-child{font-weight:600;color:#12161f}
+  .art figure{margin:28px 0 32px}
+  .art figure img{display:block;width:100%;height:auto}
+  .art figcaption{font-size:14px;line-height:1.5;color:#5b6472;margin-top:10px;text-align:center}
+  .art-cta{max-width:820px;margin:56px auto 0;background:#101114;border-radius:24px;padding:36px 40px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+  .art-cta h3{font-size:22px;font-weight:800;color:#ffffff;margin:0 0 8px}
+  .art-cta p{font-size:15px;line-height:1.6;color:#c7ccd6;margin:0}
+  .art-cta .btn-ghost{white-space:nowrap}
+  @media (max-width:640px){
+    .hero h1{font-size:23px;-webkit-hyphens:manual;hyphens:manual}
+    .art p,.art li{font-size:16px}
+    .art h2{margin-top:36px}
+    .art pre{white-space:pre-wrap;word-break:break-all}
+    .art .tbl{border:none;border-radius:0}
+    .art table,.art tbody,.art tr,.art td{display:block;width:100%}
+    .art tr:first-child{display:none}
+    .art tr{border:1px solid #e2e5ea;border-radius:14px;margin-bottom:12px;overflow:hidden}
+    .art td{border-top:none;padding:6px 16px}
+    .art td:first-child{padding-top:14px;background:#f6f8fc;padding-bottom:12px}
+    .art td:last-child{padding-bottom:14px}
+    .art td:nth-child(2)::before{content:"Причина: ";font-weight:700;color:#12161f}
+    .art td:nth-child(3)::before{content:"Что сделать: ";font-weight:700;color:#12161f}
+    .art .qa td:nth-child(2)::before{content:"Хороший ответ: "}
+    .art .qa td:nth-child(3)::before{content:"Тревожный ответ: "}
+    .art-cta{grid-template-columns:1fr;padding:26px 22px;border-radius:20px;margin-top:40px}
+    .art-cta .btn-ghost{width:100%;justify-content:center}
+  }
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Как выбрать ИТ-аутсорсинг: 7 критериев, красные флаги и чек-лист", "description": "Как выбрать ИТ-аутсорсинг для малого бизнеса: 7 критериев, вопросы подрядчику, красные флаги и чек-лист перед подписанием договора. Разбираем простым языком.", "datePublished": "2026-11-02", "dateModified": "2026-11-02", "author": {"@type": "Organization", "name": "Про технологии", "url": "https://it-consalting24.ru/"}, "publisher": {"@id": "https://it-consalting24.ru/#org"}, "mainEntityOfPage": "https://it-consalting24.ru/kak-vybrat-it-autsorsing.html", "inLanguage": "ru", "image": "https://it-consalting24.ru/img/blog/kak-vybrat-it-autsorsing-cover.jpg"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Сколько стоит ИТ-аутсорсинг для небольшой компании?", "acceptedAnswer": {"@type": "Answer", "text": "Зависит от числа рабочих мест, серверов и задач. У нас абонентское обслуживание стоит от 15 000 ₽ в месяц, разовый вызов — от 1 500 ₽, диагностика бесплатная. Точную сумму по абонементу называем после бесплатного аудита."}}, {"@type": "Question", "name": "Чем аутсорсинг отличается от аутстаффинга?", "acceptedAnswer": {"@type": "Answer", "text": "При аутсорсинге вы покупаете результат: компания сама организует работу и отвечает за неё по договору. При аутстаффинге вы получаете конкретного специалиста и руководите им сами."}}, {"@type": "Question", "name": "Нужен ли аутсорсинг, если в офисе всего 5–10 компьютеров?", "acceptedAnswer": {"@type": "Answer", "text": "Если сервера нет, а поломки редкие, хватит разовых вызовов. Когда вызовы становятся регулярными, а от техники зависит работа, например от 1С или касс, абонемент обычно удобнее: расходы предсказуемы, а специалист уже знает ваш офис."}}, {"@type": "Question", "name": "Что делать, если подрядчик работает плохо?", "acceptedAnswer": {"@type": "Answer", "text": "Сначала сверьтесь с договором и зафиксируйте нарушения письменно. Если ничего не меняется, выходите по условиям договора: заберите доступы и документацию, смените пароли и только потом прекращайте обслуживание. Новому подрядчику будет проще, если всё это уже собрано."}}]}</script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113752459', 'ym');
+
+    ym(113752459, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<!-- /Yandex.Metrika counter -->
+<link rel="stylesheet" href="/mobile.css">
+<script src="/mobile.js" defer></script>
+</head>
+<body>
+<noscript><div><img src="https://mc.yandex.ru/watch/113752459" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<!-- ШАПКА -->
+<header class="site-header">
+  <div class="site-header-in">
+    <a href="./" class="site-logo">Про технологии</a>
+    <nav class="site-nav">
+      <a href="./services.html">Услуги</a>
+      <a href="./#stages">Этапы работы</a>
+      <a href="./about.html">О компании</a>
+      <a href="./#pricing">Стоимость</a>
+      <a href="./blog.html">Блог</a>
+      <a href="./#faq">FAQ</a>
+    </nav>
+    <div class="site-actions">
+      <a href="tel:+79969241648" class="site-phone" aria-label="Позвонить: +7 (996) 924-16-48">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <span class="site-phone-num">+7 (996) 924-16-48</span>
+      </a>
+      <button type="button" class="nav-toggle" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ПЕРВЫЙ ЭКРАН -->
+<section class="hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="./">Главная</a> / <a href="./blog.html">Блог</a> / Как выбрать ИТ-аутсорсинг</div>
+    <div class="badge">ИТ-аутсорсинг · Выбор подрядчика</div>
+    <h1>Как выбрать ИТ-аутсорсинг: 7 критериев, красные флаги и чек-лист</h1>
+    <p class="art-meta">2 ноября 2026 · Про технологии</p>
+  </div>
+</section>
+
+<!-- СТАТЬЯ -->
+<section class="sec">
+  <article class="art">
+<p>Как выбрать ИТ-аутсорсинг, если сами вы не айтишник и оценить инженера по разговору не можете? Смотреть не на презентацию, а на то, что можно проверить: что записано в договоре, как подрядчик изучает офис перед тем, как назвать цену, кто конкретно будет приезжать и что случится с паролями, если вы расстанетесь.</p>
+<p>Статья для владельцев и руководителей небольших компаний. Ниже — порядок выбора, семь критериев, вопросы для разговора с подрядчиком, красные флаги и чек-лист перед подписанием. Оговоримся сразу: мы сами продаём <a href="./outsourcing.html">ИТ-аутсорсинг в Оренбурге</a>, поэтому даём такие критерии, по которым можно проверить и нас.</p>
+
+<h2>Что подготовить до первого звонка</h2>
+<p>Об аутсорсинге обычно задумываются, когда своего айтишника нет, он уволился и никто не знает паролей либо разовые вызовы стали регулярными. Выгода в том, что расходы на ИТ становятся предсказуемыми, а проблемы ловят плановым обслуживанием, а не после поломки. Но появляется она только при нормальном подрядчике, поэтому выбор важнее тарифа.</p>
+<p>Подрядчик отвечает на то, что у него спросили. Если сказать «нужен айтишник», вы получите типовое предложение, и сравнивать будет нечего. Пятнадцать минут подготовки это исправят. Запишите:</p>
+<ul>
+<li><strong>Что есть:</strong> сколько рабочих мест, есть ли сервер, 1С, кассы, удалённые сотрудники, филиалы.</li>
+<li><strong>Что мешает сейчас:</strong> зависает 1С, пропадает Wi-Fi, никто не знает, делаются ли резервные копии.</li>
+<li><strong>Что критично:</strong> без чего компания останавливается, а что может подождать до завтра.</li>
+<li><strong>Когда вы работаете:</strong> нужна ли поддержка по вечерам и в выходные.</li>
+<li><strong>У кого доступы:</strong> кто знает пароли от сервера, роутера, почты и домена сайта.</li>
+</ul>
+<p>Заодно решите, какой формат вам нужен. При полном аутсорсинге подрядчик отвечает за всю технику офиса. При частичном забирает отдельную часть, например сервер 1С, а остальное остаётся за штатным сотрудником. Во втором случае заранее разделите зоны ответственности — поможет наш разбор <a href="./obyazannosti-sistemnogo-administratora.html">обязанностей системного администратора</a>. Иначе каждая авария будет начинаться со спора, чья это задача.</p>
+
+<h2>Как выбрать ИТ-аутсорсинг за 5 шагов</h2>
+<p>Порядок простой, и большую часть проверок можно сделать за несколько дней:</p>
+<ul>
+<li><strong>Шаг 1. Описать задачу.</strong> Список из предыдущего раздела отправляем всем кандидатам одинаковым, иначе предложения не сравнить.</li>
+<li><strong>Шаг 2. Отобрать 2–3 компании.</strong> Сверьте дату регистрации и адрес в выписке ЕГРЮЛ на сайте ФНС (egrul.nalog.ru), а судебные споры — в картотеке арбитражных дел (kad.arbitr.ru). Если на сайте написано про много лет на рынке, а юрлицу год, спросите, как так вышло.</li>
+<li><strong>Шаг 3. Получить обследование и предложение.</strong> Хороший подрядчик сначала смотрит инфраструктуру и только потом называет цену.</li>
+<li><strong>Шаг 4. Прочитать проект договора.</strong> Именно договор, а не коммерческое предложение: спорить потом придётся по нему.</li>
+<li><strong>Шаг 5. Начать с пробного срока.</strong> Договоритесь, что в первые месяцы выйти из договора можно без штрафов.</li>
+</ul>
+<figure class="ig"><picture><source media="(max-width:640px)" srcset="./img/blog/kak-vybrat-it-autsorsing-shagi-m.webp" width="750" height="2376"><img src="./img/blog/kak-vybrat-it-autsorsing-shagi.webp" width="1640" height="1428" alt="Инфографика: как выбрать ИТ-аутсорсинг за 5 шагов — описать задачу, отобрать кандидатов, получить обследование, прочитать договор, начать с пробного срока" loading="lazy" decoding="async"></picture><figcaption>Порядок выбора подрядчика: от описания задачи до пробного срока</figcaption></figure>
+
+<h2>Критерии выбора: опыт, люди, услуги и цена</h2>
+<p><strong>1. Опыт с похожими компаниями.</strong> Обслуживать завод и магазин на десять касс — разные работы. Спросите, с какими компаниями вашего размера работает подрядчик, и попросите контакты двух-трёх клиентов. Позвоните и задайте один вопрос: что шло не так и как это решали? Ответ скажет больше, чем список логотипов на сайте.</p>
+<p><strong>2. Кто будет работать.</strong> Уточните, есть ли у компании свои инженеры или она только принимает заявки и раздаёт их внештатникам. Узнайте, закрепят ли за вами конкретного человека и кто его подменит в отпуске и на больничном. Если всё держится на одном специалисте, проблема останется той же, что и со штатным сисадмином, только за другие деньги.</p>
+<p><strong>3. Что входит в абонентскую плату.</strong> Формулировка «полное обслуживание» ничего не значит. Нужен перечень: рабочие места, сервер, сеть, принтеры, резервные копии, консультации. И отдельно — что оплачивается сверх: выезды, работы вне графика, настройка нового оборудования, запчасти. Подробно о том, как устроен такой формат, — в статье про <a href="./tekhnicheskaya-podderzhka-abonentskoe-obsluzhivanie.html">абонентское обслуживание</a>.</p>
+<p><strong>4. Понятная цена.</strong> Стоимость зависит от числа рабочих мест, серверов и задач, поэтому точная цифра без обследования — скорее ориентир, чем обещание. Сравнивайте предложения только по одинаковому перечню работ: дешёвый тариф может оказаться дороже, когда к нему добавятся доплаты за каждый выезд. Для примера: у нас ИТ-аутсорсинг стоит от 15 000 ₽ в месяц, а точную сумму мы называем после бесплатного аудита и фиксируем в договоре.</p>
+
+<h2>Критерии выбора: договор, заявки и безопасность</h2>
+<p><strong>5. Время реакции и SLA.</strong> SLA — это соглашение об уровне сервиса: обещанные сроки, записанные в договоре. Проверьте четыре вещи: время указано цифрами, а не словом «оперативно»; реакция и решение разделены, потому что «взяли в работу» ещё не значит «починили»; заявки разбиты по важности, например «стоит вся компания» и «не печатает один принтер»; написано, что будет при нарушении сроков. Разделы, которые стоит проверить, мы разобрали в статье про <a href="./dogovor-abonentskogo-obsluzhivaniya-kompyuterov.html">договор абонентского обслуживания</a>.</p>
+<p>Отдельно спросите про выезд. Многое решается удалённо, но кабель, роутер и принтер удалённо не поменять. У нас выезд по Оренбургу — в день обращения, срочные задачи — в течение 2–3 часов; у кандидатов в вашем городе уточните то же самое.</p>
+<p><strong>6. Учёт заявок и отчётность.</strong> У каждой заявки должны быть номер, статус и время закрытия, а не только переписка в мессенджере с одним инженером. Попросите показать систему заявок и пример ежемесячного отчёта. Спросите, следят ли за дисками и серверами и как проверяют, что <a href="./rezervnoe-kopirovanie-dlya-malogo-biznesa.html">резервные копии</a> реально восстанавливаются.</p>
+<p><strong>7. Безопасность и доступы.</strong> Подрядчик получает доступ почти ко всем данным компании, поэтому нужны соглашение о конфиденциальности, отдельные учётные записи для инженеров и список доступов, который хранится у вас. Сертификаты и аккредитации — плюс, но не замена этим простым вещам. Если через ИТ-компанию могут пройти данные клиентов, учтите требования <a href="./152-fz-dlya-malogo-biznesa.html">152-ФЗ</a>: перед людьми и Роскомнадзором отвечает ваша компания.</p>
+
+<h2>Какие вопросы задать подрядчику</h2>
+<p>Эти вопросы можно задать на первой встрече, даже не разбираясь в технике. Смотрите не на термины, а на то, насколько конкретно отвечает собеседник.</p>
+<div class="tbl"><table class="qa">
+<tr><th>Вопрос</th><th>Хороший ответ</th><th>Тревожный ответ</th></tr>
+<tr><td>Сколько это будет стоить?</td><td>Покажем диапазон, точную сумму назовём после обследования</td><td>Твёрдая цифра по телефону, без единого вопроса</td></tr>
+<tr><td>Кто будет к нам приезжать?</td><td>Называет инженера и того, кто его подменяет</td><td>«Кто-нибудь из наших, разберёмся»</td></tr>
+<tr><td>За сколько вы реагируете?</td><td>Называет сроки по типам заявок и пишет их в договор</td><td>«Всегда очень быстро», без цифр</td></tr>
+<tr><td>Как узнать, что вы сделали за месяц?</td><td>Показывает пример отчёта и систему заявок</td><td>«Если всё работает, значит, мы работаем»</td></tr>
+<tr><td>Что будет с паролями, если мы уйдём?</td><td>Они и так у вас, при расставании передадим дела</td><td>«Такого у нас ещё не было», уход от ответа</td></tr>
+</table></div>
+
+<h2>Красные флаги: когда лучше поискать другого</h2>
+<p>Один пункт сам по себе не приговор, но если их несколько, разговор лучше не продолжать. Настораживает, когда подрядчик называет цену, не посмотрев на вашу технику, не даёт контактов клиентов и торопит решением. Плохой знак — договор с общими словами вместо перечня работ и сроков, а также цена, которая не покрывает даже плановых работ. Самое опасное — когда пароли и схема сети остаются только у исполнителя: уйти от него потом будет трудно и дорого.</p>
+<figure class="ig"><picture><source media="(max-width:640px)" srcset="./img/blog/kak-vybrat-it-autsorsing-flagi-m.webp" width="750" height="3214"><img src="./img/blog/kak-vybrat-it-autsorsing-flagi.webp" width="1640" height="1720" alt="Инфографика: 6 красных флагов при выборе ИТ-аутсорсинга — цена без осмотра, нет контактов клиентов, нет сроков в договоре, размытый перечень работ, пароли только у подрядчика, давление на решение" loading="lazy" decoding="async"></picture><figcaption>Шесть признаков, при которых стоит поискать другого подрядчика</figcaption></figure>
+<p>Частая ошибка со стороны заказчика — выбирать только по цене или только по приятному менеджеру. Другая крайность — требовать круглосуточную поддержку офису, который работает с девяти до шести, и переплачивать за неё. И не отдавайте всё целиком: решения о бюджете и контроль над доступами должны оставаться у вас. Если же вам каждый день нужен человек в офисе, абонемент его не заменит, тогда считайте штатного специалиста.</p>
+
+<h2>Что может пойти не так после подписания</h2>
+<p>Большинство проблем с подрядчиком можно предвидеть и закрыть ещё до старта:</p>
+<div class="tbl"><table>
+<tr><th>Проблема</th><th>Причина</th><th>Что сделать</th></tr>
+<tr><td>Счета выше обещанного</td><td>Работы за рамками абонплаты не описаны</td><td>Запишите перечень и согласование доплат до начала работ</td></tr>
+<tr><td>Заявки висят по несколько дней</td><td>Сроки не указаны или нет приоритетов</td><td>Добавьте сроки реакции и решения по типам заявок</td></tr>
+<tr><td>Инженер ушёл — и всё начинается заново</td><td>Инфраструктура нигде не описана</td><td>Требуйте документацию и назначенного сменщика</td></tr>
+<tr><td>Не понятно, за что платим</td><td>Нет отчётности</td><td>Получайте отчёт по заявкам и плановым работам каждый месяц</td></tr>
+<tr><td>Подрядчик не отдаёт доступы</td><td>Пароли хранятся только у него</td><td>Ведите свой список доступов и пропишите передачу дел в договоре</td></tr>
+</table></div>
+
+<h2>Пробный срок и переход на новое обслуживание</h2>
+<p>Первые месяцы показывают больше любых обещаний. За это время подрядчик должен составить опись техники и программ, собрать доступы, описать схему сети и проверить копии реальным восстановлением. Если этого нет, ничто не изменится и через год.</p>
+<p>Если вы уходите от прежнего исполнителя или сотрудника, не обрывайте отношения резко. Сначала получите пароли, лицензии и документацию, поменяйте пароли у тех, кто уходит, и только потом закрывайте договор. На время пробного срока следите за простыми вещами: как быстро отвечают, держат ли слово, понятны ли отчёты.</p>
+
+<h2>Чек-лист перед подписанием договора</h2>
+<p>Если вы решаете, как выбрать ИТ-аутсорсинг из двух-трёх кандидатов, сравнивайте их по одним и тем же пунктам. Чем больше пунктов закрыто, тем меньше сюрпризов после подписания.</p>
+<ul>
+<li>Подрядчик посмотрел инфраструктуру, прежде чем назвать цену.</li>
+<li>Юрлицо проверено: дата регистрации, адрес, судебные споры.</li>
+<li>Вы поговорили минимум с двумя клиентами компании.</li>
+<li>Известно, кто ваш инженер и кто его подменяет.</li>
+<li>В договоре есть полный перечень работ и список доплат.</li>
+<li>Сроки реакции и решения указаны цифрами, по типам заявок.</li>
+<li>Написано, что будет при нарушении сроков.</li>
+<li>Есть соглашение о конфиденциальности.</li>
+<li>Пароли и документация остаются у вас, порядок передачи дел описан.</li>
+<li>Есть ежемесячный отчёт и система заявок.</li>
+<li>Условия выхода понятны, в первые месяцы — без штрафов.</li>
+</ul>
+
+<h2>Частые вопросы</h2>
+<h3>Сколько стоит ИТ-аутсорсинг для небольшой компании?</h3>
+<p>Зависит от числа рабочих мест, серверов и задач. У нас абонентское обслуживание стоит от 15 000 ₽ в месяц, разовый вызов — от 1 500 ₽, диагностика бесплатная. Точную сумму по абонементу называем после бесплатного аудита.</p>
+<h3>Чем аутсорсинг отличается от аутстаффинга?</h3>
+<p>При аутсорсинге вы покупаете результат: компания сама организует работу и отвечает за неё по договору. При аутстаффинге вы получаете конкретного специалиста и руководите им сами.</p>
+<h3>Нужен ли аутсорсинг, если в офисе всего 5–10 компьютеров?</h3>
+<p>Если сервера нет, а поломки редкие, хватит <a href="./computers.html">разовых вызовов</a>. Когда вызовы становятся регулярными, а от техники зависит работа, например от 1С или касс, абонемент обычно удобнее: расходы предсказуемы, а специалист уже знает ваш офис.</p>
+<h3>Что делать, если подрядчик работает плохо?</h3>
+<p>Сначала сверьтесь с договором и зафиксируйте нарушения письменно. Если ничего не меняется, выходите по условиям договора: заберите доступы и документацию, смените пароли и только потом прекращайте обслуживание. Новому подрядчику будет проще, если всё это уже собрано.</p>
+  </article>
+
+  <div class="art-cta">
+    <div>
+      <h3>Проверьте нас по этому чек-листу</h3>
+      <p>Бесплатный ИТ-аудит за 1 день: посмотрим компьютеры, серверы, сеть и резервные копии, покажем риски и назовём стоимость. Цену и время реакции фиксируем в договоре. Выезд по Оренбургу в день обращения.</p>
+    </div>
+    <a href="#contact" class="btn-ghost">Оставить заявку →</a>
+  </div>
+</section>
+
+<!-- ЗАЯВКА -->
+<section id="contact" class="sec" style="padding-top:0">
+  <span id="form"></span>
+  <div class="wrap contact">
+    <div>
+      <div class="mono-eyebrow">[ БЕСПЛАТНАЯ ДИАГНОСТИКА ]</div>
+      <h2>Опишите, что происходит с сервером</h2>
+      <p class="lead" style="margin-bottom:24px">Перезвоним, уточним детали и договоримся о подключении.</p>
+      <a href="tel:+79969241648" class="phone-box">+7 (996) 924-16-48 <span style="font-size:18px">→</span></a>
+    </div>
+    <form class="form" id="lead-form" novalidate>
+      <div class="form-row2">
+        <input type="text" name="name" placeholder="Имя*" aria-label="Имя" autocomplete="name">
+        <input type="text" name="company" placeholder="Компания" aria-label="Компания" autocomplete="organization">
+      </div>
+      <input type="tel" name="phone" placeholder="Телефон*" aria-label="Телефон" autocomplete="tel">
+      <textarea name="comment" rows="3" placeholder="Что с сервером: версия 1С, сколько пользователей, что не работает" aria-label="Опишите задачу"></textarea>
+      <label class="consent">
+        <input type="checkbox" name="consent" value="yes">
+        <span>Даю <a href="./consent.html" target="_blank">согласие на обработку персональных данных</a> и принимаю <a href="./privacy.html" target="_blank">политику конфиденциальности</a></span>
+      </label>
+      <p class="msg" role="alert"></p>
+      <button type="submit" class="submit"><span class="submit-label">Отправить заявку</span><span style="font-size:18px">→</span></button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ПОДВАЛ -->
+<footer class="dark">
+  <div class="footer-grid">
+    <div>
+      <div class="f-title">Услуги</div>
+      <div class="f-links">
+        <a href="./computers.html">Компьютеры</a>
+        <a href="./servers.html">Серверы и 1С</a>
+        <a href="./network.html">Сети и Wi-Fi</a>
+        <a href="./services.html">Все услуги</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-title">Компания</div>
+      <div class="f-links">
+        <a href="./about.html">О компании</a>
+        <a href="./#pricing">Тарифы</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-title">Инфо</div>
+      <div class="f-links">
+        <a href="./#faq">FAQ</a>
+        <a href="./blog.html">Блог</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-title">Контакты</div>
+      <div class="f-links">
+        <a href="tel:+79969241648" class="f-phone">+7 (996) 924-16-48</a>
+      </div>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <div class="f-bottom-in">
+      <div class="f-brand">Про технологии</div>
+      <div class="f-copy">© 2026 Про технологии. ИТ-консалтинг для бизнеса. · <a href="./privacy.html">Политика конфиденциальности</a></div>
+      <div class="f-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8891a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"></path><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"></path></svg>
+        Аккредитованы Минцифры
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var f = document.getElementById('lead-form');
+  if (!f) return;
+  var msg = f.querySelector('.msg');
+  var btn = f.querySelector('.submit');
+  var label = f.querySelector('.submit-label');
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    msg.className = 'msg';
+    msg.textContent = '';
+    if (!f.name.value.trim() || !f.phone.value.trim()) { msg.className = 'msg err'; msg.textContent = 'Укажите имя и телефон'; return; }
+    if (!f.consent.checked) { msg.className = 'msg err'; msg.textContent = 'Отметьте согласие на обработку персональных данных'; return; }
+    btn.disabled = true; label.textContent = 'Отправка...';
+    var data = new FormData(f);
+    data.set('consent', 'yes');
+    fetch('/send.php', { method: 'POST', body: data })
+      .then(function (r) { if (!r.ok) throw new Error(); })
+      .then(function () {
+        f.reset();
+        msg.className = 'msg ok';
+        msg.textContent = '✓ Заявка отправлена. Свяжемся с вами в рабочее время в течение 15 минут.';
+        if (window.ym) window.ym(113752459, 'reachGoal', 'lead');
+      })
+      .catch(function () { msg.className = 'msg err'; msg.textContent = 'Не удалось отправить заявку. Позвоните нам: +7 (996) 924-16-48'; })
+      .then(function () { btn.disabled = false; label.textContent = 'Отправить заявку'; });
+  });
+})();
+</script>
+</body>
+</html>
