@@ -23,7 +23,7 @@
 [x] почему тормозит wifi в офисе → pochemu-tormozit-wifi-v-ofise.html (2026-10-31)
 [x] 152 фз для малого бизнеса → 152-fz-dlya-malogo-biznesa.html (2026-11-01)
 [x] как выбрать ит аутсорсинг → kak-vybrat-it-autsorsing.html (2026-11-02)
-[ ] стоимость ит аутсорсинга
+[x] стоимость ит аутсорсинга → stoimost-it-autsorsinga.html (2026-11-03)
 
 # Приоритет 3
 [ ] что выгоднее ремонт или новый принтер
