@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Сервер для офиса: как выбрать под задачи и не переплатить</title>
+<meta name="description" content="Сервер для офиса: зачем нужен, как подобрать конфигурацию под 1С, файлы и терминальный доступ, где поставить, ИБП и бэкапы. Чек-лист перед покупкой.">
+<link rel="canonical" href="https://it-consalting24.ru/server-dlya-ofisa.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Про технологии">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Сервер для офиса: как выбрать под задачи и не переплатить">
+<meta property="og:description" content="Сервер для офиса: зачем нужен, как подобрать конфигурацию под 1С, файлы и терминальный доступ, где поставить, ИБП и бэкапы. Чек-лист перед покупкой.">
+<meta property="og:url" content="https://it-consalting24.ru/server-dlya-ofisa.html">
+<meta property="og:image" content="https://it-consalting24.ru/img/blog/server-dlya-ofisa-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link href="/fonts/inter.css" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Inter',system-ui,sans-serif;background:#ffffff;color:#1a1f2b;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:#2f6bff}
+  a:hover{color:#1f4fd6}
+  ::selection{background:#dbe6ff}
+
+  /* Шапка — как на главной */
+  .site-header{position:sticky;top:0;z-index:40;background:#101114;border-bottom:1px solid #2a2c33}
+  .site-header-in{max-width:1240px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .site-logo{text-decoration:none;font-size:19px;font-weight:800;letter-spacing:-0.02em;white-space:nowrap;flex-shrink:0;color:#ffffff}
+  .site-logo:hover{color:#ffffff}
+  .site-nav{display:flex;align-items:center;gap:14px;flex-wrap:wrap;flex:1;justify-content:center;min-width:0}
+  .site-nav a{text-decoration:none;color:#ffffff;font-size:14px;font-weight:500;white-space:nowrap}
+  .site-nav a:hover{color:#8fb2ff}
+  .site-nav a.active{font-weight:700}
+  .site-actions{display:flex;align-items:center;gap:14px;flex-shrink:0}
+  .site-phone{text-decoration:none;color:#ffffff;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px;white-space:nowrap}
+  .site-phone:hover{color:#8fb2ff}
+
+  /* Общие элементы */
+  .wrap{max-width:1176px;margin:0 auto}
+  .sec{padding:100px 32px}
+  .dark{background:#101114}
+  .eyebrow{font-size:13px;font-weight:700;color:#5b6472;letter-spacing:0.14em;text-transform:uppercase;margin:0 0 16px}
+  .dark .eyebrow{color:#8891a0}
+  .h2{font-size:clamp(26px,4vw,38px);font-weight:800;letter-spacing:-0.01em;margin:0 0 16px;color:#12161f;text-transform:uppercase;line-height:1.2}
+  .dark .h2{color:#ffffff}
+  .lead{font-size:17px;line-height:1.7;color:#5b6472;margin:0;max-width:640px}
+  .dark .lead{color:#8891a0}
+  .btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#ffffff;border:1px solid rgba(255,255,255,0.5);padding:16px 30px;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;text-decoration:none;font-family:inherit}
+  .btn-ghost:hover{background:#ffffff;color:#12161f;border-color:#ffffff}
+
+  /* Первый экран */
+  .hero{position:relative;background:#0a0c12;padding:100px 32px 90px;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:url(./uploads/hero-bg.webp) center/cover no-repeat;opacity:.45}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,8,16,0.85),rgba(5,8,16,0.4))}
+  .hero .wrap{position:relative;z-index:1}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);color:#ffffff;font-size:13px;font-weight:600;padding:7px 14px;border-radius:100px;margin-bottom:28px}
+  .hero h1{font-size:clamp(32px,4.6vw,58px);line-height:1.12;font-weight:800;letter-spacing:-0.01em;margin:0 0 24px;color:#ffffff;text-transform:uppercase;max-width:820px}
+  .hero p{font-size:19px;line-height:1.6;color:rgba(255,255,255,0.8);margin:0 0 40px;max-width:720px}
+  .hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+
+  /* Три преимущества */
+  .highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .hl{background:#1c1d22;border:1px solid #2a2c33;border-radius:24px;padding:32px}
+  .hl-num{font-size:14px;font-weight:800;color:#2f6bff;margin-bottom:18px}
+  .hl h3{font-size:21px;font-weight:700;margin:0 0 10px;color:#ffffff}
+  .hl p{font-size:15px;line-height:1.6;color:#8891a0;margin:0}
+
+  /* Разделы услуг */
+  .svc{display:grid;grid-template-columns:340px 1fr;gap:56px;align-items:start}
+  .svc-head{position:sticky;top:100px}
+  .svc-num{font-size:clamp(44px,6vw,72px);font-weight:800;color:#e2e5ea;line-height:1;letter-spacing:-0.02em;margin-bottom:20px}
+  .dark .svc-num{color:#3a3d45}
+  .svc-head .lead{font-size:16px}
+  .svc-more{display:inline-block;margin-top:20px;font-size:15px;font-weight:700;text-decoration:none}
+  .dark .svc-more{color:#8fb2ff}
+  .table{border-radius:16px;overflow:hidden;border:1px solid #e2e5ea}
+  .row{display:grid;grid-template-columns:1fr 1.6fr;padding:22px 28px;gap:24px;border-top:1px solid #e2e5ea}
+  .row:first-child{border-top:none}
+  .row:nth-child(odd){background:#f6f8fc}
+  .row-t{font-family:ui-monospace,Menlo,monospace;font-size:13.5px;font-weight:700;letter-spacing:0.02em;text-transform:uppercase;color:#12161f;line-height:1.5}
+  .row-d{font-size:15px;line-height:1.6;color:#3a4150}
+  .dark .table{border-color:#2a2c33}
+  .dark .row{border-top-color:#2a2c33}
+  .dark .row:nth-child(odd){background:#1c1d22}
+  .dark .row-t{color:#ffffff}
+  .dark .row-d{color:#c7ccd6}
+
+  /* Форма */
+  .contact{display:grid;grid-template-columns:1fr 1.3fr;gap:56px;align-items:start}
+  .mono-eyebrow{font-family:ui-monospace,Menlo,monospace;font-size:13px;font-weight:700;color:#2f6bff;letter-spacing:0.05em;margin-bottom:20px}
+  .contact h2{font-size:clamp(24px,4.5vw,36px);font-weight:800;letter-spacing:-0.01em;margin:0 0 24px;color:#12161f;line-height:1.25}
+  .phone-box{text-decoration:none;display:flex;align-items:center;justify-content:space-between;background:#f6f8fc;border-radius:12px;padding:20px 24px;color:#12161f;font-family:ui-monospace,Menlo,monospace;font-size:14px;font-weight:700;letter-spacing:0.03em}
+  .phone-box:hover{background:#eef1f6;color:#12161f}
+  .form{display:flex;flex-direction:column;gap:16px}
+  .form-row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .form input[type=text],.form input[type=tel],.form textarea{width:100%;padding:18px 20px;border-radius:12px;border:none;background:#f6f8fc;font-size:15px;font-family:inherit;color:#12161f}
+  .form input:focus,.form textarea:focus{outline:2px solid #8891a0}
+  .form textarea{resize:none}
+  .consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#5b6472;line-height:1.5;cursor:pointer}
+  .consent input{margin:2px 0 0;width:16px;height:16px;flex-shrink:0;accent-color:#2f6bff}
+  .consent a{color:inherit}
+  .msg{font-size:13px;margin:0;line-height:1.5}
+  .msg:empty{display:none}
+  .msg.err{color:#c0392b}
+  .msg.ok{color:#1f8a4c;font-size:15px;font-weight:600}
+  .submit{background:#12161f;color:#ffffff;border:none;padding:20px 24px;border-radius:12px;font-family:ui-monospace,Menlo,monospace;font-size:14px;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:space-between}
+  .submit:hover{background:#2f6bff}
+  .submit:disabled{opacity:.6;cursor:default}
+
+  /* Подвал — как на главной */
+  .footer-grid{max-width:1240px;margin:0 auto;padding:64px 32px 32px;display:grid;grid-template-columns:1fr 1fr 1fr 1.2fr;gap:32px}
+  .f-title{font-size:13px;font-weight:700;color:#8891a0;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:20px}
+  .f-links{display:flex;flex-direction:column;gap:14px}
+  .f-links a{text-decoration:none;color:#c7ccd6;font-size:15px}
+  .f-links a:hover{color:#ffffff}
+  .f-links a.f-phone{color:#ffffff;font-size:16px;font-weight:700}
+  .f-links a.f-phone:hover{color:#8fb2ff}
+  .f-bottom{border-top:1px solid #2a2c33}
+  .f-bottom-in{max-width:1240px;margin:0 auto;padding:24px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  .f-brand{font-size:16px;font-weight:800;letter-spacing:-0.02em;color:#ffffff}
+  .f-copy{font-size:13px;color:#8891a0}
+  .f-copy a{color:#8891a0}
+  .f-copy a:hover{color:#ffffff}
+  .f-badge{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;letter-spacing:0.03em;text-transform:uppercase;color:#8891a0}
+
+  /* Планшет */
+  @media (max-width:1024px){
+    .sec,.hero{padding-left:24px;padding-right:24px}
+    .highlights{grid-template-columns:1fr}
+    .svc{grid-template-columns:1fr;gap:28px}
+    .svc-head{position:static}
+    .svc-num{margin-bottom:12px}
+    .contact{grid-template-columns:1fr;gap:40px}
+    .footer-grid{grid-template-columns:1fr 1fr}
+  }
+  /* Телефон */
+  @media (max-width:640px){
+    .sec{padding:64px 20px}
+    .hero{padding:56px 20px 64px}
+    .badge{margin-bottom:20px;font-size:12px}
+    .hero p{font-size:16.5px;margin-bottom:28px}
+    .hero-btns .btn-ghost{width:100%;justify-content:center}
+    .hl{padding:24px;border-radius:20px}
+    .svc-num{font-size:40px}
+    .row{grid-template-columns:1fr;gap:8px;padding:18px 20px}
+    .row-t{color:#2f6bff}
+    .dark .row-t{color:#8fb2ff}
+    .form-row2{grid-template-columns:1fr}
+    .footer-grid{padding:48px 20px 32px;gap:28px 20px}
+    .footer-grid > div:last-child{grid-column:1 / -1}
+    .f-bottom-in{padding-left:20px;padding-right:20px}
+  }
+
+  /* Дополнительно для страницы «Серверы и 1С» */
+  .crumbs{font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:24px}
+  .crumbs a{color:rgba(255,255,255,0.75);text-decoration:none}
+  .crumbs a:hover{color:#ffffff}
+  .lead a{color:#2f6bff}
+  .row-n{grid-template-columns:48px 1fr}
+  .row-n .row-t{color:#2f6bff}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .step{background:#f6f8fc;border-radius:20px;padding:28px}
+  .step-n{font-size:20px;font-weight:800;color:#2f6bff;margin-bottom:16px}
+  .step h3{font-size:19px;font-weight:700;margin:0 0 8px;color:#12161f}
+  .step p{font-size:15px;line-height:1.6;color:#5b6472;margin:0}
+  .price{margin-top:56px;background:#101114;border-radius:24px;padding:40px;display:grid;grid-template-columns:1fr 1.4fr auto;gap:40px;align-items:center}
+  .price h3{font-size:22px;font-weight:800;color:#ffffff;margin:0;line-height:1.3}
+  .price p{font-size:15px;line-height:1.7;color:#c7ccd6;margin:0}
+  .price .btn-ghost{white-space:nowrap}
+  .faq-outer{display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:start}
+  .faq-big{font-size:clamp(44px,10vw,88px);font-weight:800;color:#3a3d45;line-height:1;letter-spacing:-0.02em}
+  .faq details{border-bottom:1px solid #2a2c33;padding:28px 0}
+  .faq details:first-child{padding-top:0}
+  .faq summary{display:grid;grid-template-columns:90px 1fr auto;gap:20px;align-items:start;cursor:pointer;list-style:none}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq-n{font-size:44px;font-weight:800;color:#ffffff;line-height:1}
+  .faq-q{font-size:19px;font-weight:700;color:#ffffff;line-height:1.4;padding-top:6px}
+  .faq-i{color:#ffffff;font-size:22px;font-weight:300;padding-top:6px}
+  .faq-i::before{content:"+"}
+  .faq details[open] .faq-i::before{content:"−"}
+  .faq details p{font-size:15px;line-height:1.7;color:#8891a0;margin:14px 0 0 110px;max-width:640px}
+  #form{position:relative;top:-80px}
+  @media (max-width:1024px){
+    .cards{grid-template-columns:1fr 1fr}
+    .steps{grid-template-columns:1fr 1fr}
+    .price{grid-template-columns:1fr;gap:20px;padding:32px}
+    .price .btn-ghost{justify-self:start}
+    .faq-outer{grid-template-columns:1fr;gap:20px}
+  }
+  @media (max-width:640px){
+    .hero h1{font-size:26px;-webkit-hyphens:auto;hyphens:auto;overflow-wrap:break-word}
+    .cards,.steps{grid-template-columns:1fr;gap:16px}
+    .step{padding:24px}
+    .row-n{grid-template-columns:36px 1fr !important;gap:12px !important}
+    .price{margin-top:40px;padding:26px 22px;border-radius:20px}
+    .price .btn-ghost{width:100%;justify-content:center}
+    .faq details{padding:22px 0}
+    .faq summary{grid-template-columns:36px 1fr auto;gap:12px}
+    .faq-n{font-size:24px;padding-top:3px}
+    .faq-q{font-size:16.5px;padding-top:2px}
+    .faq details p{margin-left:48px}
+  }
+</style>
+<style>
+  /* Статья */
+  .hero h1{font-size:clamp(26px,3.4vw,44px);max-width:960px}
+  .art-meta{font-size:14px;color:rgba(255,255,255,0.6);margin:0}
+  .art{max-width:820px;margin:0 auto}
+  .art p,.art li{font-size:17px;line-height:1.75;color:#2b313c}
+  .art p{margin:0 0 16px}
+  .art ul{margin:0 0 16px;padding-left:22px}
+  .art li{margin-bottom:6px}
+  .art h2{font-size:clamp(22px,3vw,28px);font-weight:800;letter-spacing:-0.01em;text-transform:uppercase;color:#12161f;line-height:1.25;margin:48px 0 16px}
+  .art h2:first-child{margin-top:0}
+  .art code{font-family:ui-monospace,Menlo,monospace;font-size:14.5px;background:#eef1f6;border-radius:6px;padding:2px 6px;color:#12161f;word-break:break-word}
+  .art pre{background:#101114;color:#e6e9ef;border-radius:14px;padding:18px 20px;overflow-x:auto;font-size:14.5px;line-height:1.6;margin:0 0 16px}
+  .art pre code{background:none;color:inherit;padding:0}
+  .art .tbl{border:1px solid #e2e5ea;border-radius:16px;overflow:hidden;margin:8px 0 16px}
+  .art table{width:100%;border-collapse:collapse}
+  .art th,.art td{text-align:left;vertical-align:top;padding:16px 18px;font-size:15px;line-height:1.6;color:#3a4150;border-top:1px solid #e2e5ea}
+  .art tr:first-child th{border-top:none}
+  .art th{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#12161f;background:#f6f8fc}
+  .art td:first-child{font-weight:600;color:#12161f}
+  .art figure{margin:28px 0 32px}
+  .art figure img{display:block;width:100%;height:auto}
+  .art figcaption{font-size:14px;line-height:1.5;color:#5b6472;margin-top:10px;text-align:center}
+  .art h3{font-size:19px;font-weight:700;color:#12161f;line-height:1.35;margin:28px 0 10px}
+  .art-cta{max-width:820px;margin:56px auto 0;background:#101114;border-radius:24px;padding:36px 40px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+  .art-cta h3{font-size:22px;font-weight:800;color:#ffffff;margin:0 0 8px}
+  .art-cta p{font-size:15px;line-height:1.6;color:#c7ccd6;margin:0}
+  .art-cta .btn-ghost{white-space:nowrap}
+  @media (max-width:640px){
+    .hero h1{font-size:23px;-webkit-hyphens:manual;hyphens:manual}
+    .art p,.art li{font-size:16px}
+    .art h2{margin-top:36px}
+    .art pre{white-space:pre-wrap;word-break:break-all}
+    .art .tbl{border:none;border-radius:0}
+    .art table,.art tbody,.art tr,.art td{display:block;width:100%}
+    .art tr:first-child{display:none}
+    .art tr{border:1px solid #e2e5ea;border-radius:14px;margin-bottom:12px;overflow:hidden}
+    .art td{border-top:none;padding:6px 16px}
+    .art td:first-child{padding-top:14px;background:#f6f8fc;padding-bottom:12px}
+    .art td:last-child{padding-bottom:14px}
+    .art td:nth-child(2)::before{content:"Причина: ";font-weight:700;color:#12161f}
+    .art td:nth-child(3)::before{content:"Что сделать: ";font-weight:700;color:#12161f}
+    .art .tbl-opt td:nth-child(2)::before{content:"Кому подходит: "}
+    .art .tbl-opt td:nth-child(3)::before{content:"Ограничения: "}
+    .art-cta{grid-template-columns:1fr;padding:26px 22px;border-radius:20px;margin-top:40px}
+    .art-cta .btn-ghost{width:100%;justify-content:center}
+  }
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Сервер для офиса: зачем нужен, как выбрать и не переплатить", "description": "Сервер для офиса: зачем нужен, как подобрать конфигурацию под 1С, файлы и терминальный доступ, где поставить, ИБП и бэкапы. Чек-лист перед покупкой.", "datePublished": "2026-11-09", "dateModified": "2026-11-09", "author": {"@type": "Organization", "name": "Про технологии", "url": "https://it-consalting24.ru/"}, "publisher": {"@id": "https://it-consalting24.ru/#org"}, "mainEntityOfPage": "https://it-consalting24.ru/server-dlya-ofisa.html", "inLanguage": "ru", "image": "https://it-consalting24.ru/img/blog/server-dlya-ofisa-cover.jpg"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "С какого количества компьютеров офису нужен сервер?", "acceptedAnswer": {"@type": "Answer", "text": "Жёсткой границы нет. Сервер нужен, когда несколько человек одновременно работают в 1С, нужны общие папки с правами доступа, терминальный доступ или централизованные резервные копии. Для трёх-пяти компьютеров и только общих файлов часто хватает сетевого хранилища (NAS)."}}, {"@type": "Question", "name": "Можно ли использовать обычный компьютер вместо сервера?", "acceptedAnswer": {"@type": "Answer", "text": "Временно — да, для небольшого офиса и общих папок. Но у обычного ПК нет защиты от поломки диска, памяти с коррекцией ошибок и удалённого управления, и он не рассчитан на круглосуточную работу. Если на нём хранится 1С и важные данные, рано или поздно это обернётся простоем."}}, {"@type": "Question", "name": "Что лучше для офиса: свой сервер или облако?", "acceptedAnswer": {"@type": "Answer", "text": "Зависит от задач и интернета. Свой сервер не зависит от канала связи и обходится дешевле на длинной дистанции, но требует места, ИБП и обслуживания. Облако удобно для удалённых команд и меняющейся нагрузки, но это постоянная ежемесячная плата и зависимость от интернета. Часто выбирают комбинацию: сервер в офисе, копии — в облаке."}}, {"@type": "Question", "name": "Нужен ли RAID, если есть резервные копии?", "acceptedAnswer": {"@type": "Answer", "text": "Да, это разные вещи. RAID позволяет продолжать работу, когда выходит из строя диск. Резервные копии позволяют вернуть данные после удаления, сбоя или атаки шифровальщика. В офисном сервере нужно и то и другое."}}]}</script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113752459', 'ym');
+
+    ym(113752459, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<!-- /Yandex.Metrika counter -->
+<link rel="stylesheet" href="/mobile.css">
+<script src="/mobile.js" defer></script>
+</head>
+<body>
+<noscript><div><img src="https://mc.yandex.ru/watch/113752459" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<!-- ШАПКА -->
+<header class="site-header">
+  <div class="site-header-in">
+    <a href="./" class="site-logo">Про технологии</a>
+    <nav class="site-nav">
+      <a href="./services.html">Услуги</a>
+      <a href="./#stages">Этапы работы</a>
+      <a href="./about.html">О компании</a>
+      <a href="./#pricing">Стоимость</a>
+      <a href="./blog.html">Блог</a>
+      <a href="./#faq">FAQ</a>
+    </nav>
+    <div class="site-actions">
+      <a href="tel:+79969241648" class="site-phone" aria-label="Позвонить: +7 (996) 924-16-48">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <span class="site-phone-num">+7 (996) 924-16-48</span>
+      </a>
+      <button type="button" class="nav-toggle" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ПЕРВЫЙ ЭКРАН -->
+<section class="hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="./">Главная</a> / <a href="./blog.html">Блог</a> / Сервер для офиса</div>
+    <div class="badge">Серверы и 1С · Выбор сервера</div>
+    <h1>Сервер для офиса: зачем нужен, как выбрать и не переплатить</h1>
+    <p class="art-meta">9 ноября 2026 · Про технологии</p>
+  </div>
+</section>
+
+<!-- СТАТЬЯ -->
+<section class="sec">
+  <article class="art">
+<p>Сервер для офиса покупают, когда компьютеров становится больше пяти-семи, а общие файлы, 1С и резервные копии живут на компьютере бухгалтера или директора. Пока всё работает, это кажется нормальным. Проблемы начинаются, когда этот компьютер выключили, он сломался или на нём поймали вирус: вместе с ним останавливается вся работа офиса.</p>
+<p>В этой статье разберём простым языком: какие задачи решает сервер в небольшой компании, когда без него можно обойтись, как подобрать конфигурацию под свои задачи и число сотрудников, где его поставить и о чём забывают при покупке. В конце — пошаговый порядок выбора, таблица типичных проблем и чек-лист перед заказом.</p>
+
+<h2>Зачем офису сервер</h2>
+<p>Сервер — это компьютер, который работает круглосуточно и обслуживает не одного человека, а всех сотрудников сразу. В небольшом офисе на нём обычно держат:</p>
+<ul>
+  <li><strong>1С в клиент-серверном варианте</strong> — когда в базе одновременно работают несколько человек и файловая база начинает тормозить;</li>
+  <li><strong>общие папки</strong> — документы, договоры, сканы, с правами доступа: бухгалтерия видит своё, менеджеры — своё;</li>
+  <li><strong>терминальный сервер</strong> — сотрудники подключаются к нему из офиса или из дома и работают в одной среде, а слабые компьютеры на местах становятся просто «окном» в сервер;</li>
+  <li><strong>контроллер домена</strong> — единые учётные записи и пароли, централизованное управление компьютерами;</li>
+  <li><strong>резервные копии</strong> рабочих компьютеров и баз;</li>
+  <li>реже — почта, телефония, архив видеонаблюдения, учётные и складские программы.</li>
+</ul>
+<p>Главное отличие сервера от обычного компьютера — не мощность, а надёжность. В серверах ставят память с коррекцией ошибок (ECC), диски объединяют в RAID-массив, чтобы поломка одного диска не останавливала работу, бывают два блока питания и модуль удалённого управления: через него администратор может включить, перезагрузить и диагностировать сервер, даже если операционная система зависла. Обычный ПК тоже может раздавать файлы, но он не рассчитан на работу без выключения годами.</p>
+
+<h2>Свой сервер, NAS или облако: что выбрать</h2>
+<p>Прежде чем выбирать железо, стоит ответить на вопрос, нужен ли офису физический сервер. Вариантов четыре, и у каждого своя ниша.</p>
+<div class="tbl tbl-opt"><table>
+  <tr><th>Вариант</th><th>Кому подходит</th><th>Ограничения</th></tr>
+  <tr><td>Обычный ПК «как сервер»</td><td>Временно, для 3–5 человек и общих папок</td><td>Нет защиты от поломки диска, нет удалённого управления, не рассчитан на работу 24/7</td></tr>
+  <tr><td>Сетевое хранилище (NAS)</td><td>Офисам, которым нужны общие файлы и резервные копии</td><td>Не тянет 1С в клиент-серверном варианте и терминальный сервер</td></tr>
+  <tr><td>Облако или аренда сервера</td><td>Удалённым командам, компаниям без помещения под технику, когда нагрузка часто меняется</td><td>Ежемесячная плата, работа зависит от интернета в офисе</td></tr>
+  <tr><td>Свой сервер в офисе</td><td>Компаниям с 1С на несколько пользователей, терминальным сервером, большим объёмом файлов</td><td>Нужны место, ИБП, обслуживание и резервные копии вне сервера</td></tr>
+</table></div>
+<p>Часто разумна комбинация: свой сервер в офисе для 1С и файлов, а копии данных — в облаке или на отдельном хранилище. Так офис не зависит от интернета в работе и при этом не теряет данные, если с сервером что-то случится.</p>
+
+<h2>Начните с задач, а не с характеристик</h2>
+<p>Самая частая ошибка — выбирать сервер для офиса по принципу «помощнее и подороже» или, наоборот, «подешевле, потом докупим». Универсальной конфигурации нет: сервер под 1С, под файлы и под терминальный доступ упирается в разные компоненты.</p>
+<p>Составьте короткий список:</p>
+<ul>
+  <li>какие программы и службы будут работать на сервере;</li>
+  <li>сколько человек будут работать с ним одновременно — не всего в штате, а именно одновременно в пиковые часы;</li>
+  <li>сколько места занимают данные сейчас и насколько они выросли за последний год;</li>
+  <li>сколько людей планируете нанять в ближайшие два-три года;</li>
+  <li>нужен ли доступ из дома и из филиалов.</li>
+</ul>
+<p>С этим списком разговор с поставщиком или администратором идёт предметно, а не про «самый ходовой сервер». Если на сервере будет работать 1С, заранее узнайте у программиста или во франчайзи, какая платформа и какие базы планируются, и какая СУБД будет использоваться — PostgreSQL или MS SQL.</p>
+<figure class="ig"><picture><source media="(max-width:640px)" srcset="./img/blog/server-dlya-ofisa-zadachi-m.webp" width="750" height="1992"><img src="./img/blog/server-dlya-ofisa-zadachi.webp" width="1640" height="1420" alt="Инфографика: сервер для офиса под задачи — сервер 1С, файловый сервер, терминальный сервер, виртуализация и что важнее всего в железе для каждой" loading="lazy" decoding="async"></picture><figcaption>Под разные задачи сервер упирается в разные компоненты: частоту процессора, память или диски.</figcaption></figure>
+
+<h2>Из чего состоит сервер и на что смотреть</h2>
+<h3>Процессор</h3>
+<p>Для 1С важнее высокая частота одного ядра: многие операции платформы выполняются последовательно, и десяток медленных ядер не ускорит проведение документов. Для терминального сервера и виртуализации, наоборот, нужно больше ядер — каждый пользователь или виртуальная машина получает свою долю. Если задач несколько, ищут баланс: достаточно ядер при хорошей частоте.</p>
+<h3>Оперативная память</h3>
+<p>Память почти всегда заканчивается раньше процессора. Её потребляют операционная система, служба 1С, СУБД, кэш файлов и каждый сеанс на терминальном сервере. Берите память с коррекцией ошибок (ECC) и оставляйте свободные слоты на материнской плате, чтобы позже добавить модули, а не менять все.</p>
+<h3>Диски и RAID</h3>
+<p>Для системы и баз данных нужны SSD: от скорости дисков напрямую зависит, как быстро открывается и работает 1С. Для архивов и больших объёмов файлов подходят обычные жёсткие диски — они дешевле в пересчёте на гигабайт.</p>
+<p>Диски объединяют в RAID-массив. Самые распространённые варианты для офиса:</p>
+<ul>
+  <li><strong>RAID 1</strong> — два диска хранят одинаковые данные. Выход одного из строя не останавливает работу. Подходит для системы и небольших баз;</li>
+  <li><strong>RAID 5 или RAID 6</strong> — три и более диска, переживают выход из строя одного (RAID 6 — двух). Удобны для файлового хранилища;</li>
+  <li><strong>RAID 10</strong> — четыре и более диска, сочетает надёжность и скорость. Хорош для баз данных.</li>
+</ul>
+<p>Важно помнить: RAID защищает от поломки диска, но не от удаления файлов, ошибки сотрудника или шифровальщика. Он не заменяет резервное копирование — об этом ниже.</p>
+<h3>Сеть, питание и управление</h3>
+<p>Сетевых портов лучше два и больше. Если в офисе гигабитная сеть, сервер не должен быть в ней узким местом — проверьте и коммутатор, к которому он подключается. Два блока питания с горячей заменой — полезная опция: сервер продолжит работу, если один из них выйдет из строя. Модуль удалённого управления (у разных производителей он называется iDRAC, iLO, IPMI) позволяет администратору работать с сервером без выезда — для небольшого офиса это экономит время и деньги.</p>
+
+<h2>Сколько ресурсов нужно и как не переплатить</h2>
+<p>Точную конфигурацию нельзя подобрать по таблице «на 10 человек нужно столько-то». Два офиса одного размера могут нагружать сервер совершенно по-разному: в одном пять бухгалтеров закрывают квартал в тяжёлой базе, в другом десять менеджеров открывают документы раз в час.</p>
+<p>Надёжнее действовать так:</p>
+<ul>
+  <li><strong>измерить текущую нагрузку</strong> — сколько памяти и процессора занимают 1С и другие программы сейчас, сколько места занимают данные;</li>
+  <li><strong>учесть пиковые периоды</strong> — закрытие месяца, квартала, отчётность, инвентаризацию;</li>
+  <li><strong>заложить запас на рост</strong> — новые сотрудники, новые базы, рост объёма данных;</li>
+  <li><strong>выбрать платформу, которую можно расширить</strong> — свободные слоты памяти, места под диски, возможность поставить второй процессор.</li>
+</ul>
+<p>Переплата обычно случается в двух местах: за процессоры и ядра, которые не нужны офисным задачам, и за стоечный сервер с серверным шкафом там, где хватило бы тихой «башни». Недоплата — когда экономят на дисках (ставят медленные HDD под базу 1С) и на памяти. Если сомневаетесь, лучше взять умеренную конфигурацию с возможностью расширения, чем максимальную «на вырост».</p>
+<p>Ещё один способ не ошибиться — виртуализация. На одном физическом сервере запускают несколько виртуальных: отдельно 1С, отдельно файлы, отдельно терминальный сервер. Так проще распределять ресурсы, переносить системы и восстанавливаться после сбоя. Но под виртуализацию нужен запас по ядрам и памяти.</p>
+
+<h2>Башня или стойка и где поставить сервер</h2>
+<p>Серверы бывают двух основных форм:</p>
+<ul>
+  <li><strong>Tower («башня»)</strong> — похож на большой системный блок, ставится на пол или стол. Обычно тише стоечных моделей. Подходит небольшому офису без серверной комнаты;</li>
+  <li><strong>Rack (стоечный)</strong> — плоский корпус, монтируется в серверный шкаф. Удобен, когда оборудования много: сервер, коммутаторы, ИБП, хранилище, регистратор видеонаблюдения. Обычно шумнее, поэтому место для него выбирают подальше от рабочих мест.</li>
+</ul>
+<p>Где бы ни стоял сервер, проверьте несколько вещей:</p>
+<ul>
+  <li><strong>температура и вентиляция</strong> — сервер не должен стоять в закрытом шкафу без воздуха, у батареи или на солнце. Для серверного оборудования обычно рекомендуют держать в помещении от 18 до 27 °C;</li>
+  <li><strong>пыль и вода</strong> — не под кондиционером, с которого капает, и не в кладовке с хозяйственными принадлежностями;</li>
+  <li><strong>доступ</strong> — к серверу не должны иметь доступ посетители и случайные люди, а уборщица не должна выдёргивать его из розетки ради пылесоса;</li>
+  <li><strong>шум</strong> — даже тихая «башня» под нагрузкой слышна, поэтому рядом с переговорной или кабинетом директора её лучше не ставить;</li>
+  <li><strong>сеть и розетки</strong> — рядом с коммутатором и отдельной линией питания.</li>
+</ul>
+<p>Если в офисе есть шкаф для сетевого оборудования, сервер логично ставить туда же. Как организовать сеть и место под оборудование, мы рассказываем на странице <a href="./network.html">настройки сети для офиса</a>.</p>
+
+<h2>ИБП и резервные копии — часть покупки, а не «потом»</h2>
+<p><strong>Источник бесперебойного питания (ИБП)</strong> нужен любому серверу. Его задача — не держать офис весь день без света, а пережить короткие перебои и дать серверу корректно выключиться при длительном отключении. Внезапное пропадание питания во время записи может повредить базу 1С или файловую систему. ИБП подбирают по мощности сервера и связанного оборудования и настраивают автоматическое выключение сервера по сигналу ИБП.</p>
+<p><strong>Резервное копирование</strong> настраивают в день запуска сервера. Минимум — ежедневные копии баз и важных папок, которые хранятся не на самом сервере: на отдельном хранилище, в облаке или на диске, который не подключён к сети постоянно. И обязательно периодически проверяйте, что из копии можно восстановиться. Копия, которую никто ни разу не открывал, — это надежда, а не защита. Подробно об этом — в статье <a href="./rezervnoe-kopirovanie-dlya-malogo-biznesa.html">о резервном копировании для малого бизнеса</a>.</p>
+
+<h2>Лицензии и программы</h2>
+<p>Стоимость сервера для офиса — это не только железо. Заранее посчитайте программы:</p>
+<ul>
+  <li><strong>операционная система</strong>. Для Windows Server кроме лицензии на сам сервер обычно нужны клиентские лицензии (CAL) на пользователей или устройства, а для терминального доступа — отдельные лицензии на удалённые рабочие столы. Альтернатива — Linux, в том числе российские дистрибутивы, если для компании важно импортозамещение;</li>
+  <li><strong>1С</strong>. Для клиент-серверного варианта нужна лицензия на сервер 1С:Предприятия, а клиентские лицензии — по числу одновременно работающих пользователей;</li>
+  <li><strong>СУБД</strong> — PostgreSQL распространяется бесплатно, MS SQL лицензируется отдельно;</li>
+  <li><strong>антивирус</strong> и <strong>программа резервного копирования</strong> для серверов — у многих производителей это отдельные, серверные редакции.</li>
+</ul>
+<p>Точный состав лицензий зависит от ваших задач и выбранного ПО, поэтому его стоит согласовать с администратором и поставщиком 1С до покупки, а не после.</p>
+
+<h2>Новый или б/у, купить или арендовать</h2>
+<p><strong>Новый сервер</strong> — гарантия производителя, понятная история, актуальное железо. Дороже, а поставка некоторых моделей может занять время.</p>
+<p><strong>Восстановленный (б/у) сервер</strong> брендовых производителей — заметно дешевле при той же надёжности платформы. Подходит для небольших офисов, если покупать у поставщика с гарантией и проверкой, а диски ставить новые. Минус — старое поколение процессоров и меньший срок до выхода из поддержки.</p>
+<p><strong>Аренда сервера в дата-центре или облаке</strong> — не нужно место, ИБП и забота о железе, ресурсы легко увеличить. Но вы платите каждый месяц, а работа офиса зависит от качества интернета. Для офиса с 1С на нескольких пользователях и стабильным интернетом это рабочий вариант; для офиса со слабым каналом связи — рискованный.</p>
+
+<h2>Как выбрать сервер для офиса: порядок действий</h2>
+<p>Чтобы не покупать дважды, двигайтесь по шагам:</p>
+<ul>
+  <li><strong>Шаг 1. Задачи.</strong> Список программ и служб, число одновременных пользователей, объём данных и планы роста.</li>
+  <li><strong>Шаг 2. Формат.</strong> Свой сервер, NAS, облако или комбинация — исходя из задач, интернета и бюджета.</li>
+  <li><strong>Шаг 3. Железо.</strong> Процессор под тип нагрузки, память ECC с запасом, SSD под системы и базы, RAID, два сетевых порта, удалённое управление.</li>
+  <li><strong>Шаг 4. Место.</strong> Где будет стоять сервер, как с вентиляцией, шумом и доступом, куда подключить ИБП и сеть.</li>
+  <li><strong>Шаг 5. Защита.</strong> ИБП, резервные копии вне сервера, план проверки восстановления, антивирус, доступ из дома через VPN, а не через открытый удалённый рабочий стол.</li>
+</ul>
+<figure class="ig"><picture><source media="(max-width:640px)" srcset="./img/blog/server-dlya-ofisa-shagi-m.webp" width="750" height="2376"><img src="./img/blog/server-dlya-ofisa-shagi.webp" width="1640" height="1390" alt="Инфографика: как выбрать сервер для офиса за 5 шагов — задачи, формат, железо, место, защита" loading="lazy" decoding="async"></picture><figcaption>Пять шагов выбора сервера: от списка задач до резервных копий.</figcaption></figure>
+
+<h2>Типичные проблемы с офисным сервером</h2>
+<p>Эти ситуации типичны для офисов, где сервер выбирали «на глаз» или настроили один раз и забыли:</p>
+<div class="tbl"><table>
+  <tr><th>Проблема</th><th>Возможная причина</th><th>Что сделать</th></tr>
+  <tr><td>1С тормозит, когда работают несколько человек</td><td>Файловая база, медленные диски, не хватает памяти</td><td>Перейти на клиент-серверный вариант, поставить SSD, проверить загрузку памяти</td></tr>
+  <tr><td>Сервер шумит на весь офис</td><td>Стоечная модель стоит рядом с рабочими местами</td><td>Перенести в отдельное помещение или шкаф, для небольшого офиса выбирать «башню»</td></tr>
+  <tr><td>После отключения света не открывается база</td><td>Нет ИБП или не настроено корректное выключение</td><td>Поставить ИБП, настроить автоматическое выключение, восстановить базу из копии</td></tr>
+  <tr><td>Место на дисках быстро закончилось</td><td>Не учли рост данных, копии хранятся на том же сервере</td><td>Вынести копии на отдельное хранилище, добавить диски, почистить архивы</td></tr>
+  <tr><td>Сервер перегревается и сам перезагружается</td><td>Закрытый шкаф без вентиляции, пыль, жаркое помещение</td><td>Обеспечить приток воздуха, почистить, следить за температурой</td></tr>
+  <tr><td>Терминальный сервер «виснет» к середине дня</td><td>Мало памяти на число сеансов</td><td>Добавить память, ограничить тяжёлые программы в сеансах</td></tr>
+  <tr><td>Никто не знает, как сервер настроен</td><td>Настраивал сотрудник, который уволился, документации нет</td><td>Провести аудит, записать пароли и настройки, передать обслуживание на договор</td></tr>
+</table></div>
+
+<h2>Чек-лист перед покупкой сервера</h2>
+<ul>
+  <li>Составлен список задач и программ, которые будут работать на сервере.</li>
+  <li>Известно число одновременных пользователей сейчас и через два-три года.</li>
+  <li>Понятен текущий объём данных и как он вырос за год.</li>
+  <li>Решено: свой сервер, NAS, облако или комбинация.</li>
+  <li>Процессор выбран под тип нагрузки, память — ECC и с запасом, есть свободные слоты.</li>
+  <li>Под систему и базы — SSD в RAID, под архивы — отдельные диски.</li>
+  <li>Есть удалённое управление и, по возможности, два блока питания.</li>
+  <li>Выбрано место: вентиляция, температура, шум, ограниченный доступ.</li>
+  <li>В бюджете есть ИБП и он подобран по мощности.</li>
+  <li>Посчитаны лицензии: ОС, клиентские лицензии, 1С, СУБД, антивирус, резервное копирование.</li>
+  <li>Продумано резервное копирование вне сервера и проверка восстановления.</li>
+  <li>Понятно, кто будет обслуживать сервер: обновления, мониторинг, реакция на сбои.</li>
+</ul>
+
+<h2>Когда звать специалиста</h2>
+<p>Выбрать сервер для офиса из трёх-пяти компьютеров под общие папки можно и самостоятельно — возможно, хватит NAS. Но если на сервере будет 1С на несколько пользователей, терминальный доступ, домен или данные, потеря которых остановит работу, лучше привлечь администратора ещё до покупки. Он оценит текущую нагрузку, подберёт конфигурацию без лишнего, учтёт лицензии и настроит всё так, чтобы сервер не стал новой «точкой отказа».</p>
+<p>Мы помогаем компаниям в Оренбурге и удалённо по всей России: подбираем и настраиваем серверы, переносим 1С на клиент-серверный вариант, настраиваем резервное копирование и мониторинг. Диагностика бесплатная, выезд в Оренбурге — в день обращения, разовый вызов — от 1 500 ₽. Что входит в обслуживание, описано на странице <a href="./servers.html">администрирования серверов и 1С</a>. Если удобнее, чтобы всей ИТ-частью офиса занимались постоянно, посмотрите <a href="./outsourcing.html">ИТ-аутсорсинг</a> — от 15 000 ₽ в месяц, с бесплатным аудитом за 1 день.</p>
+
+<h2>Частые вопросы</h2>
+<h3>С какого количества компьютеров офису нужен сервер?</h3>
+<p>Жёсткой границы нет. Сервер нужен, когда несколько человек одновременно работают в 1С, нужны общие папки с правами доступа, терминальный доступ или централизованные резервные копии. Для трёх-пяти компьютеров и только общих файлов часто хватает сетевого хранилища (NAS).</p>
+<h3>Можно ли использовать обычный компьютер вместо сервера?</h3>
+<p>Временно — да, для небольшого офиса и общих папок. Но у обычного ПК нет защиты от поломки диска, памяти с коррекцией ошибок и удалённого управления, и он не рассчитан на круглосуточную работу. Если на нём хранится 1С и важные данные, рано или поздно это обернётся простоем.</p>
+<h3>Что лучше для офиса: свой сервер или облако?</h3>
+<p>Зависит от задач и интернета. Свой сервер не зависит от канала связи и обходится дешевле на длинной дистанции, но требует места, ИБП и обслуживания. Облако удобно для удалённых команд и меняющейся нагрузки, но это постоянная ежемесячная плата и зависимость от интернета. Часто выбирают комбинацию: сервер в офисе, копии — в облаке.</p>
+<h3>Нужен ли RAID, если есть резервные копии?</h3>
+<p>Да, это разные вещи. RAID позволяет продолжать работу, когда выходит из строя диск. Резервные копии позволяют вернуть данные после удаления, сбоя или атаки шифровальщика. В офисном сервере нужно и то и другое.</p>
+  </article>
+
+  <div class="art-cta">
+    <div>
+      <h3>Подберём сервер под ваши задачи</h3>
+      <p>Бесплатно оценим нагрузку, предложим конфигурацию без лишнего, учтём лицензии, ИБП и резервные копии — и настроим всё под ключ. Диагностика бесплатно, выезд по Оренбургу в день обращения.</p>
+    </div>
+    <a href="#contact" class="btn-ghost">Оставить заявку →</a>
+  </div>
+</section>
+
+<!-- ЗАЯВКА -->
+<section id="contact" class="sec" style="padding-top:0">
+  <span id="form"></span>
+  <div class="wrap contact">
+    <div>
+      <div class="mono-eyebrow">[ БЕСПЛАТНАЯ ДИАГНОСТИКА ]</div>
+      <h2>Опишите, что происходит с сервером</h2>
+      <p class="lead" style="margin-bottom:24px">Перезвоним, уточним детали и договоримся о подключении.</p>
+      <a href="tel:+79969241648" class="phone-box">+7 (996) 924-16-48 <span style="font-size:18px">→</span></a>
+    </div>
+    <form class="form" id="lead-form" novalidate>
+      <div class="form-row2">
+        <input type="text" name="name" placeholder="Имя*" aria-label="Имя" autocomplete="name">
+        <input type="text" name="company" placeholder="Компания" aria-label="Компания" autocomplete="organization">
+      </div>
+      <input type="tel" name="phone" placeholder="Телефон*" aria-label="Телефон" autocomplete="tel">
+      <textarea name="comment" rows="3" placeholder="Что с сервером: версия 1С, сколько пользователей, что не работает" aria-label="Опишите задачу"></textarea>
+      <label class="consent">
+        <input type="checkbox" name="consent" value="yes">
+        <span>Даю <a href="./consent.html" target="_blank">согласие на обработку персональных данных</a> и принимаю <a href="./privacy.html" target="_blank">политику конфиденциальности</a></span>
+      </label>
+      <p class="msg" role="alert"></p>
+      <button type="submit" class="submit"><span class="submit-label">Отправить заявку</span><span style="font-size:18px">→</span></button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ПОДВАЛ -->
+<footer class="dark">
+  <div class="footer-grid">
+    <div>
+      <div class="f-title">Услуги</div>
+      <div class="f-links">
+        <a href="./computers.html">Компьютеры</a>
+        <a href="./servers.html">Серверы и 1С</a>
+        <a href="./network.html">Сети и Wi-Fi</a>
+        <a href="./services.html">Все услуги</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-title">Компания</div>
+      <div class="f-links">
+        <a href="./about.html">О компании</a>
+        <a href="./#pricing">Тарифы</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-title">Инфо</div>
+      <div class="f-links">
+        <a href="./#faq">FAQ</a>
+        <a href="./blog.html">Блог</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-title">Контакты</div>
+      <div class="f-links">
+        <a href="tel:+79969241648" class="f-phone">+7 (996) 924-16-48</a>
+      </div>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <div class="f-bottom-in">
+      <div class="f-brand">Про технологии</div>
+      <div class="f-copy">© 2026 Про технологии. ИТ-консалтинг для бизнеса. · <a href="./privacy.html">Политика конфиденциальности</a></div>
+      <div class="f-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8891a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"></path><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"></path></svg>
+        Аккредитованы Минцифры
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var f = document.getElementById('lead-form');
+  if (!f) return;
+  var msg = f.querySelector('.msg');
+  var btn = f.querySelector('.submit');
+  var label = f.querySelector('.submit-label');
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    msg.className = 'msg';
+    msg.textContent = '';
+    if (!f.name.value.trim() || !f.phone.value.trim()) { msg.className = 'msg err'; msg.textContent = 'Укажите имя и телефон'; return; }
+    if (!f.consent.checked) { msg.className = 'msg err'; msg.textContent = 'Отметьте согласие на обработку персональных данных'; return; }
+    btn.disabled = true; label.textContent = 'Отправка...';
+    var data = new FormData(f);
+    data.set('consent', 'yes');
+    fetch('/send.php', { method: 'POST', body: data })
+      .then(function (r) { if (!r.ok) throw new Error(); })
+      .then(function () {
+        f.reset();
+        msg.className = 'msg ok';
+        msg.textContent = '✓ Заявка отправлена. Свяжемся с вами в рабочее время в течение 15 минут.';
+        if (window.ym) window.ym(113752459, 'reachGoal', 'lead');
+      })
+      .catch(function () { msg.className = 'msg err'; msg.textContent = 'Не удалось отправить заявку. Позвоните нам: +7 (996) 924-16-48'; })
+      .then(function () { btn.disabled = false; label.textContent = 'Отправить заявку'; });
+  });
+})();
+</script>
+</body>
+</html>
