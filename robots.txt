@@ -4,3 +4,4 @@ Disallow: /standalone.html
 Disallow: /send.php
 
 Sitemap: https://it-consalting24.ru/sitemap.xml
+Sitemap: https://it-consalting24.ru/stati/sitemap.xml
